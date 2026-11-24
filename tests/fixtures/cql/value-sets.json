@@ -1,9 +1,121 @@
 {
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colon-excluding-appendix": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.0"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.2"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.3"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.4"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.5"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.6"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.7"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.8"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.9"
+   }
+  ]
+ },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colonoscopy-high-risk-feature": {
   "0.1.0-preview.1": [
    {
     "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
     "code": "criterion-a-polyp-incompletely-excised"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colorectal-category": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.0"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.2"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.3"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.4"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.5"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.6"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.7"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.8"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C18.9"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C19.9"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C20.9"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-b-met": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://loinc.org",
+    "code": "LA27251-0"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-c-met": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://loinc.org",
+    "code": "LA13328-2"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-d-met": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155704001"
    }
   ]
  },
@@ -22,24 +134,24 @@
     "code": "criterion-a-polyp-incompletely-excised"
    },
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-b-margin-positive"
+    "system": "http://loinc.org",
+    "code": "85290-5"
    },
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-c-lymphovascular-invasion"
+    "system": "http://loinc.org",
+    "code": "59544-7"
    },
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-d-grade3-poorly-differentiated"
+    "system": "http://loinc.org",
+    "code": "33732-9"
    }
   ]
  },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-pathology-report": {
   "0.1.0-preview.1": [
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "malignant-polyp-pathology-report"
+    "system": "http://loinc.org",
+    "code": "11529-5"
    }
   ]
  },
@@ -51,19 +163,79 @@
    }
   ]
  },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-answer": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://loinc.org",
+    "code": "LA27251-0"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA27250-2"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA27144-7"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA13328-2"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA13327-4"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA4720-4"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA13420-7"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155701009"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155703007"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155704001"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155702002"
+   }
+  ]
+ },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-feature": {
   "0.1.0-preview.1": [
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-b-margin-positive"
+    "system": "http://loinc.org",
+    "code": "85290-5"
    },
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-c-lymphovascular-invasion"
+    "system": "http://loinc.org",
+    "code": "59544-7"
    },
    {
-    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-    "code": "criterion-d-grade3-poorly-differentiated"
+    "system": "http://loinc.org",
+    "code": "33732-9"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-rectosigmoid-rectum": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C19.9"
+   },
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+    "code": "C20.9"
    }
   ]
  },

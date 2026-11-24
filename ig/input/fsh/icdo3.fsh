@@ -39,3 +39,51 @@ Invariant: crc-icdo3-topography-format
 Description: "ICD-O-3 topography 須為 C、2 位數字、小數點、1 位數字（例如 C18.7）。"
 Severity: #error
 Expression: "matches('^C[0-9]{2}[.][0-9]$')"
+
+// Site lists the indicators are defined on, published as ICD-O-3 topography ValueSets.
+
+ValueSet: CRCColonExcludingAppendixVS
+Id: crc-colon-excluding-appendix
+Title: "結腸（不含闌尾）"
+Description: "指標 2 適用範圍：C18.0–C18.9，不包含 Appendix C18.1（115/06/18 附件1）。criterion D2-SITE。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* $ICDO3#C18.0
+* $ICDO3#C18.2
+* $ICDO3#C18.3
+* $ICDO3#C18.4
+* $ICDO3#C18.5
+* $ICDO3#C18.6
+* $ICDO3#C18.7
+* $ICDO3#C18.8
+* $ICDO3#C18.9
+
+ValueSet: CRCRectosigmoidRectumVS
+Id: crc-rectosigmoid-rectum
+Title: "直腸乙狀結腸交界與直腸"
+Description: "指標 3 適用範圍：C19–20。criterion D3-SITE。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* $ICDO3#C19.9
+* $ICDO3#C20.9
+
+ValueSet: CRCColorectalCategoryVS
+Id: crc-colorectal-category
+Title: "癌別「大腸癌」"
+Description: "註1 重複個案判定所用之癌別：結腸（不含闌尾）與直腸乙狀結腸交界、直腸。C21 不屬之（本 IG 決定，待確認）。criterion IP-SCOPE。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* $ICDO3#C18.0
+* $ICDO3#C18.2
+* $ICDO3#C18.3
+* $ICDO3#C18.4
+* $ICDO3#C18.5
+* $ICDO3#C18.6
+* $ICDO3#C18.7
+* $ICDO3#C18.8
+* $ICDO3#C18.9
+* $ICDO3#C19.9
+* $ICDO3#C20.9

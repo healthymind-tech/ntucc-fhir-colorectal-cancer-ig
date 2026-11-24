@@ -388,11 +388,11 @@ Description: "完全合成範例。"
 * language = #zh-TW
 * status = #final
 * category[twcore] = $ObservationCategory#laboratory
-* code = CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
+* code = http://loinc.org#85290-5 "Surgical margin tumor involvement [Presence] in Colorectal cancer specimen by Light microscopy"
 * subject = Reference(CRCPatientPolypExample)
 * focus = Reference(CRCMalignantPolypExample)
 * effectiveDateTime = "2025-02-25"
-* valueBoolean = true
+* valueCodeableConcept = http://loinc.org#LA27251-0 "Surgical margin involved by tumor"
 
 Instance: CRCPolypFeatureIncompleteExample
 InstanceOf: CRCColonoscopyHighRiskFeature
@@ -418,7 +418,7 @@ Description: "完全合成範例；issued 為指標 1 計時起點。"
 * language = #zh-TW
 * status = #final
 * category[pathology] = http://terminology.hl7.org/CodeSystem/v2-0074#SP "Surgical Pathology"
-* code = CRCIndicatorConceptCodeSystem#malignant-polyp-pathology-report
+* code = http://loinc.org#11529-5 "Surgical pathology study"
 * subject = Reference(CRCPatientPolypExample)
 * issued = "2025-03-01T10:00:00+08:00"
 * result = Reference(CRCPolypFeatureMarginExample)

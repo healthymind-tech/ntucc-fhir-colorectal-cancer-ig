@@ -54,3 +54,29 @@ def test_source_hashes_match():
     for line in filter(None, manifest):
         digest, name = line.split(maxsplit=1)
         assert hashlib.sha256((ROOT / "sources/hpa-115" / name).read_bytes()).hexdigest() == digest, name
+
+
+@pytest.mark.skipif(not GENERATED.exists(), reason="run SUSHI first")
+def test_site_value_sets_match_the_reference_implementation():
+    from reference import cohort, crc_indicators
+
+    def codes(vs_id):
+        vs = json.loads((GENERATED / f"ValueSet-{vs_id}.json").read_text(encoding="utf-8"))
+        return {c["code"].replace(".", "") for inc in vs["compose"]["include"] for c in inc["concept"]}
+
+    assert codes("crc-colon-excluding-appendix") == crc_indicators.COLON_EXCLUDING_APPENDIX
+    assert codes("crc-rectosigmoid-rectum") == crc_indicators.RECTOSIGMOID_OR_RECTUM
+    colorectal = {s for s in codes("crc-colorectal-category") if cohort.cancer_category(s) == cohort.COLORECTAL}
+    assert colorectal == codes("crc-colorectal-category")
+    assert cohort.cancer_category("C181") is None and cohort.cancer_category("C210") is None
+
+
+def test_named_lists_in_cql_match_the_reference_implementation():
+    from reference import cohort, crc_indicators
+
+    def cql_list(name):
+        block = re.search(r'define "' + re.escape(name) + r'":\s*\{([^}]*)\}', CQL).group(1)
+        return re.findall(r"'([^']*)'", block)
+
+    assert set(cql_list("Special Histology")) == crc_indicators.SPECIAL_HISTOLOGY
+    assert tuple(cql_list("Stage Severity Order")) == cohort.STAGE_SEVERITY_ORDER

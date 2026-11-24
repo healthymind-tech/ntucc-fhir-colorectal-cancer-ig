@@ -16417,8 +16417,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -16430,6 +16430,14 @@
       "resourceType": "Observation",
       "id": "qi01-day-84-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-day-84"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-day-84-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -16444,20 +16452,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-day-84"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-day-84-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -16959,8 +16966,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -16972,6 +16979,14 @@
       "resourceType": "Observation",
       "id": "qi01-day-85-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-day-85-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -16986,20 +17001,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-day-85"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-day-85-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -17500,8 +17514,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -17513,6 +17527,14 @@
       "resourceType": "Observation",
       "id": "qi01-day-0-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-day-0"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-day-0-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -17527,20 +17549,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-day-0"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-day-0-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -18039,8 +18060,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -18052,6 +18073,14 @@
       "resourceType": "Observation",
       "id": "qi01-before-report-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-before-report"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-before-report-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -18066,20 +18095,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-before-report"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-before-report-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -18581,8 +18609,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -18594,6 +18622,14 @@
       "resourceType": "Observation",
       "id": "qi01-not-done-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-not-done"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-not-done-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -18608,20 +18644,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-not-done"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-not-done-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -19120,8 +19155,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -19133,6 +19168,14 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-tumour-feature-a",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-no-feature"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-no-feature-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -19152,14 +19195,6 @@
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-no-feature"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-no-feature-tumour"
-       }
-      ],
       "valueBoolean": false
      }
     },
@@ -19168,6 +19203,14 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-no-feature"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-no-feature-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -19182,20 +19225,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-no-feature"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-no-feature-tumour"
-       }
-      ],
-      "valueBoolean": false
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27250-2"
+        }
+       ]
+      }
      }
     },
     {
@@ -19203,6 +19245,14 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-tumour-feature-c",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-no-feature"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-no-feature-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -19217,20 +19267,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-c-lymphovascular-invasion"
+         "system": "http://loinc.org",
+         "code": "59544-7"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-no-feature"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-no-feature-tumour"
-       }
-      ],
-      "valueBoolean": false
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA13327-4"
+        }
+       ]
+      }
      }
     },
     {
@@ -19238,6 +19287,14 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-tumour-feature-d",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-no-feature"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-no-feature-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -19252,20 +19309,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-d-grade3-poorly-differentiated"
+         "system": "http://loinc.org",
+         "code": "33732-9"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-no-feature"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-no-feature-tumour"
-       }
-      ],
-      "valueBoolean": false
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://snomed.info/sct",
+         "code": "1155703007"
+        }
+       ]
+      }
      }
     },
     {
@@ -19766,8 +19822,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -19779,6 +19835,14 @@
       "resourceType": "Observation",
       "id": "qi01-feature-a-only-tumour-feature-a",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-feature-a-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-a-only-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -19798,14 +19862,6 @@
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-feature-a-only"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-feature-a-only-tumour"
-       }
-      ],
       "valueBoolean": true
      }
     },
@@ -20305,8 +20361,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -20318,6 +20374,14 @@
       "resourceType": "Observation",
       "id": "qi01-unconfirmed-polyp-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-unconfirmed-polyp"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-unconfirmed-polyp-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -20332,20 +20396,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-unconfirmed-polyp"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-unconfirmed-polyp-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -33810,8 +33873,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -33823,6 +33886,14 @@
       "resourceType": "Observation",
       "id": "qi01-facts-belong-to-one-tumour-a-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-facts-belong-to-one-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-facts-belong-to-one-tumour-a"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -33837,20 +33908,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-facts-belong-to-one-tumour"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-facts-belong-to-one-tumour-a"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -34307,8 +34377,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -34796,8 +34866,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -35234,8 +35304,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -35247,6 +35317,14 @@
       "resourceType": "Observation",
       "id": "qi01-facts-of-duplicate-ignored-b-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-facts-of-duplicate-ignored"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-facts-of-duplicate-ignored-b"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -35261,20 +35339,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-facts-of-duplicate-ignored"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-facts-of-duplicate-ignored-b"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -35764,8 +35841,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -35777,6 +35854,14 @@
       "resourceType": "Observation",
       "id": "qi01-report-not-linked-tumour-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-report-not-linked"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-not-linked-tumour"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -35791,20 +35876,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-report-not-linked"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-report-not-linked-tumour"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {
@@ -36306,8 +36390,8 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "malignant-polyp-pathology-report"
+         "system": "http://loinc.org",
+         "code": "11529-5"
         }
        ]
       },
@@ -36319,6 +36403,14 @@
       "resourceType": "Observation",
       "id": "qi01-resection-of-other-tumour-a-feature-b",
       "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-of-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-of-other-tumour-a"
+       }
+      ],
       "category": [
        {
         "coding": [
@@ -36333,20 +36425,19 @@
       "code": {
        "coding": [
         {
-         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
-         "code": "criterion-b-margin-positive"
+         "system": "http://loinc.org",
+         "code": "85290-5"
         }
        ]
       },
-      "subject": {
-       "reference": "Patient/qi01-resection-of-other-tumour"
-      },
-      "focus": [
-       {
-        "reference": "Condition/qi01-resection-of-other-tumour-a"
-       }
-      ],
-      "valueBoolean": true
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
      }
     },
     {

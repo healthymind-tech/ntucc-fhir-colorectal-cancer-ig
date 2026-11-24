@@ -19,6 +19,8 @@ Description: "115 年大腸癌診療核心測量指標 3 項之 population crite
 * experimental = true
 * type = $LibraryType#logic-library
 * content.id = "ig-loader-ColorectalCancerCoreIndicators.cql"
+* meta.profile[0] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
+* meta.profile[1] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"
 
 // Measure metadata follows CQF Measures / CRMI conventions.
 // - date: when this artifact last changed (not the HPA date). The HPA
@@ -26,8 +28,12 @@ Description: "115 年大腸癌診療核心測量指標 3 項之 population crite
 // - effectivePeriod: the 115 indicator set applies from its announcement on
 //   2026-04-20. No end date: HPA states none, and the next annual revision
 //   supersedes it (see known-ambiguities A-16).
-// - population basis: Condition. The indicators count registry cases, i.e.
-//   primary tumours, so every population returns a list of Conditions.
+// - population basis: Condition (cqm-populationBasis). The indicators count
+//   registry cases, i.e. primary tumours, so every population returns a list
+//   of Conditions.
+// - conformance: CQM computable proportion measure + CQL measure. Not claimed:
+//   cqm-publishablemeasure, which needs version-independent / version-specific
+//   / short-name identifiers and endorsement metadata a draft does not have.
 RuleSet: HPASourceCitation
 * relatedArtifact[0].type = #citation
 * relatedArtifact[0].label = "HPA-115"
@@ -47,8 +53,12 @@ RuleSet: CRCMeasureCommon
 * library = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Library/ColorectalCancerCoreIndicators"
 * scoring = $MeasureScoring#proportion
 * improvementNotation = $MeasureImprovement#increase
-* group.extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.basis"
-* group.extension[0].valueCode = #Condition
+* meta.profile[0] = "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqm-proportionmeasure"
+* meta.profile[1] = "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqm-cqlmeasure"
+* extension[0].url = "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqm-populationBasis"
+* extension[0].valueCode = #Condition
+* group.extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.linkId"
+* group.extension[0].valueString = "main"
 
 Instance: ColorectalCancerCoreIndicator01
 InstanceOf: Measure
@@ -62,12 +72,18 @@ Description: "malignant polyp(T1 cancer) 若有下列 A.B.C.D.之一，於病理
 * name = "ColorectalCancerCoreIndicator01MalignantPolypResection"
 * insert CRCMeasureCommon
 * group.population[0].code = $MeasurePopulation#initial-population
+* group.population[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[0].extension[0].valueString = "initial-population"
 * group.population[0].criteria.language = #text/cql-identifier
 * group.population[0].criteria.expression = "Initial Population"
 * group.population[1].code = $MeasurePopulation#denominator
+* group.population[1].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[1].extension[0].valueString = "denominator"
 * group.population[1].criteria.language = #text/cql-identifier
 * group.population[1].criteria.expression = "Denominator 1"
 * group.population[2].code = $MeasurePopulation#numerator
+* group.population[2].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[2].extension[0].valueString = "numerator"
 * group.population[2].criteria.language = #text/cql-identifier
 * group.population[2].criteria.expression = "Numerator 1"
 
@@ -83,15 +99,23 @@ Description: "病理期別第 I-III 期結腸癌(Colon Ca)手術病人，淋巴�
 * name = "ColorectalCancerCoreIndicator02ColonLymphNodes"
 * insert CRCMeasureCommon
 * group.population[0].code = $MeasurePopulation#initial-population
+* group.population[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[0].extension[0].valueString = "initial-population"
 * group.population[0].criteria.language = #text/cql-identifier
 * group.population[0].criteria.expression = "Initial Population"
 * group.population[1].code = $MeasurePopulation#denominator
+* group.population[1].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[1].extension[0].valueString = "denominator"
 * group.population[1].criteria.language = #text/cql-identifier
 * group.population[1].criteria.expression = "Denominator 2"
 * group.population[2].code = $MeasurePopulation#denominator-exclusion
+* group.population[2].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[2].extension[0].valueString = "denominator-exclusion"
 * group.population[2].criteria.language = #text/cql-identifier
 * group.population[2].criteria.expression = "Denominator 2 Exclusion"
 * group.population[3].code = $MeasurePopulation#numerator
+* group.population[3].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[3].extension[0].valueString = "numerator"
 * group.population[3].criteria.language = #text/cql-identifier
 * group.population[3].criteria.expression = "Numerator 2"
 
@@ -107,11 +131,17 @@ Description: "第 II、III 期(臨床期別為主)直腸癌(Rectum Ca)病人，6
 * name = "ColorectalCancerCoreIndicator03RectalTimeToTreatment"
 * insert CRCMeasureCommon
 * group.population[0].code = $MeasurePopulation#initial-population
+* group.population[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[0].extension[0].valueString = "initial-population"
 * group.population[0].criteria.language = #text/cql-identifier
 * group.population[0].criteria.expression = "Initial Population"
 * group.population[1].code = $MeasurePopulation#denominator
+* group.population[1].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[1].extension[0].valueString = "denominator"
 * group.population[1].criteria.language = #text/cql-identifier
 * group.population[1].criteria.expression = "Denominator 3"
 * group.population[2].code = $MeasurePopulation#numerator
+* group.population[2].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[2].extension[0].valueString = "numerator"
 * group.population[2].criteria.language = #text/cql-identifier
 * group.population[2].criteria.expression = "Numerator 3"

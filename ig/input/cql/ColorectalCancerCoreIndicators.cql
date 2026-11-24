@@ -33,8 +33,20 @@ include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1' called FHIRHelpers
 
 valueset "Malignant Polyp": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp'
 valueset "Malignant Polyp Pathology Report": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-pathology-report'
-valueset "Malignant Polyp High Risk Feature": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-high-risk-feature'
+valueset "Colon Excluding Appendix": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colon-excluding-appendix'
+valueset "Rectosigmoid Or Rectum": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-rectosigmoid-rectum'
+valueset "Colorectal Category": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colorectal-category'
+valueset "Colonoscopy High Risk Feature": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colonoscopy-high-risk-feature'
+valueset "Criterion B Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-b-met'
+valueset "Criterion C Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-c-met'
+valueset "Criterion D Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-d-met'
 valueset "Curative Resection": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-curative-resection'
+
+codesystem "LOINC": 'http://loinc.org'
+
+code "Margin Involvement": '85290-5' from "LOINC" display 'Surgical margin tumor involvement [Presence] in Colorectal cancer specimen by Light microscopy'
+code "Lymphovascular Invasion": '59544-7' from "LOINC" display 'Lymph-vascular invasion Cancer specimen'
+code "Histologic Grade": '33732-9' from "LOINC" display 'Histology grade [Identifier] in Cancer specimen'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -132,6 +144,15 @@ define function "Diagnosis Status"(Tumour Condition): "Registry Value"(Tumour, '
 define function "Treatment Status"(Tumour Condition): "Registry Value"(Tumour, '2.3.2')
 define function "Date Of Initial Diagnosis"(Tumour Condition): "Registry Date"("Registry Value"(Tumour, '2.5'))
 define function "Primary Site"(Tumour Condition): "Normalized Site"("Registry Value"(Tumour, '2.6'))
+
+// The registry writes topography without the dot (C187); the site ValueSets
+// use ICD-O-3 notation (C18.7). Malformed values yield null, never a code.
+define function "Primary Site Code"(Tumour Condition):
+  if not Coalesce(Matches("Primary Site"(Tumour), 'C[0-9]{3}'), false) then null
+  else Code {
+    system: 'http://terminology.hl7.org/CodeSystem/icd-o-3',
+    code: Substring("Primary Site"(Tumour), 0, 3) + '.' + Substring("Primary Site"(Tumour), 3, 1)
+  }
 define function "Histology"(Tumour Condition): "Registry Value"(Tumour, '2.8')
 define function "Behavior"(Tumour Condition): "Registry Value"(Tumour, '2.9')
 define function "Microscopic Confirmation Date"(Tumour Condition): "Registry Date"("Registry Value"(Tumour, '2.12'))
@@ -164,7 +185,7 @@ define "Measurement Dates":
 
 // IP-SCOPE: 癌別「大腸癌」 = C18 except C18.1 (appendix), C19.9, C20.9.
 define function "Is Colorectal Category"(Tumour Condition):
-  Coalesce("Primary Site"(Tumour) in { 'C180', 'C182', 'C183', 'C184', 'C185', 'C186', 'C187', 'C188', 'C189', 'C199', 'C209' }, false)
+  Coalesce("Primary Site Code"(Tumour) in "Colorectal Category", false)
 
 define "Patient Has National Id":
   exists (Patient.identifier I
@@ -258,12 +279,22 @@ define function "Is Malignant Polyp"(Tumour Condition):
       where V.system.value = 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
         and V.code.value = 'confirmed')
 
-// D1-FEATURE: only features recorded for this tumour count.
+define function "Is Current Finding Of"(Finding Observation, Tumour Condition):
+  Finding.status in { 'final', 'amended', 'corrected' }
+    and exists (Finding.focus F where "Points To"(F, 'Condition', Tumour.id))
+
+// D1-FEATURE: only findings recorded for this tumour count. A: local code with
+// valueBoolean (colonoscopy report). B, C, D: LOINC question + coded answer
+// (pathology report); the criterion is met when the answer is in its "Met" set.
 define function "Has High Risk Feature"(Tumour Condition):
-  exists ([Observation: "Malignant Polyp High Risk Feature"] Feature
-    where Feature.status in { 'final', 'amended', 'corrected' }
-      and exists (Feature.focus F where "Points To"(F, 'Condition', Tumour.id))
-      and Coalesce((Feature.value as FHIR.boolean).value, false))
+  exists ([Observation: "Colonoscopy High Risk Feature"] A
+    where "Is Current Finding Of"(A, Tumour) and Coalesce((A.value as FHIR.boolean).value, false))
+  or exists ([Observation: "Margin Involvement"] B
+    where "Is Current Finding Of"(B, Tumour) and (B.value as FHIR.CodeableConcept) in "Criterion B Met")
+  or exists ([Observation: "Lymphovascular Invasion"] C
+    where "Is Current Finding Of"(C, Tumour) and (C.value as FHIR.CodeableConcept) in "Criterion C Met")
+  or exists ([Observation: "Histologic Grade"] D
+    where "Is Current Finding Of"(D, Tumour) and (D.value as FHIR.CodeableConcept) in "Criterion D Met")
 
 // D1-REPORT: the pathology report the tumour's diagnosis rests on
 // (Condition.evidence.detail); the earliest such final report starts the clock.
@@ -310,7 +341,7 @@ define "Numerator 1":
 
 // D2-SITE (附件1：排除 Appendix C18.1)
 define function "Is Colon Excluding Appendix"(Tumour Condition):
-  Coalesce("Primary Site"(Tumour) in { 'C180', 'C182', 'C183', 'C184', 'C185', 'C186', 'C187', 'C188', 'C189' }, false)
+  Coalesce("Primary Site Code"(Tumour) in "Colon Excluding Appendix", false)
 
 // D2-SURG, X2-POLYP
 define function "Has Resection Surgery 30 To 90"(Tumour Condition):
@@ -327,9 +358,15 @@ define "Denominator 2":
       and "Is Pathological Stage I To III"(Tumour)
 
 // X2-HIST: GIST, NETs and high grade dysplasia are outside the colon scope.
+// Registry 2.8 holds the 4-digit histology without behavior, which is not a
+// complete ICD-O-3 code, so this list stays a named expression rather than a
+// ValueSet; tests/test_specification.py keeps it equal to the reference.
+define "Special Histology":
+  { '8935', '8936', '8153', '8240', '8241', '8242', '8246', '8249' }
+
 define "Denominator 2 Exclusion":
   "Denominator 2" Tumour
-    where Coalesce("Histology"(Tumour) in { '8935', '8936', '8153', '8240', '8241', '8242', '8246', '8249' }, false)
+    where Coalesce("Histology"(Tumour) in "Special Histology", false)
       or Coalesce("Behavior"(Tumour) = '2', false)
 
 // N2-LN12
@@ -343,7 +380,7 @@ define "Numerator 2":
 
 // D3-SITE
 define function "Is Rectosigmoid Or Rectum"(Tumour Condition):
-  Coalesce("Primary Site"(Tumour) in { 'C199', 'C209' }, false)
+  Coalesce("Primary Site Code"(Tumour) in "Rectosigmoid Or Rectum", false)
 
 // D3-CSTAGE
 define function "Is Clinical Stage II To III"(Tumour Condition):

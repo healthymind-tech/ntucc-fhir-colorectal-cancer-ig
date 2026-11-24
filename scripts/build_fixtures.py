@@ -272,11 +272,13 @@ CASES += [
           {"Denominator 1": [_t("qi01-resection-of-other-tumour", "a")], "Numerator 1": []}),
 ]
 
-FEATURE_CODES = {
-    "A": "criterion-a-polyp-incompletely-excised",
-    "B": "criterion-b-margin-positive",
-    "C": "criterion-c-lymphovascular-invasion",
-    "D": "criterion-d-grade3-poorly-differentiated",
+LOINC = "http://loinc.org"
+SNOMED = "http://snomed.info/sct"
+# Criterion A: local code + valueBoolean. B-D: LOINC question + (met, not met) answer.
+PATHOLOGY_FINDINGS = {
+    "B": ((LOINC, "85290-5"), (LOINC, "LA27251-0"), (LOINC, "LA27250-2")),
+    "C": ((LOINC, "59544-7"), (LOINC, "LA13328-2"), (LOINC, "LA13327-4")),
+    "D": ((LOINC, "33732-9"), (SNOMED, "1155704001"), (SNOMED, "1155703007")),
 }
 
 
@@ -334,22 +336,28 @@ def tumour_resources(pid, subject, t, report_ids):
         out.append({
             "resourceType": "DiagnosticReport", "id": report_id, "status": "final", "subject": subject,
             "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0074", "code": "SP"}]}],
-            "code": {"coding": [{"system": CONCEPT_CS, "code": "malignant-polyp-pathology-report"}]},
+            "code": {"coding": [{"system": LOINC, "code": "11529-5"}]},
             "issued": f"{polyp['report_issued']}T10:00:00+08:00",
         })
         if polyp.get("report_linked", True):
             condition["evidence"] = [{"detail": [ref("DiagnosticReport", report_id)]}]
         colonoscopy_date = (date.fromisoformat(polyp["report_issued"]) - timedelta(days=4)).isoformat()
     for letter, present in polyp.get("features", {}).items():
-        out.append({
+        finding = {
             "resourceType": "Observation", "id": f"{tid}-feature-{letter.lower()}", "status": "final",
-            # A comes from the colonoscopy report (procedure); B-D from pathology (laboratory).
-            "category": obs_category("procedure" if letter == "A" else "laboratory"),
-            # Colonoscopy (A) precedes the pathology report; B-D carry the report date.
-            "effectiveDateTime": colonoscopy_date if letter == "A" else polyp["report_issued"],
-            "code": {"coding": [{"system": CONCEPT_CS, "code": FEATURE_CODES[letter]}]},
-            "subject": subject, "focus": [ref("Condition", tid)], "valueBoolean": present,
-        })
+            "subject": subject, "focus": [ref("Condition", tid)],
+        }
+        if letter == "A":  # colonoscopy report: a procedure result, local code + boolean
+            finding.update(category=obs_category("procedure"), effectiveDateTime=colonoscopy_date,
+                           code={"coding": [{"system": CONCEPT_CS, "code": "criterion-a-polyp-incompletely-excised"}]},
+                           valueBoolean=present)
+        else:  # pathology report: a lab result, LOINC question + coded answer
+            question, met, not_met = PATHOLOGY_FINDINGS[letter]
+            answer = met if present else not_met
+            finding.update(category=obs_category("laboratory"), effectiveDateTime=polyp["report_issued"],
+                           code={"coding": [{"system": question[0], "code": question[1]}]},
+                           valueCodeableConcept={"coding": [{"system": answer[0], "code": answer[1]}]})
+        out.append(finding)
     for index, resection in enumerate(polyp.get("resections", [])):
         out.append({
             "resourceType": "Procedure", "id": f"{tid}-resection-{index}", "status": resection["status"],

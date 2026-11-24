@@ -116,7 +116,8 @@ Description: "指標 1 的計時起點，繼承 TW Core DiagnosticReport。issue
 * ^language = #zh-TW
 * status MS
 * code 1..1 MS
-* code from CRCMalignantPolypPathologyReportVS (required)
+* code = http://loinc.org#11529-5
+* code ^short = "報告類型：LOINC 11529-5 Surgical pathology study"
 * category 1..* MS
 * category ^slicing.discriminator.type = #pattern
 * category ^slicing.discriminator.path = "$this"
@@ -136,7 +137,7 @@ Profile: CRCPathologyHighRiskFeature
 Parent: $TWCoreLabResult
 Id: crc-pathology-high-risk-feature
 Title: "惡性息肉病理高風險條件（B、C、D）"
-Description: "病理報告記載的惡性息肉高風險條件：B 切緣陽性、C 淋巴或靜脈侵犯、D 第 3 級或分化不全。valueBoolean = true 表示報告記載條件成立；false 表示報告明確記載不成立；未記載者不建立本 Observation。effective[x] 為檢體採檢或病理判讀日期。"
+Description: "病理報告記載、用來判定惡性息肉高風險條件 B、C、D 的檢驗結果，以 LOINC 問題加答案表達，符合 TW Core 檢驗結果對 LOINC 的 extensible 綁定。B：85290-5，答案 LA27251-0（有癌細胞）表示成立。C：59544-7，答案 LA13328-2（有侵犯）表示成立。D：33732-9，答案 SNOMED CT 1155704001（G3）表示成立。未記載者不建立本 Observation。effective[x] 為檢體採檢或病理判讀日期。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -149,7 +150,8 @@ Description: "病理報告記載的惡性息肉高風險條件：B 切緣陽性�
 * focus only Reference(CRCMalignantPolypCondition)
 * focus ^short = "此條件所屬的惡性息肉（原發腫瘤）"
 * value[x] 1..1 MS
-* value[x] only boolean
+* value[x] only CodeableConcept
+* valueCodeableConcept from CRCPathologyHighRiskAnswerVS (required)
 
 // 條件 A 記載於大腸鏡檢報告，屬於處置結果（category = procedure），不是檢驗結果。
 Profile: CRCColonoscopyHighRiskFeature
