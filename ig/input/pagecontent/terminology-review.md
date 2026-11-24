@@ -22,7 +22,7 @@
 |---|---|
 | 惡性息肉 `malignant-polyp-t1` | SNOMED CT `1259447005` 限腺瘤性息肉、不限 T1，標為 `inexact`。是否接受，或改用 Haggitt／Kikuchi 浸潤深度分類等更精確的表達？鋸齒狀病灶的惡性息肉如何表達？ |
 | 條件 A（息肉未完全切除） | 候選 SNOMED CT `1295388007`（任何腫瘤切除後殘留）範圍較寬。是否接受，或維持本地代碼？ |
-| 條件 B、C、D | **Profile 已採用**「LOINC 問題＋答案」：B 85290-5／LA27251-0、C 59544-7／LA13328-2（答案取自 LOINC 官方答案清單 LL4381-1、LL906-9）、D 33732-9／SNOMED CT 1155704001。請確認答案代碼的選擇；條件 C 的 LOINC 59544-7 是否涵蓋大靜脈侵犯 |
+| 條件 B、C、D | **Profile 已採用**「LOINC 問題＋答案」：B 85290-5／LA27251-0、C 59544-7／LA13328-2（答案取自 LOINC 官方答案清單 LL4381-1、LL906-9）、D 33732-9／SNOMED CT 1155704001。每一題的答案清單各為一個 ValueSet（`crc-surgical-margin-answer`、`crc-lymphovascular-invasion-answer`、`crc-histologic-grade-answer`），`crc-pathology-high-risk-answer` 為三者聯集；Profile 以 invariant 規定問題只能配自己的答案，且只能有一個答案代碼（見已知歧義 A-21）。請確認答案代碼的選擇；條件 C 的 LOINC 59544-7 是否涵蓋大靜脈侵犯 |
 | 條件 D | 是否也要涵蓋 G4（未分化）？目前只計 G3 |
 | 治癒性切除 | `23968004`（結腸切除）與 `87677003`（直腸切除）都不含「治癒性」語意，標為 `inexact`。是否改為一組術式代碼的值集，再搭配手術意圖？ |
 | 2.12 首次顯微鏡檢證實日期 | 候選 LOINC `21919-6` 只涵蓋切片（biopsy），標為 `narrower`。細胞學證實的個案如何表達？ |
