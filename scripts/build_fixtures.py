@@ -31,11 +31,11 @@ PROBLEM_LIST = [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/co
 # TW Core Patient requires an identifier; synthetic national-ID-shaped values only.
 ID_CARD_TYPE = {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0203", "code": "NNxxx"}]}
 
-COLON = {"2.3": "1", "2.5": "20250305", "2.6": "C187", "2.8": "8140", "2.9": "3", "2.12": "20250305",
+COLON = {"1.1": "0401180014", "2.3": "1", "2.5": "20250305", "2.6": "C187", "2.8": "8140", "2.9": "3", "2.12": "20250305",
          "2.14": "15", "3.7": "3B", "3.13": "3B", "4.1": "20250320", "4.1.4": "30"}
-RECTUM = {"2.3": "1", "2.5": "20250110", "2.6": "C209", "2.8": "8140", "2.9": "3", "2.12": "20250110",
+RECTUM = {"1.1": "0401180014", "2.3": "1", "2.5": "20250110", "2.6": "C209", "2.8": "8140", "2.9": "3", "2.12": "20250110",
           "3.7": "2A", "3.13": "2A", "4.1": "20250221", "4.1.4": "40"}
-POLYP_REGISTRY = {"2.3": "1", "2.5": "20250301", "2.6": "C187", "2.8": "8140", "2.9": "3", "2.12": "20250301",
+POLYP_REGISTRY = {"1.1": "0401180014", "2.3": "1", "2.5": "20250301", "2.6": "C187", "2.8": "8140", "2.9": "3", "2.12": "20250301",
                   "3.7": "1", "3.13": "1", "4.1": "20250301", "4.1.4": "27"}
 POLYP = {"malignant_polyp": "confirmed", "report_issued": "2025-03-01",
          "features": {"B": True}, "resections": [{"date": "2025-05-24", "status": "completed"}]}
@@ -68,7 +68,7 @@ def case(case_id, description, fields, expected, base=None, polyp=None):
     return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists)
 
 
-def multi(case_id, description, tumours, expected):
+def multi(case_id, description, tumours, expected, national_id="present"):
     unknown = set(expected) - set(POPULATIONS)
     if unknown:
         raise SystemExit(f"{case_id}: not a population expression: {unknown}")
@@ -82,7 +82,8 @@ def multi(case_id, description, tumours, expected):
                 for k, v in enumerate(items)
             ]
         t["fields"] = versions
-    return {"id": case_id, "description": description, "tumours": tumours,
+    return {"id": case_id, "description": description,
+            "national_id": case_id if national_id else None, "tumours": tumours,
             "expected": {k: sorted(v) for k, v in expected.items()}}
 
 
@@ -165,14 +166,68 @@ def _t(case_id, suffix):
 
 
 CASES += [
-    multi("multi-primary-colon-rectum", "同步結腸癌與直腸癌：兩顆腫瘤各自計算",
+    # ---- case assembly (reference/cohort.py, case-assembly page) ----------------
+    multi("dedup-earlier-diagnosis", "同院同病人兩顆結腸癌：留最初診斷日期較早者",
+          [tumour(_t("dedup-earlier-diagnosis", "a"), {}, COLON),
+           tumour(_t("dedup-earlier-diagnosis", "b"), {"2.5": "20250201"}, COLON)],
+          {"Initial Population": [_t("dedup-earlier-diagnosis", "b")]}),
+    multi("dedup-same-day-more-severe", "同日診斷：留病理期別較嚴重者（3B > 2A）",
+          [tumour(_t("dedup-same-day-more-severe", "a"), {"3.13": "2A"}, COLON),
+           tumour(_t("dedup-same-day-more-severe", "b"), {"3.13": "3B"}, COLON)],
+          {"Initial Population": [_t("dedup-same-day-more-severe", "b")]}),
+    multi("dedup-same-day-clinical-fallback", "同日診斷、a 病理期別 999：改用臨床 3C，勝過 b 的病理 2A",
+          [tumour(_t("dedup-same-day-clinical-fallback", "a"), {"3.13": "999", "3.7": "3C"}, COLON),
+           tumour(_t("dedup-same-day-clinical-fallback", "b"), {"3.13": "2A"}, COLON)],
+          {"Initial Population": [_t("dedup-same-day-clinical-fallback", "a")]}),
+    multi("dedup-full-tie", "同日、同期別：依腫瘤 id 取較小者（本 IG 決定）",
+          [tumour(_t("dedup-full-tie", "b"), {}, COLON), tumour(_t("dedup-full-tie", "a"), {}, COLON)],
+          {"Initial Population": [_t("dedup-full-tie", "a")]}),
+    multi("dedup-kept-record-excluded", "較早的代表個案為 class 0：被排除後不以另一筆遞補",
+          [tumour(_t("dedup-kept-record-excluded", "a"), {"2.5": "20250201", "2.3": "0"}, COLON),
+           tumour(_t("dedup-kept-record-excluded", "b"), {}, COLON)],
+          {"Initial Population": []}),
+    multi("dedup-missing-hospital-key", "缺 1.1 申報醫院代碼：無法判定重複，排除",
+          [tumour(_t("dedup-missing-hospital-key", "tumour"), {"1.1": None}, COLON)],
+          {"Initial Population": []}),
+    multi("dedup-missing-national-id", "病人無身分證號：無法判定重複，排除",
+          [tumour(_t("dedup-missing-national-id", "tumour"), {}, COLON)],
+          {"Initial Population": []}, national_id=None),
+    multi("not-colorectal-anus", "肛門 C21.0 不屬大腸癌癌別",
+          [tumour(_t("not-colorectal-anus", "tumour"), {"2.6": "C210"}, COLON)],
+          {"Initial Population": []}),
+    multi("died-tx-status-0", "治療狀態分類 0（未於申報醫院接受任何治療即死亡）",
+          [tumour(_t("died-tx-status-0", "tumour"), {"2.3.2": "0"}, COLON)],
+          {"Initial Population": []}),
+    multi("died-no-first-course", "死亡且首次療程 00000000",
+          [tumour(_t("died-no-first-course", "tumour"), {"5.4": "true", "4.1": "00000000"}, COLON)],
+          {"Initial Population": []}),
+    multi("died-no-first-course-watchful", "死亡、首次療程 00000000，但治療狀態分類 4（不予治療／密切觀察）：保留",
+          [tumour(_t("died-no-first-course-watchful", "tumour"), {"5.4": "true", "4.1": "00000000", "2.3.2": "4"}, COLON)],
+          {"Initial Population": [_t("died-no-first-course-watchful", "tumour")]}),
+    multi("died-before-first-course-date", "死亡日期早於首次療程開始日期",
+          [tumour(_t("died-before-first-course-date", "tumour"), {"5.4": "true", "5.3": "20250315"}, COLON)],
+          {"Initial Population": []}),
+    multi("died-on-first-course-date", "治療開始當日死亡：視為已治療，保留",
+          [tumour(_t("died-on-first-course-date", "tumour"), {"5.4": "true", "5.3": "20250320"}, COLON)],
+          {"Initial Population": [_t("died-on-first-course-date", "tumour")]}),
+    multi("alive-early-last-contact", "存活：5.3 是最後聯絡日期，不是死亡日期，保留",
+          [tumour(_t("alive-early-last-contact", "tumour"), {"5.4": "false", "5.3": "20250315"}, COLON)],
+          {"Initial Population": [_t("alive-early-last-contact", "tumour")]}),
+    multi("multi-primary-colon-rectum", "同院同步結腸癌與直腸癌：同一癌別，註1 只留較早診斷的直腸癌",
           [tumour(_t("multi-primary-colon-rectum", "colon"), {}, COLON),
            tumour(_t("multi-primary-colon-rectum", "rectum"), {"4.1": "20250222"}, RECTUM)],
-          {"Initial Population": [_t("multi-primary-colon-rectum", "colon"), _t("multi-primary-colon-rectum", "rectum")],
-           "Denominator 2": [_t("multi-primary-colon-rectum", "colon")],
-           "Numerator 2": [_t("multi-primary-colon-rectum", "colon")],
+          {"Initial Population": [_t("multi-primary-colon-rectum", "rectum")],
+           "Denominator 2": [], "Numerator 2": [],
            "Denominator 3": [_t("multi-primary-colon-rectum", "rectum")],
            "Numerator 3": []}),
+    multi("multi-primary-two-hospitals", "結腸癌與直腸癌由不同醫院申報：不是重複個案，兩顆腫瘤各自計算",
+          [tumour(_t("multi-primary-two-hospitals", "colon"), {}, COLON),
+           tumour(_t("multi-primary-two-hospitals", "rectum"), {"1.1": "0501110514"}, RECTUM)],
+          {"Initial Population": [_t("multi-primary-two-hospitals", "colon"), _t("multi-primary-two-hospitals", "rectum")],
+           "Denominator 2": [_t("multi-primary-two-hospitals", "colon")],
+           "Numerator 2": [_t("multi-primary-two-hospitals", "colon")],
+           "Denominator 3": [_t("multi-primary-two-hospitals", "rectum")],
+           "Numerator 3": [_t("multi-primary-two-hospitals", "rectum")]}),
     multi("amended-raises-nodes", "2.14 先 final 11 顆，後 amended 為 15 顆：取最新",
           [tumour(_t("amended-raises-nodes", "tumour"), {"2.14": [
               {"value": "15", "issued": "2025-05-01T09:00:00+08:00", "status": "amended"},
@@ -197,9 +252,16 @@ CASES += [
           [tumour(_t("qi01-facts-belong-to-one-tumour", "a"), {}, POLYP_REGISTRY, POLYP),
            tumour(_t("qi01-facts-belong-to-one-tumour", "b"), {}, POLYP_REGISTRY,
                   {**POLYP, "features": {}, "resections": []})],
-          {"Initial Population": [_t("qi01-facts-belong-to-one-tumour", "a"), _t("qi01-facts-belong-to-one-tumour", "b")],
+          {"Initial Population": [_t("qi01-facts-belong-to-one-tumour", "a")],
            "Denominator 1": [_t("qi01-facts-belong-to-one-tumour", "a")],
            "Numerator 1": [_t("qi01-facts-belong-to-one-tumour", "a")]}),
+    multi("qi01-facts-of-duplicate-ignored", "兩顆惡性息肉由不同醫院申報：條件與切除只連到 b，只算 b",
+          [tumour(_t("qi01-facts-of-duplicate-ignored", "a"), {}, POLYP_REGISTRY,
+                  {**POLYP, "features": {}, "resections": []}),
+           tumour(_t("qi01-facts-of-duplicate-ignored", "b"), {"1.1": "0501110514"}, POLYP_REGISTRY, POLYP)],
+          {"Initial Population": [_t("qi01-facts-of-duplicate-ignored", "a"), _t("qi01-facts-of-duplicate-ignored", "b")],
+           "Denominator 1": [_t("qi01-facts-of-duplicate-ignored", "b")],
+           "Numerator 1": [_t("qi01-facts-of-duplicate-ignored", "b")]}),
     multi("qi01-report-not-linked", "病理報告存在但未以 evidence 連到腫瘤：不屬分母",
           [tumour(_t("qi01-report-not-linked", "tumour"), {}, POLYP_REGISTRY, {**POLYP, "report_linked": False})],
           {"Denominator 1": []}),
@@ -301,8 +363,13 @@ def tumour_resources(pid, subject, t, report_ids):
 def to_bundle(item, index):
     pid = item["id"]
     subject = ref("Patient", pid)
-    entries = [{"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01",
-                "identifier": [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]}]
+    patient = {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01"}
+    if item.get("national_id"):
+        patient["identifier"] = [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]
+    else:
+        # Not a valid TW Core Patient: deliberately tests the missing duplicate key.
+        patient["identifier"] = [{"system": "urn:example:local-mrn", "value": f"MRN{index:06d}"}]
+    entries = [patient]
     for t in item["tumours"]:
         entries += tumour_resources(pid, subject, t, None)
     return {"resourceType": "Bundle", "type": "collection",

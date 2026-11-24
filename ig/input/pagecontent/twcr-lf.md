@@ -58,6 +58,7 @@ TWCR_LF 欄位位置取自邏輯模型 `StructureDefinition-TWCRLF.json` 的元�
 
 | 本 IG 欄位 | 名稱 | TWCR_LF 邏輯模型元素 | TWCR_LF profile | 元素路徑 | 型別 | TWCR_LF CodeSystem |
 |---|---|---|---|---|---|---|
+| 1.1 | 申報醫院代碼 | `caseConfirmation.organizationIdentifier` | `lf-Organization-profile` | `Organization.identifier` | Identifier | — |
 | 2.3 | 個案分類 | `diagnosis.classOfCase` | `lf-Condition-profile` | `Condition.category:ClassOfCase.coding` | CodeableConcept | `lf-ClassOfCase-codesystem` |
 | 2.3.1 | 診斷狀態分類 | `diagnosis.classOfDiagnosisStatus` | `lf-Condition-profile` | `Condition.category:ClassOfDiagnosisStatus.coding` | CodeableConcept | `lf-ClassOfDiaSta-codesystem` |
 | 2.3.2 | 治療狀態分類 | `diagnosis.classOfTreatmentStatus` | `lf-Condition-profile` | `Condition.category:ClassOfTreatmentStatus.coding` | CodeableConcept | `lf-ClassOfTreatSta-codesystem` |
@@ -71,6 +72,8 @@ TWCR_LF 欄位位置取自邏輯模型 `StructureDefinition-TWCRLF.json` 的元�
 | 3.13 | 病理期別組合 | `pathologic.pathologicStage` | `lf-PathStage-profile` | `Observation.value[x]:valueCodeableConcept.coding` | CodeableConcept | `lf-PathStageGroup-codesystem` |
 | 4.1 | 首次療程開始日期 | `firstCourseOfTreatment.firstCourseOfTreatmentDate` | `lf-FirCouOfTreatment-profile` | `Procedure.performed[x]:performedPeriod.start` | dateTime | — |
 | 4.1.4 | 申報醫院原發部位手術方式 | `surgicalProcedureOfPrimarySite.surgicalProcedureOfPrimarySiteAtThisFacility` | `lf-SurProcOfPriSite-profile` | `Procedure.code.coding` | CodeableConcept | `lf-SurProcOfPriSite-codesystem` |
+| 5.3 | 最後聯絡或死亡日期 | `outcome.dateOfLastContactOrDeath` | `lf-Patient-profile` | `Patient.extension:LastContactOrDeath`（valueDateTime） | dateTime | — |
+| 5.4 | 生存狀態 | `outcome.vitalStatus` | `lf-Patient-profile` | `Patient.deceased[x]:deceasedBoolean` | boolean（邏輯模型標為 dateTime，與對應元素不一致） | —（TWCR_LF 未提供代碼表） |
 
 ### 對照時發現的問題
 

@@ -13,8 +13,10 @@
 | IP-DXDATE | 各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案 | CQL `Initial Population` | 最初診斷日期(2.5) 為有效日期、不早於 2024-01-01，且落在 Measurement Period 內 |
 | IP-CLASS | 選取個案分類為 class 1、2 者 | CQL `Initial Population` | 個案分類(2.3) ∈ {1, 2} |
 | IP-CROSS | 排除主要治療有跨院情形（註3：class 2、診斷狀態 2、治療狀態分類 3） | CQL `Cross Hospital Treatment` | 個案分類(2.3)=2、診斷狀態分類(2.3.1)=2、治療狀態分類(2.3.2)=3 三者同時成立即排除 |
-| IP-DUP | 排除院內重複個案：醫院代碼＋癌別＋身分證號，選診斷較早者；同一天則選期別較嚴重者 | Task 層 | 組 Group 前去重 |
-| IP-DEATH | 排除治療前已死亡 | Task 層 | 組 Group 前排除；原文未指定欄位 |
+| IP-SCOPE | 註1 以「癌別」判定重複；大腸癌適用 C18（不含 C18.1）與 C19–20 | CQL `Is Colorectal Category` | 2.6 ∈ C18.0、C18.2–C18.9、C19.9、C20.9 |
+| IP-DUP | 排除院內重複個案：醫院代碼＋癌別＋身分證號，選診斷較早者；同一天則選期別較嚴重者 | CQL `Is Duplicate` | 演算法見「[個案組裝](case-assembly.html)」 |
+| IP-DEATH | 排除治療前已死亡 | CQL `Died Before Treatment` | 依 2.3.2、4.1、5.3、5.4 判定，見「[個案組裝](case-assembly.html)」 |
+| IP-OUTSIDE | 外院資料原則（第五點） | Task 層（醫院提供的輸入） | 是否取得外院資料不在癌登欄位中，由醫院逐指標、逐腫瘤提供 |
 
 ## 指標專屬的覆寫
 

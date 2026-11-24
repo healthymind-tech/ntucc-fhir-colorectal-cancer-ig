@@ -38,6 +38,11 @@ valueset "Curative Resection": 'https://healthymind-tech.github.io/ntucc-fhir-co
 
 parameter "Measurement Period" Interval<DateTime>
 
+// Raw 5.4 生存狀態 values that mean "dead". The long-form code table was not
+// available from any source this IG could verify, so the caller supplies it
+// (see the case assembly page). The default only covers a boolean rendering.
+parameter "Vital Status Dead Codes" List<String> default { 'true' }
+
 context Patient
 
 // ==========================================================================
@@ -111,10 +116,10 @@ define function "Registry Integer"(Raw String):
   else if Matches(Raw, '[0-9]+') then ToInteger(Raw)
   else null
 
-// ICD-O-3 topography is compared without the dot, so C18.7 and C187 match.
+// ICD-O-3 topography is compared without the dot or blanks, so C18.7 and C187 match.
 define function "Normalized Site"(Raw String):
   if Raw is null then null
-  else Upper(ReplaceMatches(Raw, '\\.', ''))
+  else Upper(ReplaceMatches(Raw, '[.\\s]', ''))
 
 // Stage groups are coded with an Arabic leading digit (1A, 2B, 3C, 4).
 // 0/0A (in situ), 888 and 999 do not start with 1-3.
@@ -135,6 +140,9 @@ define function "Clinical Stage Group"(Tumour Condition): "Registry Value"(Tumou
 define function "Pathological Stage Group"(Tumour Condition): "Registry Value"(Tumour, '3.13')
 define function "First Course Start Date"(Tumour Condition): "Registry Date"("Registry Value"(Tumour, '4.1'))
 define function "Primary Site Surgery"(Tumour Condition): "Registry Integer"("Registry Value"(Tumour, '4.1.4'))
+define function "Reporting Hospital"(Tumour Condition): "Registry Value"(Tumour, '1.1')
+define function "Last Contact Or Death Date"(Tumour Condition): "Registry Date"("Registry Value"(Tumour, '5.3'))
+define function "Vital Status"(Tumour Condition): "Registry Value"(Tumour, '5.4')
 
 // ==========================================================================
 // shared initial population
@@ -143,22 +151,101 @@ define function "Primary Site Surgery"(Tumour Condition): "Registry Integer"("Re
 define "Measurement Dates":
   Interval[date from start of "Measurement Period", date from end of "Measurement Period"]
 
-// IP-CROSS
+// --------------------------------------------------------------------------
+// Case assembly (收錄資料說明). Steps and decisions follow the case assembly
+// page and reference/cohort.py step for step:
+//   1 癌別 scope, 2 valid 2.5, 3 new diagnosis since 2024 and in the period,
+//   4 complete duplicate key, 5 註1 de-duplication, then on the kept record only
+//   6 class 1/2, 7 註3 cross-hospital, 8 第二點 died before treatment.
+// Step 9 (第五點 outside-hospital data) depends on what the hospital could
+// obtain, which no registry field records; it is hospital-supplied input
+// applied by the task layer, never guessed here.
+// --------------------------------------------------------------------------
+
+// IP-SCOPE: 癌別「大腸癌」 = C18 except C18.1 (appendix), C19.9, C20.9.
+define function "Is Colorectal Category"(Tumour Condition):
+  Coalesce("Primary Site"(Tumour) in { 'C180', 'C182', 'C183', 'C184', 'C185', 'C186', 'C187', 'C188', 'C189', 'C199', 'C209' }, false)
+
+define "Patient Has National Id":
+  exists (Patient.identifier I
+    where I.system.value = 'http://www.moi.gov.tw' and I.value.value is not null)
+
+define function "Normalized Key"(Raw String):
+  if Raw is null then null
+  else if Length(ReplaceMatches(Raw, '\\s', '')) = 0 then null
+  else Upper(ReplaceMatches(Raw, '\\s', ''))
+
+// Steps 1-4. IP-DXDATE.
+define "Assembly Candidates":
+  "Primary Tumours" Tumour
+    where "Is Colorectal Category"(Tumour)
+      and "Date Of Initial Diagnosis"(Tumour) is not null
+      and "Date Of Initial Diagnosis"(Tumour) on or after @2024-01-01
+      and "Date Of Initial Diagnosis"(Tumour) in "Measurement Dates"
+      and "Patient Has National Id"
+      and "Normalized Key"("Reporting Hospital"(Tumour)) is not null
+
+// 註1 same-day tie-break: more severe stage group, pathological (3.13) first,
+// clinical (3.7) when 3.13 is not rankable; unrankable ranks lowest.
+define "Stage Severity Order":
+  { '0', '0A', '0IS',
+    '1', '1A', '1A1', '1A2', '1A3', '1B', '1B1', '1B2', '1C', '1E', '1S',
+    '2', '2A', '2A1', '2A2', '2B', '2BU', '2C', '2E',
+    '3', '3A', '3A1', '3A2', '3B', '3C', '3C1', '3C2', '3D',
+    '4', '4A', '4A1', '4A2', '4B', '4C' }
+
+define function "Stage Rank"(Raw String):
+  if Raw is null then -1
+  else IndexOf("Stage Severity Order", Upper(ReplaceMatches(Raw, '\\s', '')))
+
+define function "Severity"(Tumour Condition):
+  if "Stage Rank"("Pathological Stage Group"(Tumour)) >= 0 then "Stage Rank"("Pathological Stage Group"(Tumour))
+  else "Stage Rank"("Clinical Stage Group"(Tumour))
+
+// True when Other wins the 註1 comparison against Tumour: earlier diagnosis,
+// or same day and more severe, or same day, same severity, smaller id.
+define function "Beats"(Other Condition, Tumour Condition):
+  "Date Of Initial Diagnosis"(Other) < "Date Of Initial Diagnosis"(Tumour)
+    or ("Date Of Initial Diagnosis"(Other) = "Date Of Initial Diagnosis"(Tumour)
+      and ("Severity"(Other) > "Severity"(Tumour)
+        or ("Severity"(Other) = "Severity"(Tumour) and Other.id.value < Tumour.id.value)))
+
+// IP-DUP, step 5: same patient (national id), same hospital (1.1), same 癌別.
+// Every candidate here is colorectal, so the group is patient + hospital.
+define function "Is Duplicate"(Tumour Condition):
+  exists ("Assembly Candidates" Other
+    where Other.id.value != Tumour.id.value
+      and "Normalized Key"("Reporting Hospital"(Other)) = "Normalized Key"("Reporting Hospital"(Tumour))
+      and "Beats"(Other, Tumour))
+
+define "Representative Cases":
+  "Assembly Candidates" Tumour where not "Is Duplicate"(Tumour)
+
+// IP-CROSS, step 7.
 define function "Cross Hospital Treatment"(Tumour Condition):
   Coalesce("Class Of Case"(Tumour) = '2', false)
     and Coalesce("Diagnosis Status"(Tumour) = '2', false)
     and Coalesce("Treatment Status"(Tumour) = '3', false)
 
-// IP-DXDATE, IP-CLASS, IP-CROSS
-define function "Is Eligible Case"(Tumour Condition):
-  "Date Of Initial Diagnosis"(Tumour) is not null
-    and "Date Of Initial Diagnosis"(Tumour) on or after @2024-01-01
-    and "Date Of Initial Diagnosis"(Tumour) in "Measurement Dates"
-    and Coalesce("Class Of Case"(Tumour) in { '1', '2' }, false)
-    and not "Cross Hospital Treatment"(Tumour)
+define function "Is Dead"(Tumour Condition):
+  "Vital Status"(Tumour) is not null
+    and Lower(ReplaceMatches("Vital Status"(Tumour), '\\s', '')) in "Vital Status Dead Codes"
 
+// IP-DEATH, step 8: (a) 2.3.2 = 0; (b) dead, 4.1 = 00000000 and 2.3.2 != 4;
+// (c) dead and 5.3 before 4.1. Death on the day treatment starts is treated.
+define function "Died Before Treatment"(Tumour Condition):
+  Coalesce("Treatment Status"(Tumour) = '0', false)
+    or ("Is Dead"(Tumour)
+      and ((Coalesce("Registry Value"(Tumour, '4.1') = '00000000', false)
+            and not Coalesce("Treatment Status"(Tumour) = '4', false))
+        or Coalesce("Last Contact Or Death Date"(Tumour) < "First Course Start Date"(Tumour), false)))
+
+// IP-CLASS (step 6), IP-CROSS (step 7), IP-DEATH (step 8) on the kept record only.
 define "Initial Population":
-  "Primary Tumours" Tumour where "Is Eligible Case"(Tumour)
+  "Representative Cases" Tumour
+    where Coalesce("Class Of Case"(Tumour) in { '1', '2' }, false)
+      and not "Cross Hospital Treatment"(Tumour)
+      and not "Died Before Treatment"(Tumour)
 
 // ==========================================================================
 // crc-qi-01  惡性息肉 12 週內治癒性切除（醫院自行申報）

@@ -37,14 +37,14 @@
 
 | 步驟 | 規則 | 排除原因代碼 | 預計位置 |
 |---|---|---|---|
-| 1 | 癌別為大腸癌 | `NOT_COLORECTAL` | CQL |
+| 1 | 癌別為大腸癌 | `NOT_COLORECTAL` | CQL（已實作） |
 | 2 | 2.5 為有效日期 | `INVALID_DIAGNOSIS_DATE` | CQL（已實作） |
 | 3 | 2024-01-01 起新診斷，且在 Measurement Period 內 | `DIAGNOSIS_BEFORE_2024`、`OUTSIDE_MEASUREMENT_PERIOD` | CQL（已實作） |
-| 4 | 重複個案 key 完整 | `MISSING_DEDUP_KEY` | CQL |
-| 5 | 院內重複個案（註 1） | `DUPLICATE_OF:<保留的 tumour_id>` | CQL |
+| 4 | 重複個案 key 完整 | `MISSING_DEDUP_KEY` | CQL（已實作） |
+| 5 | 院內重複個案（註 1） | `DUPLICATE_OF:<保留的 tumour_id>` | CQL（已實作） |
 | 6 | class 1、2 | `CLASS_NOT_1_OR_2` | CQL（已實作） |
 | 7 | 跨院治療（註 3） | `CROSS_HOSPITAL_TREATMENT` | CQL（已實作） |
-| 8 | 治療前已死亡 | `DIED_BEFORE_TREATMENT` | CQL |
+| 8 | 治療前已死亡 | `DIED_BEFORE_TREATMENT` | CQL（已實作） |
 | 9 | 外院資料（第五點，逐指標） | `OUTSIDE_DATA_BOTH`、`OUTSIDE_NUMERATOR_NOT_OBTAINED` | **醫院提供的輸入** |
 
 **【本 IG 決定】步驟 1–3 在去重之前，步驟 6–9 在去重之後，只對保留下來的代表記錄判定。** 理由：國健署要求的申報範圍是「自 113 年 1 月 1 日起新診斷個案」，註 1 是在這個範圍內為每個「人＋癌別」挑出一筆代表。代表記錄若因 class、跨院或死亡被排除，不會改由同一人的另一筆記錄遞補；否則同一個病人可能因備用記錄而被計入，結果也會隨記錄順序而變。
@@ -169,19 +169,21 @@
 - **【本 IG 決定】** 有提供對照表、但某個腫瘤不在表中時，視為 `IN_HOSPITAL`，並加旗標 `OUTSIDE_DATA_STATUS_NOT_SUPPLIED`，讓審查者看得到。
 - 狀態值不在上表時，參考實作直接拋出錯誤，不猜測。
 
-### 規則移入 CQL 的規劃
+### 規則在 CQL 中的實作
 
-**目標是讓 Measure 自己算出規則 1–8**，兩家醫院拿同一份 FHIR 資料就會得到相同的分母，不再依賴 Task 層的不同實作。
+規則 1–8 已在 CQL 實作（`Assembly Candidates` → `Is Duplicate` → `Representative Cases` → `Initial Population`），由 Measure 自行計算，不需要外部先組名單。
 
-| 規則 | 現況 | 規劃 |
-|---|---|---|
-| 2、3、6、7 | 已在 CQL `Initial Population`／`Cross Hospital Treatment` | 維持 |
-| 1 癌別 | 由各指標的部位條件隱含 | 移入 CQL，改以 tumour（Condition）為評估單位 |
-| 4、5 重複個案 | Task 層 | 移入 CQL：在 Patient context 內列出同院同癌別的所有大腸癌 Condition，依本頁順序挑出代表 Condition，其餘不進入 Initial Population |
-| 8 治療前已死亡 | Task 層 | 移入 CQL：讀 2.3.2、4.1、5.3、5.4 的 Observation；5.4 的代碼表確認前，先依 `Patient.deceased[x]` |
-| 9 外院資料 | Task 層 | **維持為醫院提供的輸入**：資料取得狀態不在登記資料中，必須由醫院逐指標、逐腫瘤申報，再由 CQL 讀取該輸入 |
+| 規則 | CQL |
+|---|---|
+| 1 癌別 | `Is Colorectal Category` |
+| 2、3 診斷日期與期間 | `Assembly Candidates` |
+| 4 重複個案 key | `Patient Has National Id`、`Reporting Hospital`（1.1） |
+| 5 重複個案 | `Beats`、`Is Duplicate`、`Representative Cases` |
+| 6、7 class、跨院 | `Initial Population`、`Cross Hospital Treatment` |
+| 8 治療前已死亡 | `Died Before Treatment`；5.4 的死亡代碼由參數 `Vital Status Dead Codes` 提供（預設 `true`） |
+| 9 外院資料 | **維持為醫院提供的輸入**，由 Task 層套用 |
 
-CQL 版本完成前，以參考實作 `reference/cohort.py` 為準；CQL 版本完成後，兩者必須對同一組測試案例產生相同結果。
+CQL 與參考實作 `reference/cohort.py` 以同一組合成個案驗證（`tests/fixtures/synthetic-cases.json` 中 `dedup-*`、`died-*` 等案例），Java 與 JavaScript 兩個 CQL 引擎的結果都必須與參考實作一致。
 
 ### 排除原因代碼
 

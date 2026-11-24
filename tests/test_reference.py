@@ -31,9 +31,15 @@ def test_every_population_has_members_and_non_members_somewhere():
             assert any(asserted) and any(not a for a in asserted), expression
 
 
-def test_a_patient_with_two_primaries_contributes_two_cases():
-    case = next(c for c in FIXTURE["cases"] if c["id"] == "multi-primary-colon-rectum")
+def test_two_primaries_reported_by_different_hospitals_are_two_cases():
+    case = next(c for c in FIXTURE["cases"] if c["id"] == "multi-primary-two-hospitals")
     assert len(evaluate_case(case, PERIOD)["Initial Population"]) == 2
+
+
+def test_two_primaries_in_one_hospital_are_one_case():
+    # 註1: same hospital + 癌別 + person is a duplicate; colon and rectum are both 大腸癌.
+    case = next(c for c in FIXTURE["cases"] if c["id"] == "multi-primary-colon-rectum")
+    assert len(evaluate_case(case, PERIOD)["Initial Population"]) == 1
 
 
 def test_current_value_is_the_latest_issued_regardless_of_order():

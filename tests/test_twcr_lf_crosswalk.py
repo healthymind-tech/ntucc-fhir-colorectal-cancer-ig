@@ -11,10 +11,11 @@ CSV_PATH = ROOT / "mappings/twcr-lf-crosswalk.csv"
 PAGE_PATH = ROOT / "ig/input/pagecontent/twcr-lf.md"
 ROWS = list(csv.DictReader(CSV_PATH.open(encoding="utf-8")))
 
-EXPECTED_FIELDS = {
-    "2.3", "2.3.1", "2.3.2", "2.5", "2.6", "2.8", "2.9",
-    "2.12", "2.14", "3.7", "3.13", "4.1", "4.1.4",
-}
+# The crosswalk must cover exactly the fields of the crc-tcr-field CodeSystem,
+# so a field added to the IG cannot be left out of the crosswalk.
+EXPECTED_FIELDS = set(re.findall(
+    r'^\* #([0-9.]+) "', (Path(__file__).resolve().parents[1] / "ig/input/fsh/tcr-terminology.fsh").read_text(encoding="utf-8"),
+    flags=re.M))
 COLUMNS = [
     "crc_tcr_field", "field_name", "twcr_lf_logical_element", "twcr_lf_profile_url",
     "twcr_lf_element_path", "twcr_lf_value_type", "twcr_lf_codesystem_url",

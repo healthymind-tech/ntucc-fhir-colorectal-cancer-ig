@@ -42,3 +42,15 @@ jobs:
 
       - name: Translate and execute CQL
         run: scripts/run_cql.sh
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/coursier
+            .cql-work/java
+          key: cql-java-${{ hashFiles('scripts/run_cql_java.sh') }}
+
+      # Independent cross-check on the HL7/CQF Java reference engine: every case
+      # must give the same result as on the JavaScript engine.
+      - name: Cross-check CQL on the Java reference engine
+        run: scripts/run_cql_java.sh

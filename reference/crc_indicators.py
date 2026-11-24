@@ -15,6 +15,8 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from typing import Any
 
+from reference.cohort import assemble_cohort
+
 DATE_RE = re.compile(r"^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
 COLON_EXCLUDING_APPENDIX = {f"C18{d}" for d in "023456789"}
 RECTOSIGMOID_OR_RECTUM = {"C199", "C209"}
@@ -85,22 +87,13 @@ class PolypFacts:
         )
 
 
-def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date]) -> dict[str, Any]:
+def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date], in_cohort: bool) -> dict[str, Any]:
+    """One tumour. in_cohort is the case assembly result (reference/cohort.py):
+    IP-SCOPE, IP-DXDATE, IP-DUP, IP-CLASS, IP-CROSS and IP-DEATH."""
     f = fields.get
-    out: dict[str, bool] = {}
-
-    # --- shared initial population ------------------------------------------
-    dx = registry_date(f("2.5"))
+    out: dict[str, Any] = {}
     klass = f("2.3")
-    cross = klass == "2" and f("2.3.1") == "2" and f("2.3.2") == "3"  # IP-CROSS
-    out["Cross Hospital Treatment"] = cross
-    ip = (
-        dx is not None
-        and dx >= REGISTRY_START  # IP-DXDATE
-        and period[0] <= dx <= period[1]
-        and klass in {"1", "2"}  # IP-CLASS
-        and not cross
-    )
+    ip = in_cohort
     out["Initial Population"] = ip
 
     # --- crc-qi-01 -----------------------------------------------------------
@@ -144,8 +137,15 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
 def evaluate_case(case: dict[str, Any], period: tuple[date, date]) -> dict[str, list[str]]:
     """IP-UNIT. Population define -> sorted ids of the case's tumours that belong to it."""
     results = {name: [] for name in POPULATIONS}
+    current = {t["id"]: current_values(t["fields"]) for t in case["tumours"]}
+    cohort = assemble_cohort(
+        [{"patient_id": case.get("national_id"), "hospital_id": current[t["id"]].get("1.1"),
+          "tumour_id": t["id"], "fields": current[t["id"]]} for t in case["tumours"]],
+        period=period,
+    )
     for tumour in case["tumours"]:
-        out = evaluate(current_values(tumour["fields"]), PolypFacts.from_json(tumour.get("polyp")), period)
+        out = evaluate(current[tumour["id"]], PolypFacts.from_json(tumour.get("polyp")), period,
+                       tumour["id"] in cohort.eligible)
         for name in POPULATIONS:
             if out[name]:
                 results[name].append(tumour["id"])

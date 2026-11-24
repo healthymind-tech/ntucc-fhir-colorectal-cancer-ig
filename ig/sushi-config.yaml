@@ -43,6 +43,8 @@ pages:
     title: 範圍與邊界
   inclusion-rules.md:
     title: 共通收錄規則
+  case-assembly.md:
+    title: 個案組裝
   indicators.md:
     title: 大腸癌核心測量指標
   tcr-fields.md:
@@ -53,6 +55,8 @@ pages:
     title: 已知歧義與待確認事項
   terminology-review.md:
     title: 術語對應與審核
+  twcr-lf.md:
+    title: 與台灣癌症登記長表實作指引的關係
   examples.md:
     title: 合成範例
   validation.md:
@@ -69,10 +73,12 @@ menu:
     合成範例: examples.html
   核心測量指標:
     共通收錄規則: inclusion-rules.html
+    個案組裝: case-assembly.html
     大腸癌核心測量指標: indicators.html
     115 年修訂重點: revision-115.html
     已知歧義與待確認事項: known-ambiguities.html
     術語對應與審核: terminology-review.html
+    與 TWCR_LF 的關係: twcr-lf.html
   驗證與追溯:
     驗證方法: validation.html
     規格來源與追溯: source-traceability.html

@@ -15,7 +15,7 @@
                   │
                   └──► 指標 1（醫院自行申報）
 
-Task 層（評估前）：組 Group、院內重複個案去重、排除治療前死亡
+個案組裝（CQL 內）：癌別、院內重複個案去重、class、跨院、治療前死亡；外院資料狀態由醫院提供（Task 層）
         │
         ▼
 Library ColorectalCancerCoreIndicators（CQL，計算單位＝原發腫瘤 Condition）──► Measure crc-qi-01 / 02 / 03 ──► MeasureReport
