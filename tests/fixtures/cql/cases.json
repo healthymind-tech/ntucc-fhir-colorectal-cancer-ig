@@ -21,7 +21,21 @@
       "resourceType": "Patient",
       "id": "ip-class-1",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000001"
+       }
+      ]
      }
     },
     {
@@ -31,6 +45,24 @@
       "subject": {
        "reference": "Patient/ip-class-1"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -385,7 +417,21 @@
       "resourceType": "Patient",
       "id": "ip-class-0",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000002"
+       }
+      ]
      }
     },
     {
@@ -395,6 +441,24 @@
       "subject": {
        "reference": "Patient/ip-class-0"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -749,7 +813,21 @@
       "resourceType": "Patient",
       "id": "ip-class-3",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000003"
+       }
+      ]
      }
     },
     {
@@ -759,6 +837,24 @@
       "subject": {
        "reference": "Patient/ip-class-3"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -1113,7 +1209,21 @@
       "resourceType": "Patient",
       "id": "ip-dx-unknown",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000004"
+       }
+      ]
      }
     },
     {
@@ -1123,6 +1233,24 @@
       "subject": {
        "reference": "Patient/ip-dx-unknown"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -1477,7 +1605,21 @@
       "resourceType": "Patient",
       "id": "ip-dx-outside-period",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000005"
+       }
+      ]
      }
     },
     {
@@ -1487,6 +1629,24 @@
       "subject": {
        "reference": "Patient/ip-dx-outside-period"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -1842,7 +2002,21 @@
       "resourceType": "Patient",
       "id": "ip-cross-hospital",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000006"
+       }
+      ]
      }
     },
     {
@@ -1852,6 +2026,24 @@
       "subject": {
        "reference": "Patient/ip-cross-hospital"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -2265,7 +2457,21 @@
       "resourceType": "Patient",
       "id": "ip-class-2-full-course",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000007"
+       }
+      ]
      }
     },
     {
@@ -2275,6 +2481,24 @@
       "subject": {
        "reference": "Patient/ip-class-2-full-course"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -2689,7 +2913,21 @@
       "resourceType": "Patient",
       "id": "qi02-met",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000008"
+       }
+      ]
      }
     },
     {
@@ -2699,6 +2937,24 @@
       "subject": {
        "reference": "Patient/qi02-met"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -3054,7 +3310,21 @@
       "resourceType": "Patient",
       "id": "qi02-nodes-11",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000009"
+       }
+      ]
      }
     },
     {
@@ -3064,6 +3334,24 @@
       "subject": {
        "reference": "Patient/qi02-nodes-11"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -3418,7 +3706,21 @@
       "resourceType": "Patient",
       "id": "qi02-nodes-12",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000010"
+       }
+      ]
      }
     },
     {
@@ -3428,6 +3730,24 @@
       "subject": {
        "reference": "Patient/qi02-nodes-12"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -3782,7 +4102,21 @@
       "resourceType": "Patient",
       "id": "qi02-nodes-90",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000011"
+       }
+      ]
      }
     },
     {
@@ -3792,6 +4126,24 @@
       "subject": {
        "reference": "Patient/qi02-nodes-90"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -4147,7 +4499,21 @@
       "resourceType": "Patient",
       "id": "qi02-nodes-95",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000012"
+       }
+      ]
      }
     },
     {
@@ -4157,6 +4523,24 @@
       "subject": {
        "reference": "Patient/qi02-nodes-95"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -4512,7 +4896,21 @@
       "resourceType": "Patient",
       "id": "qi02-appendix",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000013"
+       }
+      ]
      }
     },
     {
@@ -4522,6 +4920,24 @@
       "subject": {
        "reference": "Patient/qi02-appendix"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -4876,7 +5292,21 @@
       "resourceType": "Patient",
       "id": "qi02-dotted-site",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000014"
+       }
+      ]
      }
     },
     {
@@ -4886,6 +5316,24 @@
       "subject": {
        "reference": "Patient/qi02-dotted-site"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -5240,7 +5688,21 @@
       "resourceType": "Patient",
       "id": "qi02-rectum-not-colon",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000015"
+       }
+      ]
      }
     },
     {
@@ -5250,6 +5712,24 @@
       "subject": {
        "reference": "Patient/qi02-rectum-not-colon"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -5605,7 +6085,21 @@
       "resourceType": "Patient",
       "id": "qi02-polypectomy",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000016"
+       }
+      ]
      }
     },
     {
@@ -5615,6 +6109,24 @@
       "subject": {
        "reference": "Patient/qi02-polypectomy"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -5969,7 +6481,21 @@
       "resourceType": "Patient",
       "id": "qi02-surgery-90",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000017"
+       }
+      ]
      }
     },
     {
@@ -5979,6 +6505,24 @@
       "subject": {
        "reference": "Patient/qi02-surgery-90"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -6333,7 +6877,21 @@
       "resourceType": "Patient",
       "id": "qi02-surgery-99",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000018"
+       }
+      ]
      }
     },
     {
@@ -6343,6 +6901,24 @@
       "subject": {
        "reference": "Patient/qi02-surgery-99"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -6697,7 +7273,21 @@
       "resourceType": "Patient",
       "id": "qi02-stage-4",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000019"
+       }
+      ]
      }
     },
     {
@@ -6707,6 +7297,24 @@
       "subject": {
        "reference": "Patient/qi02-stage-4"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -7061,7 +7669,21 @@
       "resourceType": "Patient",
       "id": "qi02-stage-0",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000020"
+       }
+      ]
      }
     },
     {
@@ -7071,6 +7693,24 @@
       "subject": {
        "reference": "Patient/qi02-stage-0"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -7425,7 +8065,21 @@
       "resourceType": "Patient",
       "id": "qi02-stage-unknown",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000021"
+       }
+      ]
      }
     },
     {
@@ -7435,6 +8089,24 @@
       "subject": {
        "reference": "Patient/qi02-stage-unknown"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -7790,7 +8462,21 @@
       "resourceType": "Patient",
       "id": "qi02-stage-1",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000022"
+       }
+      ]
      }
     },
     {
@@ -7800,6 +8486,24 @@
       "subject": {
        "reference": "Patient/qi02-stage-1"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -8155,7 +8859,21 @@
       "resourceType": "Patient",
       "id": "qi02-gist",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000023"
+       }
+      ]
      }
     },
     {
@@ -8165,6 +8883,24 @@
       "subject": {
        "reference": "Patient/qi02-gist"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -8519,7 +9255,21 @@
       "resourceType": "Patient",
       "id": "qi02-net",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000024"
+       }
+      ]
      }
     },
     {
@@ -8529,6 +9279,24 @@
       "subject": {
        "reference": "Patient/qi02-net"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -8885,7 +9653,21 @@
       "resourceType": "Patient",
       "id": "qi03-42-days",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000025"
+       }
+      ]
      }
     },
     {
@@ -8895,6 +9677,24 @@
       "subject": {
        "reference": "Patient/qi03-42-days"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -9221,7 +10021,21 @@
       "resourceType": "Patient",
       "id": "qi03-43-days",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000026"
+       }
+      ]
      }
     },
     {
@@ -9231,6 +10045,24 @@
       "subject": {
        "reference": "Patient/qi03-43-days"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -9557,7 +10389,21 @@
       "resourceType": "Patient",
       "id": "qi03-class-2",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000027"
+       }
+      ]
      }
     },
     {
@@ -9567,6 +10413,24 @@
       "subject": {
        "reference": "Patient/qi03-class-2"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -9892,7 +10756,21 @@
       "resourceType": "Patient",
       "id": "qi03-rectosigmoid",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000028"
+       }
+      ]
      }
     },
     {
@@ -9902,6 +10780,24 @@
       "subject": {
        "reference": "Patient/qi03-rectosigmoid"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -10227,7 +11123,21 @@
       "resourceType": "Patient",
       "id": "qi03-stage-3c",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000029"
+       }
+      ]
      }
     },
     {
@@ -10237,6 +11147,24 @@
       "subject": {
        "reference": "Patient/qi03-stage-3c"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -10562,7 +11490,21 @@
       "resourceType": "Patient",
       "id": "qi03-stage-1",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000030"
+       }
+      ]
      }
     },
     {
@@ -10572,6 +11514,24 @@
       "subject": {
        "reference": "Patient/qi03-stage-1"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -10897,7 +11857,21 @@
       "resourceType": "Patient",
       "id": "qi03-stage-4",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000031"
+       }
+      ]
      }
     },
     {
@@ -10907,6 +11881,24 @@
       "subject": {
        "reference": "Patient/qi03-stage-4"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -11232,7 +12224,21 @@
       "resourceType": "Patient",
       "id": "qi03-colon",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000032"
+       }
+      ]
      }
     },
     {
@@ -11242,6 +12248,24 @@
       "subject": {
        "reference": "Patient/qi03-colon"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -11568,7 +12592,21 @@
       "resourceType": "Patient",
       "id": "qi03-no-treatment-date",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000033"
+       }
+      ]
      }
     },
     {
@@ -11578,6 +12616,24 @@
       "subject": {
        "reference": "Patient/qi03-no-treatment-date"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -11904,7 +12960,21 @@
       "resourceType": "Patient",
       "id": "qi03-unknown-confirmation",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000034"
+       }
+      ]
      }
     },
     {
@@ -11914,6 +12984,24 @@
       "subject": {
        "reference": "Patient/qi03-unknown-confirmation"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -12239,7 +13327,21 @@
       "resourceType": "Patient",
       "id": "qi03-invalid-calendar-date",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000035"
+       }
+      ]
      }
     },
     {
@@ -12249,6 +13351,24 @@
       "subject": {
        "reference": "Patient/qi03-invalid-calendar-date"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -12575,7 +13695,21 @@
       "resourceType": "Patient",
       "id": "qi01-day-84",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000036"
+       }
+      ]
      }
     },
     {
@@ -12585,6 +13719,24 @@
       "subject": {
        "reference": "Patient/qi01-day-84"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -12892,6 +14044,24 @@
       "subject": {
        "reference": "Patient/qi01-day-84"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -12918,6 +14088,16 @@
       "subject": {
        "reference": "Patient/qi01-day-84"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -12934,6 +14114,17 @@
       "resourceType": "Observation",
       "id": "qi01-day-84-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -12993,7 +14184,21 @@
       "resourceType": "Patient",
       "id": "qi01-day-85",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000037"
+       }
+      ]
      }
     },
     {
@@ -13003,6 +14208,24 @@
       "subject": {
        "reference": "Patient/qi01-day-85"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -13310,6 +14533,24 @@
       "subject": {
        "reference": "Patient/qi01-day-85"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -13336,6 +14577,16 @@
       "subject": {
        "reference": "Patient/qi01-day-85"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -13352,6 +14603,17 @@
       "resourceType": "Observation",
       "id": "qi01-day-85-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -13410,7 +14672,21 @@
       "resourceType": "Patient",
       "id": "qi01-day-0",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000038"
+       }
+      ]
      }
     },
     {
@@ -13420,6 +14696,24 @@
       "subject": {
        "reference": "Patient/qi01-day-0"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -13727,6 +15021,24 @@
       "subject": {
        "reference": "Patient/qi01-day-0"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -13753,6 +15065,16 @@
       "subject": {
        "reference": "Patient/qi01-day-0"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -13769,6 +15091,17 @@
       "resourceType": "Observation",
       "id": "qi01-day-0-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -13827,7 +15160,21 @@
       "resourceType": "Patient",
       "id": "qi01-before-report",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000039"
+       }
+      ]
      }
     },
     {
@@ -13837,6 +15184,24 @@
       "subject": {
        "reference": "Patient/qi01-before-report"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -14144,6 +15509,24 @@
       "subject": {
        "reference": "Patient/qi01-before-report"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -14170,6 +15553,16 @@
       "subject": {
        "reference": "Patient/qi01-before-report"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -14186,6 +15579,17 @@
       "resourceType": "Observation",
       "id": "qi01-before-report-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -14245,7 +15649,21 @@
       "resourceType": "Patient",
       "id": "qi01-not-done",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000040"
+       }
+      ]
      }
     },
     {
@@ -14255,6 +15673,24 @@
       "subject": {
        "reference": "Patient/qi01-not-done"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -14562,6 +15998,24 @@
       "subject": {
        "reference": "Patient/qi01-not-done"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -14588,6 +16042,16 @@
       "subject": {
        "reference": "Patient/qi01-not-done"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -14604,6 +16068,17 @@
       "resourceType": "Observation",
       "id": "qi01-not-done-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -14663,7 +16138,21 @@
       "resourceType": "Patient",
       "id": "qi01-no-feature",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000041"
+       }
+      ]
      }
     },
     {
@@ -14673,6 +16162,24 @@
       "subject": {
        "reference": "Patient/qi01-no-feature"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -14980,6 +16487,24 @@
       "subject": {
        "reference": "Patient/qi01-no-feature"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -15006,6 +16531,16 @@
       "subject": {
        "reference": "Patient/qi01-no-feature"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -15022,6 +16557,17 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-feature-a",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "procedure"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-02-25",
       "code": {
        "coding": [
         {
@@ -15041,6 +16587,17 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -15060,6 +16617,17 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-feature-c",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -15079,6 +16647,17 @@
       "resourceType": "Observation",
       "id": "qi01-no-feature-feature-d",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -15137,7 +16716,21 @@
       "resourceType": "Patient",
       "id": "qi01-feature-a-only",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000042"
+       }
+      ]
      }
     },
     {
@@ -15147,6 +16740,24 @@
       "subject": {
        "reference": "Patient/qi01-feature-a-only"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -15454,6 +17065,24 @@
       "subject": {
        "reference": "Patient/qi01-feature-a-only"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -15480,6 +17109,16 @@
       "subject": {
        "reference": "Patient/qi01-feature-a-only"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -15496,6 +17135,17 @@
       "resourceType": "Observation",
       "id": "qi01-feature-a-only-feature-a",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "procedure"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-02-25",
       "code": {
        "coding": [
         {
@@ -15555,7 +17205,21 @@
       "resourceType": "Patient",
       "id": "qi01-unconfirmed-polyp",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000043"
+       }
+      ]
      }
     },
     {
@@ -15565,6 +17229,24 @@
       "subject": {
        "reference": "Patient/qi01-unconfirmed-polyp"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -15872,6 +17554,24 @@
       "subject": {
        "reference": "Patient/qi01-unconfirmed-polyp"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "verificationStatus": {
        "coding": [
         {
@@ -15898,6 +17598,16 @@
       "subject": {
        "reference": "Patient/qi01-unconfirmed-polyp"
       },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {
@@ -15914,6 +17624,17 @@
       "resourceType": "Observation",
       "id": "qi01-unconfirmed-polyp-feature-b",
       "status": "final",
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
       "code": {
        "coding": [
         {
@@ -15973,7 +17694,21 @@
       "resourceType": "Patient",
       "id": "qi01-no-polyp-facts",
       "gender": "male",
-      "birthDate": "1960-01-01"
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000044"
+       }
+      ]
      }
     },
     {
@@ -15983,6 +17718,24 @@
       "subject": {
        "reference": "Patient/qi01-no-polyp-facts"
       },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
       "code": {
        "coding": [
         {

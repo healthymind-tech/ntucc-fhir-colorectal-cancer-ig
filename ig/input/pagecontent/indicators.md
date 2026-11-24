@@ -23,7 +23,7 @@
 | criterion_id | FHIR／CQL 表達 |
 |---|---|
 | D1-POLYP | `CRCMalignantPolypCondition`，verificationStatus = confirmed |
-| D1-FEATURE | 至少一筆 `CRCMalignantPolypHighRiskFeature` 的 valueBoolean = true |
+| D1-FEATURE | 至少一筆 `CRCColonoscopyHighRiskFeature`（條件 A）或 `CRCPathologyHighRiskFeature`（條件 B–D）的 valueBoolean = true |
 | D1-REPORT | 最早一份已定稿 `CRCMalignantPolypPathologyReport` 的 issued 日期 |
 | N1-RESECT | completed 的 `CRCCurativeResectionProcedure`，日期落在病理報告日起 0–84 天（含） |
 

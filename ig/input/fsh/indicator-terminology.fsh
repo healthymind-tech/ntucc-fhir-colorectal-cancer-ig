@@ -40,10 +40,30 @@ Description: "指標 1 計時起點之病理報告。"
 * ^language = #zh-TW
 * CRCIndicatorConceptCodeSystem#malignant-polyp-pathology-report
 
+ValueSet: CRCPathologyHighRiskFeatureVS
+Id: crc-pathology-high-risk-feature
+Title: "惡性息肉病理高風險條件 B–D"
+Description: "記載於病理報告的條件 B、C、D。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
+* CRCIndicatorConceptCodeSystem#criterion-c-lymphovascular-invasion
+* CRCIndicatorConceptCodeSystem#criterion-d-grade3-poorly-differentiated
+
+ValueSet: CRCColonoscopyHighRiskFeatureVS
+Id: crc-colonoscopy-high-risk-feature
+Title: "惡性息肉大腸鏡高風險條件 A"
+Description: "記載於大腸鏡檢報告的條件 A。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* CRCIndicatorConceptCodeSystem#criterion-a-polyp-incompletely-excised
+
 ValueSet: CRCMalignantPolypHighRiskFeatureVS
 Id: crc-malignant-polyp-high-risk-feature
 Title: "惡性息肉高風險條件 A–D"
-Description: "指標 1 分母條件 A、B、C、D。任一記錄為存在即符合分母。"
+Description: "指標 1 分母條件 A、B、C、D（大腸鏡與病理兩個來源的聯集）。任一記錄為存在即符合分母；CQL 讀取本值集。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW

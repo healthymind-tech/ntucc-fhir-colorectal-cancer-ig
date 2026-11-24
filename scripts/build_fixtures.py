@@ -14,6 +14,7 @@ Run from the repository root after SUSHI:  python3 scripts/build_fixtures.py
 from __future__ import annotations
 
 import json
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,10 @@ CANON = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig"
 FIELD_CS = f"{CANON}/CodeSystem/crc-tcr-field"
 CONCEPT_CS = f"{CANON}/CodeSystem/crc-indicator-concept"
 TCR_PROFILE = f"{CANON}/StructureDefinition/crc-tcr-data-item-observation"
+CLINICAL_ACTIVE = {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active"}]}
+PROBLEM_LIST = [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/condition-category", "code": "problem-list-item"}]}]
+# TW Core Patient requires an identifier; synthetic national-ID-shaped values only.
+ID_CARD_TYPE = {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0203", "code": "NNxxx"}]}
 
 COLON = {"2.3": "1", "2.5": "20250305", "2.6": "C187", "2.8": "8140", "2.9": "3", "2.12": "20250305",
          "2.14": "15", "3.7": "3B", "3.13": "3B", "4.1": "20250320", "4.1.4": "30"}
@@ -122,17 +127,23 @@ FEATURE_CODES = {
 }
 
 
+def obs_category(code):
+    return [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/observation-category", "code": code}]}]
+
+
 def ref(kind, rid):
     return {"reference": f"{kind}/{rid}"}
 
 
-def to_bundle(item):
+def to_bundle(item, index):
     pid = item["id"]
     subject = ref("Patient", pid)
     tumour = f"{pid}-tumour"
     entries = [
-        {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01"},
+        {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01",
+         "identifier": [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]},
         {"resourceType": "Condition", "id": tumour, "subject": subject,
+         "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
          "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "C18.7"}]}},
     ]
     for number, value in item["fields"].items():
@@ -146,6 +157,7 @@ def to_bundle(item):
     if polyp:
         entries.append({
             "resourceType": "Condition", "id": f"{pid}-polyp", "subject": subject,
+            "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
             "verificationStatus": {"coding": [{
                 "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
                 "code": polyp["malignant_polyp"]}]},
@@ -153,12 +165,18 @@ def to_bundle(item):
         })
         entries.append({
             "resourceType": "DiagnosticReport", "id": f"{pid}-report", "status": "final", "subject": subject,
+            "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0074", "code": "SP"}]}],
             "code": {"coding": [{"system": CONCEPT_CS, "code": "malignant-polyp-pathology-report"}]},
             "issued": f"{polyp['report_issued']}T10:00:00+08:00",
         })
+        colonoscopy_date = (date.fromisoformat(polyp["report_issued"]) - timedelta(days=4)).isoformat()
         for letter, present in polyp["features"].items():
             entries.append({
                 "resourceType": "Observation", "id": f"{pid}-feature-{letter.lower()}", "status": "final",
+                # A comes from the colonoscopy report (procedure); B-D from pathology (laboratory).
+                "category": obs_category("procedure" if letter == "A" else "laboratory"),
+                # Colonoscopy (A) precedes the pathology report; B-D carry the report date.
+                "effectiveDateTime": colonoscopy_date if letter == "A" else polyp["report_issued"],
                 "code": {"coding": [{"system": CONCEPT_CS, "code": FEATURE_CODES[letter]}]},
                 "subject": subject, "valueBoolean": present,
             })
@@ -189,7 +207,7 @@ def main():
     (fixtures / "cql").mkdir(parents=True, exist_ok=True)
     flat = {"measurement_period": ["2025-01-01", "2025-12-31"], "cases": CASES}
     (fixtures / "synthetic-cases.json").write_text(json.dumps(flat, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    runner = [{"id": c["id"], "expected": c["expected"], "bundle": to_bundle(c)} for c in CASES]
+    runner = [{"id": c["id"], "expected": c["expected"], "bundle": to_bundle(c, i + 1)} for i, c in enumerate(CASES)]
     (fixtures / "cql/cases.json").write_text(json.dumps(runner, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     vs = value_sets()
     if not vs:

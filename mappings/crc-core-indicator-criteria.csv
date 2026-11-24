@@ -5,7 +5,7 @@ IP-CROSS,all,initial-population,主要治療有跨院情形者排除（註3：cl
 IP-DUP,all,cohort-assembly,排除院內重複個案（醫院代碼+癌別+身分證號；選診斷早者，同一天選期別嚴重者）,,評估前由 Task 層組 Group 時去重；CQL 不重複實作,,115年癌症診療核心測量指標.pdf,ii,task-layer
 IP-DEATH,all,cohort-assembly,排除治療前已死亡,,評估前由 Task 層依死亡日期與首次療程排除；指標文件未指定癌登欄位,,115年癌症診療核心測量指標.pdf,i,task-layer
 D1-POLYP,crc-qi-01,denominator,malignant polyp 病人（含 T1 腺癌之息肉；Tis 不算在內）,,存在 verificationStatus=confirmed 之 CRCMalignantPolypCondition,Has Malignant Polyp,附件2_大腸癌診療公告指標.pdf,1,implemented
-D1-FEATURE,crc-qi-01,denominator,病理報告有下列 A.B.C.D.之一記錄的人數,,至少一筆 CRCMalignantPolypHighRiskFeature 之 valueBoolean=true,Has High Risk Feature,附件2_大腸癌診療公告指標.pdf,1,implemented
+D1-FEATURE,crc-qi-01,denominator,病理報告有下列 A.B.C.D.之一記錄的人數,,至少一筆 CRCColonoscopyHighRiskFeature（A）或 CRCPathologyHighRiskFeature（B–D）之 valueBoolean=true,Has High Risk Feature,附件2_大腸癌診療公告指標.pdf,1,implemented
 D1-REPORT,crc-qi-01,denominator,於病理報告後 12 週內（計時起點）,,存在已定稿之 CRCMalignantPolypPathologyReport 且 issued 有值；取最早者,Malignant Polyp Pathology Report Date,附件2_大腸癌診療公告指標.pdf,1,implemented
 N1-RESECT,crc-qi-01,numerator,分母中，於病理報告後 12 週內接受治癒性切除(curative resection)的人數,,completed 之 CRCCurativeResectionProcedure 其日期介於病理報告日 0–84 天（含）,Numerator 1,附件2_大腸癌診療公告指標.pdf,1,implemented
 D2-SITE,crc-qi-02,denominator,部位＝Colon (C18)，但排除 Appendix (C18.1),2.6,原發部位(2.6) 去除小數點後 ∈ {C180;C182;C183;C184;C185;C186;C187;C188;C189},Is Colon Excluding Appendix,附件1_大腸癌公告指標修訂對照表.pdf,2,implemented

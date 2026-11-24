@@ -1,5 +1,9 @@
 // 大腸癌共同層：沿用範例乳癌 IG 的分層方式。
 // 共同層只放跨 Task 可重用的最小限制；指標專屬的規則放在 Measure／CQL。
+//
+// 臨床資源一律繼承 TW Core 1.0.0 對應的 Profile：符合本 IG Profile 的實例，同時
+// 也符合 TW Core。反方向不成立——本 IG 另要求本地代碼與病理 category，一般的
+// TW Core 資料須補上這些內容才符合本 IG。唯一例外是 CRCTCRDataItemObservation。
 
 Profile: ColorectalCancerPatient
 Parent: $TWCorePatient
@@ -15,10 +19,10 @@ Description: "大腸癌各 Task 共用之病人 Profile，結構以 TW Core Pati
 * deceased[x] MS
 
 Profile: ColorectalCancerPrimaryCondition
-Parent: Condition
+Parent: $TWCoreCondition
 Id: colorectal-cancer-primary-condition
 Title: "Colorectal Cancer Primary Condition - Draft"
-Description: "一顆原發大腸直腸癌。癌登摘錄（TCR Data Item Observation）以 focus 指向本 Condition，讓同一病人多原發時仍能分辨每筆欄位屬於哪一顆腫瘤。"
+Description: "一顆原發大腸直腸癌，繼承 TW Core Condition。癌登摘錄（TCR Data Item Observation）以 focus 指向本 Condition，讓同一病人多原發時仍能分辨每筆欄位屬於哪一顆腫瘤。診斷碼使用國際 ICD-10-CM（http://hl7.org/fhir/sid/icd-10-cm）：TW Core 1.0.0 的 ICD-10-CM 台灣版 CodeSystem 在套件中僅收 11 個代碼，無法驗證大腸癌代碼；TW Core 的 code.coding slicing 為 open，國際 ICD-10-CM 為允許的寫法。接收端應同時接受國際 ICD-10-CM 與 TW Core 的 icd-10-cm-*-tw 代碼系統。癌登的 ICD-O-3 部位與組織型態另見 CRCTCRDataItemObservation。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -30,11 +34,18 @@ Description: "一顆原發大腸直腸癌。癌登摘錄（TCR Data Item Observa
 * bodySite MS
 * recordedDate MS
 
+// 刻意不繼承 TW Core。結構上可行：TW Core Observation Clinical Result 的
+// effective[x] 是 0..1，category 的 binding 只是 preferred，加上本地類別代碼就能
+// 通過驗證。但它的語意是「臨床檢驗檢查結果」，而「癌登長表某欄位的申報值」不是
+// 臨床結果；標成 Clinical Result 會讓接收端誤判資料性質，也帶不來實際的 TW Core
+// 互通效益（沒有 TW Core 系統會依「臨床結果」去解讀癌登欄位）。其他 TW Core
+// Observation Profile 不是固定特定代碼（如職業、性傾向），就是要求 effective 1..1
+// 與臨床類別（如 Simple Observation），都不適用。
 Profile: CRCTCRDataItemObservation
 Parent: Observation
 Id: crc-tcr-data-item-observation
 Title: "大腸癌癌登長表欄位 Observation"
-Description: "一個癌登長表欄位的申報值。值以 valueString 保存原始字串（例如日期 20250312、手術方式 30、期別 3B、未知 99999999），轉換可逆，不推論臨床語意。核心指標的 CQL 直接讀取本 Profile。"
+Description: "一個癌登長表欄位的申報值。值以 valueString 保存原始字串（例如日期 20250312、手術方式 30、期別 3B、未知 99999999），轉換可逆，不推論臨床語意。核心指標的 CQL 直接讀取本 Profile。本 Profile 刻意繼承 FHIR R4 Observation 而非 TW Core：TW Core Observation Clinical Result 在結構上可以容納，但其語意為臨床檢驗檢查結果，癌登欄位值不是臨床結果，套用會誤導接收端，也沒有實際互通效益。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -68,7 +79,7 @@ Description: "已定稿的申報值才可被指標計算讀取。"
 // ---------------------------------------------------------------------------
 
 Profile: CRCMalignantPolypCondition
-Parent: Condition
+Parent: $TWCoreCondition
 Id: crc-malignant-polyp-condition
 Title: "Malignant Polyp (T1) Condition"
 Description: "切除之息肉中出現 T1 腺癌（Tis 不屬之）。指標 1 分母的對象。"
@@ -82,10 +93,10 @@ Description: "切除之息肉中出現 T1 腺癌（Tis 不屬之）。指標 1 �
 * subject only Reference(ColorectalCancerPatient)
 
 Profile: CRCMalignantPolypPathologyReport
-Parent: DiagnosticReport
+Parent: $TWCoreDiagnosticReport
 Id: crc-malignant-polyp-pathology-report
 Title: "惡性息肉病理報告"
-Description: "指標 1 的計時起點。issued 為病理報告日期；12 週以此日起算。"
+Description: "指標 1 的計時起點，繼承 TW Core DiagnosticReport。issued 為病理報告日期；12 週以此日起算。result 指向病理報告記載的條件 B、C、D。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -102,27 +113,49 @@ Description: "指標 1 的計時起點。issued 為病理報告日期；12 週�
 * subject only Reference(ColorectalCancerPatient)
 * issued 1..1 MS
 * result MS
-* result only Reference(CRCMalignantPolypHighRiskFeature)
+* result only Reference(CRCPathologyHighRiskFeature)
 
-Profile: CRCMalignantPolypHighRiskFeature
-Parent: Observation
-Id: crc-malignant-polyp-high-risk-feature
-Title: "惡性息肉高風險條件（A–D）"
-Description: "條件 A 來自大腸鏡檢報告；B、C、D 來自病理報告。valueBoolean = true 表示報告記載該條件成立；false 表示報告明確記載不成立。未記載者不建立本 Observation。"
+// 條件 B、C、D 記載於病理報告。TW Core DiagnosticReport.result 只能指向 TW Core
+// 檢驗結果 Observation，因此本 Profile 繼承 Observation-laboratoryResult-twcore
+// （category = laboratory；病理判讀在 FHIR 中屬檢驗結果）。
+Profile: CRCPathologyHighRiskFeature
+Parent: $TWCoreLabResult
+Id: crc-pathology-high-risk-feature
+Title: "惡性息肉病理高風險條件（B、C、D）"
+Description: "病理報告記載的惡性息肉高風險條件：B 切緣陽性、C 淋巴或靜脈侵犯、D 第 3 級或分化不全。valueBoolean = true 表示報告記載條件成立；false 表示報告明確記載不成立；未記載者不建立本 Observation。effective[x] 為檢體採檢或病理判讀日期。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
 * status MS
 * code 1..1 MS
-* code from CRCMalignantPolypHighRiskFeatureVS (required)
+* code from CRCPathologyHighRiskFeatureVS (required)
 * subject 1..1 MS
 * subject only Reference(ColorectalCancerPatient)
 * value[x] 1..1 MS
 * value[x] only boolean
-* derivedFrom MS
+
+// 條件 A 記載於大腸鏡檢報告，屬於處置結果（category = procedure），不是檢驗結果。
+Profile: CRCColonoscopyHighRiskFeature
+Parent: $TWCoreClinicalResult
+Id: crc-colonoscopy-high-risk-feature
+Title: "惡性息肉大腸鏡高風險條件（A）"
+Description: "大腸鏡檢報告記載的條件 A：息肉未完全被切除。valueBoolean 語意同 CRCPathologyHighRiskFeature。effective[x] 為大腸鏡檢日期。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* status MS
+* category[twcore] 1..1
+* category[twcore] = $ObservationCategory#procedure
+* code 1..1 MS
+* code from CRCColonoscopyHighRiskFeatureVS (required)
+* subject 1..1 MS
+* subject only Reference(ColorectalCancerPatient)
+* effective[x] 1..1 MS
+* value[x] 1..1 MS
+* value[x] only boolean
 
 Profile: CRCCurativeResectionProcedure
-Parent: Procedure
+Parent: $TWCoreProcedure
 Id: crc-curative-resection-procedure
 Title: "惡性息肉後續治癒性切除"
 Description: "指標 1 分子之治癒性切除。performed[x] 為手術日期。"

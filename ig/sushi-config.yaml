@@ -2,7 +2,7 @@ id: io.github.healthymind-tech.ntucc-colorectal-cancer
 canonical: https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig
 name: ColorectalCancerCoreIndicatorsImplementationGuide
 title: 大腸癌診療核心測量指標 FHIR 實作指引－草稿
-description: 非官方大腸癌 FHIR 草稿。依衛生福利部國民健康署「115 年癌症診療核心測量指標」大腸癌 3 項指標（含 115/06/18 修訂對照表及診療指標說明），以 TW Core IG 1.0.0 為結構基礎，提供大腸癌共同資料層、癌登長表欄位 Observation、3 個 Measure 與可執行 CQL。本 IG 非衛生福利部、國民健康署、國家衛生研究院或 HL7 International 出版品。
+description: 非官方大腸癌 FHIR 草稿。依衛生福利部國民健康署「115 年癌症診療核心測量指標」大腸癌 3 項指標（含 115/06/18 修訂對照表及診療指標說明），臨床資源 Profile 皆繼承 TW Core IG 1.0.0（癌登欄位 Observation 除外，理由見分層架構頁），提供大腸癌共同資料層、癌登長表欄位 Observation、3 個 Measure 與可執行 CQL。本 IG 非衛生福利部、國民健康署、國家衛生研究院或 HL7 International 出版品。
 status: draft
 experimental: true
 version: 0.1.0-preview.1

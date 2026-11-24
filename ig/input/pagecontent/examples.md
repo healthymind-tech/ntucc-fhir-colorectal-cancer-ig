@@ -8,7 +8,7 @@
 |---|---|---|
 | 直腸癌臨床 2A 期，確診後第 42 天開始治療 | [crc-patient-rectum](Patient-crc-patient-rectum.html) 與其 `crc-tcr-rectum-*` 欄位 | crc-qi-03 分母與分子 |
 | 乙狀結腸癌病理 3B 期，部分結腸切除，檢查 15 顆淋巴結 | [crc-patient-colon](Patient-crc-patient-colon.html) 與其 `crc-tcr-colon-*` 欄位 | crc-qi-02 分母與分子 |
-| 惡性息肉，切緣陽性（條件 B），病理報告後第 84 天治癒性切除 | [crc-patient-polyp](Patient-crc-patient-polyp.html)、[病理報告](DiagnosticReport-crc-polyp-pathology-report.html)、[切除](Procedure-crc-curative-resection.html) | crc-qi-01 分子條件 |
+| 惡性息肉，大腸鏡未完全切除（條件 A）且切緣陽性（條件 B），病理報告後第 84 天治癒性切除 | [crc-patient-polyp](Patient-crc-patient-polyp.html)、[條件 A](Observation-crc-polyp-feature-a.html)、[條件 B](Observation-crc-polyp-feature-b.html)、[病理報告](DiagnosticReport-crc-polyp-pathology-report.html)、[切除](Procedure-crc-curative-resection.html) | crc-qi-01 分子條件 |
 
 ## 測試個案
 

@@ -133,7 +133,7 @@ A FHIR R4 implementation guide that turns the three **colorectal cancer core qua
 
 Each rule in the official text has a `criterion_id` in `mappings/crc-core-indicator-criteria.csv`. The rules are implemented twice, independently, in **CQL** and in a **Python reference implementation**, and both must pass the same 44 hand-specified synthetic cases. Registry values are kept as raw strings so that special codes such as `99999999` (unknown) are never mistaken for dates.
 
-Built on **TW Core IG 1.0.0**. See *Quick start* above for build commands; the published site is at <https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/>.
+All clinical profiles derive from **TW Core IG 1.0.0**; only the registry data-item Observation derives from base R4 Observation, because no TW Core Observation category fits a registry field value. See *Quick start* above for build commands; the published site is at <https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/>.
 
 ---
 

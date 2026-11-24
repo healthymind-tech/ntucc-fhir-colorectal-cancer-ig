@@ -1,4 +1,12 @@
 {
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-colonoscopy-high-risk-feature": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-a-polyp-incompletely-excised"
+   }
+  ]
+ },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-curative-resection": {
   "0.1.0-preview.1": [
    {
@@ -40,6 +48,22 @@
    {
     "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
     "code": "malignant-polyp-t1"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-feature": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-b-margin-positive"
+   },
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-c-lymphovascular-invasion"
+   },
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-d-grade3-poorly-differentiated"
    }
   ]
  },

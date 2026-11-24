@@ -26,6 +26,7 @@ Description: "完全合成範例。"
 * language = #zh-TW
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* category = $ConditionCategory#problem-list-item
 * code = http://hl7.org/fhir/sid/icd-10-cm#C20 "Malignant neoplasm of rectum"
 * subject = Reference(CRCPatientRectumExample)
 * recordedDate = "2025-01-10"
@@ -53,6 +54,7 @@ Description: "完全合成範例。"
 * language = #zh-TW
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* category = $ConditionCategory#problem-list-item
 * code = http://hl7.org/fhir/sid/icd-10-cm#C18.7 "Malignant neoplasm of sigmoid colon"
 * subject = Reference(CRCPatientColonExample)
 * recordedDate = "2025-03-05"
@@ -344,20 +346,38 @@ Title: "合成惡性息肉（T1）"
 Description: "完全合成範例。"
 * id = "crc-malignant-polyp"
 * language = #zh-TW
+* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* category = $ConditionCategory#problem-list-item
 * code = CRCIndicatorConceptCodeSystem#malignant-polyp-t1
 * subject = Reference(CRCPatientPolypExample)
 
 Instance: CRCPolypFeatureMarginExample
-InstanceOf: CRCMalignantPolypHighRiskFeature
+InstanceOf: CRCPathologyHighRiskFeature
 Usage: #example
 Title: "合成條件 B：切緣陽性"
 Description: "完全合成範例。"
 * id = "crc-polyp-feature-b"
 * language = #zh-TW
 * status = #final
+* category[twcore] = $ObservationCategory#laboratory
 * code = CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
 * subject = Reference(CRCPatientPolypExample)
+* effectiveDateTime = "2025-02-25"
+* valueBoolean = true
+
+Instance: CRCPolypFeatureIncompleteExample
+InstanceOf: CRCColonoscopyHighRiskFeature
+Usage: #example
+Title: "合成條件 A：大腸鏡檢報告指出息肉未完全切除"
+Description: "完全合成範例。"
+* id = "crc-polyp-feature-a"
+* language = #zh-TW
+* status = #final
+* category[twcore] = $ObservationCategory#procedure
+* code = CRCIndicatorConceptCodeSystem#criterion-a-polyp-incompletely-excised
+* subject = Reference(CRCPatientPolypExample)
+* effectiveDateTime = "2025-02-25"
 * valueBoolean = true
 
 Instance: CRCPolypPathologyReportExample

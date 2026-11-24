@@ -4,9 +4,11 @@
 # URI, as in TW Core examples and the breast cancer reference IG.
 No definition could be found for URL value 'http://www.moi.gov.tw'
 
-# Registry data item and indicator-fact Observations record an abstracted
-# value, not a measurement: there is no meaningful performer or effective time
-# for "the registry value of field 4.1.4". Provenance belongs in derivedFrom.
+# Registry data item Observations record an abstracted value, not a
+# measurement: there is no meaningful performer or effective time for "the
+# registry value of field 4.1.4". Provenance belongs in derivedFrom. (The
+# polyp high-risk feature Observations do carry effective[x]; they still have
+# no performer in the synthetic examples.)
 Best Practice Recommendation: In general, all observations should have a performer
 Best Practice Recommendation: In general, all observations should have an effective[x] ()
 
