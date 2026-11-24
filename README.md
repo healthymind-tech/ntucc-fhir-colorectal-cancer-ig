@@ -53,7 +53,7 @@
 
 ### 快速開始
 
-需要：Node.js 20+、Python 3.10+、Java 17+；產出網頁另需 Ruby + Jekyll。
+需要：Node.js 20+、Python 3.11+、Java 17+；產出網頁另需 Ruby + Jekyll。
 
 ```bash
 # 1. FHIR Shorthand → FHIR 資源

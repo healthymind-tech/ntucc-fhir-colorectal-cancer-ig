@@ -4,8 +4,8 @@
 |---|---|---|
 | FSH | SUSHI 3.20.0 | 0 errors、0 warnings |
 | CQL 翻譯 | cql-to-elm-cli 3.26.0 | 翻譯成功且無 error |
-| CQL 執行（JavaScript） | cql-execution 3.3.2、cql-exec-fhir 2.1.6 | 100 個合成個案，每個個案的 8 個 population 都與 Python 參考實作的結果逐一比對；另以全部個案彙總，必須重現 3 份摘要 MeasureReport 的計數 |
-| CQL 執行（Java 參考引擎） | info.cqframework engine-fhir 3.26.0 | 同一批 90 個個案、同樣比對 Python 參考實作；JavaScript 與 Java 兩個引擎必須得到相同結果 |
+| CQL 執行（JavaScript） | cql-execution 3.3.2、cql-exec-fhir 2.1.6 | 全部合成個案（`tests/fixtures/synthetic-cases.json`），每個個案的 8 個 population 都與 Python 參考實作的結果逐一比對；另以全部個案彙總，3 個 Measure 都必須各有一份摘要 MeasureReport，且 CQL 必須重現其各 population 計數與 measureScore（numerator ÷（denominator − denominator exclusion），容差 1e-4） |
+| CQL 執行（Java 參考引擎） | info.cqframework engine-fhir 3.26.0 | 同一批個案、同樣比對 Python 參考實作；JavaScript 與 Java 兩個引擎必須得到相同結果 |
 | 參考實作 | pytest | Python 參考實作（`reference/crc_indicators.py`、`reference/cohort.py`）通過手寫預期值；產生 CQL 測試資料時，參考實作的結果若與手寫預期值不符，建置即失敗 |
 | IG Publisher | HL7 IG Publisher 3.0.5（鎖定版本） | QA 0 errors、0 broken links。Publisher 即使有 QA 錯誤仍會回傳成功，因此 `scripts/check_qa.py` 讀取 `qa.json`，只要有任何 error、broken link，或報告格式缺少預期欄位，就讓建置失敗 |
 | 術語候選 | pytest、`scripts/verify_terminology.py` | CSV 格式、ConceptMap 與審核表由 CSV 產生且一致；`verify_terminology.py` 連線 tx.fhir.org 確認每個候選代碼存在、為 active、名稱未變（需網路，不在 CI 中執行） |
@@ -33,7 +33,7 @@ scripts/build_ig.sh
 以下問題都是由測試或獨立驗證找到，並已修正：
 
 - **計算單位與欄位歸屬**：舊版 CQL 以病人為單位、未使用 `focus`，且以未排序清單的第一筆為欄位值；同一病人兩顆原發腫瘤，或同一欄位有 final 與 amended 兩筆時，結果不確定。
-- **原始值正規化不一致**：CQL 與 Python 對空白、全形數字的處理不同，獨立驗證以 49 個對抗性個案找出 17 個不一致；現已統一為「只去除前後半形空白，只接受半形數字」。
+- **原始值正規化不一致**：CQL 與 Python 對空白、全形數字的處理不同，早期一輪獨立驗證以一批對抗性個案找出 17 個不一致；現已統一為「只去除前後半形空白，只接受半形數字」。
 - **JavaScript 引擎的陷阱**：`Version`、`Code` 是 CQL 保留字；以 FHIR `id` 元素排序比的是物件而非字串；`Coalesce` 的參數若是 List 會被展開成元素；未提供、無預設值的參數不是 null。
 - **測試資料產生器的錯誤**：變數重複命名讓惡性息肉代碼寫到別的資源上；Python 參考實作讀的是抽象事實，所以只有讀 FHIR 資料的 CQL 抓得到。這正是讓兩個 CQL 引擎直接對照參考實作結果的原因。
 

@@ -122,25 +122,50 @@ async function main() {
       }
     }
   }
-  // The generated summary MeasureReports must be reproduced by the CQL.
+  // The generated summary MeasureReports must be reproduced by the CQL: one
+  // summary report per Measure, with matching counts and measureScore.
+  const reported = new Set();
   for (const file of fs.readdirSync(resourcesDir).filter(name => name.startsWith('MeasureReport-'))) {
     const report = readJson(path.join(resourcesDir, file));
     const measureId = report.measure.split('/').pop().split('|')[0];
     const mapping = MEASURE_POPULATIONS[measureId];
-    for (const population of report.group[0].population) {
-      const code = population.code.coding[0].code;
-      const define = mapping[code];
-      let ids = new Set(members[define] || []);
+    if (!mapping) {
+      failures.push(`${report.id}: unknown measure ${report.measure}`);
+      continue;
+    }
+    if (report.type === 'summary') reported.add(measureId);
+    const cqlMembers = code => {
+      const ids = new Set(members[mapping[code]] || []);
       // Proportion scoring: members of the denominator exclusion are removed
       // from the numerator, as a measure engine does.
       if (code === 'numerator' && mapping['denominator-exclusion']) {
         for (const id of members[mapping['denominator-exclusion']] || []) ids.delete(id);
       }
-      const got = ids.size;
+      return ids;
+    };
+    for (const population of report.group[0].population) {
+      const code = population.code.coding[0].code;
+      const got = cqlMembers(code).size;
       if (got !== population.count) {
         failures.push(`${report.id}: ${code} count ${population.count} but CQL gives ${got}`);
       }
     }
+    // measureScore = numerator / (denominator - denominator exclusion).
+    const denominator = cqlMembers('denominator');
+    const excluded = [...cqlMembers('denominator-exclusion')].filter(id => denominator.has(id)).length;
+    const effectiveDenominator = denominator.size - (mapping['denominator-exclusion'] ? excluded : 0);
+    const score = report.group[0].measureScore?.value;
+    if (effectiveDenominator === 0) {
+      if (score !== undefined) failures.push(`${report.id}: measureScore ${score} but the denominator is empty`);
+    } else {
+      const expectedScore = cqlMembers('numerator').size / effectiveDenominator;
+      if (typeof score !== 'number' || Math.abs(score - expectedScore) > 1e-4) {
+        failures.push(`${report.id}: measureScore ${score} but CQL gives ${expectedScore.toFixed(4)}`);
+      }
+    }
+  }
+  for (const measureId of Object.keys(MEASURE_POPULATIONS)) {
+    if (!reported.has(measureId)) failures.push(`${measureId}: no summary MeasureReport in ${resourcesDir}`);
   }
 
   if (failures.length) {

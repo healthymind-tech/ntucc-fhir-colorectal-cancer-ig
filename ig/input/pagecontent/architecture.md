@@ -55,13 +55,52 @@ Library ColorectalCancerCoreIndicators（CQL，population basis＝保留的原�
 | 標準 | 本 IG 的宣告 |
 |---|---|
 | HL7 Quality Measure IG（`hl7.fhir.uv.cqm` 2.0.0） | Measure 宣告 `cqm-proportionmeasure`、`cqm-cqlmeasure`，以 `cqm-populationBasis` 宣告 population basis，group 與 population 帶 linkId。**未宣告** `cqm-publishablemeasure`：它要求版本無關／版本專屬／簡稱三種正式識別碼與背書資料，草稿不具備 |
-| CRMI（`hl7.fhir.uv.crmi` 2.0.0） | Library 宣告 `crmi-shareablelibrary`、`crmi-computablelibrary` |
-| Using CQL（`hl7.fhir.uv.cql` 2.0.0） | 未宣告 `cql-library`：它要求以 contained Parameters 記錄翻譯器選項，本版尚未提供 |
+| CRMI（`hl7.fhir.uv.crmi` 2.0.0） | Library 宣告 `crmi-shareablelibrary`、`crmi-computablelibrary`、`crmi-publishablelibrary`、`crmi-executablelibrary`（Publisher 由 CQL 產生 ELM、`parameter` 與 `dataRequirement`） |
+| Using CQL（`hl7.fhir.uv.cql` 2.0.0） | Library 宣告 `cql-library`。翻譯器選項 extension `cqf-cqlOptions` 在該 Profile 為 0..1，本版未提供 |
 | TW Core 1.0.0 | 臨床 Profile 皆繼承 TW Core（癌登欄位 Observation 除外，理由見上） |
 | mCODE | 只借用原發腫瘤的部位與組織型態形狀（bodySite、histology-morphology-behavior）；期別與治療不以 mCODE 臨床資源表達，因指標定義在癌登欄位上 |
 | 台灣癌症登記長表實作指引（TWCR_LF） | 不相依、不繼承；欄位對照見「[與 TWCR_LF 的關係](twcr-lf.html)」 |
 
 **為什麼條件 A 與 B–D 分成兩個 Profile？** 條件 A 來自大腸鏡檢報告，屬於處置結果；B、C、D 來自病理報告，屬於檢驗結果，而且 TW Core 規定病理報告的 `result` 只能指向檢驗結果 Observation。CQL 讀取的值集同時包含 A–D 四個代碼，所以計算邏輯不受影響。
+
+## 執行參數
+
+Library 宣告的輸入參數：
+
+| CQL 參數 | 型別 | 說明 |
+|---|---|---|
+| `Measurement Period` | `Interval<DateTime>` | 量測期間 |
+| `Outside Data Excluded QI01`／`QI02`／`QI03` | `List<String>` | 第五點外院資料：醫院逐指標提供要排除的腫瘤（原發腫瘤 Condition 的 `id`），見「[收錄規則](inclusion-rules.html)」 |
+| `Vital Status Dead Codes` | `List<String>` | 5.4 生存狀態中代表死亡的原始值，預設 `{ 'true' }`，見「[個案組裝](case-assembly.html)」 |
+
+**已知問題：** IG Publisher 3.0.5 由 CQL 產生 Library 的 `parameter` 時，會先取出 List 的元素型別再判斷是否為 List，因此 Library 頁面上這四個 `List<String>` 輸入參數顯示為 `max = 1`。這是 Publisher 的問題（它在處理 CQL 時清空並覆寫 `Library.parameter`，無法以 FSH 修正）；正確的基數以各 Measure 內含的 effective data requirements Library 為準，該處為 `max = *`。
+
+以 `Measure/$evaluate-measure` 計算時，量測期間由 `periodStart`／`periodEnd` 提供；其他 CQL 參數放進 `parameters`（型別 Parameters）輸入，這是 Clinical Reasoning 類引擎（例如 HAPI FHIR）的作法，與 Using CQL IG `Library/$evaluate` 的 `parameters` 輸入相同。`List<String>` 參數以**同名參數重複出現、每筆一個 `valueString`** 表示。以下為指標 2 排除兩顆腫瘤的輸入：
+
+```json
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "periodStart", "valueDate": "2025-01-01" },
+    { "name": "periodEnd", "valueDate": "2025-12-31" },
+    { "name": "reportType", "valueCode": "summary" },
+    {
+      "name": "parameters",
+      "resource": {
+        "resourceType": "Parameters",
+        "parameter": [
+          { "name": "Outside Data Excluded QI02", "valueString": "tumour-0001" },
+          { "name": "Outside Data Excluded QI02", "valueString": "tumour-0002" }
+        ]
+      }
+    }
+  ]
+}
+```
+
+直接以 `Library/$evaluate` 執行時，量測期間也放在 `parameters` 中：`{ "name": "Measurement Period", "valuePeriod": { "start": "2025-01-01T00:00:00+08:00", "end": "2025-12-31T23:59:59.999+08:00" } }`。
+
+**沒有要排除的腫瘤時：** 三個外院資料參數刻意不設預設值（cql-execution 3.3.2 在宣告帶空 List 預設值時，會拒絕呼叫端提供的 `List<String>`）。Java 參考引擎把未提供的參數當成 null，CQL 的 `Is Outside Excluded` 會把 null 視為「不排除」。JavaScript 引擎 cql-execution **不會**把未提供、無預設值的參數當成 null，執行時會出現 `interval.contains is not a function` 錯誤而中止。以 cql-execution 為基礎的實作必須明確傳入三個清單，沒有要排除的腫瘤時傳空清單（`[]`）；FHIR Parameters 無法表達空清單，這類伺服器應把缺少的清單參數補成空清單。
 
 ## Artifacts
 
