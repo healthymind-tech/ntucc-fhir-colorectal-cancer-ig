@@ -127,6 +127,46 @@
    }
   ]
  },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155701009"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155703007"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155704001"
+   },
+   {
+    "system": "http://snomed.info/sct",
+    "code": "1155702002"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://loinc.org",
+    "code": "LA13327-4"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA13328-2"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA4720-4"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA13420-7"
+   }
+  ]
+ },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-high-risk-feature": {
   "0.1.0-preview.1": [
    {
@@ -163,54 +203,6 @@
    }
   ]
  },
- "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-answer": {
-  "0.1.0-preview.1": [
-   {
-    "system": "http://loinc.org",
-    "code": "LA27251-0"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA27250-2"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA27144-7"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA13328-2"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA13327-4"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA4720-4"
-   },
-   {
-    "system": "http://loinc.org",
-    "code": "LA13420-7"
-   },
-   {
-    "system": "http://snomed.info/sct",
-    "code": "1155701009"
-   },
-   {
-    "system": "http://snomed.info/sct",
-    "code": "1155703007"
-   },
-   {
-    "system": "http://snomed.info/sct",
-    "code": "1155704001"
-   },
-   {
-    "system": "http://snomed.info/sct",
-    "code": "1155702002"
-   }
-  ]
- },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-feature": {
   "0.1.0-preview.1": [
    {
@@ -236,6 +228,22 @@
    {
     "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
     "code": "C20.9"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://loinc.org",
+    "code": "LA27250-2"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA27251-0"
+   },
+   {
+    "system": "http://loinc.org",
+    "code": "LA27144-7"
    }
   ]
  },
