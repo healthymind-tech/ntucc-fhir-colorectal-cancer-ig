@@ -28,6 +28,9 @@ Description: "完全合成範例。"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * category = $ConditionCategory#problem-list-item
 * code = http://hl7.org/fhir/sid/icd-10-cm#C20 "Malignant neoplasm of rectum"
+* bodySite.coding[icdo3Topography] = http://terminology.hl7.org/CodeSystem/icd-o-3#C20.9
+* bodySite.coding[1] = http://snomed.info/sct#34402009 "Rectum structure"
+* extension[histologyMorphologyBehavior].valueCodeableConcept.coding[icdo3] = http://terminology.hl7.org/CodeSystem/icd-o-3#8140/3
 * subject = Reference(CRCPatientRectumExample)
 * recordedDate = "2025-01-10"
 
@@ -56,6 +59,9 @@ Description: "完全合成範例。"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * category = $ConditionCategory#problem-list-item
 * code = http://hl7.org/fhir/sid/icd-10-cm#C18.7 "Malignant neoplasm of sigmoid colon"
+* bodySite.coding[icdo3Topography] = http://terminology.hl7.org/CodeSystem/icd-o-3#C18.7
+* bodySite.coding[1] = http://snomed.info/sct#60184004 "Sigmoid colon structure"
+* extension[histologyMorphologyBehavior].valueCodeableConcept.coding[icdo3] = http://terminology.hl7.org/CodeSystem/icd-o-3#8140/3
 * subject = Reference(CRCPatientColonExample)
 * recordedDate = "2025-03-05"
 

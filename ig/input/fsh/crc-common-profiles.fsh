@@ -32,6 +32,15 @@ Description: "一顆原發大腸直腸癌，繼承 TW Core Condition。癌登摘
 * subject 1..1 MS
 * subject only Reference(ColorectalCancerPatient)
 * bodySite MS
+* bodySite.coding ^slicing.discriminator.type = #value
+* bodySite.coding ^slicing.discriminator.path = "system"
+* bodySite.coding ^slicing.rules = #open
+* bodySite.coding contains icdo3Topography 0..1 MS
+* bodySite.coding[icdo3Topography] ^short = "ICD-O-3 topography（例如 C18.7），由癌登 2.6 原發部位轉換"
+* bodySite.coding[icdo3Topography].system = "http://terminology.hl7.org/CodeSystem/icd-o-3" (exactly)
+* bodySite.coding[icdo3Topography].code 1..1
+* bodySite.coding[icdo3Topography].code obeys crc-icdo3-topography-format
+* extension contains CRCHistologyMorphologyBehavior named histologyMorphologyBehavior 0..1 MS
 * recordedDate MS
 
 // 刻意不繼承 TW Core。結構上可行：TW Core Observation Clinical Result 的

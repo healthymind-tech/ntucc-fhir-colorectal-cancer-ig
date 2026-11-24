@@ -29,10 +29,11 @@ jobs:
             echo "sushi reported errors or warnings"; exit 1
           fi
 
-      - name: Fixtures must be up to date
+      - name: Generated files must be up to date
         run: |
           python3 scripts/build_fixtures.py
-          git diff --exit-code tests/fixtures
+          python3 scripts/build_terminology.py
+          git diff --exit-code tests/fixtures ig/input/fsh/conceptmaps.fsh ig/input/includes/terminology-candidates-table.md
 
       - name: Run pytest
         run: |

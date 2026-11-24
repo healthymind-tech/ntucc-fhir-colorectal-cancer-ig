@@ -31,6 +31,11 @@
 
 `CLASS-DX-STATUS` 與 `CLASS-TX-STATUS` 在指標文件中只有文字描述（註3），沒有欄位序號，因此使用描述性代碼。對應的長表欄位序號需依長表摘錄手冊核對，見「[已知歧義](known-ambiguities.html)」。
 
+## ICD-O-3 與 LOINC
+
+- 原發部位（2.6）、組織型態（2.8）、性態碼（2.9）同時以 ICD-O-3 代碼表達在原發腫瘤 Condition 上（`bodySite` 與 `histologyMorphologyBehavior` extension），轉換規則見「[術語對應與審核](terminology-review.html#icd-o-3)」。
+- 各欄位對應的 LOINC 觀察碼候選列在 ConceptMap [crc-tcr-field-to-loinc](ConceptMap-tcr-field-to-loinc.html)，目前全部待審核。
+
 ## 為什麼值用字串？
 
 癌登欄位混有日期、代碼、數字與特殊值（`00000000` 無、`99999999` 不詳、`988` 不適用）。如果在摘錄層就轉成 date 或 integer，特殊值就會遺失或被誤判。本 IG 保存原始字串，由 CQL 的 `Registry Date`、`Registry Integer` 等函式在計算時明確判讀，判讀規則可以測試，也可以還原。

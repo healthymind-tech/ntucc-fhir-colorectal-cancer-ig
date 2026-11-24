@@ -14,8 +14,12 @@ Run from the repository root after SUSHI:  python3 scripts/build_fixtures.py
 from __future__ import annotations
 
 import json
+import sys
 from datetime import date, timedelta
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from reference import icdo3  # noqa: E402  (shared, tested registry -> ICD-O-3 rule)
 
 ROOT = Path(__file__).resolve().parents[1]
 CANON = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig"
@@ -127,6 +131,17 @@ FEATURE_CODES = {
 }
 
 
+ICDO3 = "http://terminology.hl7.org/CodeSystem/icd-o-3"
+MORPHOLOGY_EXT = f"{CANON}/StructureDefinition/crc-histology-morphology-behavior"
+
+
+# Synthetic ICD-10-CM diagnosis code consistent with the registry primary site.
+def icd10cm_for_site(icdo3_site):
+    if icdo3_site.startswith("C18."):
+        return icdo3_site
+    return {"C19.9": "C19", "C20.9": "C20"}.get(icdo3_site, "C18.9")
+
+
 def obs_category(code):
     return [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/observation-category", "code": code}]}]
 
@@ -139,12 +154,20 @@ def to_bundle(item, index):
     pid = item["id"]
     subject = ref("Patient", pid)
     tumour = f"{pid}-tumour"
+    fields = item["fields"]
+    site = icdo3.topography(fields["2.6"])
+    tumour_condition = {
+        "resourceType": "Condition", "id": tumour, "subject": subject,
+        "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
+        "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": icd10cm_for_site(site)}]},
+        "bodySite": [{"coding": [{"system": ICDO3, "code": site}]}],
+        "extension": [{"url": MORPHOLOGY_EXT, "valueCodeableConcept": {
+            "coding": [{"system": ICDO3, "code": icdo3.morphology(fields["2.8"], fields["2.9"])}]}}],
+    }
     entries = [
         {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01",
          "identifier": [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]},
-        {"resourceType": "Condition", "id": tumour, "subject": subject,
-         "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
-         "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "C18.7"}]}},
+        tumour_condition,
     ]
     for number, value in item["fields"].items():
         entries.append({

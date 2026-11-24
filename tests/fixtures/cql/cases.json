@@ -70,7 +70,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -466,7 +489,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -862,7 +908,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -1258,7 +1327,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -1654,7 +1746,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -2051,7 +2166,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -2506,7 +2644,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -2962,7 +3123,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -3359,7 +3543,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -3755,7 +3962,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -4151,7 +4381,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -4548,7 +4801,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -4942,10 +5218,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C18.1"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.1"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -5341,7 +5640,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -5734,10 +6056,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -6134,7 +6479,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -6530,7 +6898,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -6926,7 +7317,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -7322,7 +7736,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -7718,7 +8155,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -8114,7 +8574,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -8511,7 +8994,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -8908,7 +9414,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8936/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -9304,7 +9833,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8240/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -9699,10 +10251,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -10067,10 +10642,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -10435,10 +11033,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -10802,10 +11423,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C19"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C19.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -11169,10 +11813,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -11536,10 +12203,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -11903,10 +12593,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -12273,7 +12986,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -12638,10 +13374,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -13006,10 +13765,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -13373,10 +14155,33 @@
        "coding": [
         {
          "system": "http://hl7.org/fhir/sid/icd-10-cm",
-         "code": "C18.7"
+         "code": "C20"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C20.9"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -13744,7 +14549,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -14233,7 +15061,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -14721,7 +15572,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -15209,7 +16083,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -15698,7 +16595,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -16187,7 +17107,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -16765,7 +17708,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -17254,7 +18220,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {
@@ -17743,7 +18732,30 @@
          "code": "C18.7"
         }
        ]
-      }
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
      }
     },
     {

@@ -82,7 +82,7 @@ scripts/build_ig.sh
 | HL7 IG Publisher 3.0.5 | QA 0 errors、0 broken links（CI 遇到 QA error 或 broken link 即失敗） |
 | CQL 翻譯 | 成功 |
 | CQL 執行 | 44 個合成個案全部通過 |
-| pytest | 84 passed |
+| pytest | 111 passed |
 
 每次 push 都由 GitHub Actions 重跑；推送到 `main` 後會自動建置並發布到 GitHub Pages。
 
@@ -97,7 +97,7 @@ scripts/build_ig.sh
 │   ├── input/pagecontent/       IG 頁面（Markdown）
 │   ├── local-template/          繼承 fhir2.base.template，只修正一個上游 layout 錯誤
 │   └── tools/                   SUSHI 與 CQL 執行環境
-├── mappings/                    規則表（單一規則來源）
+├── mappings/                    規則表、術語候選對應表（單一來源）
 ├── reference/                   Python 參考實作
 ├── scripts/                     測試資料產生、CQL 執行、IG 建置
 ├── sources/hpa-115/             國健署原始 PDF 與 SHA256SUMS

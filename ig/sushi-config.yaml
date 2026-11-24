@@ -51,6 +51,8 @@ pages:
     title: 115 年修訂重點
   known-ambiguities.md:
     title: 已知歧義與待確認事項
+  terminology-review.md:
+    title: 術語對應與審核
   examples.md:
     title: 合成範例
   validation.md:
@@ -70,6 +72,7 @@ menu:
     大腸癌核心測量指標: indicators.html
     115 年修訂重點: revision-115.html
     已知歧義與待確認事項: known-ambiguities.html
+    術語對應與審核: terminology-review.html
   驗證與追溯:
     驗證方法: validation.html
     規格來源與追溯: source-traceability.html

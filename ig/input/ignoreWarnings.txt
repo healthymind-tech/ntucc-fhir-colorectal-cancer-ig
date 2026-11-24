@@ -15,3 +15,10 @@ Best Practice Recommendation: In general, all observations should have an effect
 # relatedArtifact cites the HPA announcement web page. It is a citation, not a
 # FHIR definition, so the validator cannot (and need not) resolve it.
 No definition could be found for URL value 'https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=129&pid=20013'
+
+# ICD-O-3 topography. tx.fhir.org hosts ICD-O-3 only as a morphology fragment
+# (version 2000): $lookup finds 8140/3 but no topography code at all, not even
+# C50.9. C18.7 and C20.9 are standard ICD-O-3 topography codes taken from the
+# registry primary-site field; the warning reflects server coverage, not data.
+Unknown Code 'C18.7' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/icd-o-3' version '2000' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+Unknown Code 'C20.9' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/icd-o-3' version '2000' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
