@@ -4,7 +4,7 @@
 
 ## 版本與基礎
 
-- Package ID：`tw.community.colorectal-cancer`
+- Package ID：`io.github.healthymind-tech.ntucc-colorectal-cancer`
 - Canonical：`https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig`
 - 版本：`0.1.0-preview.1`
 - 狀態：`draft`／`experimental`

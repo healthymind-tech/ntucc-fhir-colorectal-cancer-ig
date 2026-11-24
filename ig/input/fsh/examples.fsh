@@ -9,6 +9,7 @@ Usage: #example
 Title: "合成病人－直腸癌"
 Description: "完全合成範例。"
 * id = "crc-patient-rectum"
+* language = #zh-TW
 * identifier[idCardNumber].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[idCardNumber].type.coding.code = #NNxxx
 * identifier[idCardNumber].system = "http://www.moi.gov.tw"
@@ -22,6 +23,7 @@ Usage: #example
 Title: "合成原發直腸癌"
 Description: "完全合成範例。"
 * id = "crc-condition-rectum"
+* language = #zh-TW
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * code = http://hl7.org/fhir/sid/icd-10-cm#C20 "Malignant neoplasm of rectum"
@@ -34,6 +36,7 @@ Usage: #example
 Title: "合成病人－結腸癌"
 Description: "完全合成範例。"
 * id = "crc-patient-colon"
+* language = #zh-TW
 * identifier[idCardNumber].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[idCardNumber].type.coding.code = #NNxxx
 * identifier[idCardNumber].system = "http://www.moi.gov.tw"
@@ -47,6 +50,7 @@ Usage: #example
 Title: "合成原發乙狀結腸癌"
 Description: "完全合成範例。"
 * id = "crc-condition-colon"
+* language = #zh-TW
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * code = http://hl7.org/fhir/sid/icd-10-cm#C18.7 "Malignant neoplasm of sigmoid colon"
@@ -59,6 +63,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.3 個案分類"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-3"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.3 "個案分類"
@@ -72,6 +77,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.5 最初診斷日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-5"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.5 "最初診斷日期"
@@ -85,6 +91,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.6 原發部位"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-6"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.6 "原發部位"
@@ -98,6 +105,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.8 組織型態"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-8"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.8 "組織型態"
@@ -111,6 +119,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.9 性態碼"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-9"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.9 "性態碼"
@@ -124,6 +133,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 2.12 首次顯微鏡檢證實日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-2-12"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.12 "首次顯微鏡檢證實日期"
@@ -137,6 +147,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 3.7 臨床期別組合"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-3-7"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#3.7 "臨床期別組合"
@@ -150,6 +161,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 4.1 首次療程開始日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-4-1"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#4.1 "首次療程開始日期"
@@ -163,6 +175,7 @@ Usage: #example
 Title: "合成直腸癌癌登欄位 4.1.4 申報醫院原發部位手術方式"
 Description: "完全合成範例。"
 * id = "crc-tcr-rectum-4-1-4"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#4.1.4 "申報醫院原發部位手術方式"
@@ -176,6 +189,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.3 個案分類"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-3"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.3 "個案分類"
@@ -189,6 +203,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.5 最初診斷日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-5"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.5 "最初診斷日期"
@@ -202,6 +217,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.6 原發部位"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-6"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.6 "原發部位"
@@ -215,6 +231,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.8 組織型態"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-8"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.8 "組織型態"
@@ -228,6 +245,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.9 性態碼"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-9"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.9 "性態碼"
@@ -241,6 +259,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.12 首次顯微鏡檢證實日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-12"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.12 "首次顯微鏡檢證實日期"
@@ -254,6 +273,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 2.14 區域淋巴結檢查數目"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-2-14"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#2.14 "區域淋巴結檢查數目"
@@ -267,6 +287,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 3.13 病理期別組合"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-3-13"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#3.13 "病理期別組合"
@@ -280,6 +301,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 4.1 首次療程開始日期"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-4-1"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#4.1 "首次療程開始日期"
@@ -293,6 +315,7 @@ Usage: #example
 Title: "合成結腸癌癌登欄位 4.1.4 申報醫院原發部位手術方式"
 Description: "完全合成範例。"
 * id = "crc-tcr-colon-4-1-4"
+* language = #zh-TW
 * insert SyntheticTag
 * status = #final
 * code = CRCTCRFieldCodeSystem#4.1.4 "申報醫院原發部位手術方式"
@@ -306,6 +329,7 @@ Usage: #example
 Title: "合成病人－惡性息肉"
 Description: "完全合成範例。"
 * id = "crc-patient-polyp"
+* language = #zh-TW
 * identifier[idCardNumber].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[idCardNumber].type.coding.code = #NNxxx
 * identifier[idCardNumber].system = "http://www.moi.gov.tw"
@@ -319,6 +343,7 @@ Usage: #example
 Title: "合成惡性息肉（T1）"
 Description: "完全合成範例。"
 * id = "crc-malignant-polyp"
+* language = #zh-TW
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * code = CRCIndicatorConceptCodeSystem#malignant-polyp-t1
 * subject = Reference(CRCPatientPolypExample)
@@ -329,6 +354,7 @@ Usage: #example
 Title: "合成條件 B：切緣陽性"
 Description: "完全合成範例。"
 * id = "crc-polyp-feature-b"
+* language = #zh-TW
 * status = #final
 * code = CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
 * subject = Reference(CRCPatientPolypExample)
@@ -340,7 +366,9 @@ Usage: #example
 Title: "合成惡性息肉病理報告"
 Description: "完全合成範例；issued 為指標 1 計時起點。"
 * id = "crc-polyp-pathology-report"
+* language = #zh-TW
 * status = #final
+* category[pathology] = http://terminology.hl7.org/CodeSystem/v2-0074#SP "Surgical Pathology"
 * code = CRCIndicatorConceptCodeSystem#malignant-polyp-pathology-report
 * subject = Reference(CRCPatientPolypExample)
 * issued = "2025-03-01T10:00:00+08:00"
@@ -352,6 +380,7 @@ Usage: #example
 Title: "合成治癒性切除（病理報告後第 84 天）"
 Description: "完全合成範例；落在 12 週內，計入指標 1 分子。"
 * id = "crc-curative-resection"
+* language = #zh-TW
 * status = #completed
 * code = CRCIndicatorConceptCodeSystem#curative-resection
 * subject = Reference(CRCPatientPolypExample)
@@ -363,5 +392,6 @@ Title: "合成資料標記"
 Description: "標記完全合成、不得用於臨床或申報的範例與測試資料。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * ^caseSensitive = true
 * #synthetic "完全合成資料"

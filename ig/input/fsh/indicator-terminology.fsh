@@ -8,6 +8,7 @@ Title: "大腸癌核心指標臨床概念（本地暫用）"
 Description: "大腸癌指標 1 需要、但癌登長表沒有對應欄位的臨床事實。本地暫用代碼，待臨床與術語審查後對應至國際標準代碼。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * ^caseSensitive = true
 * ^content = #complete
 * #malignant-polyp-t1 "Malignant polyp（含 T1 腺癌之息肉）"
@@ -27,6 +28,7 @@ Title: "Malignant polyp (T1)"
 Description: "指標 1 分母之惡性息肉診斷。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * CRCIndicatorConceptCodeSystem#malignant-polyp-t1
 
 ValueSet: CRCMalignantPolypPathologyReportVS
@@ -35,6 +37,7 @@ Title: "惡性息肉病理報告"
 Description: "指標 1 計時起點之病理報告。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * CRCIndicatorConceptCodeSystem#malignant-polyp-pathology-report
 
 ValueSet: CRCMalignantPolypHighRiskFeatureVS
@@ -43,6 +46,7 @@ Title: "惡性息肉高風險條件 A–D"
 Description: "指標 1 分母條件 A、B、C、D。任一記錄為存在即符合分母。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * CRCIndicatorConceptCodeSystem#criterion-a-polyp-incompletely-excised
 * CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
 * CRCIndicatorConceptCodeSystem#criterion-c-lymphovascular-invasion
@@ -54,4 +58,5 @@ Title: "治癒性切除"
 Description: "指標 1 分子之治癒性切除。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * CRCIndicatorConceptCodeSystem#curative-resection

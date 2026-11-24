@@ -1,4 +1,4 @@
-id: tw.community.colorectal-cancer
+id: io.github.healthymind-tech.ntucc-colorectal-cancer
 canonical: https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig
 name: ColorectalCancerCoreIndicatorsImplementationGuide
 title: 大腸癌診療核心測量指標 FHIR 實作指引－草稿
@@ -8,7 +8,8 @@ experimental: true
 version: 0.1.0-preview.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+
-releaseLabel: preview
+releaseLabel: ci-build
+language: zh-TW
 license: CC-BY-4.0
 jurisdiction: urn:iso:std:iso:3166#TW
 copyright: >-

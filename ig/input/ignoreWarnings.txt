@@ -9,3 +9,7 @@ No definition could be found for URL value 'http://www.moi.gov.tw'
 # for "the registry value of field 4.1.4". Provenance belongs in derivedFrom.
 Best Practice Recommendation: In general, all observations should have a performer
 Best Practice Recommendation: In general, all observations should have an effective[x] ()
+
+# relatedArtifact cites the HPA announcement web page. It is a citation, not a
+# FHIR definition, so the validator cannot (and need not) resolve it.
+No definition could be found for URL value 'https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=129&pid=20013'

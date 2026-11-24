@@ -17,7 +17,7 @@ treatment before the evaluation Group is built. The library assumes one primary
 colorectal tumour per evaluated patient context.
 */
 
-library ColorectalCancerCoreIndicators version '1.0.0'
+library ColorectalCancerCoreIndicators version '0.1.0-preview.1'
 
 using FHIR version '4.0.1'
 

@@ -36,12 +36,21 @@ jobs:
           echo "$GITHUB_WORKSPACE/ig/tools/node_modules/.bin" >> "$GITHUB_PATH"
           gem install jekyll
 
+      # Pinned in .publisher-version (shared with scripts/build_ig.sh) for
+      # reproducible builds. Update deliberately, then re-check QA.
       - name: Download IG Publisher
-        run: curl -fsSL -o publisher.jar https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+        run: |
+          PUBLISHER_VERSION="$(tr -d '[:space:]' < .publisher-version)"
+          curl -fsSL -o publisher.jar "https://github.com/HL7/fhir-ig-publisher/releases/download/${PUBLISHER_VERSION}/publisher.jar"
 
       - name: Build IG
         working-directory: ig
         run: java -Xmx4g -jar ../publisher.jar -ig .
+
+      # The Publisher exits 0 even when its QA report lists errors, so the
+      # report is checked explicitly: any validation or HTML error fails CI.
+      - name: Fail on IG Publisher QA errors
+        run: python3 scripts/check_qa.py ig/output/qa.json
 
       - uses: actions/upload-pages-artifact@v4
         with:

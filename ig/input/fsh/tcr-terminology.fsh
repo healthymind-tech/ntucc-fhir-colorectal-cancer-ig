@@ -8,6 +8,7 @@ Title: "大腸癌核心指標引用之癌登長表欄位"
 Description: "115 年大腸癌診療核心測量指標與共通收錄規則所引用的台灣癌症登記長表欄位。代碼為指標文件中的欄位序號；CLASS-DX-STATUS 與 CLASS-TX-STATUS 兩項在指標文件中只有文字描述、沒有欄位序號，因此使用描述性代碼。非官方彙整。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * ^caseSensitive = true
 * ^content = #complete
 * #2.3 "個案分類"
@@ -32,4 +33,5 @@ Title: "大腸癌核心指標癌登欄位值集"
 Description: "可作為 CRC TCR Data Item Observation.code 的癌登欄位。"
 * ^status = #draft
 * ^experimental = true
+* ^language = #zh-TW
 * include codes from system CRCTCRFieldCodeSystem
