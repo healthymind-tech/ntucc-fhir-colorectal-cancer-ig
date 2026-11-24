@@ -114,11 +114,12 @@ def build_fsh(rows: list[dict[str, str]]) -> str:
                 out += [f"{prefix}.code = #{code}", f'{prefix}.display = "{fsh_string(items[0]["source_display"])}"']
                 for t, row in enumerate(items):
                     tp = f"{prefix}.target[{t}]"
+                    comment = f"[{row['review_status']}] {row['rationale']}"
                     if row["target_code"]:
                         out += [f"{tp}.code = #{row['target_code']}", f'{tp}.display = "{fsh_string(row["target_display"])}"']
                     out += [
                         f"{tp}.equivalence = #{row['equivalence']}",
-                        f'{tp}.comment = "{fsh_string(f"[{row["review_status"]}] {row["rationale"]}")}"',
+                        f'{tp}.comment = "{fsh_string(comment)}"',
                     ]
         out.append("")
     return "\n".join(out)
