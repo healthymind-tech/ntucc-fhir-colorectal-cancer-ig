@@ -34,7 +34,8 @@ jobs:
         run: |
           npm ci --prefix ig/tools
           echo "$GITHUB_WORKSPACE/ig/tools/node_modules/.bin" >> "$GITHUB_PATH"
-          gem install jekyll
+          # Pinned like the Publisher (.publisher-version) for reproducible builds.
+          gem install jekyll -v 4.4.1
 
       # Pinned in .publisher-version (shared with scripts/build_ig.sh) for
       # reproducible builds. Update deliberately, then re-check QA.
