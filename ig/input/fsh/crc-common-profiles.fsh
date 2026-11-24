@@ -4,7 +4,7 @@
 Profile: ColorectalCancerPatient
 Parent: $TWCorePatient
 Id: colorectal-cancer-patient
-Title: "Colorectal Cancer Patient - Community Draft"
+Title: "Colorectal Cancer Patient - Draft"
 Description: "大腸癌各 Task 共用之病人 Profile，結構以 TW Core Patient 為基礎。"
 * ^status = #draft
 * ^experimental = true
@@ -16,7 +16,7 @@ Description: "大腸癌各 Task 共用之病人 Profile，結構以 TW Core Pati
 Profile: ColorectalCancerPrimaryCondition
 Parent: Condition
 Id: colorectal-cancer-primary-condition
-Title: "Colorectal Cancer Primary Condition - Community Draft"
+Title: "Colorectal Cancer Primary Condition - Draft"
 Description: "一顆原發大腸直腸癌。癌登摘錄（TCR Data Item Observation）以 focus 指向本 Condition，讓同一病人多原發時仍能分辨每筆欄位屬於哪一顆腫瘤。"
 * ^status = #draft
 * ^experimental = true

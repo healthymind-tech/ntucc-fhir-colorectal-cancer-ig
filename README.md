@@ -1,6 +1,6 @@
 # NTUCC FHIR Colorectal Cancer Implementation Guide
 
-**大腸癌診療核心測量指標 FHIR 實作指引（社群草稿）**
+**大腸癌診療核心測量指標 FHIR 實作指引（草稿）**
 
 [![Build](https://github.com/healthymind-tech/ntucc-fhir-colorectal-cancer-ig/actions/workflows/build.yml/badge.svg)](https://github.com/healthymind-tech/ntucc-fhir-colorectal-cancer-ig/actions/workflows/build.yml)
 [![Publish](https://github.com/healthymind-tech/ntucc-fhir-colorectal-cancer-ig/actions/workflows/pages.yml/badge.svg)](https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/)
@@ -143,9 +143,9 @@ Built on **TW Core IG 1.0.0**. See *Quick start* above for build commands; the p
 
 ## 聲明 · Disclaimer
 
-本專案為**非官方社群草稿**，不是衛生福利部、國民健康署、國家衛生研究院、HL7 International 或 HL7 Taiwan 的出版品，也未經上述機構認可。指標的正式定義以國民健康署公告為準。本專案不得取代官方申報規格、癌症登記長表摘錄手冊或臨床判斷。所有範例與測試資料皆為完全合成，不含任何真實病人資料。
+本專案為**非官方草稿**，不是衛生福利部、國民健康署、國家衛生研究院、HL7 International 或 HL7 Taiwan 的出版品，也未經上述機構認可。指標的正式定義以國民健康署公告為準。本專案不得取代官方申報規格、癌症登記長表摘錄手冊或臨床判斷。所有範例與測試資料皆為完全合成，不含任何真實病人資料。
 
-*This is an unofficial community draft. It is not endorsed by Taiwan's Ministry of Health and Welfare, the Health Promotion Administration, or HL7. All example and test data are fully synthetic.*
+*This is an unofficial draft. It is not endorsed by Taiwan's Ministry of Health and Welfare, the Health Promotion Administration, or HL7. All example and test data are fully synthetic.*
 
 ## 授權 · License
 
