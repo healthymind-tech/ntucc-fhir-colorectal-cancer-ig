@@ -100,7 +100,7 @@ Library 宣告的輸入參數：
 
 直接以 `Library/$evaluate` 執行時，量測期間也放在 `parameters` 中：`{ "name": "Measurement Period", "valuePeriod": { "start": "2025-01-01T00:00:00+08:00", "end": "2025-12-31T23:59:59.999+08:00" } }`。
 
-**沒有要排除的腫瘤時：** 三個外院資料參數刻意不設預設值（cql-execution 3.3.2 在宣告帶空 List 預設值時，會拒絕呼叫端提供的 `List<String>`）。Java 參考引擎把未提供的參數當成 null，CQL 的 `Is Outside Excluded` 會把 null 視為「不排除」。JavaScript 引擎 cql-execution **不會**把未提供、無預設值的參數當成 null，執行時會出現 `interval.contains is not a function` 錯誤而中止。以 cql-execution 為基礎的實作必須明確傳入三個清單，沒有要排除的腫瘤時傳空清單（`[]`）；FHIR Parameters 無法表達空清單，這類伺服器應把缺少的清單參數補成空清單。
+**沒有要排除的腫瘤時：** 三個外院資料參數刻意不設預設值（cql-execution 3.3.2 在宣告帶空 List 預設值時，會拒絕呼叫端提供的 `List<String>`）。Java 參考引擎把未提供的參數當成 null，CQL 的 `Is Outside Excluded` 會把 null 視為「不排除」。JavaScript 引擎 cql-execution 在參數未提供、或明確傳入 null 時，執行都會出現 `interval.contains is not a function` 錯誤而中止，只有空清單（`[]`）可行。以 cql-execution 為基礎的實作必須明確傳入三個清單，沒有要排除的腫瘤時傳空清單（`[]`）；FHIR Parameters 無法表達空清單，這類伺服器應把缺少的清單參數補成空清單。
 
 ## Artifacts
 

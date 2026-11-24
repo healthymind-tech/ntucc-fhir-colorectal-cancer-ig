@@ -69,9 +69,10 @@ parameter "Vital Status Dead Codes" List<String> default { 'true' }
 // numerator and denominator data are both outside, or the numerator data is
 // outside and could not be obtained. Supplied per indicator by the hospital.
 // No default on purpose: cql-execution 3.3.2 fails type-checking a supplied
-// List<String> when the declaration has an empty-list default. A missing list
-// is handled by "Is Outside Excluded" (not Coalesce, which cql-execution
-// flattens into list elements when its operands are lists).
+// List<String> when the declaration has an empty-list default. On the Java
+// engine a missing list is null and "Is Outside Excluded" treats null as "not
+// excluded" (not Coalesce, which cql-execution flattens into list elements).
+// cql-execution fails on a missing or explicit-null list: pass [] there.
 parameter "Outside Data Excluded QI01" List<String>
 parameter "Outside Data Excluded QI02" List<String>
 parameter "Outside Data Excluded QI03" List<String>
@@ -182,8 +183,11 @@ define function "Normalized Site"(Raw String):
 
 // Stage groups are coded with an Arabic leading digit (1A, 2B, 3C, 4).
 // 0/0A (in situ), 888 and 999 do not start with 1-3.
+// Nested if, not "Raw is null or Length(Raw) = 0": neither engine
+// short-circuits "or", and both crash on Length(null) (a missing 3.13 / 3.7).
 define function "Stage Leading Digit"(Raw String):
-  if Raw is null or Length(Raw) = 0 then null
+  if Raw is null then null
+  else if Length(Raw) = 0 then null
   else Substring(Raw, 0, 1)
 
 define function "Class Of Case"(Tumour Condition): "Registry Value"(Tumour, '2.3')

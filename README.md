@@ -82,7 +82,7 @@ scripts/build_ig.sh
 | HL7 IG Publisher 3.0.5 | QA 0 errors、0 broken links（CI 遇到 QA error 或 broken link 即失敗） |
 | CQL 翻譯 | 成功 |
 | CQL 執行 | 100 個合成個案，JavaScript 與 Java 兩個引擎都與 Python 參考實作一致；重現 3 份摘要 MeasureReport |
-| pytest | 347 passed |
+| pytest | 351 passed |
 
 每次 push 都由 GitHub Actions 重跑；推送到 `main` 後會自動建置並發布到 GitHub Pages。
 

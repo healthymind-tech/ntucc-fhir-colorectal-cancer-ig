@@ -24,4 +24,5 @@
 | A-18 | 指標 1 條件 D | 「第 3 級或屬分化不全」是否包含 G4（未分化） | 只計 G3（SNOMED CT 1155704001）；G4 不計 | 國衛院研究團隊 |
 | A-19 | 全部 | 同一人有多個 FHIR Patient 資源時無法在 Patient context 內去重 | 要求評估前完成病人身分整合（一人一個 Patient） | 導入醫院 |
 | A-20 | 全部 | `urn:uuid:` 參照需要 Bundle fullUrl，CQL 資料模型取不到 | 不支援；評估前須解析為 `Condition/id` | 導入醫院 |
-| A-21 | 指標 1 條件 B–D | 病理發現的答案與問題如何配對；同一筆發現帶互相矛盾的答案（例如同時「有」與「無」淋巴血管侵犯）如何計算 | 每一題只能用自己的答案清單（B：LL4381-1；C：LL906-9；D：SNOMED CT G1–G4），由 `CRCPathologyHighRiskFeature` 的 invariant `crc-hrf-b-answer`／`crc-hrf-c-answer`／`crc-hrf-d-answer` 檢查。valueCodeableConcept 至多一個 LOINC 或 SNOMED CT coding（`crc-hrf-single-answer`）：矛盾的答案是錯誤資料，驗證即失敗，不由 CQL 擇一。其他代碼系統的本地代碼不受限。CQL 不重複檢查，評估前資料應先通過 Profile 驗證 | 導入醫院 |
+| A-21 | 指標 1 條件 B–D | 病理發現的答案與問題如何配對；同一筆發現帶互相矛盾的答案（例如同時「有」與「無」淋巴血管侵犯）如何計算 | 每一題只能用自己的答案清單（B：LL4381-1；C：LL906-9；D：SNOMED CT G1–G4），由 `CRCPathologyHighRiskFeature` 的 invariant `crc-hrf-b-answer`／`crc-hrf-c-answer`／`crc-hrf-d-answer` 檢查。valueCodeableConcept 至多一個 LOINC 或 SNOMED CT coding（`crc-hrf-single-answer`）：矛盾的答案是錯誤資料，驗證即失敗，不由 CQL 擇一。其他代碼系統的本地代碼不受限。因此 LOINC 答案不能再附上同義的 SNOMED CT coding（translation）；需要 SNOMED CT 時請另以本地系統或 `Observation.note` 記錄。CQL 不重複檢查，評估前資料應先通過 Profile 驗證 | 導入醫院 |
+| A-22 | 全部 | `code`、`status` 等 FHIR code 型別值前後帶空白（不合法的 FHIR） | 不處理：HAPI（Java 引擎）解析時會去除 code 的前後空白，cql-execution 不會，兩個引擎結果可能不同；`status` 帶空白時 HAPI 會拒絕整個 Bundle。評估前資料應先通過 FHIR 驗證 | 導入醫院 |
