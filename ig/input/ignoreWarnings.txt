@@ -22,3 +22,15 @@ No definition could be found for URL value 'https://www.hpa.gov.tw/Pages/Detail.
 # registry primary-site field; the warning reflects server coverage, not data.
 Unknown Code 'C18.7' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/icd-o-3' version '2000' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
 Unknown Code 'C20.9' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/icd-o-3' version '2000' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+
+# LOINC publishes no Traditional Chinese (zh-TW) display names, so codes in
+# zh-TW resources carry the English display. This is a property of LOINC, not
+# a data error; only this message for LOINC codes is suppressed.
+There are no valid display names found for the code http://loinc.org#11529-5 for language(s) 'zh-TW'. The display is 'Surgical pathology study' which is a valid display for the default language
+There are no valid display names found for the code http://loinc.org#33732-9 for language(s) 'zh-TW'. The display is 'Histology grade [Identifier] in Cancer specimen' which is a valid display for the default language
+There are no valid display names found for the code http://loinc.org#59544-7 for language(s) 'zh-TW'. The display is 'Lymph-vascular invasion Cancer specimen' which is a valid display for the default language
+There are no valid display names found for the code http://loinc.org#85290-5 for language(s) 'zh-TW'. The display is 'Surgical margin tumor involvement [Presence] in Colorectal cancer specimen by Light microscopy' which is a valid display for the default language
+There are no valid display names found for the code http://loinc.org#11529-5 for language(s) 'zh-TW'. The display is 'Surgical pathology study' which is a valid display for the default language (for 'http://loinc.org#11529-5')
+There are no valid display names found for the code http://loinc.org#33732-9 for language(s) 'zh-TW'. The display is 'Histology grade [Identifier] in Cancer specimen' which is a valid display for the default language (for 'http://loinc.org#33732-9')
+There are no valid display names found for the code http://loinc.org#59544-7 for language(s) 'zh-TW'. The display is 'Lymph-vascular invasion Cancer specimen' which is a valid display for the default language (for 'http://loinc.org#59544-7')
+There are no valid display names found for the code http://loinc.org#85290-5 for language(s) 'zh-TW'. The display is 'Surgical margin tumor involvement [Presence] in Colorectal cancer specimen by Light microscopy' which is a valid display for the default language (for 'http://loinc.org#85290-5')

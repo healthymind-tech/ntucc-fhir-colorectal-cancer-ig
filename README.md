@@ -43,12 +43,12 @@
          ├─► ig/input/cql/*.cql                     CQL 實作（註解標 criterion_id）
          ├─► reference/crc_indicators.py            獨立 Python 參考實作
          └─► tests/fixtures/synthetic-cases.json    手寫預期值的合成個案
-               └─► 兩份實作都必須通過同一批個案
+               └─► Python 參考實作、JavaScript 與 Java 兩個 CQL 引擎的結果必須一致
 ```
 
 - **直接讀癌登欄位**：官方定義寫的就是長表欄位（例如「4.1.4＝30~90」），指標 2、3 直接讀這些欄位，算出來的結果才會和官方核算一致。
 - **原值保存**：癌登值以原始字串保存，`00000000`、`99999999` 等特殊值不會被誤判成日期。
-- **兩份實作互相驗證**：CQL 與 Python 各自實作同一張規則表。開發期間，這個機制就抓到 JavaScript 引擎會把不存在的日期 `20250231` 當成有效日期的問題。
+- **三方互相驗證**：CQL 與 Python 各自實作同一張規則表，CQL 再分別在 JavaScript 與 Java 兩個引擎上執行，三者對每個個案的結果必須相同。這個機制抓到了多個只在單一實作或單一引擎出現的問題（見「驗證方法」頁）。
 - **不替官方做決定**：原文沒寫清楚之處列入「[已知歧義](ig/input/pagecontent/known-ambiguities.md)」，不自行補規則。
 
 ### 快速開始
@@ -81,8 +81,8 @@ scripts/build_ig.sh
 | SUSHI | 0 errors、0 warnings |
 | HL7 IG Publisher 3.0.5 | QA 0 errors、0 broken links（CI 遇到 QA error 或 broken link 即失敗） |
 | CQL 翻譯 | 成功 |
-| CQL 執行 | 44 個合成個案全部通過 |
-| pytest | 111 passed |
+| CQL 執行 | 90 個合成個案，JavaScript 與 Java 兩個引擎都與 Python 參考實作一致；重現 3 份摘要 MeasureReport |
+| pytest | 337 passed |
 
 每次 push 都由 GitHub Actions 重跑；推送到 `main` 後會自動建置並發布到 GitHub Pages。
 

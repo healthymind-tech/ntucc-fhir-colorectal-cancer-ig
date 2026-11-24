@@ -46,16 +46,20 @@ POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominato
 DEFAULT_ISSUED = "2025-04-30T17:00:00+08:00"
 
 
-def tumour(tumour_id, fields, base=None, polyp=None):
+def tumour(tumour_id, fields, base=None, polyp=None, **options):
     """One primary tumour. A field value is a raw string (one final version) or a
-    list of {"value", "issued", "status"} versions."""
+    list of {"value", "issued", "status"} versions ("issued": None omits it).
+    options: verification (Condition.verificationStatus), reference ("relative",
+    "versioned", "absolute"), extra_focus (a second focus on every registry item),
+    foreign_coding ({field: other-system code} added to that field's items)."""
     merged = dict(base or {})
     for key, value in fields.items():
         if value is None:
             merged.pop(key, None)
         else:
             merged[key] = value
-    return {"id": tumour_id, "fields": merged, "polyp": polyp}
+    return {"id": tumour_id, "fields": merged, "polyp": polyp, **options,
+            "multi_focus": bool(options.get("extra_focus"))}
 
 
 def case(case_id, description, fields, expected, base=None, polyp=None):
@@ -68,7 +72,7 @@ def case(case_id, description, fields, expected, base=None, polyp=None):
     return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists)
 
 
-def multi(case_id, description, tumours, expected, national_id="present"):
+def multi(case_id, description, tumours, expected, national_id="present", outside_excluded=None):
     unknown = set(expected) - set(POPULATIONS)
     if unknown:
         raise SystemExit(f"{case_id}: not a population expression: {unknown}")
@@ -78,12 +82,14 @@ def multi(case_id, description, tumours, expected, national_id="present"):
             items = value if isinstance(value, list) else [{"value": value}]
             versions[number] = [
                 {"id": f"{t['id']}-f{number.replace('.', '-')}-v{k:02d}", "value": v["value"],
-                 "issued": v.get("issued", DEFAULT_ISSUED), "status": v.get("status", "final")}
+                 "issued": v["issued"] if "issued" in v else DEFAULT_ISSUED,
+                 "status": v.get("status", "final")}
                 for k, v in enumerate(items)
             ]
         t["fields"] = versions
     return {"id": case_id, "description": description,
-            "national_id": case_id if national_id else None, "tumours": tumours,
+            "national_id": (case_id if national_id == "present" else national_id), "tumours": tumours,
+            "outside_excluded": outside_excluded or {},
             "expected": {k: sorted(v) for k, v in expected.items()}}
 
 
@@ -166,6 +172,59 @@ def _t(case_id, suffix):
 
 
 CASES += [
+    # ---- raw value normalisation: trim ASCII blanks only, ASCII digits only ----
+    multi("ws-hospital-internal", "1.1 內含空白：與另一筆不是同一醫院代碼，不視為重複",
+          [tumour(_t("ws-hospital-internal", "a"), {"1.1": "0401 180014"}, COLON),
+           tumour(_t("ws-hospital-internal", "b"), {"2.5": "20250201"}, COLON)],
+          {"Initial Population": [_t("ws-hospital-internal", "a"), _t("ws-hospital-internal", "b")]}),
+    case("ws-site-internal", "2.6「C 18.7」內含空白：格式錯誤，不屬大腸癌", {"2.6": "C 18.7"}, {"Initial Population": False}, COLON),
+    case("ws-site-malformed", "2.6「C1.87」：格式錯誤", {"2.6": "C1.87"}, {"Initial Population": False}, COLON),
+    case("ws-site-trailing", "2.6「C18.7 」：去除尾端空白後有效", {"2.6": "C18.7 "},
+         {"Initial Population": True, "Denominator 2": True}, COLON),
+    case("ws-dx-leading", "2.5 前置空白：去除後有效", {"2.5": " 20250305"}, {"Initial Population": True}, COLON),
+    case("ws-class-trailing", "2.3「1 」：去除後為 1", {"2.3": "1 "}, {"Initial Population": True}, COLON),
+    case("ws-tx-status-0", "2.3.2「 0」：治療前死亡", {"2.3.2": " 0"}, {"Initial Population": False}, COLON),
+    case("ws-first-course-none", "死亡且 4.1「00000000 」", {"5.4": "true", "4.1": "00000000 "}, {"Initial Population": False}, COLON),
+    case("ws-cross-hospital", "2.3.1「2 」：跨院治療", {"2.3": "2", "2.3.1": "2 ", "2.3.2": "3"}, {"Initial Population": False}, COLON),
+    case("ws-vital-internal", "5.4「tr ue」不是死亡代碼", {"5.4": "tr ue", "4.1": "00000000"}, {"Initial Population": True}, COLON),
+    case("vital-upper-case", "5.4「TRUE」：死亡代碼不分大小寫", {"5.4": "TRUE", "4.1": "00000000"}, {"Initial Population": False}, COLON),
+    multi("ws-stage-internal", "同日：a 病理期別「3 C」格式錯誤且臨床 999，無法排序；留 b（2A）",
+          [tumour(_t("ws-stage-internal", "a"), {"3.13": "3 C", "3.7": "999"}, COLON),
+           tumour(_t("ws-stage-internal", "b"), {"3.13": "2A"}, COLON)],
+          {"Initial Population": [_t("ws-stage-internal", "b")]}),
+    case("fullwidth-nodes", "2.14 全形「１５」：不是 ASCII 數字", {"2.14": "１５"},
+         {"Denominator 2": True, "Numerator 2": False}, COLON),
+    # ---- what counts as a tumour, references, field identity ---------------------
+    multi("tumour-entered-in-error", "Condition 為 entered-in-error：不是個案",
+          [tumour(_t("tumour-entered-in-error", "tumour"), {}, COLON, verification="entered-in-error")],
+          {"Initial Population": []}),
+    multi("registry-item-two-focus", "癌登欄位同時 focus 腫瘤與糖尿病：不歸屬任何一方",
+          [tumour(_t("registry-item-two-focus", "tumour"), {}, COLON, extra_focus=_t("registry-item-two-focus", "diabetes"))],
+          {"Initial Population": []}),
+    multi("reference-versioned", "focus 帶版本（Condition/x/_history/1）",
+          [tumour(_t("reference-versioned", "tumour"), {}, COLON, reference="versioned")],
+          {"Initial Population": [_t("reference-versioned", "tumour")], "Numerator 2": [_t("reference-versioned", "tumour")]}),
+    multi("reference-absolute", "focus 為絕對 URL",
+          [tumour(_t("reference-absolute", "tumour"), {}, COLON, reference="absolute")],
+          {"Initial Population": [_t("reference-absolute", "tumour")]}),
+    multi("issued-missing-only", "2.5 唯一一筆沒有 issued：仍採用",
+          [tumour(_t("issued-missing-only", "tumour"), {"2.5": [{"value": "20250305", "issued": None}]}, COLON)],
+          {"Initial Population": [_t("issued-missing-only", "tumour")]}),
+    multi("issued-missing-loses", "2.14 一筆有 issued（15）、一筆沒有（11）：有 issued 者勝",
+          [tumour(_t("issued-missing-loses", "tumour"), {"2.14": [
+              {"value": "15", "issued": "2025-04-01T09:00:00+08:00"}, {"value": "11", "issued": None}]}, COLON)],
+          {"Numerator 2": [_t("issued-missing-loses", "tumour")]}),
+    multi("foreign-coding", "2.6 欄位另帶其他系統的代碼「2.5」：不得被當成 2.5",
+          [tumour(_t("foreign-coding", "tumour"), {"2.6": [{"value": "C187", "issued": "2025-05-30T09:00:00+08:00"}]}, COLON,
+                  foreign_coding={"2.6": "2.5"})],
+          {"Initial Population": [_t("foreign-coding", "tumour")]}),
+    multi("national-id-blank", "身分證號只有空白：視為缺少",
+          [tumour(_t("national-id-blank", "tumour"), {}, COLON)], {"Initial Population": []}, national_id=" "),
+    # ---- 第五點 outside-hospital data (hospital-supplied, per indicator) ----------
+    multi("outside-data-excluded-qi02", "醫院依第五點將此腫瘤自指標 2 排除：仍在 IP，但不在指標 2 分母",
+          [tumour(_t("outside-data-excluded-qi02", "tumour"), {}, COLON)],
+          {"Initial Population": [_t("outside-data-excluded-qi02", "tumour")], "Denominator 2": [], "Numerator 2": []},
+          outside_excluded={"2": [_t("outside-data-excluded-qi02", "tumour")]}),
     # ---- case assembly (reference/cohort.py, case-assembly page) ----------------
     multi("dedup-earlier-diagnosis", "同院同病人兩顆結腸癌：留最初診斷日期較早者",
           [tumour(_t("dedup-earlier-diagnosis", "a"), {}, COLON),
@@ -304,27 +363,51 @@ def ref(kind, rid):
 def tumour_resources(pid, subject, t, report_ids):
     tid, fields, polyp = t["id"], t["fields"], t["polyp"]
     current = {num: max((v for v in vs if v["status"] in ("final", "amended", "corrected")),
-                        key=lambda v: (v["issued"], v["id"]), default=None)
+                        key=lambda v: (v["issued"] or "", v["id"]), default=None)
                for num, vs in fields.items()}
-    site = icdo3.topography(current["2.6"]["value"])
+    try:
+        site = icdo3.topography(current["2.6"]["value"])
+    except (ValueError, TypeError, KeyError):  # deliberately malformed registry site
+        site = "C18.9"
     coding = [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": icd10cm_for_site(site)}]
     condition = {
         "resourceType": "Condition", "id": tid, "subject": subject,
         "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
         "code": {"coding": coding},
         "bodySite": [{"coding": [{"system": ICDO3, "code": site}]}],
-        "extension": [{"url": MORPHOLOGY_EXT, "valueCodeableConcept": {
-            "coding": [{"system": ICDO3, "code": icdo3.morphology(current["2.8"]["value"], current["2.9"]["value"])}]}}],
     }
+    try:
+        condition["extension"] = [{"url": MORPHOLOGY_EXT, "valueCodeableConcept": {
+            "coding": [{"system": ICDO3, "code": icdo3.morphology(current["2.8"]["value"], current["2.9"]["value"])}]}}]
+    except (ValueError, TypeError, KeyError):
+        pass
     out = [condition]
+    style = t.get("reference", "relative")
+    tumour_ref = {"relative": ref("Condition", tid),
+                  "versioned": {"reference": f"Condition/{tid}/_history/1"},
+                  "absolute": {"reference": f"https://hospital.example.org/fhir/Condition/{tid}"}}[style]
+    if t.get("verification"):
+        condition["verificationStatus"] = {"coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status", "code": t["verification"]}]}
+    if t.get("extra_focus"):
+        out.append({"resourceType": "Condition", "id": t["extra_focus"], "subject": subject,
+                    "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
+                    "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9"}]}})
     for number, versions in fields.items():
         for v in versions:
-            out.append({
+            item_coding = [{"system": FIELD_CS, "code": number}]
+            if number in t.get("foreign_coding", {}):
+                item_coding.append({"system": "urn:example:other-field-codes", "code": t["foreign_coding"][number]})
+            item = {
                 "resourceType": "Observation", "id": v["id"], "meta": {"profile": [TCR_PROFILE]},
-                "status": v["status"], "issued": v["issued"],
-                "code": {"coding": [{"system": FIELD_CS, "code": number}]},
-                "subject": subject, "focus": [ref("Condition", tid)], "valueString": v["value"],
-            })
+                "status": v["status"], "code": {"coding": item_coding},
+                "subject": subject, "focus": [tumour_ref], "valueString": v["value"],
+            }
+            if v["issued"] is not None:
+                item["issued"] = v["issued"]
+            if t.get("extra_focus"):
+                item["focus"].append(ref("Condition", t["extra_focus"]))
+            out.append(item)
     if not polyp:
         return out
     if polyp.get("malignant_polyp"):
@@ -372,8 +455,9 @@ def to_bundle(item, index):
     pid = item["id"]
     subject = ref("Patient", pid)
     patient = {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01"}
-    if item.get("national_id"):
-        patient["identifier"] = [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]
+    if item.get("national_id") is not None:
+        value = f"Z{index:09d}" if item["national_id"] == item["id"] else item["national_id"]
+        patient["identifier"] = [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": value}]
     else:
         # Not a valid TW Core Patient: deliberately tests the missing duplicate key.
         patient["identifier"] = [{"system": "urn:example:local-mrn", "value": f"MRN{index:06d}"}]
@@ -383,6 +467,50 @@ def to_bundle(item, index):
     return {"resourceType": "Bundle", "type": "collection",
             "meta": {"tag": [{"system": f"{CANON}/CodeSystem/fixture-tag", "code": "synthetic"}]},
             "entry": [{"resource": r} for r in entries]}
+
+
+MEASURES = {1: "crc-qi-01", 2: "crc-qi-02", 3: "crc-qi-03"}
+
+
+def write_measure_reports(results, period):
+    """Summary MeasureReports over the whole synthetic population, from the
+    Python reference. The JavaScript runner aggregates the CQL results and
+    checks they reproduce these counts."""
+    from fractions import Fraction
+    from reference.crc_indicators import proportion
+
+    out = ["// GENERATED by scripts/build_fixtures.py from the Python reference over",
+           "// tests/fixtures/synthetic-cases.json. Do not edit by hand. Synthetic data only.", ""]
+    for number, measure_id in MEASURES.items():
+        counts = proportion(results, number)
+        eligible = counts["denominator"] - counts["denominator-exclusion"]
+        score = Fraction(counts["numerator"], eligible) if eligible else None
+        out += [
+            f"Instance: SyntheticSummaryReport{number:02d}",
+            "InstanceOf: MeasureReport",
+            "Usage: #example",
+            f'Title: "合成摘要報告－大腸癌指標 {number}"',
+            f'Description: "以本 IG 全部 {len(results)} 個合成個案計算的 {measure_id} 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"',
+            f'* id = "synthetic-summary-{measure_id}"',
+            "* language = #zh-TW",
+            "* status = #complete",
+            "* type = #summary",
+            f'* measure = "{CANON}/Measure/{measure_id}|0.1.0-preview.1"',
+            f'* date = "2026-11-25"',
+            f'* period.start = "{period[0]}"',
+            f'* period.end = "{period[1]}"',
+        ]
+        populations = [("initial-population", "initial-population"), ("denominator", "denominator"),
+                       ("denominator-exclusion", "denominator-exclusion"), ("numerator", "numerator")]
+        if number != 2:
+            populations = [p for p in populations if p[0] != "denominator-exclusion"]
+        for k, (code, key) in enumerate(populations):
+            out += [f"* group.population[{k}].code = $MeasurePopulation#{code}",
+                    f"* group.population[{k}].count = {counts[key]}"]
+        if score is not None:
+            out.append(f"* group.measureScore.value = {float(score):.4f}")
+        out.append("")
+    (ROOT / "ig/input/fsh/measure-reports.fsh").write_text("\n".join(out), encoding="utf-8")
 
 
 def value_sets():
@@ -401,8 +529,22 @@ def main():
     (fixtures / "cql").mkdir(parents=True, exist_ok=True)
     flat = {"format": "tumour-level-v2", "measurement_period": ["2025-01-01", "2025-12-31"], "cases": CASES}
     (fixtures / "synthetic-cases.json").write_text(json.dumps(flat, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    runner = [{"id": c["id"], "expected": c["expected"], "bundle": to_bundle(c, i + 1)} for i, c in enumerate(CASES)]
+    from datetime import date as _date
+    from reference.crc_indicators import evaluate_case
+    period = tuple(_date.fromisoformat(d) for d in flat["measurement_period"])
+    runner = []
+    for i, c in enumerate(CASES):
+        reference = evaluate_case(c, period)
+        wrong = {k: (v, reference[k]) for k, v in c["expected"].items() if reference[k] != v}
+        if wrong:
+            raise SystemExit(f"{c['id']}: reference disagrees with the hand-written expectation: {wrong}")
+        entry = {"id": c["id"], "expected": reference, "bundle": to_bundle(c, i + 1)}
+        params = {f"Outside Data Excluded QI0{m}": ids for m, ids in c["outside_excluded"].items()}
+        if params:
+            entry["parameters"] = params
+        runner.append(entry)
     (fixtures / "cql/cases.json").write_text(json.dumps(runner, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    write_measure_reports([r["expected"] for r in runner], flat["measurement_period"])
     vs = value_sets()
     if not vs:
         raise SystemExit("no ValueSets found; run SUSHI first")

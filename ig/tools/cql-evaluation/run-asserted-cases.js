@@ -56,7 +56,13 @@ const parameters = {
     new cql.DateTime(2025, 12, 31, 23, 59, 59, 999, 8),
     true,
     true
-  )
+  ),
+  // cql-execution does not treat an unsupplied, default-less parameter as
+  // null, so the 第五點 exclusion lists are always passed (empty unless a case
+  // supplies them).
+  'Outside Data Excluded QI01': [],
+  'Outside Data Excluded QI02': [],
+  'Outside Data Excluded QI03': []
 };
 
 // Population expressions return lists of FHIR resources (population basis =
@@ -77,12 +83,20 @@ function patientId(testCase) {
   return patients[0].id;
 }
 
+const MEASURE_POPULATIONS = {
+  'crc-qi-01': { 'initial-population': 'Initial Population', denominator: 'Denominator 1', numerator: 'Numerator 1' },
+  'crc-qi-02': { 'initial-population': 'Initial Population', denominator: 'Denominator 2',
+    'denominator-exclusion': 'Denominator 2 Exclusion', numerator: 'Numerator 2' },
+  'crc-qi-03': { 'initial-population': 'Initial Population', denominator: 'Denominator 3', numerator: 'Numerator 3' }
+};
+
 async function main() {
   const covered = new Set();
   const failures = [];
+  const members = {}; // define -> Set of "case/tumour" ids, aggregated over all cases
   for (const testCase of testCases) {
     assert.ok(testCase.expected && Object.keys(testCase.expected).length, `${testCase.id}: no assertions`);
-    const executor = new cql.Executor(library, codeService, parameters);
+    const executor = new cql.Executor(library, codeService, { ...parameters, ...(testCase.parameters || {}) });
     const id = patientId(testCase);
     // Execute every Measure expression for every case so runtime errors on any
     // branch surface, then compare the asserted ones.
@@ -93,6 +107,11 @@ async function main() {
       const execution = await executor.exec_expression(expression, source);
       const result = execution.patientResults[id];
       assert.ok(result && Object.prototype.hasOwnProperty.call(result, expression), `${testCase.id}: no result for ${expression}`);
+      const value = normalize(result[expression]);
+      if (Array.isArray(value)) {
+        members[expression] = members[expression] || new Set();
+        value.forEach(id => members[expression].add(`${testCase.id}/${id}`));
+      }
       if (Object.prototype.hasOwnProperty.call(testCase.expected, expression)) {
         try {
           assert.deepEqual(normalize(result[expression]), testCase.expected[expression]);
@@ -103,6 +122,27 @@ async function main() {
       }
     }
   }
+  // The generated summary MeasureReports must be reproduced by the CQL.
+  for (const file of fs.readdirSync(resourcesDir).filter(name => name.startsWith('MeasureReport-'))) {
+    const report = readJson(path.join(resourcesDir, file));
+    const measureId = report.measure.split('/').pop().split('|')[0];
+    const mapping = MEASURE_POPULATIONS[measureId];
+    for (const population of report.group[0].population) {
+      const code = population.code.coding[0].code;
+      const define = mapping[code];
+      let ids = new Set(members[define] || []);
+      // Proportion scoring: members of the denominator exclusion are removed
+      // from the numerator, as a measure engine does.
+      if (code === 'numerator' && mapping['denominator-exclusion']) {
+        for (const id of members[mapping['denominator-exclusion']] || []) ids.delete(id);
+      }
+      const got = ids.size;
+      if (got !== population.count) {
+        failures.push(`${report.id}: ${code} count ${population.count} but CQL gives ${got}`);
+      }
+    }
+  }
+
   if (failures.length) {
     console.error(failures.join('\n'));
     process.exitCode = 1;

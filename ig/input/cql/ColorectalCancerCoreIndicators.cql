@@ -6,11 +6,21 @@ below carries the criterion_id from that file; reference/crc_indicators.py is
 the independent Python reference implementation of the same table, and the two
 are checked against the same synthetic cases (tests/fixtures/synthetic-cases.json).
 
-UNIT OF MEASUREMENT: the indicators count registry cases, i.e. primary tumours,
-not patients. The population basis is Condition: every population define returns
-the list of primary-tumour Conditions of the patient that belong to it. A
-patient with synchronous colon and rectal primaries contributes two tumours,
-each evaluated on its own registry fields.
+UNIT OF MEASUREMENT: the official numerators and denominators are "人數"
+(number of persons). After 註1 de-duplication a person keeps one registry case
+per hospital and 癌別, so within one hospital counting the kept cases equals
+counting persons. The population basis is Condition (the kept primary tumour)
+so that every registry field is attributed to the right case: a field of one
+tumour can never be read for another.
+
+ASSUMPTIONS. One FHIR Patient per person (de-duplication runs inside Patient
+context and cannot merge two Patient resources of one person). References are
+resolved: "Condition/id", absolute URLs ending in it, optionally with
+"/_history/n"; urn:uuid references must be resolved before evaluation.
+
+RAW VALUES. Every registry value is trimmed of leading and trailing ASCII
+spaces and tabs; nothing else is removed, so an internal blank makes a value
+malformed. Digits are ASCII only. reference/ applies the same rule.
 
 Registry long-form fields are CRCTCRDataItemObservation resources whose focus
 references the tumour. When one field of one tumour has several current values
@@ -55,34 +65,62 @@ parameter "Measurement Period" Interval<DateTime>
 // (see the case assembly page). The default only covers a boolean rendering.
 parameter "Vital Status Dead Codes" List<String> default { 'true' }
 
+// 第五點: tumour ids the hospital excludes from one indicator because the
+// numerator and denominator data are both outside, or the numerator data is
+// outside and could not be obtained. Supplied per indicator by the hospital.
+// No default on purpose: cql-execution 3.3.2 fails type-checking a supplied
+// List<String> when the declaration has an empty-list default. A missing list
+// is handled by "Is Outside Excluded" (not Coalesce, which cql-execution
+// flattens into list elements when its operands are lists).
+parameter "Outside Data Excluded QI01" List<String>
+parameter "Outside Data Excluded QI02" List<String>
+parameter "Outside Data Excluded QI03" List<String>
+
 context Patient
 
 // ==========================================================================
 // references and registry value access
 // ==========================================================================
 
-// True when a (relative or absolute) reference points at the given resource.
+// True when a relative or absolute reference, with or without a version
+// suffix (/_history/n), points at the given resource.
 define function "Points To"(Ref FHIR.Reference, ResourceType String, ResourceId String):
-  Ref.reference.value = ResourceType + '/' + ResourceId
-    or EndsWith(Ref.reference.value, '/' + ResourceType + '/' + ResourceId)
+  "Unversioned"(Ref.reference.value) = ResourceType + '/' + ResourceId
+    or EndsWith("Unversioned"(Ref.reference.value), '/' + ResourceType + '/' + ResourceId)
+
+define function "Unversioned"(Reference String):
+  ReplaceMatches(Reference, '/_history/[^/]*$', '')
+
+// Leading and trailing ASCII blanks removed; an all-blank value is no value.
+define function "Trimmed"(Raw String):
+  if Raw is null then null
+  else if Matches(Raw, '[ \\t]*') then null
+  else ReplaceMatches(ReplaceMatches(Raw, '^[ \\t]+', ''), '[ \\t]+$', '')
 
 define "TCR Field System":
   'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field'
 
+// A registry item belongs to exactly one tumour (profile: focus 1..1); items
+// with several focus targets are ignored rather than attributed to all.
 define "Registry Items":
   [Observation] Item
     where Item.status in { 'final', 'amended', 'corrected' }
       and exists (Item.code.coding C where C.system.value = "TCR Field System")
+      and Count(Item.focus) = 1
 
 // IP-UNIT: a primary tumour is a Condition that registry fields are abstracted for.
+// Conditions recorded in error or refuted are never cases.
 define "Primary Tumours":
   [Condition] Tumour
-    where exists ("Registry Items" Item
-      where exists (Item.focus F where "Points To"(F, 'Condition', Tumour.id)))
+    where not exists (Tumour.verificationStatus.coding V
+        where V.system.value = 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+          and V.code.value in { 'entered-in-error', 'refuted' })
+      and exists ("Registry Items" Item
+        where exists (Item.focus F where "Points To"(F, 'Condition', Tumour.id)))
 
 define function "Field Versions"(Tumour Condition, Field String):
   "Registry Items" Item
-    where exists (Item.code.coding C where C.code.value = Field)
+    where exists (Item.code.coding C where C.system.value = "TCR Field System" and C.code.value = Field)
       and exists (Item.focus F where "Points To"(F, 'Condition', Tumour.id))
     // id must be the string value: sorting the FHIR.id element itself compares
     // objects, which the JavaScript engine orders arbitrarily.
@@ -90,13 +128,16 @@ define function "Field Versions"(Tumour Condition, Field String):
 
 // IP-CURRENT: the current value of one registry field of one tumour: latest issued wins;
 // equal issued times fall back to the Observation id so the choice is stable.
+// A version without issued (the profile requires it) ranks below every dated
+// version, so it is used only when no version is dated.
 define function "Registry Value"(Tumour Condition, Field String):
-  Last(
+  "Trimmed"(Last(
     (("Field Versions"(Tumour, Field)) Candidate
-      where Candidate.issued = Max(("Field Versions"(Tumour, Field)) Other return Other.issued)
+      where (Candidate.issued is null and not exists (("Field Versions"(Tumour, Field)) Dated where Dated.issued is not null))
+        or Candidate.issued = Max(("Field Versions"(Tumour, Field)) Other return Other.issued)
     ) Latest
       sort by id
-  ).raw
+  ).raw)
 
 // Registry dates are YYYYMMDD. 00000000 (none) and 99999999 (unknown), and any
 // value with an unknown month or day, are not a calendar date and yield null.
@@ -128,10 +169,12 @@ define function "Registry Integer"(Raw String):
   else if Matches(Raw, '[0-9]+') then ToInteger(Raw)
   else null
 
-// ICD-O-3 topography is compared without the dot or blanks, so C18.7 and C187 match.
+// ICD-O-3 topography with or without the dot (C18.7, C187, c187); anything
+// else is malformed and yields null.
 define function "Normalized Site"(Raw String):
   if Raw is null then null
-  else Upper(ReplaceMatches(Raw, '[.\\s]', ''))
+  else if not Matches(Upper(Raw), 'C[0-9]{2}\\.?[0-9]') then null
+  else ReplaceMatches(Upper(Raw), '\\.', '')
 
 // Stage groups are coded with an Arabic leading digit (1A, 2B, 3C, 4).
 // 0/0A (in situ), 888 and 999 do not start with 1-3.
@@ -179,8 +222,10 @@ define "Measurement Dates":
 //   4 complete duplicate key, 5 註1 de-duplication, then on the kept record only
 //   6 class 1/2, 7 註3 cross-hospital, 8 第二點 died before treatment.
 // Step 9 (第五點 outside-hospital data) depends on what the hospital could
-// obtain, which no registry field records; it is hospital-supplied input
-// applied by the task layer, never guessed here.
+// obtain, which no registry field records. The hospital supplies, per
+// indicator, the tumours it excludes under that rule (parameters "Outside
+// Data Excluded QI01/02/03"); they are removed from that indicator's
+// denominator. Nothing is guessed here.
 // --------------------------------------------------------------------------
 
 // IP-SCOPE: 癌別「大腸癌」 = C18 except C18.1 (appendix), C19.9, C20.9.
@@ -189,14 +234,13 @@ define function "Is Colorectal Category"(Tumour Condition):
 
 define "Patient Has National Id":
   exists (Patient.identifier I
-    where I.system.value = 'http://www.moi.gov.tw' and I.value.value is not null)
+    where I.system.value = 'http://www.moi.gov.tw' and "Trimmed"(I.value.value) is not null)
 
 define function "Normalized Key"(Raw String):
-  if Raw is null then null
-  else if Length(ReplaceMatches(Raw, '\\s', '')) = 0 then null
-  else Upper(ReplaceMatches(Raw, '\\s', ''))
+  if "Trimmed"(Raw) is null then null
+  else Upper("Trimmed"(Raw))
 
-// Steps 1-4. IP-DXDATE.
+// Steps 1-4. IP-SCOPE, IP-DXDATE.
 define "Assembly Candidates":
   "Primary Tumours" Tumour
     where "Is Colorectal Category"(Tumour)
@@ -217,7 +261,7 @@ define "Stage Severity Order":
 
 define function "Stage Rank"(Raw String):
   if Raw is null then -1
-  else IndexOf("Stage Severity Order", Upper(ReplaceMatches(Raw, '\\s', '')))
+  else IndexOf("Stage Severity Order", Upper(Raw))
 
 define function "Severity"(Tumour Condition):
   if "Stage Rank"("Pathological Stage Group"(Tumour)) >= 0 then "Stage Rank"("Pathological Stage Group"(Tumour))
@@ -248,9 +292,10 @@ define function "Cross Hospital Treatment"(Tumour Condition):
     and Coalesce("Diagnosis Status"(Tumour) = '2', false)
     and Coalesce("Treatment Status"(Tumour) = '3', false)
 
+// Case-insensitive on both sides.
 define function "Is Dead"(Tumour Condition):
   "Vital Status"(Tumour) is not null
-    and Lower(ReplaceMatches("Vital Status"(Tumour), '\\s', '')) in "Vital Status Dead Codes"
+    and Lower("Vital Status"(Tumour)) in ("Vital Status Dead Codes" DeadCode return Lower(DeadCode))
 
 // IP-DEATH, step 8: (a) 2.3.2 = 0; (b) dead, 4.1 = 00000000 and 2.3.2 != 4;
 // (c) dead and 5.3 before 4.1. Death on the day treatment starts is treated.
@@ -308,9 +353,15 @@ define function "Pathology Report Date"(Tumour Condition):
       return date from Report.issued.value
   )
 
+// IP-OUTSIDE: 第五點, hospital-supplied per indicator.
+define function "Is Outside Excluded"(Tumour Condition, Excluded List<String>):
+  if Excluded is null then false
+  else Tumour.id.value in Excluded
+
 define "Denominator 1":
   "Initial Population" Tumour
-    where "Is Malignant Polyp"(Tumour)
+    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI01")
+      and "Is Malignant Polyp"(Tumour)
       and "Has High Risk Feature"(Tumour)
       and "Pathology Report Date"(Tumour) is not null
 
@@ -353,7 +404,8 @@ define function "Is Pathological Stage I To III"(Tumour Condition):
 
 define "Denominator 2":
   "Initial Population" Tumour
-    where "Is Colon Excluding Appendix"(Tumour)
+    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI02")
+      and "Is Colon Excluding Appendix"(Tumour)
       and "Has Resection Surgery 30 To 90"(Tumour)
       and "Is Pathological Stage I To III"(Tumour)
 
@@ -389,7 +441,8 @@ define function "Is Clinical Stage II To III"(Tumour Condition):
 // D3-CLASS: class 1 only, narrower than the shared class 1/2 population.
 define "Denominator 3":
   "Initial Population" Tumour
-    where "Is Rectosigmoid Or Rectum"(Tumour)
+    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI03")
+      and "Is Rectosigmoid Or Rectum"(Tumour)
       and Coalesce("Class Of Case"(Tumour) = '1', false)
       and "Is Clinical Stage II To III"(Tumour)
 

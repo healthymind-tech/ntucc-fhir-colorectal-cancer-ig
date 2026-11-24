@@ -110,9 +110,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "ip-class-1-tumour"
@@ -224,9 +226,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -336,9 +340,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -448,9 +454,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -560,9 +568,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -688,9 +698,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -816,9 +828,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "ip-class-2-full-course-tumour"
@@ -930,9 +944,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-met-tumour"
@@ -1048,9 +1064,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-nodes-11-tumour"
@@ -1163,9 +1181,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 2": [
           "qi02-nodes-12-tumour"
@@ -1277,9 +1297,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 2": [
           "qi02-nodes-90-tumour"
@@ -1391,9 +1413,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-nodes-95-tumour"
@@ -1506,9 +1530,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -1618,9 +1644,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-dotted-site-tumour"
@@ -1732,9 +1760,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -1844,9 +1874,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -1956,9 +1988,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-surgery-90-tumour"
@@ -2070,9 +2104,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -2182,9 +2218,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -2294,9 +2332,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -2406,9 +2446,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": []
       }
@@ -2518,9 +2560,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-stage-1-tumour"
@@ -2632,9 +2676,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "qi02-gist-tumour"
@@ -2749,9 +2795,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2 Exclusion": [
           "qi02-net-tumour"
@@ -2855,9 +2903,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-42-days-tumour"
@@ -2964,9 +3014,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-43-days-tumour"
@@ -3071,9 +3123,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "qi03-class-2-tumour"
@@ -3178,9 +3232,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-rectosigmoid-tumour"
@@ -3284,9 +3340,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-stage-3c-tumour"
@@ -3390,9 +3448,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": []
       }
@@ -3494,9 +3554,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": []
       }
@@ -3598,9 +3660,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": []
       }
@@ -3702,9 +3766,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-no-treatment-date-tumour"
@@ -3809,9 +3875,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 3": [
           "qi03-unknown-confirmation-tumour"
@@ -3916,9 +3984,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 3": []
       }
@@ -4032,9 +4102,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [
           "qi01-day-84-tumour"
@@ -4153,9 +4225,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [
           "qi01-day-85-tumour"
@@ -4272,9 +4346,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 1": [
           "qi01-day-0-tumour"
@@ -4390,9 +4466,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 1": []
       }
@@ -4506,9 +4584,11 @@
                 "status": "not-done"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [
           "qi01-not-done-tumour"
@@ -4628,9 +4708,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": []
       }
@@ -4744,9 +4826,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [
           "qi01-feature-a-only-tumour"
@@ -4862,9 +4946,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": []
       }
@@ -4974,12 +5060,2829 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [],
         "Numerator 1": []
+      }
+    },
+    {
+      "id": "ws-hospital-internal",
+      "description": "1.1 內含空白：與另一筆不是同一醫院代碼，不視為重複",
+      "national_id": "ws-hospital-internal",
+      "tumours": [
+        {
+          "id": "ws-hospital-internal-a",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-hospital-internal-a-f1-1-v00",
+                "value": "0401 180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-hospital-internal-a-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-hospital-internal-a-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-hospital-internal-a-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-hospital-internal-a-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-hospital-internal-a-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-hospital-internal-a-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-hospital-internal-a-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-hospital-internal-a-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-hospital-internal-a-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-hospital-internal-a-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-hospital-internal-a-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        },
+        {
+          "id": "ws-hospital-internal-b",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-hospital-internal-b-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-hospital-internal-b-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-hospital-internal-b-f2-5-v00",
+                "value": "20250201",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-hospital-internal-b-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-hospital-internal-b-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-hospital-internal-b-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-hospital-internal-b-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-hospital-internal-b-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-hospital-internal-b-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-hospital-internal-b-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-hospital-internal-b-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-hospital-internal-b-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-hospital-internal-a",
+          "ws-hospital-internal-b"
+        ]
+      }
+    },
+    {
+      "id": "ws-site-internal",
+      "description": "2.6「C 18.7」內含空白：格式錯誤，不屬大腸癌",
+      "national_id": "ws-site-internal",
+      "tumours": [
+        {
+          "id": "ws-site-internal-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-site-internal-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-site-internal-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-site-internal-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-site-internal-tumour-f2-6-v00",
+                "value": "C 18.7",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-site-internal-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-site-internal-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-site-internal-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-site-internal-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-site-internal-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-site-internal-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-site-internal-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-site-internal-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-site-malformed",
+      "description": "2.6「C1.87」：格式錯誤",
+      "national_id": "ws-site-malformed",
+      "tumours": [
+        {
+          "id": "ws-site-malformed-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-site-malformed-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-site-malformed-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-site-malformed-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-site-malformed-tumour-f2-6-v00",
+                "value": "C1.87",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-site-malformed-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-site-malformed-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-site-malformed-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-site-malformed-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-site-malformed-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-site-malformed-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-site-malformed-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-site-malformed-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-site-trailing",
+      "description": "2.6「C18.7 」：去除尾端空白後有效",
+      "national_id": "ws-site-trailing",
+      "tumours": [
+        {
+          "id": "ws-site-trailing-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-site-trailing-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-site-trailing-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-site-trailing-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-site-trailing-tumour-f2-6-v00",
+                "value": "C18.7 ",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-site-trailing-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-site-trailing-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-site-trailing-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-site-trailing-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-site-trailing-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-site-trailing-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-site-trailing-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-site-trailing-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-site-trailing-tumour"
+        ],
+        "Denominator 2": [
+          "ws-site-trailing-tumour"
+        ]
+      }
+    },
+    {
+      "id": "ws-dx-leading",
+      "description": "2.5 前置空白：去除後有效",
+      "national_id": "ws-dx-leading",
+      "tumours": [
+        {
+          "id": "ws-dx-leading-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-dx-leading-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-dx-leading-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-dx-leading-tumour-f2-5-v00",
+                "value": " 20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-dx-leading-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-dx-leading-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-dx-leading-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-dx-leading-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-dx-leading-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-dx-leading-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-dx-leading-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-dx-leading-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-dx-leading-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-dx-leading-tumour"
+        ]
+      }
+    },
+    {
+      "id": "ws-class-trailing",
+      "description": "2.3「1 」：去除後為 1",
+      "national_id": "ws-class-trailing",
+      "tumours": [
+        {
+          "id": "ws-class-trailing-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-class-trailing-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-class-trailing-tumour-f2-3-v00",
+                "value": "1 ",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-class-trailing-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-class-trailing-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-class-trailing-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-class-trailing-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-class-trailing-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-class-trailing-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-class-trailing-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-class-trailing-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-class-trailing-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-class-trailing-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-class-trailing-tumour"
+        ]
+      }
+    },
+    {
+      "id": "ws-tx-status-0",
+      "description": "2.3.2「 0」：治療前死亡",
+      "national_id": "ws-tx-status-0",
+      "tumours": [
+        {
+          "id": "ws-tx-status-0-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-tx-status-0-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-tx-status-0-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-tx-status-0-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-tx-status-0-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-tx-status-0-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.2": [
+              {
+                "id": "ws-tx-status-0-tumour-f2-3-2-v00",
+                "value": " 0",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-first-course-none",
+      "description": "死亡且 4.1「00000000 」",
+      "national_id": "ws-first-course-none",
+      "tumours": [
+        {
+          "id": "ws-first-course-none-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-first-course-none-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-first-course-none-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-first-course-none-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-first-course-none-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-first-course-none-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-first-course-none-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-first-course-none-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-first-course-none-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-first-course-none-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-first-course-none-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-first-course-none-tumour-f4-1-v00",
+                "value": "00000000 ",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-first-course-none-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "5.4": [
+              {
+                "id": "ws-first-course-none-tumour-f5-4-v00",
+                "value": "true",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-cross-hospital",
+      "description": "2.3.1「2 」：跨院治療",
+      "national_id": "ws-cross-hospital",
+      "tumours": [
+        {
+          "id": "ws-cross-hospital-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-cross-hospital-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-3-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-cross-hospital-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-cross-hospital-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-cross-hospital-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-cross-hospital-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.1": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-3-1-v00",
+                "value": "2 ",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.2": [
+              {
+                "id": "ws-cross-hospital-tumour-f2-3-2-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-vital-internal",
+      "description": "5.4「tr ue」不是死亡代碼",
+      "national_id": "ws-vital-internal",
+      "tumours": [
+        {
+          "id": "ws-vital-internal-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-vital-internal-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-vital-internal-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-vital-internal-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-vital-internal-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-vital-internal-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-vital-internal-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-vital-internal-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-vital-internal-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-vital-internal-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-vital-internal-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-vital-internal-tumour-f4-1-v00",
+                "value": "00000000",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-vital-internal-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "5.4": [
+              {
+                "id": "ws-vital-internal-tumour-f5-4-v00",
+                "value": "tr ue",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-vital-internal-tumour"
+        ]
+      }
+    },
+    {
+      "id": "vital-upper-case",
+      "description": "5.4「TRUE」：死亡代碼不分大小寫",
+      "national_id": "vital-upper-case",
+      "tumours": [
+        {
+          "id": "vital-upper-case-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "vital-upper-case-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "vital-upper-case-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "vital-upper-case-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "vital-upper-case-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "vital-upper-case-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "vital-upper-case-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "vital-upper-case-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "vital-upper-case-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "vital-upper-case-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "vital-upper-case-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "vital-upper-case-tumour-f4-1-v00",
+                "value": "00000000",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "vital-upper-case-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "5.4": [
+              {
+                "id": "vital-upper-case-tumour-f5-4-v00",
+                "value": "TRUE",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ws-stage-internal",
+      "description": "同日：a 病理期別「3 C」格式錯誤且臨床 999，無法排序；留 b（2A）",
+      "national_id": "ws-stage-internal",
+      "tumours": [
+        {
+          "id": "ws-stage-internal-a",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-stage-internal-a-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-stage-internal-a-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-stage-internal-a-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-stage-internal-a-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-stage-internal-a-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-stage-internal-a-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-stage-internal-a-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-stage-internal-a-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-stage-internal-a-f3-7-v00",
+                "value": "999",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-stage-internal-a-f3-13-v00",
+                "value": "3 C",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-stage-internal-a-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-stage-internal-a-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        },
+        {
+          "id": "ws-stage-internal-b",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ws-stage-internal-b-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ws-stage-internal-b-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ws-stage-internal-b-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ws-stage-internal-b-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ws-stage-internal-b-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ws-stage-internal-b-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ws-stage-internal-b-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ws-stage-internal-b-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ws-stage-internal-b-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ws-stage-internal-b-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ws-stage-internal-b-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ws-stage-internal-b-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "ws-stage-internal-b"
+        ]
+      }
+    },
+    {
+      "id": "fullwidth-nodes",
+      "description": "2.14 全形「１５」：不是 ASCII 數字",
+      "national_id": "fullwidth-nodes",
+      "tumours": [
+        {
+          "id": "fullwidth-nodes-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "fullwidth-nodes-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "fullwidth-nodes-tumour-f2-14-v00",
+                "value": "１５",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "fullwidth-nodes-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "fullwidth-nodes-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "fullwidth-nodes-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "fullwidth-nodes-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Denominator 2": [
+          "fullwidth-nodes-tumour"
+        ],
+        "Numerator 2": []
+      }
+    },
+    {
+      "id": "tumour-entered-in-error",
+      "description": "Condition 為 entered-in-error：不是個案",
+      "national_id": "tumour-entered-in-error",
+      "tumours": [
+        {
+          "id": "tumour-entered-in-error-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "tumour-entered-in-error-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "tumour-entered-in-error-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "tumour-entered-in-error-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "tumour-entered-in-error-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "tumour-entered-in-error-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "tumour-entered-in-error-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "verification": "entered-in-error",
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "registry-item-two-focus",
+      "description": "癌登欄位同時 focus 腫瘤與糖尿病：不歸屬任何一方",
+      "national_id": "registry-item-two-focus",
+      "tumours": [
+        {
+          "id": "registry-item-two-focus-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "registry-item-two-focus-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "registry-item-two-focus-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "registry-item-two-focus-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "registry-item-two-focus-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "registry-item-two-focus-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "registry-item-two-focus-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "extra_focus": "registry-item-two-focus-diabetes",
+          "multi_focus": true
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "reference-versioned",
+      "description": "focus 帶版本（Condition/x/_history/1）",
+      "national_id": "reference-versioned",
+      "tumours": [
+        {
+          "id": "reference-versioned-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "reference-versioned-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "reference-versioned-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "reference-versioned-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "reference-versioned-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "reference-versioned-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "reference-versioned-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "reference-versioned-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "reference-versioned-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "reference-versioned-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "reference-versioned-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "reference-versioned-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "reference-versioned-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "reference": "versioned",
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "reference-versioned-tumour"
+        ],
+        "Numerator 2": [
+          "reference-versioned-tumour"
+        ]
+      }
+    },
+    {
+      "id": "reference-absolute",
+      "description": "focus 為絕對 URL",
+      "national_id": "reference-absolute",
+      "tumours": [
+        {
+          "id": "reference-absolute-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "reference-absolute-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "reference-absolute-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "reference-absolute-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "reference-absolute-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "reference-absolute-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "reference-absolute-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "reference-absolute-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "reference-absolute-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "reference-absolute-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "reference-absolute-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "reference-absolute-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "reference-absolute-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "reference": "absolute",
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "reference-absolute-tumour"
+        ]
+      }
+    },
+    {
+      "id": "issued-missing-only",
+      "description": "2.5 唯一一筆沒有 issued：仍採用",
+      "national_id": "issued-missing-only",
+      "tumours": [
+        {
+          "id": "issued-missing-only-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "issued-missing-only-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "issued-missing-only-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "issued-missing-only-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": null,
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "issued-missing-only-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "issued-missing-only-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "issued-missing-only-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "issued-missing-only-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "issued-missing-only-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "issued-missing-only-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "issued-missing-only-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "issued-missing-only-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "issued-missing-only-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "issued-missing-only-tumour"
+        ]
+      }
+    },
+    {
+      "id": "issued-missing-loses",
+      "description": "2.14 一筆有 issued（15）、一筆沒有（11）：有 issued 者勝",
+      "national_id": "issued-missing-loses",
+      "tumours": [
+        {
+          "id": "issued-missing-loses-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "issued-missing-loses-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "issued-missing-loses-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "issued-missing-loses-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "issued-missing-loses-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "issued-missing-loses-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "issued-missing-loses-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "issued-missing-loses-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "issued-missing-loses-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "final"
+              },
+              {
+                "id": "issued-missing-loses-tumour-f2-14-v01",
+                "value": "11",
+                "issued": null,
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "issued-missing-loses-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "issued-missing-loses-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "issued-missing-loses-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "issued-missing-loses-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Numerator 2": [
+          "issued-missing-loses-tumour"
+        ]
+      }
+    },
+    {
+      "id": "foreign-coding",
+      "description": "2.6 欄位另帶其他系統的代碼「2.5」：不得被當成 2.5",
+      "national_id": "foreign-coding",
+      "tumours": [
+        {
+          "id": "foreign-coding-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "foreign-coding-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "foreign-coding-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "foreign-coding-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "foreign-coding-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-05-30T09:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "foreign-coding-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "foreign-coding-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "foreign-coding-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "foreign-coding-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "foreign-coding-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "foreign-coding-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "foreign-coding-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "foreign-coding-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "foreign_coding": {
+            "2.6": "2.5"
+          },
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": [
+          "foreign-coding-tumour"
+        ]
+      }
+    },
+    {
+      "id": "national-id-blank",
+      "description": "身分證號只有空白：視為缺少",
+      "national_id": " ",
+      "tumours": [
+        {
+          "id": "national-id-blank-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "national-id-blank-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "national-id-blank-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "national-id-blank-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "national-id-blank-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "national-id-blank-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "national-id-blank-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "national-id-blank-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "national-id-blank-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "national-id-blank-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "national-id-blank-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "national-id-blank-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "national-id-blank-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "outside-data-excluded-qi02",
+      "description": "醫院依第五點將此腫瘤自指標 2 排除：仍在 IP，但不在指標 2 分母",
+      "national_id": "outside-data-excluded-qi02",
+      "tumours": [
+        {
+          "id": "outside-data-excluded-qi02-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "outside-data-excluded-qi02-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {
+        "2": [
+          "outside-data-excluded-qi02-tumour"
+        ]
+      },
+      "expected": {
+        "Initial Population": [
+          "outside-data-excluded-qi02-tumour"
+        ],
+        "Denominator 2": [],
+        "Numerator 2": []
       }
     },
     {
@@ -5087,7 +7990,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "dedup-earlier-diagnosis-b",
@@ -5189,9 +8093,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "dedup-earlier-diagnosis-b"
@@ -5303,7 +8209,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "dedup-same-day-more-severe-b",
@@ -5405,9 +8312,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "dedup-same-day-more-severe-b"
@@ -5519,7 +8428,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "dedup-same-day-clinical-fallback-b",
@@ -5621,9 +8531,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "dedup-same-day-clinical-fallback-a"
@@ -5735,7 +8647,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "dedup-full-tie-a",
@@ -5837,9 +8750,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "dedup-full-tie-a"
@@ -5951,7 +8866,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "dedup-kept-record-excluded-b",
@@ -6053,9 +8969,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6157,9 +9075,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6269,9 +9189,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6381,9 +9303,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6501,9 +9425,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6621,9 +9547,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -6749,9 +9677,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "died-no-first-course-watchful-tumour"
@@ -6879,9 +9809,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": []
       }
@@ -7007,9 +9939,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "died-on-first-course-date-tumour"
@@ -7137,9 +10071,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "alive-early-last-contact-tumour"
@@ -7251,7 +10187,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "multi-primary-colon-rectum-rectum",
@@ -7345,9 +10282,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "multi-primary-colon-rectum-rectum"
@@ -7465,7 +10404,8 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         },
         {
           "id": "multi-primary-two-hospitals-rectum",
@@ -7559,9 +10499,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "multi-primary-two-hospitals-colon",
@@ -7692,9 +10634,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "amended-raises-nodes-tumour"
@@ -7815,9 +10759,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 2": [
           "amended-lowers-nodes-tumour"
@@ -7936,9 +10882,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 2": [
           "entered-in-error-ignored-tumour"
@@ -8056,9 +11004,11 @@
               }
             ]
           },
-          "polyp": null
+          "polyp": null,
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Numerator 2": [
           "same-issued-tie-break-tumour"
@@ -8174,7 +11124,8 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         },
         {
           "id": "qi01-facts-belong-to-one-tumour-b",
@@ -8273,9 +11224,11 @@
             "report_issued": "2025-03-01",
             "features": {},
             "resections": []
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "qi01-facts-belong-to-one-tumour-a"
@@ -8390,7 +11343,8 @@
             "report_issued": "2025-03-01",
             "features": {},
             "resections": []
-          }
+          },
+          "multi_focus": false
         },
         {
           "id": "qi01-facts-of-duplicate-ignored-b",
@@ -8496,9 +11450,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Initial Population": [
           "qi01-facts-of-duplicate-ignored-a",
@@ -8622,9 +11578,11 @@
               }
             ],
             "report_linked": false
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": []
       }
@@ -8733,7 +11691,8 @@
               "B": true
             },
             "resections": []
-          }
+          },
+          "multi_focus": false
         },
         {
           "id": "qi01-resection-of-other-tumour-b",
@@ -8844,9 +11803,11 @@
                 "status": "completed"
               }
             ]
-          }
+          },
+          "multi_focus": false
         }
       ],
+      "outside_excluded": {},
       "expected": {
         "Denominator 1": [
           "qi01-resection-of-other-tumour-a"

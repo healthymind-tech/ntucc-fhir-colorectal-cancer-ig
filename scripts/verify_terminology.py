@@ -57,9 +57,26 @@ def lookup(system: str, code: str) -> dict:
     return info
 
 
+def value_set_codes() -> list[dict]:
+    """LOINC / SNOMED CT codes the IG's own ValueSets use directly (e.g. the
+    criterion B-D questions and answers). Requires SUSHI output."""
+    rows = []
+    for path in sorted((ROOT / "ig/fsh-generated/resources").glob("ValueSet-*.json")):
+        vs = json.loads(path.read_text(encoding="utf-8"))
+        for include in vs.get("compose", {}).get("include", []):
+            if include.get("system") in ("http://loinc.org", "http://snomed.info/sct"):
+                for concept in include.get("concept", []):
+                    rows.append({"target_system": include["system"], "target_code": concept["code"],
+                                 "target_display": concept.get("display")})
+    unique = {(r["target_system"], r["target_code"]): r for r in rows}
+    return list(unique.values())
+
+
 def main() -> int:
     with (ROOT / "mappings/terminology-candidates.csv").open(encoding="utf-8") as handle:
         rows = [row for row in csv.DictReader(handle) if row["target_code"]]
+    seen = {(r["target_system"], r["target_code"]) for r in rows}
+    rows += [r for r in value_set_codes() if (r["target_system"], r["target_code"]) not in seen]
     problems = 0
     for row in rows:
         try:
@@ -74,7 +91,7 @@ def main() -> int:
             status = "INACTIVE"
         elif row["target_system"] == "http://snomed.info/sct" and info["module"] != SNOMED_INTERNATIONAL:
             status = f"NOT INTERNATIONAL (module {info['module']})"
-        elif info["display"] != row["target_display"]:
+        elif row["target_display"] is not None and info["display"] != row["target_display"]:
             status = f"DISPLAY CHANGED -> {info['display']!r}"
         else:
             status = "ok"

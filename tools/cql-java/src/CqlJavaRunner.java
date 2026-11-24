@@ -203,6 +203,13 @@ public class CqlJavaRunner {
                 continue;
             }
             String patientId = patients.get(0).getIdElement().getIdPart();
+            // Per-case parameters: lists of strings (e.g. the 第五點 exclusion lists).
+            Map<String, Object> caseParameters = new HashMap<>(parameters);
+            testCase.path("parameters").fields().forEachRemaining(p -> {
+                List<String> values = new ArrayList<>();
+                p.getValue().forEach(v -> values.add(v.asText()));
+                caseParameters.put(p.getKey(), values);
+            });
 
             BundleRetrieveProvider retrieve = new BundleRetrieveProvider(resources, modelResolver);
             retrieve.setTerminologyProvider(terminology);
@@ -221,7 +228,7 @@ public class CqlJavaRunner {
                 Object value;
                 try {
                     EvaluationResult result = engine.evaluate(mainId, Set.of(expression),
-                            Pair.<String, Object>of("Patient", patientId), parameters, null);
+                            Pair.<String, Object>of("Patient", patientId), caseParameters, null);
                     evaluations++;
                     if (result.forExpression(expression) == null) {
                         failures.add(caseId + ": no result for " + json(expression));

@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from typing import Any
 
-from reference.cohort import assemble_cohort
+from reference.cohort import BLANKS, assemble_cohort, normalise_site
 
 DATE_RE = re.compile(r"^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
 COLON_EXCLUDING_APPENDIX = {f"C18{d}" for d in "023456789"}
@@ -30,13 +30,25 @@ POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominato
 
 
 def current_values(versions: dict[str, list[dict[str, str]]]) -> dict[str, str]:
-    """IP-CURRENT. Field -> current raw value: among final/amended/corrected versions the one
-    with the latest issued time wins; equal times fall back to the version id."""
+    """IP-CURRENT. Field -> current raw value, trimmed of leading/trailing blanks.
+
+    Among final/amended/corrected versions the one with the latest issued time
+    wins; equal times fall back to the version id. A version without issued
+    ranks below every dated version. An all-blank value counts as no value.
+    """
     out = {}
     for number, items in versions.items():
         live = [v for v in items if v["status"] in CURRENT_STATUSES]
-        if live:
-            out[number] = max(live, key=lambda v: (datetime.fromisoformat(v["issued"]), v["id"]))["value"]
+        dated = [v for v in live if v.get("issued")]
+        if dated:
+            chosen = max(dated, key=lambda v: (datetime.fromisoformat(v["issued"]), v["id"]))
+        elif live:
+            chosen = max(live, key=lambda v: v["id"])
+        else:
+            continue
+        value = chosen["value"].strip(BLANKS)
+        if value:
+            out[number] = value
     return out
 
 
@@ -50,13 +62,13 @@ def registry_date(raw: str | None) -> date | None:
 
 
 def registry_int(raw: str | None) -> int | None:
-    if raw is None or not raw.isdigit():
+    if raw is None or not re.fullmatch(r"[0-9]+", raw):  # ASCII digits only
         return None
     return int(raw)
 
 
 def normalized_site(raw: str | None) -> str | None:
-    return None if raw is None else raw.replace(".", "").upper()
+    return normalise_site(raw)
 
 
 def leading_digit(raw: str | None) -> str | None:
@@ -137,15 +149,25 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
 def evaluate_case(case: dict[str, Any], period: tuple[date, date]) -> dict[str, list[str]]:
     """IP-UNIT. Population define -> sorted ids of the case's tumours that belong to it."""
     results = {name: [] for name in POPULATIONS}
-    current = {t["id"]: current_values(t["fields"]) for t in case["tumours"]}
+    # A Condition recorded in error or refuted is never a case; registry items
+    # with more than one focus are not attributed to any tumour.
+    tumours = [t for t in case["tumours"] if t.get("verification") not in ("entered-in-error", "refuted")]
+    current = {t["id"]: ({} if t.get("multi_focus") else current_values(t["fields"])) for t in tumours}
+    tumours = [t for t in tumours if current[t["id"]]]
     cohort = assemble_cohort(
         [{"patient_id": case.get("national_id"), "hospital_id": current[t["id"]].get("1.1"),
-          "tumour_id": t["id"], "fields": current[t["id"]]} for t in case["tumours"]],
+          "tumour_id": t["id"], "fields": current[t["id"]]} for t in tumours],
         period=period,
     )
-    for tumour in case["tumours"]:
+    outside = case.get("outside_excluded", {})  # IP-OUTSIDE (第五點): indicator -> tumour ids
+    for tumour in tumours:
         out = evaluate(current[tumour["id"]], PolypFacts.from_json(tumour.get("polyp")), period,
                        tumour["id"] in cohort.eligible)
+        for measure, excluded in outside.items():
+            if tumour["id"] in excluded:
+                for name in (f"Denominator {measure}", f"Numerator {measure}", f"Denominator {measure} Exclusion"):
+                    if name in out:
+                        out[name] = False
         for name in POPULATIONS:
             if out[name]:
                 results[name].append(tumour["id"])

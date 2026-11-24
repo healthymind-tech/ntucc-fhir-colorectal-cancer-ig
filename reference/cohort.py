@@ -118,15 +118,19 @@ FLAG_OUTSIDE_DATA_DEFAULTED = "OUTSIDE_DATA_STATUS_NOT_SUPPLIED"
 # ---------------------------------------------------------------------------
 # Raw value parsing
 # ---------------------------------------------------------------------------
+# Raw values: leading/trailing ASCII spaces and tabs are removed, nothing else
+# (an internal blank makes a value malformed); digits are ASCII only. The CQL
+# applies the same rule ("Trimmed", "Normalized Site").
+BLANKS = " \t"
 _DATE_RE = re.compile(r"^[0-9]{8}$")
-_SITE_RE = re.compile(r"^C(\d{2})\.?(\d)$")
+_SITE_RE = re.compile(r"^C([0-9]{2})\.?([0-9])$")
 
 
 def registry_date(raw: str | None) -> date | None:
     """A real calendar date, or None for 00000000, 99999999, partial or impossible dates."""
     if raw is None:
         return None
-    raw = raw.strip()
+    raw = raw.strip(BLANKS)
     if not _DATE_RE.match(raw):
         return None
     try:
@@ -139,7 +143,7 @@ def normalise_site(raw: str | None) -> str | None:
     """'C18.7' / ' c187 ' -> 'C187'; anything else -> None."""
     if raw is None:
         return None
-    m = _SITE_RE.match(raw.strip().upper())
+    m = _SITE_RE.match(raw.strip(BLANKS).upper())
     return f"C{m.group(1)}{m.group(2)}" if m else None
 
 
@@ -202,7 +206,7 @@ _STAGE_RANK = {code: i for i, code in enumerate(STAGE_SEVERITY_ORDER)}
 def stage_rank(raw: str | None) -> int | None:
     if raw is None:
         return None
-    return _STAGE_RANK.get(raw.strip().upper())
+    return _STAGE_RANK.get(raw.strip(BLANKS).upper())
 
 
 def severity(fields: Mapping[str, str]) -> tuple[int | None, str | None]:
@@ -243,20 +247,21 @@ def died_before_treatment(
     last-contact date.
     """
     flags: list[str] = []
-    tx_status = (fields.get(CLASS_OF_TX_STATUS) or "").strip()
+    tx_status = (fields.get(CLASS_OF_TX_STATUS) or "").strip(BLANKS)
     if tx_status == "0":
         return True, [FLAG_DIED_BASIS_TX_STATUS_0]
 
     raw_vs = fields.get(VITAL_STATUS)
     dead: bool | None = None
-    if raw_vs is not None and raw_vs.strip() != "":
-        dead = vital_status_codes.get(raw_vs.strip().lower(), vital_status_codes.get(raw_vs.strip()))
+    if raw_vs is not None and raw_vs.strip(BLANKS) != "":
+        # case-insensitive on both sides, like the CQL
+        dead = {k.lower(): v for k, v in vital_status_codes.items()}.get(raw_vs.strip(BLANKS).lower())
         if dead is None:
             flags.append(FLAG_VITAL_STATUS_UNRECOGNISED)
     if not dead:
         return False, flags
 
-    raw_first = (fields.get(FIRST_COURSE_START) or "").strip()
+    raw_first = (fields.get(FIRST_COURSE_START) or "").strip(BLANKS)
     if raw_first == NO_DATE:
         if tx_status == "4":
             return False, flags
@@ -286,7 +291,7 @@ class CohortResult:
 def _key_part(raw: object) -> str | None:
     if raw is None:
         return None
-    s = str(raw).strip().upper()
+    s = str(raw).strip(BLANKS).upper()
     return s or None
 
 
@@ -391,14 +396,14 @@ def assemble_cohort(
     eligible: list[str] = []
     for r in representatives:
         tid, f = r["tumour_id"], r["fields"]
-        klass = (f.get(CLASS_OF_CASE) or "").strip()
+        klass = (f.get(CLASS_OF_CASE) or "").strip(BLANKS)
         if klass not in {"1", "2"}:
             excluded[tid] = CLASS_NOT_1_OR_2
             continue
         if (
             klass == "2"
-            and (f.get(CLASS_OF_DX_STATUS) or "").strip() == "2"
-            and (f.get(CLASS_OF_TX_STATUS) or "").strip() == "3"
+            and (f.get(CLASS_OF_DX_STATUS) or "").strip(BLANKS) == "2"
+            and (f.get(CLASS_OF_TX_STATUS) or "").strip(BLANKS) == "3"
         ):
             excluded[tid] = CROSS_HOSPITAL_TREATMENT
             continue
