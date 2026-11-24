@@ -101,6 +101,7 @@ scripts/build_ig.sh
 ├── reference/                   Python 參考實作
 ├── scripts/                     測試資料產生、CQL 執行、IG 建置
 ├── sources/hpa-115/             國健署原始 PDF 與 SHA256SUMS
+├── OID_ASSIGNMENT.md            OID 根節點與分配規則（register 在 ig/oids.ini）
 ├── tests/                       pytest 與合成測試個案
 └── .github/workflows/           CI 與 GitHub Pages 發布
 ```

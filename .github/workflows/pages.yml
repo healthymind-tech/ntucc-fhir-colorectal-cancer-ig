@@ -53,6 +53,12 @@ jobs:
       - name: Fail on IG Publisher QA errors
         run: python3 scripts/check_qa.py ig/output/qa.json
 
+      # The Publisher appends an OID to ig/oids.ini for every new canonical
+      # resource. An OID that is not committed would be assigned again, possibly
+      # differently, on the next build, so an uncommitted assignment fails CI.
+      - name: OID register must be committed
+        run: git diff --exit-code ig/oids.ini
+
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ig/output

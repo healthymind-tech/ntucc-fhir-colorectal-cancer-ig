@@ -26,5 +26,8 @@ mkdir -p "$WORK/.bin"
 ln -sf "$ROOT/ig/tools/node_modules/.bin/sushi" "$WORK/.bin/sushi"
 (cd "$WORK/ig" && PATH="$WORK/.bin:$PATH" "$JAVA" -Xmx4g -jar "$JAR" -ig .)
 rm -rf "$ROOT/ig/output" && cp -R "$WORK/ig/output" "$ROOT/ig/output"
+# The Publisher records the OID it assigns to each canonical resource in
+# ig/oids.ini. Bring the register back so new assignments can be committed.
+cp "$WORK/ig/oids.ini" "$ROOT/ig/oids.ini"
 python3 "$ROOT/scripts/check_qa.py" "$ROOT/ig/output/qa.json"
 echo "IG built: $ROOT/ig/output/index.html"

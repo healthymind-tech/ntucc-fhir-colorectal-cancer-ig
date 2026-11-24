@@ -8,6 +8,7 @@
 | 參考實作 | pytest | Python 參考實作通過同一批個案；每個分母與分子都有 true 與 false 兩種個案 |
 | IG Publisher | HL7 IG Publisher 3.0.5（鎖定版本） | QA 0 errors、0 broken links。Publisher 即使有 QA 錯誤仍會回傳成功，因此 `scripts/check_qa.py` 讀取 `qa.json`，只要有任何 error、broken link，或報告格式缺少預期欄位，就讓建置失敗 |
 | 術語候選 | pytest、`scripts/verify_terminology.py` | CSV 格式、無 US extension SNOMED 代碼、ConceptMap 與審核表由 CSV 產生且一致；`verify_terminology.py` 連線 tx.fhir.org 確認每個候選代碼存在、為 active、名稱未變（需網路，不在 CI 中執行） |
+| OID | pytest、CI | OID 根節點由 canonical URL 推導；`ig/oids.ini` 涵蓋所有 canonical 資源、無重複、都在根節點之下；CI 建置若分配了未 commit 的 OID 即失敗 |
 | 規格一致性 | pytest | criterion_id 唯一；CSV 指向的 define 存在；已實作的 criterion 同時出現在 CQL 與 Python 中；Measure 的 population 都對應到 define；來源 PDF 的 SHA-256 吻合 |
 
 ## 本機執行
