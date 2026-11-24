@@ -29,13 +29,17 @@ may be self-assigned and that the generated `oids.ini` must be committed.
    Publisher appends the new assignment to `ig/oids.ini`. Commit it. CI fails
    if a build would assign an OID that is not committed.
 
-## Registration (open)
+## Registration (not pursued)
 
-The IG Publisher warns that the root is not yet registered in the FHIR IG
-registry (`oid-assignments.json` in <https://github.com/FHIR/ig-registry>).
-Registering is an external governance step — a pull request to that
-repository — and has not been done. The warning is deliberately **not**
-suppressed.
+The IG Publisher warns that the root is not registered in the FHIR IG registry
+(`oid-assignments.json` in <https://github.com/FHIR/ig-registry>). Registering
+would be a pull request to that external repository.
+
+Decision (2026-11-24): registration is not pursued for now. The `2.25` root is
+globally unique without registration, so the OIDs are valid and usable; the
+registry entry is only a discoverability and governance step. The warning is
+kept visible and deliberately **not** suppressed, so it can be revisited before
+a formal release.
 
 Publisher parameter documentation:
 <https://build.fhir.org/ig/FHIR/fhir-tools-ig/en/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root>
