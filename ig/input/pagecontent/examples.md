@@ -12,7 +12,7 @@
 
 ## 測試個案
 
-`tests/fixtures/synthetic-cases.json` 有 44 個合成個案，涵蓋每條規則的邊界值，例如：
+`tests/fixtures/synthetic-cases.json` 收錄涵蓋每條規則邊界值的合成個案，例如：
 
 - 淋巴結 11／12／90／95 顆
 - 手術方式 27／30／90／99
@@ -22,3 +22,13 @@
 - 不存在的日期（20250231）
 
 每個個案的預期值都依原文手寫，不從任何一份實作的輸出複製。`scripts/build_fixtures.py` 會把同一批個案轉成 FHIR Bundle，供 CQL 執行測試使用。
+
+## 摘要 MeasureReport
+
+`scripts/build_fixtures.py` 也以 Python 參考實作計算全部合成個案，為 3 個指標各產生一份摘要（`type = summary`）MeasureReport，示範輸出格式；CQL 執行測試必須重現其計數與 measureScore。這些數字只反映合成資料，不代表任何醫院的實際表現。
+
+| 指標 | 摘要報告 |
+|---|---|
+| crc-qi-01 | [synthetic-summary-crc-qi-01](MeasureReport-synthetic-summary-crc-qi-01.html) |
+| crc-qi-02 | [synthetic-summary-crc-qi-02](MeasureReport-synthetic-summary-crc-qi-02.html) |
+| crc-qi-03 | [synthetic-summary-crc-qi-03](MeasureReport-synthetic-summary-crc-qi-03.html) |
