@@ -1,0 +1,43 @@
+name: Build (sushi, pytest, CQL)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Run sushi
+        working-directory: ig
+        run: |
+          npm ci --prefix tools
+          node tools/node_modules/fsh-sushi/dist/app.js . 2>&1 | tee sushi-output.log
+          if grep -qE '[1-9][0-9]* Errors|[1-9][0-9]* Warnings' sushi-output.log; then
+            echo "sushi reported errors or warnings"; exit 1
+          fi
+
+      - name: Fixtures must be up to date
+        run: |
+          python3 scripts/build_fixtures.py
+          git diff --exit-code tests/fixtures
+
+      - name: Run pytest
+        run: |
+          pip install -e ".[test]"
+          python -m pytest -q
+
+      - name: Translate and execute CQL
+        run: scripts/run_cql.sh

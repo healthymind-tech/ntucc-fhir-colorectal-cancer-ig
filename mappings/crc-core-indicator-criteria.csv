@@ -1,0 +1,20 @@
+criterion_id,measure_id,population,source_text,tcr_fields,rule,cql_define,source_document,source_page,status
+IP-DXDATE,all,initial-population,各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案,2.5,最初診斷日期(2.5) 為有效日期且落在 Measurement Period 內；Measurement Period 起日不得早於 2024-01-01,Initial Population,115年癌症診療核心測量指標.pdf,i,implemented
+IP-CLASS,all,initial-population,選取個案分類為 class 1、2 者,2.3,個案分類(2.3) ∈ {1;2},Initial Population,115年癌症診療核心測量指標.pdf,i,implemented
+IP-CROSS,all,initial-population,主要治療有跨院情形者排除（註3：class 2、診斷狀態 2、治療狀態分類 3）,2.3;CLASS-DX-STATUS;CLASS-TX-STATUS,不符合 (2.3)=2 且 診斷狀態分類=2 且 治療狀態分類=3,Cross Hospital Treatment,115年癌症診療核心測量指標.pdf,ii,implemented-field-numbers-to-verify
+IP-DUP,all,cohort-assembly,排除院內重複個案（醫院代碼+癌別+身分證號；選診斷早者，同一天選期別嚴重者）,,評估前由 Task 層組 Group 時去重；CQL 不重複實作,,115年癌症診療核心測量指標.pdf,ii,task-layer
+IP-DEATH,all,cohort-assembly,排除治療前已死亡,,評估前由 Task 層依死亡日期與首次療程排除；指標文件未指定癌登欄位,,115年癌症診療核心測量指標.pdf,i,task-layer
+D1-POLYP,crc-qi-01,denominator,malignant polyp 病人（含 T1 腺癌之息肉；Tis 不算在內）,,存在 verificationStatus=confirmed 之 CRCMalignantPolypCondition,Has Malignant Polyp,附件2_大腸癌診療公告指標.pdf,1,implemented
+D1-FEATURE,crc-qi-01,denominator,病理報告有下列 A.B.C.D.之一記錄的人數,,至少一筆 CRCMalignantPolypHighRiskFeature 之 valueBoolean=true,Has High Risk Feature,附件2_大腸癌診療公告指標.pdf,1,implemented
+D1-REPORT,crc-qi-01,denominator,於病理報告後 12 週內（計時起點）,,存在已定稿之 CRCMalignantPolypPathologyReport 且 issued 有值；取最早者,Malignant Polyp Pathology Report Date,附件2_大腸癌診療公告指標.pdf,1,implemented
+N1-RESECT,crc-qi-01,numerator,分母中，於病理報告後 12 週內接受治癒性切除(curative resection)的人數,,completed 之 CRCCurativeResectionProcedure 其日期介於病理報告日 0–84 天（含）,Numerator 1,附件2_大腸癌診療公告指標.pdf,1,implemented
+D2-SITE,crc-qi-02,denominator,部位＝Colon (C18)，但排除 Appendix (C18.1),2.6,原發部位(2.6) 去除小數點後 ∈ {C180;C182;C183;C184;C185;C186;C187;C188;C189},Is Colon Excluding Appendix,附件1_大腸癌公告指標修訂對照表.pdf,2,implemented
+D2-SURG,crc-qi-02,denominator,申報醫院原發部位手術方式(4.1.4)＝30~90,4.1.4,手術方式(4.1.4) 為整數且 30 ≤ 值 ≤ 90,Has Resection Surgery 30 To 90,附件2_大腸癌診療公告指標.pdf,3,implemented
+D2-PSTAGE,crc-qi-02,denominator,病理期別組合(3.13)＝I~III 期,3.13,病理期別組合(3.13) 第一碼 ∈ {1;2;3},Is Pathological Stage I To III,附件2_大腸癌診療公告指標.pdf,3,implemented
+X2-POLYP,crc-qi-02,denominator-exclusion,排除 Polyp 或 wide excision 之病人（申報醫院原發部位手術方式(4.1.4)<30）,4.1.4,4.1.4<30 與 D2-SURG 互斥；由 D2-SURG 實現，不另設 CQL define,Has Resection Surgery 30 To 90,附件2_大腸癌診療公告指標.pdf,3,implemented-by-D2-SURG
+X2-HIST,crc-qi-02,denominator-exclusion,"結腸癌適用範圍不包含特殊組織型態：GIST (M-8935-8936)、NETs (M-8153, 8240-8242, 8246, 8249)、High grade dysplasia",2.8;2.9,組織型態(2.8) ∈ {8935;8936;8153;8240;8241;8242;8246;8249} 或 性態碼(2.9)=2,Denominator 2 Exclusion,附件1_大腸癌公告指標修訂對照表.pdf,1,implemented
+N2-LN12,crc-qi-02,numerator,分母中，區域淋巴結檢查數目(2.14)=12~90,2.14,區域淋巴結檢查數目(2.14) 為整數且 12 ≤ 值 ≤ 90,Numerator 2,附件2_大腸癌診療公告指標.pdf,3,implemented
+D3-SITE,crc-qi-03,denominator,部位 C19-20 (Rectosigmoid junction & Rectum),2.6,原發部位(2.6) 去除小數點後 ∈ {C199;C209},Is Rectosigmoid Or Rectum,附件2_大腸癌診療公告指標.pdf,4,implemented
+D3-CLASS,crc-qi-03,denominator,僅納入 class=1：申報醫院診斷，並於申報醫院接受全部或部份的首次療程,2.3,個案分類(2.3)=1,Denominator 3,附件2_大腸癌診療公告指標.pdf,4,implemented
+D3-CSTAGE,crc-qi-03,denominator,臨床期別組合(3.7)＝2、3 (II、III 期),3.7,臨床期別組合(3.7) 第一碼 ∈ {2;3},Is Clinical Stage II To III,附件2_大腸癌診療公告指標.pdf,4,implemented
+N3-42D,crc-qi-03,numerator,分母中，首次療程開始日期(4.1) (減)－首次顯微鏡檢證實日期(2.12)≦42天,4.1;2.12,兩日期皆為有效日期且 (4.1)−(2.12) ≤ 42 天；未設下限（依原文）,Numerator 3,附件2_大腸癌診療公告指標.pdf,4,implemented

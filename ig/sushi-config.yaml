@@ -1,0 +1,83 @@
+id: tw.community.colorectal-cancer
+canonical: https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig
+name: ColorectalCancerCoreIndicatorsImplementationGuide
+title: 大腸癌診療核心測量指標 FHIR 實作指引－社群草稿
+description: 非官方大腸癌 FHIR 社群草稿。依衛生福利部國民健康署「115 年癌症診療核心測量指標」大腸癌 3 項指標（含 115/06/18 修訂對照表及診療指標說明），以 TW Core IG 1.0.0 為結構基礎，提供大腸癌共同資料層、癌登長表欄位 Observation、3 個 Measure 與可執行 CQL。本 IG 非衛生福利部、國民健康署、國家衛生研究院或 HL7 International 出版品。
+status: draft
+experimental: true
+version: 0.1.0-preview.1
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: preview
+license: CC-BY-4.0
+jurisdiction: urn:iso:std:iso:3166#TW
+copyright: >-
+  本 IG 之原創內容依 CC BY 4.0 授權。所引用之國民健康署「癌症診療核心測量指標」、
+  癌症登記長表摘錄手冊、HL7 FHIR、TW Core IG 等第三方著作，其權利仍屬各該權利人所有。
+  本 IG 未經上述任何機構認可或背書。
+
+publisher:
+  name: Colorectal Cancer FHIR Community Draft
+  url: https://github.com/healthymind-tech/ntucc-fhir-colorectal-cancer-ig
+
+contact:
+  - name: Colorectal Cancer FHIR Community Draft
+    telecom:
+      - system: url
+        value: https://github.com/healthymind-tech/ntucc-fhir-colorectal-cancer-ig/issues
+
+dependencies:
+  tw.gov.mohw.twcore: 1.0.0
+  hl7.terminology.r4: 7.5.0
+  hl7.fhir.uv.extensions.r4: 5.4.0
+  hl7.fhir.uv.cql: 2.0.0
+  hl7.fhir.uv.crmi: 2.0.0
+
+pages:
+  index.md:
+    title: 首頁
+  architecture.md:
+    title: 分層架構
+  scope.md:
+    title: 範圍與邊界
+  inclusion-rules.md:
+    title: 共通收錄規則
+  indicators.md:
+    title: 大腸癌核心測量指標
+  tcr-fields.md:
+    title: 癌登欄位對應
+  revision-115.md:
+    title: 115 年修訂重點
+  known-ambiguities.md:
+    title: 已知歧義與待確認事項
+  examples.md:
+    title: 合成範例
+  validation.md:
+    title: 驗證方法
+  source-traceability.md:
+    title: 規格來源與追溯
+
+menu:
+  首頁: index.html
+  大腸癌共同層:
+    分層架構: architecture.html
+    範圍與邊界: scope.html
+    癌登欄位對應: tcr-fields.html
+    合成範例: examples.html
+  核心測量指標:
+    共通收錄規則: inclusion-rules.html
+    大腸癌核心測量指標: indicators.html
+    115 年修訂重點: revision-115.html
+    已知歧義與待確認事項: known-ambiguities.html
+  驗證與追溯:
+    驗證方法: validation.html
+    規格來源與追溯: source-traceability.html
+  FHIR Artifacts: artifacts.html
+
+parameters:
+  path-binary: input/cql
+  show-inherited-invariants: false
+  apply-jurisdiction: true
+  apply-publisher: true
+  apply-contact: true
+  pin-canonicals: pin-multiples

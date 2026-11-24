@@ -1,0 +1,13 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The original content of this implementation guide (FHIR Shorthand, CQL,
+narrative pages, mappings, reference implementation, scripts and tests) is
+licensed under the Creative Commons Attribution 4.0 International License.
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Third-party material is NOT covered by this license and remains the property
+of its respective owners, including:
+
+- sources/hpa-115/*.pdf — 衛生福利部國民健康署「115年癌症診療核心測量指標」
+  and its attachments, redistributed unmodified for traceability;
+- HL7 FHIR, TW Core IG, CQL and other referenced specifications.

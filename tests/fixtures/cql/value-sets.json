@@ -1,0 +1,62 @@
+{
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-curative-resection": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "curative-resection"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-high-risk-feature": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-a-polyp-incompletely-excised"
+   },
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-b-margin-positive"
+   },
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-c-lymphovascular-invasion"
+   },
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "criterion-d-grade3-poorly-differentiated"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp-pathology-report": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "malignant-polyp-pathology-report"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-malignant-polyp": {
+  "0.1.0-preview.1": [
+   {
+    "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+    "code": "malignant-polyp-t1"
+   }
+  ]
+ },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-tcr-observation-status": {
+  "0.1.0-preview.1": [
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "final"
+   },
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "amended"
+   },
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "corrected"
+   }
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+# Reference implementation guides used only as examples (not part of this IG)
+Exemple/
+Example/
+**/Exemple/
+**/Example/
+TW-Breast-Cancer-FHIR-IG/
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# CQL translation work directory
+.cql-work/
+
+# Node / SUSHI
+ig/tools/node_modules/
+ig/fsh-generated/
+
+# IG Publisher outputs and caches (the site is built by CI and deployed to GitHub Pages)
+ig/output/
+ig/temp/
+ig/template/
+ig/input-cache/
+ig/sushi-output.log
+
+# OS
+.DS_Store
