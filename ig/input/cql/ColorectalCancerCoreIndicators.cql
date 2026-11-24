@@ -91,10 +91,14 @@ define function "Points To"(Ref FHIR.Reference, ResourceType String, ResourceId 
 define function "Unversioned"(Reference String):
   ReplaceMatches(Reference, '/_history/[^/]*$', '')
 
-// Leading and trailing ASCII blanks removed; an all-blank value is no value.
+// Leading and trailing ASCII spaces/tabs removed. A value made only of
+// whitespace (Java Character.isWhitespace set, e.g. CR, LF, U+3000; not the
+// no-break spaces) is no value: HAPI drops such values when parsing, so the
+// rule must be the same on every engine. Explicit class, not \s, because
+// \s differs between the JavaScript and Java regex engines.
 define function "Trimmed"(Raw String):
   if Raw is null then null
-  else if Matches(Raw, '[ \\t]*') then null
+  else if Matches(Raw, '[ \\t\\n\\r\\u000B\\f\\u001C-\\u001F\\u1680\\u2000-\\u2006\\u2008-\\u200A\\u2028\\u2029\\u205F\\u3000]*') then null
   else ReplaceMatches(ReplaceMatches(Raw, '^[ \\t]+', ''), '[ \\t]+$', '')
 
 define "TCR Field System":

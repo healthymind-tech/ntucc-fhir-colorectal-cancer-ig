@@ -13,14 +13,17 @@ from __future__ import annotations
 
 import re
 
-_TOPOGRAPHY = re.compile(r"^C(\d{2})\.?(\d)$")
-_HISTOLOGY = re.compile(r"^\d{4}$")
-_BEHAVIOR = re.compile(r"^[0-36]$")  # ICD-O-3 behavior codes 0, 1, 2, 3, 6
+# Same raw-value rule as reference.cohort: ASCII digits, only leading/trailing
+# spaces and tabs trimmed, whole-string (fullmatch) patterns.
+_BLANKS = " \t"
+_TOPOGRAPHY = re.compile(r"C([0-9]{2})\.?([0-9])")
+_HISTOLOGY = re.compile(r"[0-9]{4}")
+_BEHAVIOR = re.compile(r"[0-36]")  # ICD-O-3 behavior codes 0, 1, 2, 3, 6
 
 
 def topography(raw: str) -> str:
     """'C187', 'C18.7', ' c187 ' -> 'C18.7'."""
-    match = _TOPOGRAPHY.match(raw.strip().upper())
+    match = _TOPOGRAPHY.fullmatch(raw.strip(_BLANKS).upper())
     if not match:
         raise ValueError(f"not an ICD-O-3 topography code: {raw!r}")
     return f"C{match.group(1)}.{match.group(2)}"
@@ -28,9 +31,9 @@ def topography(raw: str) -> str:
 
 def morphology(histology: str, behavior: str) -> str:
     """('8140', '3') -> '8140/3'."""
-    histology, behavior = histology.strip(), behavior.strip()
-    if not _HISTOLOGY.match(histology):
+    histology, behavior = histology.strip(_BLANKS), behavior.strip(_BLANKS)
+    if not _HISTOLOGY.fullmatch(histology):
         raise ValueError(f"not an ICD-O-3 histology code: {histology!r}")
-    if not _BEHAVIOR.match(behavior):
+    if not _BEHAVIOR.fullmatch(behavior):
         raise ValueError(f"not an ICD-O-3 behavior code: {behavior!r}")
     return f"{histology}/{behavior}"

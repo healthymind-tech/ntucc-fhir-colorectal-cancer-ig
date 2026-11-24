@@ -15,9 +15,9 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from typing import Any
 
-from reference.cohort import BLANKS, assemble_cohort, normalise_site
+from reference.cohort import BLANKS, assemble_cohort, is_blank, normalise_site
 
-DATE_RE = re.compile(r"^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
+DATE_RE = re.compile(r"[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])")  # fullmatch only
 COLON_EXCLUDING_APPENDIX = {f"C18{d}" for d in "023456789"}
 RECTOSIGMOID_OR_RECTUM = {"C199", "C209"}
 SPECIAL_HISTOLOGY = {"8935", "8936", "8153", "8240", "8241", "8242", "8246", "8249"}
@@ -46,14 +46,13 @@ def current_values(versions: dict[str, list[dict[str, str]]]) -> dict[str, str]:
             chosen = max(live, key=lambda v: v["id"])
         else:
             continue
-        value = chosen["value"].strip(BLANKS)
-        if value:
-            out[number] = value
+        if not is_blank(chosen["value"]):
+            out[number] = chosen["value"].strip(BLANKS)
     return out
 
 
 def registry_date(raw: str | None) -> date | None:
-    if raw is None or not DATE_RE.match(raw):
+    if raw is None or not DATE_RE.fullmatch(raw):
         return None
     try:
         return date(int(raw[:4]), int(raw[4:6]), int(raw[6:8]))

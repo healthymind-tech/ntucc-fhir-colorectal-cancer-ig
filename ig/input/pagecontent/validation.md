@@ -4,7 +4,7 @@
 |---|---|---|
 | FSH | SUSHI 3.20.0 | 0 errors、0 warnings |
 | CQL 翻譯 | cql-to-elm-cli 3.26.0 | 翻譯成功且無 error |
-| CQL 執行（JavaScript） | cql-execution 3.3.2、cql-exec-fhir 2.1.6 | 90 個合成個案，每個個案的 8 個 population 都與 Python 參考實作的結果逐一比對；另以全部個案彙總，必須重現 3 份摘要 MeasureReport 的計數 |
+| CQL 執行（JavaScript） | cql-execution 3.3.2、cql-exec-fhir 2.1.6 | 100 個合成個案，每個個案的 8 個 population 都與 Python 參考實作的結果逐一比對；另以全部個案彙總，必須重現 3 份摘要 MeasureReport 的計數 |
 | CQL 執行（Java 參考引擎） | info.cqframework engine-fhir 3.26.0 | 同一批 90 個個案、同樣比對 Python 參考實作；JavaScript 與 Java 兩個引擎必須得到相同結果 |
 | 參考實作 | pytest | Python 參考實作（`reference/crc_indicators.py`、`reference/cohort.py`）通過手寫預期值；產生 CQL 測試資料時，參考實作的結果若與手寫預期值不符，建置即失敗 |
 | IG Publisher | HL7 IG Publisher 3.0.5（鎖定版本） | QA 0 errors、0 broken links。Publisher 即使有 QA 錯誤仍會回傳成功，因此 `scripts/check_qa.py` 讀取 `qa.json`，只要有任何 error、broken link，或報告格式缺少預期欄位，就讓建置失敗 |

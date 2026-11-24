@@ -119,11 +119,23 @@ FLAG_OUTSIDE_DATA_DEFAULTED = "OUTSIDE_DATA_STATUS_NOT_SUPPLIED"
 # Raw value parsing
 # ---------------------------------------------------------------------------
 # Raw values: leading/trailing ASCII spaces and tabs are removed, nothing else
-# (an internal blank makes a value malformed); digits are ASCII only. The CQL
-# applies the same rule ("Trimmed", "Normalized Site").
+# (an internal blank, CR or LF makes a value malformed); digits are ASCII only.
+# A value made only of whitespace (Java Character.isWhitespace: ASCII blanks,
+# CR, LF, VT, FF, U+001C-001F and the Unicode space separators except the
+# no-break spaces, e.g. U+3000) is no value at all: FHIR parsers such as HAPI
+# drop such values, so every engine must treat them as absent. The CQL applies
+# the same rule ("Trimmed", "Normalized Site"). Patterns use fullmatch: `$`
+# would also match before a final newline.
 BLANKS = " \t"
-_DATE_RE = re.compile(r"^[0-9]{8}$")
-_SITE_RE = re.compile(r"^C([0-9]{2})\.?([0-9])$")
+WHITESPACE = frozenset(" \t\n\r\x0b\x0c\x1c\x1d\x1e\x1f\u1680\u2000\u2001\u2002\u2003\u2004"
+                       "\u2005\u2006\u2008\u2009\u200a\u2028\u2029\u205f\u3000")
+_DATE_RE = re.compile(r"[0-9]{8}")
+_SITE_RE = re.compile(r"C([0-9]{2})\.?([0-9])")
+
+
+def is_blank(raw: str | None) -> bool:
+    """True for None, "" and values made only of whitespace (see WHITESPACE)."""
+    return raw is None or all(c in WHITESPACE for c in raw)
 
 
 def registry_date(raw: str | None) -> date | None:
@@ -131,7 +143,7 @@ def registry_date(raw: str | None) -> date | None:
     if raw is None:
         return None
     raw = raw.strip(BLANKS)
-    if not _DATE_RE.match(raw):
+    if not _DATE_RE.fullmatch(raw):
         return None
     try:
         return date(int(raw[:4]), int(raw[4:6]), int(raw[6:8]))
@@ -143,7 +155,7 @@ def normalise_site(raw: str | None) -> str | None:
     """'C18.7' / ' c187 ' -> 'C187'; anything else -> None."""
     if raw is None:
         return None
-    m = _SITE_RE.match(raw.strip(BLANKS).upper())
+    m = _SITE_RE.fullmatch(raw.strip(BLANKS).upper())
     return f"C{m.group(1)}{m.group(2)}" if m else None
 
 
@@ -289,10 +301,9 @@ class CohortResult:
 
 
 def _key_part(raw: object) -> str | None:
-    if raw is None:
+    if raw is None or is_blank(str(raw)):
         return None
-    s = str(raw).strip(BLANKS).upper()
-    return s or None
+    return str(raw).strip(BLANKS).upper()
 
 
 def _pick_representative(group: list[dict]) -> tuple[dict, list[str]]:
