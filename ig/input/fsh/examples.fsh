@@ -78,6 +78,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "1"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField2_5
 InstanceOf: CRCTCRDataItemObservation
@@ -92,6 +93,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "20250110"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField2_6
 InstanceOf: CRCTCRDataItemObservation
@@ -106,6 +108,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "C209"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField2_8
 InstanceOf: CRCTCRDataItemObservation
@@ -120,6 +123,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "8140"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField2_9
 InstanceOf: CRCTCRDataItemObservation
@@ -134,6 +138,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "3"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField2_12
 InstanceOf: CRCTCRDataItemObservation
@@ -148,6 +153,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "20250110"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField3_7
 InstanceOf: CRCTCRDataItemObservation
@@ -162,6 +168,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "2A"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField4_1
 InstanceOf: CRCTCRDataItemObservation
@@ -176,6 +183,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "20250221"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRRectumField4_1_4
 InstanceOf: CRCTCRDataItemObservation
@@ -190,6 +198,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientRectumExample)
 * focus = Reference(CRCConditionRectumExample)
 * valueString = "40"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_3
 InstanceOf: CRCTCRDataItemObservation
@@ -204,6 +213,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "1"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_5
 InstanceOf: CRCTCRDataItemObservation
@@ -218,6 +228,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "20250305"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_6
 InstanceOf: CRCTCRDataItemObservation
@@ -232,6 +243,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "C187"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_8
 InstanceOf: CRCTCRDataItemObservation
@@ -246,6 +258,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "8140"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_9
 InstanceOf: CRCTCRDataItemObservation
@@ -260,6 +273,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "3"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_12
 InstanceOf: CRCTCRDataItemObservation
@@ -274,6 +288,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "20250305"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField2_14
 InstanceOf: CRCTCRDataItemObservation
@@ -288,6 +303,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "15"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField3_13
 InstanceOf: CRCTCRDataItemObservation
@@ -302,6 +318,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "3B"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField4_1
 InstanceOf: CRCTCRDataItemObservation
@@ -316,6 +333,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "20250320"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCTCRColonField4_1_4
 InstanceOf: CRCTCRDataItemObservation
@@ -330,6 +348,7 @@ Description: "完全合成範例。"
 * subject = Reference(CRCPatientColonExample)
 * focus = Reference(CRCConditionColonExample)
 * valueString = "30"
+* issued = "2025-04-30T17:00:00+08:00"
 
 Instance: CRCPatientPolypExample
 InstanceOf: ColorectalCancerPatient
@@ -349,13 +368,15 @@ Instance: CRCMalignantPolypExample
 InstanceOf: CRCMalignantPolypCondition
 Usage: #example
 Title: "合成惡性息肉（T1）"
-Description: "完全合成範例。"
+Description: "完全合成範例：已登記的原發乙狀結腸癌，同時標示為惡性息肉，evidence 連到確立診斷的病理報告。"
 * id = "crc-malignant-polyp"
 * language = #zh-TW
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * category = $ConditionCategory#problem-list-item
-* code = CRCIndicatorConceptCodeSystem#malignant-polyp-t1
+* code.coding[malignantPolyp] = CRCIndicatorConceptCodeSystem#malignant-polyp-t1
+* code.coding[1] = http://hl7.org/fhir/sid/icd-10-cm#C18.7 "Malignant neoplasm of sigmoid colon"
+* evidence[0].detail = Reference(CRCPolypPathologyReportExample)
 * subject = Reference(CRCPatientPolypExample)
 
 Instance: CRCPolypFeatureMarginExample
@@ -369,6 +390,7 @@ Description: "完全合成範例。"
 * category[twcore] = $ObservationCategory#laboratory
 * code = CRCIndicatorConceptCodeSystem#criterion-b-margin-positive
 * subject = Reference(CRCPatientPolypExample)
+* focus = Reference(CRCMalignantPolypExample)
 * effectiveDateTime = "2025-02-25"
 * valueBoolean = true
 
@@ -383,6 +405,7 @@ Description: "完全合成範例。"
 * category[twcore] = $ObservationCategory#procedure
 * code = CRCIndicatorConceptCodeSystem#criterion-a-polyp-incompletely-excised
 * subject = Reference(CRCPatientPolypExample)
+* focus = Reference(CRCMalignantPolypExample)
 * effectiveDateTime = "2025-02-25"
 * valueBoolean = true
 
@@ -410,6 +433,7 @@ Description: "完全合成範例；落在 12 週內，計入指標 1 分子。"
 * status = #completed
 * code = CRCIndicatorConceptCodeSystem#curative-resection
 * subject = Reference(CRCPatientPolypExample)
+* reasonReference = Reference(CRCMalignantPolypExample)
 * performedDateTime = "2025-05-24T09:00:00+08:00"
 
 CodeSystem: CRCFixtureTagCodeSystem

@@ -59,6 +59,18 @@ const parameters = {
   )
 };
 
+// Population expressions return lists of FHIR resources (population basis =
+// Condition). Compare them as sorted lists of resource ids.
+function normalize(value) {
+  if (Array.isArray(value)) {
+    return value.map(item => {
+      const id = item?.id?.value ?? item?.id ?? item?._json?.id;
+      return typeof id === 'string' ? id : item;
+    }).sort();
+  }
+  return value;
+}
+
 function patientId(testCase) {
   const patients = testCase.bundle.entry.map(e => e.resource).filter(r => r.resourceType === 'Patient');
   assert.equal(patients.length, 1, `${testCase.id}: expected exactly one Patient`);
@@ -83,10 +95,10 @@ async function main() {
       assert.ok(result && Object.prototype.hasOwnProperty.call(result, expression), `${testCase.id}: no result for ${expression}`);
       if (Object.prototype.hasOwnProperty.call(testCase.expected, expression)) {
         try {
-          assert.deepEqual(result[expression], testCase.expected[expression]);
+          assert.deepEqual(normalize(result[expression]), testCase.expected[expression]);
           covered.add(expression);
         } catch (error) {
-          failures.push(`${testCase.id}: ${expression} expected ${JSON.stringify(testCase.expected[expression])} got ${JSON.stringify(result[expression])}`);
+          failures.push(`${testCase.id}: ${expression} expected ${JSON.stringify(testCase.expected[expression])} got ${JSON.stringify(normalize(result[expression]))}`);
         }
       }
     }

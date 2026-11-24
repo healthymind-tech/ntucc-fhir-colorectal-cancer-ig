@@ -1,4 +1,5 @@
 {
+  "format": "tumour-level-v2",
   "measurement_period": [
     "2025-01-01",
     "2025-12-31"
@@ -7,1031 +8,5755 @@
     {
       "id": "ip-class-1",
       "description": "Class 1、2025 新診斷：納入",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-class-1-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-class-1-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-class-1-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-class-1-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-class-1-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-class-1-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-class-1-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-class-1-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-class-1-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-class-1-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-class-1-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-class-1-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": true
+        "Initial Population": [
+          "ip-class-1-tumour"
+        ]
       }
     },
     {
       "id": "ip-class-0",
       "description": "Class 0 不納入",
-      "fields": {
-        "2.3": "0",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-class-0-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-class-0-tumour-f2-3-v00",
+                "value": "0",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-class-0-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-class-0-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-class-0-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-class-0-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-class-0-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-class-0-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-class-0-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-class-0-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-class-0-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-class-0-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": false
+        "Initial Population": []
       }
     },
     {
       "id": "ip-class-3",
       "description": "Class 3 不納入",
-      "fields": {
-        "2.3": "3",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-class-3-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-class-3-tumour-f2-3-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-class-3-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-class-3-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-class-3-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-class-3-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-class-3-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-class-3-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-class-3-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-class-3-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-class-3-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-class-3-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": false
+        "Initial Population": []
       }
     },
     {
       "id": "ip-dx-unknown",
       "description": "最初診斷日期 99999999：無法判定收錄年度",
-      "fields": {
-        "2.3": "1",
-        "2.5": "99999999",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-dx-unknown-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-5-v00",
+                "value": "99999999",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-dx-unknown-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-dx-unknown-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-dx-unknown-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-dx-unknown-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-dx-unknown-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": false
+        "Initial Population": []
       }
     },
     {
       "id": "ip-dx-outside-period",
       "description": "2024 年診斷，不在 2025 量測期間",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20241231",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-dx-outside-period-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-5-v00",
+                "value": "20241231",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-dx-outside-period-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-dx-outside-period-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-dx-outside-period-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-dx-outside-period-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-dx-outside-period-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": false
+        "Initial Population": []
       }
     },
     {
       "id": "ip-cross-hospital",
       "description": "註3 跨院治療：class 2、診斷狀態 2、治療狀態 3",
-      "fields": {
-        "2.3": "2",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30",
-        "CLASS-DX-STATUS": "2",
-        "CLASS-TX-STATUS": "3"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-cross-hospital-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-3-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-cross-hospital-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-cross-hospital-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-cross-hospital-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-cross-hospital-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.1": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-3-1-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.2": [
+              {
+                "id": "ip-cross-hospital-tumour-f2-3-2-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": false,
-        "Cross Hospital Treatment": true
+        "Initial Population": []
       }
     },
     {
       "id": "ip-class-2-full-course",
       "description": "Class 2、全部首次療程在本院：納入",
-      "fields": {
-        "2.3": "2",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30",
-        "CLASS-DX-STATUS": "2",
-        "CLASS-TX-STATUS": "2"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "ip-class-2-full-course-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-3-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-class-2-full-course-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-class-2-full-course-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-class-2-full-course-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-class-2-full-course-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.1": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-3-1-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3.2": [
+              {
+                "id": "ip-class-2-full-course-tumour-f2-3-2-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": true,
-        "Cross Hospital Treatment": false
+        "Initial Population": [
+          "ip-class-2-full-course-tumour"
+        ]
       }
     },
     {
       "id": "qi02-met",
       "description": "乙狀結腸 3B 期、部分結腸切除、15 顆",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-met-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-met-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-met-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-met-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-met-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-met-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-met-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-met-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-met-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-met-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-met-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-met-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true,
-        "Denominator 2 Exclusion": false,
-        "Numerator 2": true
+        "Denominator 2": [
+          "qi02-met-tumour"
+        ],
+        "Denominator 2 Exclusion": [],
+        "Numerator 2": [
+          "qi02-met-tumour"
+        ]
       }
     },
     {
       "id": "qi02-nodes-11",
       "description": "淋巴結 11 顆：不符分子",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "11",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-nodes-11-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-nodes-11-tumour-f2-14-v00",
+                "value": "11",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-nodes-11-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-nodes-11-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-nodes-11-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-nodes-11-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true,
-        "Numerator 2": false
+        "Denominator 2": [
+          "qi02-nodes-11-tumour"
+        ],
+        "Numerator 2": []
       }
     },
     {
       "id": "qi02-nodes-12",
       "description": "淋巴結 12 顆：下界",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "12",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-nodes-12-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-nodes-12-tumour-f2-14-v00",
+                "value": "12",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-nodes-12-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-nodes-12-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-nodes-12-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-nodes-12-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Numerator 2": true
+        "Numerator 2": [
+          "qi02-nodes-12-tumour"
+        ]
       }
     },
     {
       "id": "qi02-nodes-90",
       "description": "淋巴結 90 顆：上界",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "90",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-nodes-90-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-nodes-90-tumour-f2-14-v00",
+                "value": "90",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-nodes-90-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-nodes-90-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-nodes-90-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-nodes-90-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Numerator 2": true
+        "Numerator 2": [
+          "qi02-nodes-90-tumour"
+        ]
       }
     },
     {
       "id": "qi02-nodes-95",
       "description": "2.14=95：不在 12~90",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "95",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-nodes-95-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-nodes-95-tumour-f2-14-v00",
+                "value": "95",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-nodes-95-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-nodes-95-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-nodes-95-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-nodes-95-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true,
-        "Numerator 2": false
+        "Denominator 2": [
+          "qi02-nodes-95-tumour"
+        ],
+        "Numerator 2": []
       }
     },
     {
       "id": "qi02-appendix",
       "description": "闌尾 C18.1：115/06/18 起排除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C181",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-appendix-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-appendix-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-appendix-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-appendix-tumour-f2-6-v00",
+                "value": "C181",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-appendix-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-appendix-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-appendix-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-appendix-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-appendix-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-appendix-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-appendix-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-appendix-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Is Colon Excluding Appendix": false,
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-dotted-site",
       "description": "部位寫成 C18.7：視同 C187",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C18.7",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-dotted-site-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-6-v00",
+                "value": "C18.7",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-dotted-site-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-dotted-site-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-dotted-site-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-dotted-site-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-dotted-site-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true
+        "Denominator 2": [
+          "qi02-dotted-site-tumour"
+        ]
       }
     },
     {
       "id": "qi02-rectum-not-colon",
       "description": "直腸 C20.9 不屬結腸",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-rectum-not-colon-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-rectum-not-colon-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-polypectomy",
       "description": "手術方式 27（局部切除）：<30 排除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "27"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-polypectomy-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-polypectomy-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-polypectomy-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-polypectomy-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-polypectomy-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-polypectomy-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Has Resection Surgery 30 To 90": false,
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-surgery-90",
       "description": "手術方式 90：上界",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "90"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-surgery-90-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-surgery-90-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-surgery-90-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-surgery-90-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-surgery-90-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-surgery-90-tumour-f4-1-4-v00",
+                "value": "90",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true
+        "Denominator 2": [
+          "qi02-surgery-90-tumour"
+        ]
       }
     },
     {
       "id": "qi02-surgery-99",
       "description": "手術方式 99（不詳）",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "99"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-surgery-99-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-surgery-99-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-surgery-99-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-surgery-99-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-surgery-99-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-surgery-99-tumour-f4-1-4-v00",
+                "value": "99",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-stage-4",
       "description": "病理第 4 期",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "4",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-stage-4-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-stage-4-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-stage-4-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-stage-4-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-stage-4-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-stage-4-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-stage-4-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-stage-4-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-stage-4-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-stage-4-tumour-f3-13-v00",
+                "value": "4",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-stage-4-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-stage-4-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-stage-0",
       "description": "病理第 0 期",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "0",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-stage-0-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-stage-0-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-stage-0-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-stage-0-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-stage-0-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-stage-0-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-stage-0-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-stage-0-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-stage-0-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-stage-0-tumour-f3-13-v00",
+                "value": "0",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-stage-0-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-stage-0-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-stage-unknown",
       "description": "病理期別 999",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "999",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-stage-unknown-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-stage-unknown-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-stage-unknown-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-stage-unknown-tumour-f3-13-v00",
+                "value": "999",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-stage-unknown-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-stage-unknown-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": false
+        "Denominator 2": []
       }
     },
     {
       "id": "qi02-stage-1",
       "description": "病理第 1 期",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "1",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-stage-1-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-stage-1-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-stage-1-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-stage-1-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-stage-1-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-stage-1-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-stage-1-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-stage-1-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-stage-1-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-stage-1-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-stage-1-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-stage-1-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Is Pathological Stage I To III": true,
-        "Denominator 2": true
+        "Denominator 2": [
+          "qi02-stage-1-tumour"
+        ]
       }
     },
     {
       "id": "qi02-gist",
       "description": "GIST 8936：特殊組織型態排除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8936",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-gist-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-gist-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-gist-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-gist-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-gist-tumour-f2-8-v00",
+                "value": "8936",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-gist-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-gist-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-gist-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-gist-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-gist-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-gist-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-gist-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2": true,
-        "Denominator 2 Exclusion": true
+        "Denominator 2": [
+          "qi02-gist-tumour"
+        ],
+        "Denominator 2 Exclusion": [
+          "qi02-gist-tumour"
+        ]
       }
     },
     {
       "id": "qi02-net",
       "description": "NET 8240：特殊組織型態排除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8240",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi02-net-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi02-net-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi02-net-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi02-net-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi02-net-tumour-f2-8-v00",
+                "value": "8240",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi02-net-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi02-net-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi02-net-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi02-net-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi02-net-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi02-net-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi02-net-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 2 Exclusion": true
+        "Denominator 2 Exclusion": [
+          "qi02-net-tumour"
+        ]
       }
     },
     {
       "id": "qi03-42-days",
       "description": "直腸 2A 期、確診後第 42 天開始治療",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-42-days-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-42-days-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-42-days-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-42-days-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-42-days-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-42-days-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-42-days-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-42-days-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-42-days-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-42-days-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-42-days-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true,
-        "Days From Confirmation To First Course": 42,
-        "Numerator 3": true
+        "Denominator 3": [
+          "qi03-42-days-tumour"
+        ],
+        "Numerator 3": [
+          "qi03-42-days-tumour"
+        ]
       }
     },
     {
       "id": "qi03-43-days",
       "description": "第 43 天開始治療",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250222",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-43-days-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-43-days-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-43-days-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-43-days-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-43-days-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-43-days-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-43-days-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-43-days-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-43-days-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-43-days-tumour-f4-1-v00",
+                "value": "20250222",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-43-days-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true,
-        "Numerator 3": false
+        "Denominator 3": [
+          "qi03-43-days-tumour"
+        ],
+        "Numerator 3": []
       }
     },
     {
       "id": "qi03-class-2",
       "description": "Class 2 不納入指標 3",
-      "fields": {
-        "2.3": "2",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-class-2-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-class-2-tumour-f2-3-v00",
+                "value": "2",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-class-2-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-class-2-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-class-2-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-class-2-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-class-2-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-class-2-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-class-2-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-class-2-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-class-2-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Initial Population": true,
-        "Denominator 3": false
+        "Initial Population": [
+          "qi03-class-2-tumour"
+        ],
+        "Denominator 3": []
       }
     },
     {
       "id": "qi03-rectosigmoid",
       "description": "直腸乙狀結腸交界 C19.9",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C19.9",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-rectosigmoid-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-6-v00",
+                "value": "C19.9",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-rectosigmoid-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true
+        "Denominator 3": [
+          "qi03-rectosigmoid-tumour"
+        ]
       }
     },
     {
       "id": "qi03-stage-3c",
       "description": "臨床 3C 期",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "3C",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-stage-3c-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-stage-3c-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-stage-3c-tumour-f3-7-v00",
+                "value": "3C",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-stage-3c-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-stage-3c-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-stage-3c-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true
+        "Denominator 3": [
+          "qi03-stage-3c-tumour"
+        ]
       }
     },
     {
       "id": "qi03-stage-1",
       "description": "臨床第 1 期不納入",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "1",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-stage-1-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-stage-1-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-stage-1-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-stage-1-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-stage-1-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-stage-1-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-stage-1-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-stage-1-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-stage-1-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-stage-1-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-stage-1-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": false
+        "Denominator 3": []
       }
     },
     {
       "id": "qi03-stage-4",
       "description": "臨床第 4 期不納入",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "4A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-stage-4-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-stage-4-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-stage-4-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-stage-4-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-stage-4-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-stage-4-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-stage-4-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-stage-4-tumour-f3-7-v00",
+                "value": "4A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-stage-4-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-stage-4-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-stage-4-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": false
+        "Denominator 3": []
       }
     },
     {
       "id": "qi03-colon",
       "description": "結腸不屬指標 3",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-colon-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-colon-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-colon-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-colon-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-colon-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-colon-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-colon-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-colon-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-colon-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-colon-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-colon-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": false
+        "Denominator 3": []
       }
     },
     {
       "id": "qi03-no-treatment-date",
       "description": "首次療程開始日期 00000000（未治療）",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "00000000",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-no-treatment-date-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f4-1-v00",
+                "value": "00000000",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-no-treatment-date-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true,
-        "Numerator 3": false
+        "Denominator 3": [
+          "qi03-no-treatment-date-tumour"
+        ],
+        "Numerator 3": []
       }
     },
     {
       "id": "qi03-unknown-confirmation",
       "description": "首次顯微鏡檢證實日期 99999999",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "99999999",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250221",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-unknown-confirmation-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f2-12-v00",
+                "value": "99999999",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f4-1-v00",
+                "value": "20250221",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-unknown-confirmation-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 3": true,
-        "Numerator 3": false
+        "Denominator 3": [
+          "qi03-unknown-confirmation-tumour"
+        ],
+        "Numerator 3": []
       }
     },
     {
       "id": "qi03-invalid-calendar-date",
       "description": "4.1=20250231（不存在之日期）",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250110",
-        "2.6": "C209",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250110",
-        "3.7": "2A",
-        "3.13": "2A",
-        "4.1": "20250231",
-        "4.1.4": "40"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi03-invalid-calendar-date-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f4-1-v00",
+                "value": "20250231",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi03-invalid-calendar-date-tumour-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Numerator 3": false
+        "Numerator 3": []
       }
     },
     {
       "id": "qi01-day-84",
       "description": "條件 B、病理報告後第 84 天治癒性切除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-05-24",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-day-84-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-day-84-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-day-84-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-day-84-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-day-84-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-day-84-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-day-84-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-day-84-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-day-84-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-day-84-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-day-84-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Denominator 1": true,
-        "Numerator 1": true
+        "Denominator 1": [
+          "qi01-day-84-tumour"
+        ],
+        "Numerator 1": [
+          "qi01-day-84-tumour"
+        ]
       }
     },
     {
       "id": "qi01-day-85",
       "description": "第 85 天切除：超過 12 週",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-05-25",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-day-85-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-day-85-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-day-85-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-day-85-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-day-85-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-day-85-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-day-85-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-day-85-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-day-85-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-day-85-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-day-85-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-25",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Denominator 1": true,
-        "Numerator 1": false
+        "Denominator 1": [
+          "qi01-day-85-tumour"
+        ],
+        "Numerator 1": []
       }
     },
     {
       "id": "qi01-day-0",
       "description": "報告當日切除",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-03-01",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-day-0-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-day-0-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-day-0-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-day-0-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-day-0-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-day-0-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-day-0-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-day-0-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-day-0-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-day-0-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-day-0-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-03-01",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Numerator 1": true
+        "Numerator 1": [
+          "qi01-day-0-tumour"
+        ]
       }
     },
     {
       "id": "qi01-before-report",
       "description": "報告前一天之切除不算",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-02-28",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-before-report-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-before-report-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-before-report-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-before-report-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-before-report-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-before-report-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-before-report-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-before-report-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-before-report-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-before-report-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-before-report-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-02-28",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Numerator 1": false
+        "Numerator 1": []
       }
     },
     {
       "id": "qi01-not-done",
       "description": "切除 status=not-done",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-04-01",
-            "status": "not-done"
+      "tumours": [
+        {
+          "id": "qi01-not-done-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-not-done-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-not-done-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-not-done-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-not-done-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-not-done-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-not-done-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-not-done-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-not-done-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-not-done-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-not-done-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-04-01",
+                "status": "not-done"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Denominator 1": true,
-        "Numerator 1": false
+        "Denominator 1": [
+          "qi01-not-done-tumour"
+        ],
+        "Numerator 1": []
       }
     },
     {
       "id": "qi01-no-feature",
       "description": "A–D 皆記載為不成立：不屬分母",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "A": false,
-          "B": false,
-          "C": false,
-          "D": false
-        },
-        "resections": [
-          {
-            "date": "2025-05-24",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-no-feature-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-no-feature-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-no-feature-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-no-feature-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-no-feature-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-no-feature-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-no-feature-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-no-feature-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-no-feature-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-no-feature-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-no-feature-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "A": false,
+              "B": false,
+              "C": false,
+              "D": false
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Has High Risk Feature": false,
-        "Denominator 1": false
+        "Denominator 1": []
       }
     },
     {
       "id": "qi01-feature-a-only",
       "description": "只有條件 A（大腸鏡報告）",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "confirmed",
-        "report_issued": "2025-03-01",
-        "features": {
-          "A": true
-        },
-        "resections": [
-          {
-            "date": "2025-05-24",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-feature-a-only-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-feature-a-only-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-feature-a-only-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-feature-a-only-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-feature-a-only-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-feature-a-only-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "A": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Denominator 1": true
+        "Denominator 1": [
+          "qi01-feature-a-only-tumour"
+        ]
       }
     },
     {
       "id": "qi01-unconfirmed-polyp",
       "description": "惡性息肉未確認",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250301",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250301",
-        "3.7": "1",
-        "3.13": "1",
-        "4.1": "20250301",
-        "4.1.4": "27"
-      },
-      "polyp": {
-        "malignant_polyp": "provisional",
-        "report_issued": "2025-03-01",
-        "features": {
-          "B": true
-        },
-        "resections": [
-          {
-            "date": "2025-05-24",
-            "status": "completed"
+      "tumours": [
+        {
+          "id": "qi01-unconfirmed-polyp-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-unconfirmed-polyp-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "provisional",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "expected": {
-        "Has Malignant Polyp": false,
-        "Denominator 1": false
+        "Denominator 1": []
       }
     },
     {
       "id": "qi01-no-polyp-facts",
       "description": "沒有惡性息肉臨床事實",
-      "fields": {
-        "2.3": "1",
-        "2.5": "20250305",
-        "2.6": "C187",
-        "2.8": "8140",
-        "2.9": "3",
-        "2.12": "20250305",
-        "2.14": "15",
-        "3.7": "3B",
-        "3.13": "3B",
-        "4.1": "20250320",
-        "4.1.4": "30"
-      },
-      "polyp": null,
+      "tumours": [
+        {
+          "id": "qi01-no-polyp-facts-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-no-polyp-facts-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
       "expected": {
-        "Denominator 1": false,
-        "Numerator 1": false
+        "Denominator 1": [],
+        "Numerator 1": []
+      }
+    },
+    {
+      "id": "multi-primary-colon-rectum",
+      "description": "同步結腸癌與直腸癌：兩顆腫瘤各自計算",
+      "tumours": [
+        {
+          "id": "multi-primary-colon-rectum-colon",
+          "fields": {
+            "2.3": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "multi-primary-colon-rectum-colon-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        },
+        {
+          "id": "multi-primary-colon-rectum-rectum",
+          "fields": {
+            "2.3": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-5-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-6-v00",
+                "value": "C209",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f2-12-v00",
+                "value": "20250110",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f3-7-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f3-13-v00",
+                "value": "2A",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f4-1-v00",
+                "value": "20250222",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "multi-primary-colon-rectum-rectum-f4-1-4-v00",
+                "value": "40",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
+      "expected": {
+        "Initial Population": [
+          "multi-primary-colon-rectum-colon",
+          "multi-primary-colon-rectum-rectum"
+        ],
+        "Denominator 2": [
+          "multi-primary-colon-rectum-colon"
+        ],
+        "Numerator 2": [
+          "multi-primary-colon-rectum-colon"
+        ],
+        "Denominator 3": [
+          "multi-primary-colon-rectum-rectum"
+        ],
+        "Numerator 3": []
+      }
+    },
+    {
+      "id": "amended-raises-nodes",
+      "description": "2.14 先 final 11 顆，後 amended 為 15 顆：取最新",
+      "tumours": [
+        {
+          "id": "amended-raises-nodes-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "amended-raises-nodes-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-05-01T09:00:00+08:00",
+                "status": "amended"
+              },
+              {
+                "id": "amended-raises-nodes-tumour-f2-14-v01",
+                "value": "11",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "amended-raises-nodes-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "amended-raises-nodes-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "amended-raises-nodes-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "amended-raises-nodes-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
+      "expected": {
+        "Denominator 2": [
+          "amended-raises-nodes-tumour"
+        ],
+        "Numerator 2": [
+          "amended-raises-nodes-tumour"
+        ]
+      }
+    },
+    {
+      "id": "amended-lowers-nodes",
+      "description": "2.14 先 final 15 顆，後 corrected 為 11 顆：取最新",
+      "tumours": [
+        {
+          "id": "amended-lowers-nodes-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "amended-lowers-nodes-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "final"
+              },
+              {
+                "id": "amended-lowers-nodes-tumour-f2-14-v01",
+                "value": "11",
+                "issued": "2025-05-01T09:00:00+08:00",
+                "status": "corrected"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "amended-lowers-nodes-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "amended-lowers-nodes-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "amended-lowers-nodes-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "amended-lowers-nodes-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
+      "expected": {
+        "Denominator 2": [
+          "amended-lowers-nodes-tumour"
+        ],
+        "Numerator 2": []
+      }
+    },
+    {
+      "id": "entered-in-error-ignored",
+      "description": "較晚的 entered-in-error 申報值不採用",
+      "tumours": [
+        {
+          "id": "entered-in-error-ignored-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "entered-in-error-ignored-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "final"
+              },
+              {
+                "id": "entered-in-error-ignored-tumour-f2-14-v01",
+                "value": "11",
+                "issued": "2025-05-01T09:00:00+08:00",
+                "status": "entered-in-error"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "entered-in-error-ignored-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "entered-in-error-ignored-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "entered-in-error-ignored-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "entered-in-error-ignored-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
+      "expected": {
+        "Numerator 2": [
+          "entered-in-error-ignored-tumour"
+        ]
+      }
+    },
+    {
+      "id": "same-issued-tie-break",
+      "description": "兩筆 issued 相同：依 Observation id 取最後一筆（v01）",
+      "tumours": [
+        {
+          "id": "same-issued-tie-break-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "same-issued-tie-break-tumour-f2-14-v00",
+                "value": "11",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "final"
+              },
+              {
+                "id": "same-issued-tie-break-tumour-f2-14-v01",
+                "value": "15",
+                "issued": "2025-04-01T09:00:00+08:00",
+                "status": "amended"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "same-issued-tie-break-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "same-issued-tie-break-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "same-issued-tie-break-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "same-issued-tie-break-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null
+        }
+      ],
+      "expected": {
+        "Numerator 2": [
+          "same-issued-tie-break-tumour"
+        ]
+      }
+    },
+    {
+      "id": "qi01-facts-belong-to-one-tumour",
+      "description": "兩顆惡性息肉，只有一顆有高風險條件與切除：只算那一顆",
+      "tumours": [
+        {
+          "id": "qi01-facts-belong-to-one-tumour-a",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-a-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "qi01-facts-belong-to-one-tumour-b",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-facts-belong-to-one-tumour-b-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {},
+            "resections": []
+          }
+        }
+      ],
+      "expected": {
+        "Initial Population": [
+          "qi01-facts-belong-to-one-tumour-a",
+          "qi01-facts-belong-to-one-tumour-b"
+        ],
+        "Denominator 1": [
+          "qi01-facts-belong-to-one-tumour-a"
+        ],
+        "Numerator 1": [
+          "qi01-facts-belong-to-one-tumour-a"
+        ]
+      }
+    },
+    {
+      "id": "qi01-report-not-linked",
+      "description": "病理報告存在但未以 evidence 連到腫瘤：不屬分母",
+      "tumours": [
+        {
+          "id": "qi01-report-not-linked-tumour",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-report-not-linked-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-report-not-linked-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-report-not-linked-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-report-not-linked-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-report-not-linked-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ],
+            "report_linked": false
+          }
+        }
+      ],
+      "expected": {
+        "Denominator 1": []
+      }
+    },
+    {
+      "id": "qi01-resection-of-other-tumour",
+      "description": "切除的 reasonReference 指向另一顆腫瘤：不算",
+      "tumours": [
+        {
+          "id": "qi01-resection-of-other-tumour-a",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-resection-of-other-tumour-a-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": []
+          }
+        },
+        {
+          "id": "qi01-resection-of-other-tumour-b",
+          "fields": {
+            "2.3": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-resection-of-other-tumour-b-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": null,
+            "features": {},
+            "resections": [
+              {
+                "date": "2025-04-01",
+                "status": "completed"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "Denominator 1": [
+          "qi01-resection-of-other-tumour-a"
+        ],
+        "Numerator 1": []
       }
     }
   ]

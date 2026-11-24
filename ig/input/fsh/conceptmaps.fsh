@@ -19,11 +19,11 @@ Description: "大腸癌核心指標引用之癌登長表欄位與 LOINC 觀察�
 * group[0].element[0].display = "個案分類"
 * group[0].element[0].target[0].equivalence = #unmatched
 * group[0].element[0].target[0].comment = "[unreviewed] LOINC 只有 42071-1（accession number + class of case + override flag 的組合欄位），沒有單獨的 class of case 觀察碼"
-* group[0].element[1].code = #CLASS-DX-STATUS
+* group[0].element[1].code = #2.3.1
 * group[0].element[1].display = "診斷狀態分類"
 * group[0].element[1].target[0].equivalence = #unmatched
 * group[0].element[1].target[0].comment = "[unreviewed] 台灣癌登特有欄位，無國際對應"
-* group[0].element[2].code = #CLASS-TX-STATUS
+* group[0].element[2].code = #2.3.2
 * group[0].element[2].display = "治療狀態分類"
 * group[0].element[2].target[0].equivalence = #unmatched
 * group[0].element[2].target[0].comment = "[unreviewed] 台灣癌登特有欄位，無國際對應"

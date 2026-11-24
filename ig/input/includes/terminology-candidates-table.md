@@ -3,8 +3,8 @@
 | 對應 | 來源代碼 | 來源概念 | 候選代碼 | 候選名稱（官方 display） | 類型 | 關係 | 理由 | 審核狀態 |
 |---|---|---|---|---|---|---|---|---|
 | tcr-field-to-loinc | `2.3` | 個案分類 | — | — | — | unmatched | LOINC 只有 42071-1（accession number + class of case + override flag 的組合欄位），沒有單獨的 class of case 觀察碼 | unreviewed |
-| tcr-field-to-loinc | `CLASS-DX-STATUS` | 診斷狀態分類 | — | — | — | unmatched | 台灣癌登特有欄位，無國際對應 | unreviewed |
-| tcr-field-to-loinc | `CLASS-TX-STATUS` | 治療狀態分類 | — | — | — | unmatched | 台灣癌登特有欄位，無國際對應 | unreviewed |
+| tcr-field-to-loinc | `2.3.1` | 診斷狀態分類 | — | — | — | unmatched | 台灣癌登特有欄位，無國際對應 | unreviewed |
+| tcr-field-to-loinc | `2.3.2` | 治療狀態分類 | — | — | — | unmatched | 台灣癌登特有欄位，無國際對應 | unreviewed |
 | tcr-field-to-loinc | `2.5` | 最初診斷日期 | LOINC `21854-5` | Date first Dx Cancer | LOINC observable | equivalent | NAACCR Date of Diagnosis，即最初診斷日期。先前候選 42029-9 為 Date of conclusive diagnosis（確診日期），語意不同，不採用 | unreviewed |
 | tcr-field-to-loinc | `2.6` | 原發部位 | LOINC `21855-2` | Primary site Cancer | LOINC observable | equivalent | 值為 ICD-O-3 topography，與癌登 2.6 相同 | unreviewed |
 | tcr-field-to-loinc | `2.8` | 組織型態 | LOINC `31205-8` | Histology ICD-O-3 Cancer | LOINC observable | equivalent | 值為 ICD-O-3 morphology 4 碼 | unreviewed |

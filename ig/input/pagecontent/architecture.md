@@ -18,7 +18,7 @@
 Task 層（評估前）：組 Group、院內重複個案去重、排除治療前死亡
         │
         ▼
-Library ColorectalCancerCoreIndicators（CQL）──► Measure crc-qi-01 / 02 / 03 ──► MeasureReport
+Library ColorectalCancerCoreIndicators（CQL，計算單位＝原發腫瘤 Condition）──► Measure crc-qi-01 / 02 / 03 ──► MeasureReport
 ```
 
 ## 為什麼指標 2、3 讀癌登欄位，而不是臨床資源？

@@ -9,6 +9,7 @@
 | `subject` | 病人 |
 | `focus` | 此欄位所屬的原發腫瘤（ColorectalCancerPrimaryCondition） |
 | `status` | final／amended／corrected 才會被指標讀取 |
+| `issued` | 必填。同一顆腫瘤的同一欄位有多筆申報值時，`issued` 最晚者為現行值；`issued` 相同時取 Observation.id 最大者（應視為資料品質問題） |
 | `derivedFrom` | 摘錄來源文件（選用） |
 
 ## 指標引用的欄位
@@ -16,8 +17,8 @@
 | 欄位 | 名稱 | 使用者 |
 |---|---|---|
 | 2.3 | 個案分類 | 共通（IP-CLASS、IP-CROSS）、指標 3（D3-CLASS） |
-| CLASS-DX-STATUS | 診斷狀態分類 | 共通（IP-CROSS） |
-| CLASS-TX-STATUS | 治療狀態分類 | 共通（IP-CROSS） |
+| 2.3.1 | 診斷狀態分類 | 共通（IP-CROSS） |
+| 2.3.2 | 治療狀態分類 | 共通（IP-CROSS） |
 | 2.5 | 最初診斷日期 | 共通（IP-DXDATE） |
 | 2.6 | 原發部位 | 指標 2（D2-SITE）、指標 3（D3-SITE） |
 | 2.8 | 組織型態 | 指標 2（X2-HIST） |
@@ -29,7 +30,7 @@
 | 4.1 | 首次療程開始日期 | 指標 3（N3-42D） |
 | 4.1.4 | 申報醫院原發部位手術方式 | 指標 2（D2-SURG、X2-POLYP） |
 
-`CLASS-DX-STATUS` 與 `CLASS-TX-STATUS` 在指標文件中只有文字描述（註3），沒有欄位序號，因此使用描述性代碼。對應的長表欄位序號需依長表摘錄手冊核對，見「[已知歧義](known-ambiguities.html)」。
+指標文件註3只以文字提到「診斷狀態」與「治療狀態分類」，沒有寫欄位序號；2.3.1、2.3.2 依[台灣癌症登記長表實作指引（TWCR_LF）](twcr-lf.html)的邏輯模型確認。
 
 ## ICD-O-3 與 LOINC
 

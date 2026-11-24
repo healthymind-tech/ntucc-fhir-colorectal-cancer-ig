@@ -41,14 +41,49 @@ POLYP = {"malignant_polyp": "confirmed", "report_issued": "2025-03-01",
          "features": {"B": True}, "resections": [{"date": "2025-05-24", "status": "completed"}]}
 
 
-def case(case_id, description, fields, expected, base=None, polyp=None):
+POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominator 2",
+               "Denominator 2 Exclusion", "Numerator 2", "Denominator 3", "Numerator 3")
+DEFAULT_ISSUED = "2025-04-30T17:00:00+08:00"
+
+
+def tumour(tumour_id, fields, base=None, polyp=None):
+    """One primary tumour. A field value is a raw string (one final version) or a
+    list of {"value", "issued", "status"} versions."""
     merged = dict(base or {})
     for key, value in fields.items():
         if value is None:
             merged.pop(key, None)
         else:
             merged[key] = value
-    return {"id": case_id, "description": description, "fields": merged, "polyp": polyp, "expected": expected}
+    return {"id": tumour_id, "fields": merged, "polyp": polyp}
+
+
+def case(case_id, description, fields, expected, base=None, polyp=None):
+    """A single-tumour case. Boolean expectations mean "this case's tumour is /
+    is not in the population"; they are turned into tumour-id lists. Only
+    population expressions are asserted: the library's helpers are functions
+    of a tumour and are exercised through the populations."""
+    tid = f"{case_id}-tumour"
+    lists = {k: ([tid] if v else []) for k, v in expected.items() if k in POPULATIONS}
+    return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists)
+
+
+def multi(case_id, description, tumours, expected):
+    unknown = set(expected) - set(POPULATIONS)
+    if unknown:
+        raise SystemExit(f"{case_id}: not a population expression: {unknown}")
+    for t in tumours:
+        versions = {}
+        for number, value in t["fields"].items():
+            items = value if isinstance(value, list) else [{"value": value}]
+            versions[number] = [
+                {"id": f"{t['id']}-f{number.replace('.', '-')}-v{k:02d}", "value": v["value"],
+                 "issued": v.get("issued", DEFAULT_ISSUED), "status": v.get("status", "final")}
+                for k, v in enumerate(items)
+            ]
+        t["fields"] = versions
+    return {"id": case_id, "description": description, "tumours": tumours,
+            "expected": {k: sorted(v) for k, v in expected.items()}}
 
 
 CASES = [
@@ -59,10 +94,10 @@ CASES = [
     case("ip-dx-unknown", "最初診斷日期 99999999：無法判定收錄年度", {"2.5": "99999999"}, {"Initial Population": False}, COLON),
     case("ip-dx-outside-period", "2024 年診斷，不在 2025 量測期間", {"2.5": "20241231"}, {"Initial Population": False}, COLON),
     case("ip-cross-hospital", "註3 跨院治療：class 2、診斷狀態 2、治療狀態 3",
-         {"2.3": "2", "CLASS-DX-STATUS": "2", "CLASS-TX-STATUS": "3"},
+         {"2.3": "2", "2.3.1": "2", "2.3.2": "3"},
          {"Initial Population": False, "Cross Hospital Treatment": True}, COLON),
     case("ip-class-2-full-course", "Class 2、全部首次療程在本院：納入",
-         {"2.3": "2", "CLASS-DX-STATUS": "2", "CLASS-TX-STATUS": "2"},
+         {"2.3": "2", "2.3.1": "2", "2.3.2": "2"},
          {"Initial Population": True, "Cross Hospital Treatment": False}, COLON),
     # ---- crc-qi-02 ----------------------------------------------------------------
     case("qi02-met", "乙狀結腸 3B 期、部分結腸切除、15 顆", {},
@@ -123,6 +158,58 @@ CASES = [
     case("qi01-no-polyp-facts", "沒有惡性息肉臨床事實", {}, {"Denominator 1": False, "Numerator 1": False}, COLON),
 ]
 
+
+# ---- tumour as the unit, current registry value, linked indicator-1 facts ------
+def _t(case_id, suffix):
+    return f"{case_id}-{suffix}"
+
+
+CASES += [
+    multi("multi-primary-colon-rectum", "同步結腸癌與直腸癌：兩顆腫瘤各自計算",
+          [tumour(_t("multi-primary-colon-rectum", "colon"), {}, COLON),
+           tumour(_t("multi-primary-colon-rectum", "rectum"), {"4.1": "20250222"}, RECTUM)],
+          {"Initial Population": [_t("multi-primary-colon-rectum", "colon"), _t("multi-primary-colon-rectum", "rectum")],
+           "Denominator 2": [_t("multi-primary-colon-rectum", "colon")],
+           "Numerator 2": [_t("multi-primary-colon-rectum", "colon")],
+           "Denominator 3": [_t("multi-primary-colon-rectum", "rectum")],
+           "Numerator 3": []}),
+    multi("amended-raises-nodes", "2.14 先 final 11 顆，後 amended 為 15 顆：取最新",
+          [tumour(_t("amended-raises-nodes", "tumour"), {"2.14": [
+              {"value": "15", "issued": "2025-05-01T09:00:00+08:00", "status": "amended"},
+              {"value": "11", "issued": "2025-04-01T09:00:00+08:00", "status": "final"}]}, COLON)],
+          {"Denominator 2": [_t("amended-raises-nodes", "tumour")], "Numerator 2": [_t("amended-raises-nodes", "tumour")]}),
+    multi("amended-lowers-nodes", "2.14 先 final 15 顆，後 corrected 為 11 顆：取最新",
+          [tumour(_t("amended-lowers-nodes", "tumour"), {"2.14": [
+              {"value": "15", "issued": "2025-04-01T09:00:00+08:00", "status": "final"},
+              {"value": "11", "issued": "2025-05-01T09:00:00+08:00", "status": "corrected"}]}, COLON)],
+          {"Denominator 2": [_t("amended-lowers-nodes", "tumour")], "Numerator 2": []}),
+    multi("entered-in-error-ignored", "較晚的 entered-in-error 申報值不採用",
+          [tumour(_t("entered-in-error-ignored", "tumour"), {"2.14": [
+              {"value": "15", "issued": "2025-04-01T09:00:00+08:00", "status": "final"},
+              {"value": "11", "issued": "2025-05-01T09:00:00+08:00", "status": "entered-in-error"}]}, COLON)],
+          {"Numerator 2": [_t("entered-in-error-ignored", "tumour")]}),
+    multi("same-issued-tie-break", "兩筆 issued 相同：依 Observation id 取最後一筆（v01）",
+          [tumour(_t("same-issued-tie-break", "tumour"), {"2.14": [
+              {"value": "11", "issued": "2025-04-01T09:00:00+08:00", "status": "final"},
+              {"value": "15", "issued": "2025-04-01T09:00:00+08:00", "status": "amended"}]}, COLON)],
+          {"Numerator 2": [_t("same-issued-tie-break", "tumour")]}),
+    multi("qi01-facts-belong-to-one-tumour", "兩顆惡性息肉，只有一顆有高風險條件與切除：只算那一顆",
+          [tumour(_t("qi01-facts-belong-to-one-tumour", "a"), {}, POLYP_REGISTRY, POLYP),
+           tumour(_t("qi01-facts-belong-to-one-tumour", "b"), {}, POLYP_REGISTRY,
+                  {**POLYP, "features": {}, "resections": []})],
+          {"Initial Population": [_t("qi01-facts-belong-to-one-tumour", "a"), _t("qi01-facts-belong-to-one-tumour", "b")],
+           "Denominator 1": [_t("qi01-facts-belong-to-one-tumour", "a")],
+           "Numerator 1": [_t("qi01-facts-belong-to-one-tumour", "a")]}),
+    multi("qi01-report-not-linked", "病理報告存在但未以 evidence 連到腫瘤：不屬分母",
+          [tumour(_t("qi01-report-not-linked", "tumour"), {}, POLYP_REGISTRY, {**POLYP, "report_linked": False})],
+          {"Denominator 1": []}),
+    multi("qi01-resection-of-other-tumour", "切除的 reasonReference 指向另一顆腫瘤：不算",
+          [tumour(_t("qi01-resection-of-other-tumour", "a"), {}, POLYP_REGISTRY, {**POLYP, "resections": []}),
+           tumour(_t("qi01-resection-of-other-tumour", "b"), {}, COLON,
+                  {"malignant_polyp": None, "features": {}, "resections": [{"date": "2025-04-01", "status": "completed"}]})],
+          {"Denominator 1": [_t("qi01-resection-of-other-tumour", "a")], "Numerator 1": []}),
+]
+
 FEATURE_CODES = {
     "A": "criterion-a-polyp-incompletely-excised",
     "B": "criterion-b-margin-positive",
@@ -150,65 +237,74 @@ def ref(kind, rid):
     return {"reference": f"{kind}/{rid}"}
 
 
-def to_bundle(item, index):
-    pid = item["id"]
-    subject = ref("Patient", pid)
-    tumour = f"{pid}-tumour"
-    fields = item["fields"]
-    site = icdo3.topography(fields["2.6"])
-    tumour_condition = {
-        "resourceType": "Condition", "id": tumour, "subject": subject,
+def tumour_resources(pid, subject, t, report_ids):
+    tid, fields, polyp = t["id"], t["fields"], t["polyp"]
+    current = {num: max((v for v in vs if v["status"] in ("final", "amended", "corrected")),
+                        key=lambda v: (v["issued"], v["id"]), default=None)
+               for num, vs in fields.items()}
+    site = icdo3.topography(current["2.6"]["value"])
+    coding = [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": icd10cm_for_site(site)}]
+    condition = {
+        "resourceType": "Condition", "id": tid, "subject": subject,
         "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
-        "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": icd10cm_for_site(site)}]},
+        "code": {"coding": coding},
         "bodySite": [{"coding": [{"system": ICDO3, "code": site}]}],
         "extension": [{"url": MORPHOLOGY_EXT, "valueCodeableConcept": {
-            "coding": [{"system": ICDO3, "code": icdo3.morphology(fields["2.8"], fields["2.9"])}]}}],
+            "coding": [{"system": ICDO3, "code": icdo3.morphology(current["2.8"]["value"], current["2.9"]["value"])}]}}],
     }
-    entries = [
-        {"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01",
-         "identifier": [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]},
-        tumour_condition,
-    ]
-    for number, value in item["fields"].items():
-        entries.append({
-            "resourceType": "Observation", "id": f"{pid}-f{number.replace('.', '-').lower()}",
-            "meta": {"profile": [TCR_PROFILE]}, "status": "final",
-            "code": {"coding": [{"system": FIELD_CS, "code": number}]},
-            "subject": subject, "focus": [ref("Condition", tumour)], "valueString": value,
-        })
-    polyp = item.get("polyp")
-    if polyp:
-        entries.append({
-            "resourceType": "Condition", "id": f"{pid}-polyp", "subject": subject,
-            "clinicalStatus": CLINICAL_ACTIVE, "category": PROBLEM_LIST,
-            "verificationStatus": {"coding": [{
-                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-                "code": polyp["malignant_polyp"]}]},
-            "code": {"coding": [{"system": CONCEPT_CS, "code": "malignant-polyp-t1"}]},
-        })
-        entries.append({
-            "resourceType": "DiagnosticReport", "id": f"{pid}-report", "status": "final", "subject": subject,
+    out = [condition]
+    for number, versions in fields.items():
+        for v in versions:
+            out.append({
+                "resourceType": "Observation", "id": v["id"], "meta": {"profile": [TCR_PROFILE]},
+                "status": v["status"], "issued": v["issued"],
+                "code": {"coding": [{"system": FIELD_CS, "code": number}]},
+                "subject": subject, "focus": [ref("Condition", tid)], "valueString": v["value"],
+            })
+    if not polyp:
+        return out
+    if polyp.get("malignant_polyp"):
+        coding.insert(0, {"system": CONCEPT_CS, "code": "malignant-polyp-t1"})
+        condition["verificationStatus"] = {"coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status", "code": polyp["malignant_polyp"]}]}
+    if polyp.get("report_issued"):
+        report_id = f"{tid}-report"
+        out.append({
+            "resourceType": "DiagnosticReport", "id": report_id, "status": "final", "subject": subject,
             "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0074", "code": "SP"}]}],
             "code": {"coding": [{"system": CONCEPT_CS, "code": "malignant-polyp-pathology-report"}]},
             "issued": f"{polyp['report_issued']}T10:00:00+08:00",
         })
+        if polyp.get("report_linked", True):
+            condition["evidence"] = [{"detail": [ref("DiagnosticReport", report_id)]}]
         colonoscopy_date = (date.fromisoformat(polyp["report_issued"]) - timedelta(days=4)).isoformat()
-        for letter, present in polyp["features"].items():
-            entries.append({
-                "resourceType": "Observation", "id": f"{pid}-feature-{letter.lower()}", "status": "final",
-                # A comes from the colonoscopy report (procedure); B-D from pathology (laboratory).
-                "category": obs_category("procedure" if letter == "A" else "laboratory"),
-                # Colonoscopy (A) precedes the pathology report; B-D carry the report date.
-                "effectiveDateTime": colonoscopy_date if letter == "A" else polyp["report_issued"],
-                "code": {"coding": [{"system": CONCEPT_CS, "code": FEATURE_CODES[letter]}]},
-                "subject": subject, "valueBoolean": present,
-            })
-        for index, resection in enumerate(polyp["resections"]):
-            entries.append({
-                "resourceType": "Procedure", "id": f"{pid}-resection-{index}", "status": resection["status"],
-                "code": {"coding": [{"system": CONCEPT_CS, "code": "curative-resection"}]},
-                "subject": subject, "performedDateTime": f"{resection['date']}T09:00:00+08:00",
-            })
+    for letter, present in polyp.get("features", {}).items():
+        out.append({
+            "resourceType": "Observation", "id": f"{tid}-feature-{letter.lower()}", "status": "final",
+            # A comes from the colonoscopy report (procedure); B-D from pathology (laboratory).
+            "category": obs_category("procedure" if letter == "A" else "laboratory"),
+            # Colonoscopy (A) precedes the pathology report; B-D carry the report date.
+            "effectiveDateTime": colonoscopy_date if letter == "A" else polyp["report_issued"],
+            "code": {"coding": [{"system": CONCEPT_CS, "code": FEATURE_CODES[letter]}]},
+            "subject": subject, "focus": [ref("Condition", tid)], "valueBoolean": present,
+        })
+    for index, resection in enumerate(polyp.get("resections", [])):
+        out.append({
+            "resourceType": "Procedure", "id": f"{tid}-resection-{index}", "status": resection["status"],
+            "code": {"coding": [{"system": CONCEPT_CS, "code": "curative-resection"}]},
+            "subject": subject, "reasonReference": [ref("Condition", tid)],
+            "performedDateTime": f"{resection['date']}T09:00:00+08:00",
+        })
+    return out
+
+
+def to_bundle(item, index):
+    pid = item["id"]
+    subject = ref("Patient", pid)
+    entries = [{"resourceType": "Patient", "id": pid, "gender": "male", "birthDate": "1960-01-01",
+                "identifier": [{"type": ID_CARD_TYPE, "system": "http://www.moi.gov.tw", "value": f"Z{index:09d}"}]}]
+    for t in item["tumours"]:
+        entries += tumour_resources(pid, subject, t, None)
     return {"resourceType": "Bundle", "type": "collection",
             "meta": {"tag": [{"system": f"{CANON}/CodeSystem/fixture-tag", "code": "synthetic"}]},
             "entry": [{"resource": r} for r in entries]}
@@ -228,7 +324,7 @@ def value_sets():
 def main():
     fixtures = ROOT / "tests/fixtures"
     (fixtures / "cql").mkdir(parents=True, exist_ok=True)
-    flat = {"measurement_period": ["2025-01-01", "2025-12-31"], "cases": CASES}
+    flat = {"format": "tumour-level-v2", "measurement_period": ["2025-01-01", "2025-12-31"], "cases": CASES}
     (fixtures / "synthetic-cases.json").write_text(json.dumps(flat, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     runner = [{"id": c["id"], "expected": c["expected"], "bundle": to_bundle(c, i + 1)} for i, c in enumerate(CASES)]
     (fixtures / "cql/cases.json").write_text(json.dumps(runner, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

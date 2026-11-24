@@ -1,17 +1,18 @@
 """Reference implementation of the 115 colorectal cancer core indicators.
 
-Independent of the CQL: it reads a flat registry record (TCR long-form field
-number -> raw string) plus, for indicator 1, a small set of clinical facts.
-Each check carries the criterion_id from mappings/crc-core-indicator-criteria.csv.
-The returned keys are the CQL define names, so the two implementations can be
-compared case by case on the same synthetic data.
+Independent of the CQL. The unit is a registry case, i.e. one primary tumour:
+each tumour has its registry fields (long-form item number -> versions of the
+raw string value) and, for indicator 1, the clinical facts linked to it. Each
+check carries the criterion_id from mappings/crc-core-indicator-criteria.csv.
+Population results are lists of tumour ids keyed by the CQL define names, so
+the two implementations can be compared case by case on the same synthetic data.
 """
 
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import Any
 
 DATE_RE = re.compile(r"^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
@@ -21,6 +22,20 @@ SPECIAL_HISTOLOGY = {"8935", "8936", "8153", "8240", "8241", "8242", "8246", "82
 POLYP_WINDOW = timedelta(days=84)  # 12 weeks
 RECTAL_WINDOW_DAYS = 42  # 6 weeks
 REGISTRY_START = date(2024, 1, 1)  # 收錄自 113/1/1 起新診斷
+CURRENT_STATUSES = {"final", "amended", "corrected"}
+POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominator 2",
+               "Denominator 2 Exclusion", "Numerator 2", "Denominator 3", "Numerator 3")
+
+
+def current_values(versions: dict[str, list[dict[str, str]]]) -> dict[str, str]:
+    """IP-CURRENT. Field -> current raw value: among final/amended/corrected versions the one
+    with the latest issued time wins; equal times fall back to the version id."""
+    out = {}
+    for number, items in versions.items():
+        live = [v for v in items if v["status"] in CURRENT_STATUSES]
+        if live:
+            out[number] = max(live, key=lambda v: (datetime.fromisoformat(v["issued"]), v["id"]))["value"]
+    return out
 
 
 def registry_date(raw: str | None) -> date | None:
@@ -51,6 +66,8 @@ class PolypFacts:
     """Clinical facts for indicator 1 (醫院自行申報)."""
 
     malignant_polyp_confirmed: bool = False
+    # report_issued is the date of the pathology report linked to the tumour
+    # through Condition.evidence; an unlinked report does not start the clock.
     report_issued: date | None = None
     high_risk_features: dict[str, bool] = field(default_factory=dict)  # A-D
     resections: list[tuple[date, str]] = field(default_factory=list)  # (date, status)
@@ -59,9 +76,10 @@ class PolypFacts:
     def from_json(cls, data: dict[str, Any] | None) -> "PolypFacts":
         if not data:
             return cls()
+        linked = data.get("report_issued") and data.get("report_linked", True)
         return cls(
             malignant_polyp_confirmed=data.get("malignant_polyp") == "confirmed",
-            report_issued=date.fromisoformat(data["report_issued"]) if data.get("report_issued") else None,
+            report_issued=date.fromisoformat(data["report_issued"]) if linked else None,
             high_risk_features=dict(data.get("features", {})),
             resections=[(date.fromisoformat(r["date"]), r.get("status", "completed")) for r in data.get("resections", [])],
         )
@@ -74,7 +92,7 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
     # --- shared initial population ------------------------------------------
     dx = registry_date(f("2.5"))
     klass = f("2.3")
-    cross = klass == "2" and f("CLASS-DX-STATUS") == "2" and f("CLASS-TX-STATUS") == "3"  # IP-CROSS
+    cross = klass == "2" and f("2.3.1") == "2" and f("2.3.2") == "3"  # IP-CROSS
     out["Cross Hospital Treatment"] = cross
     ip = (
         dx is not None
@@ -90,7 +108,7 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
     out["Has High Risk Feature"] = any(polyp.high_risk_features.values())  # D1-FEATURE
     report = polyp.report_issued  # D1-REPORT
     out["Denominator 1"] = ip and out["Has Malignant Polyp"] and out["Has High Risk Feature"] and report is not None
-    out["Numerator 1"] = report is not None and any(  # N1-RESECT
+    out["Numerator 1"] = out["Denominator 1"] and any(  # N1-RESECT
         status == "completed" and report <= when <= report + POLYP_WINDOW for when, status in polyp.resections
     )
 
@@ -106,9 +124,9 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
         and out["Has Resection Surgery 30 To 90"]
         and out["Is Pathological Stage I To III"]
     )
-    out["Denominator 2 Exclusion"] = f("2.8") in SPECIAL_HISTOLOGY or f("2.9") == "2"  # X2-HIST
+    out["Denominator 2 Exclusion"] = out["Denominator 2"] and (f("2.8") in SPECIAL_HISTOLOGY or f("2.9") == "2")  # X2-HIST
     nodes = registry_int(f("2.14"))
-    out["Numerator 2"] = nodes is not None and 12 <= nodes <= 90  # N2-LN12
+    out["Numerator 2"] = out["Denominator 2"] and nodes is not None and 12 <= nodes <= 90  # N2-LN12
 
     # --- crc-qi-03 -----------------------------------------------------------
     out["Is Rectosigmoid Or Rectum"] = site in RECTOSIGMOID_OR_RECTUM  # D3-SITE
@@ -119,19 +137,29 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
     confirm, first_course = registry_date(f("2.12")), registry_date(f("4.1"))
     days = (first_course - confirm).days if confirm and first_course else None
     out["Days From Confirmation To First Course"] = days
-    out["Numerator 3"] = days is not None and days <= RECTAL_WINDOW_DAYS  # N3-42D
+    out["Numerator 3"] = out["Denominator 3"] and days is not None and days <= RECTAL_WINDOW_DAYS  # N3-42D
     return out
 
 
-def proportion(results: list[dict[str, bool]], measure: int) -> dict[str, int]:
-    """Aggregate population counts the way a summary MeasureReport would."""
-    den_key, num_key, exc_key = f"Denominator {measure}", f"Numerator {measure}", f"Denominator {measure} Exclusion"
-    denominator = [r for r in results if r["Initial Population"] and r[den_key]]
-    excluded = [r for r in denominator if r.get(exc_key, False)]
-    remaining = [r for r in denominator if not r.get(exc_key, False)]
+def evaluate_case(case: dict[str, Any], period: tuple[date, date]) -> dict[str, list[str]]:
+    """IP-UNIT. Population define -> sorted ids of the case's tumours that belong to it."""
+    results = {name: [] for name in POPULATIONS}
+    for tumour in case["tumours"]:
+        out = evaluate(current_values(tumour["fields"]), PolypFacts.from_json(tumour.get("polyp")), period)
+        for name in POPULATIONS:
+            if out[name]:
+                results[name].append(tumour["id"])
+    return {name: sorted(ids) for name, ids in results.items()}
+
+
+def proportion(results: list[dict[str, list[str]]], measure: int) -> dict[str, int]:
+    """Aggregate tumour counts the way a summary MeasureReport would."""
+    den, num, exc = (set().union(*(set(r.get(k, [])) for r in results)) for k in
+                     (f"Denominator {measure}", f"Numerator {measure}", f"Denominator {measure} Exclusion"))
+    ip = set().union(*(set(r["Initial Population"]) for r in results))
     return {
-        "initial-population": sum(r["Initial Population"] for r in results),
-        "denominator": len(denominator),
-        "denominator-exclusion": len(excluded),
-        "numerator": sum(r[num_key] for r in remaining),
+        "initial-population": len(ip),
+        "denominator": len(den),
+        "denominator-exclusion": len(exc & den),
+        "numerator": len((num & den) - exc),
     }

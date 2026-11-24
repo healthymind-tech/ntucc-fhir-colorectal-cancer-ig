@@ -2,11 +2,17 @@
 
 來源：「115 年癌症診療核心測量指標」壹、收錄資料說明（第 i–ii 頁）。
 
+## 計算單位：個案（原發腫瘤）
+
+指標計算的是**癌症個案**，也就是一顆原發腫瘤，不是病人。三個 Measure 的 population basis 都是 `Condition`：每個 population 回傳的是符合條件的原發腫瘤清單。同一病人若有同步結腸癌與直腸癌，兩顆腫瘤各自依其癌登欄位計算（院內重複個案另依註1去重，見「[個案組裝](case-assembly.html)」）。
+
+癌登欄位以 `Observation.focus` 歸屬到腫瘤；同一欄位有多筆申報值時取 `issued` 最晚者（criterion IP-CURRENT）。
+
 | criterion_id | 原文 | 實作位置 | 表達 |
 |---|---|---|---|
 | IP-DXDATE | 各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案 | CQL `Initial Population` | 最初診斷日期(2.5) 為有效日期、不早於 2024-01-01，且落在 Measurement Period 內 |
 | IP-CLASS | 選取個案分類為 class 1、2 者 | CQL `Initial Population` | 個案分類(2.3) ∈ {1, 2} |
-| IP-CROSS | 排除主要治療有跨院情形（註3：class 2、診斷狀態 2、治療狀態分類 3） | CQL `Cross Hospital Treatment` | 三者同時成立即排除 |
+| IP-CROSS | 排除主要治療有跨院情形（註3：class 2、診斷狀態 2、治療狀態分類 3） | CQL `Cross Hospital Treatment` | 個案分類(2.3)=2、診斷狀態分類(2.3.1)=2、治療狀態分類(2.3.2)=3 三者同時成立即排除 |
 | IP-DUP | 排除院內重複個案：醫院代碼＋癌別＋身分證號，選診斷較早者；同一天則選期別較嚴重者 | Task 層 | 組 Group 前去重 |
 | IP-DEATH | 排除治療前已死亡 | Task 層 | 組 Group 前排除；原文未指定欄位 |
 

@@ -22,10 +22,12 @@
 
 | criterion_id | FHIR／CQL 表達 |
 |---|---|
-| D1-POLYP | `CRCMalignantPolypCondition`，verificationStatus = confirmed |
-| D1-FEATURE | 至少一筆 `CRCColonoscopyHighRiskFeature`（條件 A）或 `CRCPathologyHighRiskFeature`（條件 B–D）的 valueBoolean = true |
-| D1-REPORT | 最早一份已定稿 `CRCMalignantPolypPathologyReport` 的 issued 日期 |
-| N1-RESECT | completed 的 `CRCCurativeResectionProcedure`，日期落在病理報告日起 0–84 天（含） |
+| D1-POLYP | 腫瘤本身（`CRCMalignantPolypCondition`，繼承原發腫瘤 Profile）的 code 含 malignant-polyp-t1，且 verificationStatus = confirmed |
+| D1-FEATURE | 至少一筆 **focus 指向該腫瘤**的 `CRCColonoscopyHighRiskFeature`（條件 A）或 `CRCPathologyHighRiskFeature`（條件 B–D），valueBoolean = true |
+| D1-REPORT | 該腫瘤 `Condition.evidence.detail` 所指、已定稿的 `CRCMalignantPolypPathologyReport`；取最早的 issued 日期 |
+| N1-RESECT | **reasonReference 指向該腫瘤**、completed 的 `CRCCurativeResectionProcedure`，日期落在病理報告日起 0–84 天（含） |
+
+所有指標 1 的事實都必須連到**同一顆腫瘤**：病人其他腫瘤的高風險條件、報告或手術不會被算進來。指標 1 雖然是醫院自行申報，共通收錄規則（class 1、2，113 年起新診斷）仍然適用，因此仍需要該腫瘤的癌登欄位 2.3、2.5。
 
 ## 指標 2：第 I–III 期結腸癌淋巴結 ≥12 顆 — [crc-qi-02](Measure-crc-qi-02.html)
 

@@ -26,9 +26,8 @@ Description: "115 年大腸癌診療核心測量指標 3 項之 population crite
 // - effectivePeriod: the 115 indicator set applies from its announcement on
 //   2026-04-20. No end date: HPA states none, and the next annual revision
 //   supersedes it (see known-ambiguities A-16).
-// - population basis: R4 Measure has no core element. CQF Measures uses the
-//   US-realm cqfm-populationBasis extension and CRMI defines none, so the
-//   realm-neutral R5 cross-version extension Measure.group.basis is used.
+// - population basis: Condition. The indicators count registry cases, i.e.
+//   primary tumours, so every population returns a list of Conditions.
 RuleSet: HPASourceCitation
 * relatedArtifact[0].type = #citation
 * relatedArtifact[0].label = "HPA-115"
@@ -49,7 +48,7 @@ RuleSet: CRCMeasureCommon
 * scoring = $MeasureScoring#proportion
 * improvementNotation = $MeasureImprovement#increase
 * group.extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.basis"
-* group.extension[0].valueCode = #boolean
+* group.extension[0].valueCode = #Condition
 
 Instance: ColorectalCancerCoreIndicator01
 InstanceOf: Measure

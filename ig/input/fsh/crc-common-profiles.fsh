@@ -69,6 +69,9 @@ Description: "一個癌登長表欄位的申報值。值以 valueString 保存�
 * focus ^short = "此欄位所屬的原發腫瘤"
 * value[x] 1..1 MS
 * value[x] only string
+* issued 1..1 MS
+* issued ^short = "此申報值確定的時間"
+* issued ^definition = "同一顆腫瘤的同一欄位有多筆申報值（例如 final 之後又有 amended）時，以 issued 最晚者為現行值；issued 相同時以 Observation.id 排序取最後一筆，並應視為資料品質問題。"
 * derivedFrom MS
 * derivedFrom ^short = "摘錄來源文件（病理報告、手術紀錄等）"
 
@@ -88,18 +91,20 @@ Description: "已定稿的申報值才可被指標計算讀取。"
 // ---------------------------------------------------------------------------
 
 Profile: CRCMalignantPolypCondition
-Parent: $TWCoreCondition
+Parent: ColorectalCancerPrimaryCondition
 Id: crc-malignant-polyp-condition
 Title: "Malignant Polyp (T1) Condition"
-Description: "切除之息肉中出現 T1 腺癌（Tis 不屬之）。指標 1 分母的對象。"
+Description: "切除之息肉中出現 T1 腺癌（Tis 不屬之）的原發腫瘤，是指標 1 的計算單位。它本身就是一顆已登記的原發大腸直腸癌（繼承 ColorectalCancerPrimaryCondition），癌登欄位以 focus 指向它；另以 code 的 malignantPolyp coding 標示為惡性息肉，並以 evidence 連到確立診斷的病理報告。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
 * verificationStatus 1..1 MS
-* code 1..1 MS
-* code from CRCMalignantPolypVS (required)
-* subject 1..1 MS
-* subject only Reference(ColorectalCancerPatient)
+* code.coding contains malignantPolyp 1..1 MS
+* code.coding[malignantPolyp] = CRCIndicatorConceptCodeSystem#malignant-polyp-t1
+* evidence 1..* MS
+* evidence.detail 1..* MS
+* evidence.detail only Reference(CRCMalignantPolypPathologyReport)
+* evidence.detail ^short = "確立惡性息肉診斷的病理報告；指標 1 的 12 週由此報告起算"
 
 Profile: CRCMalignantPolypPathologyReport
 Parent: $TWCoreDiagnosticReport
@@ -140,6 +145,9 @@ Description: "病理報告記載的惡性息肉高風險條件：B 切緣陽性�
 * code from CRCPathologyHighRiskFeatureVS (required)
 * subject 1..1 MS
 * subject only Reference(ColorectalCancerPatient)
+* focus 1..1 MS
+* focus only Reference(CRCMalignantPolypCondition)
+* focus ^short = "此條件所屬的惡性息肉（原發腫瘤）"
 * value[x] 1..1 MS
 * value[x] only boolean
 
@@ -159,6 +167,9 @@ Description: "大腸鏡檢報告記載的條件 A：息肉未完全被切除。v
 * code from CRCColonoscopyHighRiskFeatureVS (required)
 * subject 1..1 MS
 * subject only Reference(ColorectalCancerPatient)
+* focus 1..1 MS
+* focus only Reference(CRCMalignantPolypCondition)
+* focus ^short = "此條件所屬的惡性息肉（原發腫瘤）"
 * effective[x] 1..1 MS
 * value[x] 1..1 MS
 * value[x] only boolean
@@ -176,5 +187,8 @@ Description: "指標 1 分子之治癒性切除。performed[x] 為手術日期�
 * code from CRCCurativeResectionVS (required)
 * subject 1..1 MS
 * subject only Reference(ColorectalCancerPatient)
+* reasonReference 1..* MS
+* reasonReference only Reference(CRCMalignantPolypCondition)
+* reasonReference ^short = "此切除所治療的惡性息肉（原發腫瘤）"
 * performed[x] 1..1 MS
 * performed[x] only dateTime or Period
