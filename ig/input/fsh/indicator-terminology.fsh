@@ -52,24 +52,54 @@ Description: "病理報告中用來判定條件 B、C、D 的 LOINC 觀察碼：
 * http://loinc.org#59544-7 "Lymph-vascular invasion Cancer specimen"
 * http://loinc.org#33732-9 "Histology grade [Identifier] in Cancer specimen"
 
-ValueSet: CRCPathologyHighRiskAnswerVS
-Id: crc-pathology-high-risk-answer
-Title: "惡性息肉病理高風險條件 B–D 的答案"
-Description: "85290-5 與 59544-7 的答案取自其 LOINC 官方答案清單（LL4381-1、LL906-9）；33732-9 沒有 LOINC 答案清單，以 SNOMED CT 組織學分級表達。"
+// 條件 B、C、D 各自的答案清單。CRCPathologyHighRiskFeature 以 invariant
+// crc-hrf-b/c/d-answer 把每個 LOINC 問題綁到自己的答案清單，避免把某一題的答案
+// （例如切緣的 LA27251-0）填到另一題（59544-7）仍能通過驗證。
+ValueSet: CRCSurgicalMarginAnswerVS
+Id: crc-surgical-margin-answer
+Title: "條件 B 的答案：切緣癌細胞（LOINC LL4381-1）"
+Description: "LOINC 85290-5 的官方答案清單 LL4381-1（CAP_surgical margins）。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
-* http://loinc.org#LA27251-0 "Surgical margin involved by tumor"
 * http://loinc.org#LA27250-2 "Surgical margin not involved by tumor"
+* http://loinc.org#LA27251-0 "Surgical margin involved by tumor"
 * http://loinc.org#LA27144-7 "Cannot be assessed"
-* http://loinc.org#LA13328-2 "Lymph-vascular Invasion Present/Identified"
+
+ValueSet: CRCLymphovascularInvasionAnswerVS
+Id: crc-lymphovascular-invasion-answer
+Title: "條件 C 的答案：淋巴血管侵犯（LOINC LL906-9）"
+Description: "LOINC 59544-7 的官方答案清單 LL906-9（NAACCR_1182）。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
 * http://loinc.org#LA13327-4 "Lymph-vascular Invasion Not Present (absent)/Not Identified"
+* http://loinc.org#LA13328-2 "Lymph-vascular Invasion Present/Identified"
 * http://loinc.org#LA4720-4 "Not applicable"
 * http://loinc.org#LA13420-7 "Unknown/Indeterminate"
+
+ValueSet: CRCHistologicGradeAnswerVS
+Id: crc-histologic-grade-answer
+Title: "條件 D 的答案：組織學分級（SNOMED CT）"
+Description: "LOINC 33732-9 沒有 LOINC 答案清單，以 SNOMED CT 組織學分級 G1–G4 表達。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
 * http://snomed.info/sct#1155701009 "G1: Well differentiated"
 * http://snomed.info/sct#1155703007 "G2: Moderately differentiated"
 * http://snomed.info/sct#1155704001 "G3: Poorly differentiated"
 * http://snomed.info/sct#1155702002 "G4: Undifferentiated"
+
+ValueSet: CRCPathologyHighRiskAnswerVS
+Id: crc-pathology-high-risk-answer
+Title: "惡性息肉病理高風險條件 B–D 的答案"
+Description: "條件 B、C、D 三份答案清單的聯集，供 CRCPathologyHighRiskFeature.valueCodeableConcept 的 required 綁定使用。哪一題可用哪一份清單，由 Profile 的 invariant crc-hrf-b-answer、crc-hrf-c-answer、crc-hrf-d-answer 規定。"
+* ^status = #draft
+* ^experimental = true
+* ^language = #zh-TW
+* include codes from valueset CRCSurgicalMarginAnswerVS
+* include codes from valueset CRCLymphovascularInvasionAnswerVS
+* include codes from valueset CRCHistologicGradeAnswerVS
 
 ValueSet: CRCMarginInvolvedVS
 Id: crc-criterion-b-met

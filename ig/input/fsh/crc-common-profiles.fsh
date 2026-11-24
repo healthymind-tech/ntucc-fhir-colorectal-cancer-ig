@@ -152,13 +152,38 @@ Description: "病理報告記載、用來判定惡性息肉高風險條件 B、C
 * value[x] 1..1 MS
 * value[x] only CodeableConcept
 * valueCodeableConcept from CRCPathologyHighRiskAnswerVS (required)
+* valueCodeableConcept ^short = "答案：只能一個 LOINC／SNOMED CT 答案代碼，且須屬於該問題自己的答案清單"
+* obeys crc-hrf-single-answer and crc-hrf-b-answer and crc-hrf-c-answer and crc-hrf-d-answer
+
+// 答案與問題配對：每一題只能用自己的答案清單。
+Invariant: crc-hrf-b-answer
+Description: "問題為 LOINC 85290-5（條件 B）時，答案須取自 CRCSurgicalMarginAnswerVS（LL4381-1）。"
+Severity: #error
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '85290-5').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer')).exists()"
+
+Invariant: crc-hrf-c-answer
+Description: "問題為 LOINC 59544-7（條件 C）時，答案須取自 CRCLymphovascularInvasionAnswerVS（LL906-9）。"
+Severity: #error
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '59544-7').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer')).exists()"
+
+Invariant: crc-hrf-d-answer
+Description: "問題為 LOINC 33732-9（條件 D）時，答案須取自 CRCHistologicGradeAnswerVS（SNOMED CT G1–G4）。"
+Severity: #error
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '33732-9').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer')).exists()"
+
+// 互相矛盾的答案（例如同時帶「有」與「無」）是錯誤資料，不交給 CQL 去猜。
+// 答案代碼系統（LOINC、SNOMED CT）的 coding 至多一個；其他系統的本地代碼不受限。
+Invariant: crc-hrf-single-answer
+Description: "valueCodeableConcept 至多一個 LOINC 或 SNOMED CT coding：一筆發現只能有一個答案，同時帶「成立」與「不成立」的答案視為資料錯誤。"
+Severity: #error
+Expression: "value.ofType(CodeableConcept).coding.where(system = 'http://loinc.org' or system = 'http://snomed.info/sct').count() <= 1"
 
 // 條件 A 記載於大腸鏡檢報告，屬於處置結果（category = procedure），不是檢驗結果。
 Profile: CRCColonoscopyHighRiskFeature
 Parent: $TWCoreClinicalResult
 Id: crc-colonoscopy-high-risk-feature
 Title: "惡性息肉大腸鏡高風險條件（A）"
-Description: "大腸鏡檢報告記載的條件 A：息肉未完全被切除。valueBoolean 語意同 CRCPathologyHighRiskFeature。effective[x] 為大腸鏡檢日期。"
+Description: "大腸鏡檢報告記載的條件 A：息肉未完全被切除。以本地代碼加 valueBoolean 表達：true 表示條件 A 成立，false 表示不成立；未記載者不建立本 Observation。（條件 B–D 改用 CRCPathologyHighRiskFeature 的 LOINC 問題加答案，只有條件 A 仍用 boolean。）effective[x] 為大腸鏡檢日期。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
