@@ -160,8 +160,9 @@ CASES = [
          {**POLYP, "resections": [{"date": "2025-02-28", "status": "completed"}]}),
     case("qi01-not-done", "切除 status=not-done", {}, {"Denominator 1": True, "Numerator 1": False}, POLYP_REGISTRY,
          {**POLYP, "resections": [{"date": "2025-04-01", "status": "not-done"}]}),
-    # Time zone (A-05): dates are read in Taiwan time. Each case would come out
-    # the other way if the CQL took the date of the instant as written.
+    # Time zone (A-05): dates are read in Taiwan time. The first three cases would
+    # come out the other way if the CQL took the date of the instant as written;
+    # the date-only case guards the no-time branch.
     case("qi01-report-utc-instant", "病理報告 issued 以 UTC 記載（台灣 3/1 00:30）：第 84 天切除仍計入", {},
          {"Denominator 1": True, "Numerator 1": True}, POLYP_REGISTRY,
          {**POLYP, "report_issued_at": "2025-02-28T16:30:00Z"}),

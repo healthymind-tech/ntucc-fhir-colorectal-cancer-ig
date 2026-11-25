@@ -97,6 +97,7 @@ Library 只有一個輸入參數：
 | 類型 | Artifact |
 |---|---|
 | Profile | ColorectalCancerPatient、ColorectalCancerPrimaryCondition、CRCTCRDataItemObservation、CRCMalignantPolypCondition、CRCMalignantPolypPathologyReport、CRCPathologyHighRiskFeature、CRCColonoscopyHighRiskFeature、CRCCurativeResectionProcedure、CRCOutsideDataExclusion（第五點外院資料） |
+| Extension | CRCHistologyMorphologyBehavior（ICD-O-3 組織型態與性態） |
 | CodeSystem | crc-tcr-field（癌登欄位）、crc-indicator-concept（指標 1 本地概念）、crc-outside-data（第五點排除的指標與理由）、fixture-tag |
 | Library | ColorectalCancerCoreIndicators |
 | Measure | crc-qi-01、crc-qi-02、crc-qi-03 |

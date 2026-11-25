@@ -102,7 +102,7 @@ class PolypFacts:
     def from_json(cls, data: dict[str, Any] | None) -> "PolypFacts":
         if not data:
             return cls()
-        linked = data.get("report_issued") and data.get("report_linked", True)
+        linked = (data.get("report_issued") or data.get("report_issued_at")) and data.get("report_linked", True)
         return cls(
             malignant_polyp_confirmed=data.get("malignant_polyp") == "confirmed",
             # report_issued_at: the exact DiagnosticReport.issued when a case

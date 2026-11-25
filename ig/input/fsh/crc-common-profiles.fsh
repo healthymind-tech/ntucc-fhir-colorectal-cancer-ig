@@ -111,7 +111,7 @@ Profile: CRCMalignantPolypPathologyReport
 Parent: $TWCoreDiagnosticReport
 Id: crc-malignant-polyp-pathology-report
 Title: "惡性息肉病理報告"
-Description: "指標 1 的計時起點，繼承 TW Core DiagnosticReport。issued 為病理報告日期；12 週以此日起算。result 指向病理報告記載的條件 B、C、D。"
+Description: "指標 1 的計時起點，繼承 TW Core DiagnosticReport。issued 為病理報告日期（以台灣時間 +08:00 取日期，見 A-05）；12 週以此日起算。result 指向病理報告記載的條件 B、C、D。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -203,7 +203,7 @@ Profile: CRCCurativeResectionProcedure
 Parent: $TWCoreProcedure
 Id: crc-curative-resection-procedure
 Title: "惡性息肉後續治癒性切除"
-Description: "指標 1 分子之治癒性切除。performed[x] 為手術日期。"
+Description: "指標 1 分子之治癒性切除。performed[x] 為手術日期（以台灣時間 +08:00 取日期，見 A-05）。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
