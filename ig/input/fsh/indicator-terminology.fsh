@@ -1,11 +1,16 @@
 // 大腸癌指標 1（惡性息肉）屬「醫院自行申報」，癌登資料庫無法提供條件 A／C，
-// 因此需要臨床來源事實。以下為本 IG 的本地概念代碼：在逐碼查證 SNOMED CT／LOINC
-// 對應並經臨床審查前，作為穩定的交換鍵使用，不宣稱等同任何國際標準代碼。
+// 因此需要臨床來源事實。
+//
+// 交換用代碼：條件 B、C、D 以 LOINC 問題加答案表達（答案取自 LOINC 答案清單或
+// SNOMED CT，見下方各題的答案 ValueSet）。惡性息肉、條件 A 與治癒性切除尚無經審查的
+// 國際代碼，交換仍用本 CodeSystem 的本地代碼；在逐碼查證 SNOMED CT／LOINC 對應並經
+// 臨床審查前作為穩定的交換鍵，不宣稱等同任何國際標準代碼。
+// 條件 B–D 的本地代碼只是指標條件的定義概念，供 ConceptMap 記錄候選對應，不用於交換。
 
 CodeSystem: CRCIndicatorConceptCodeSystem
 Id: crc-indicator-concept
 Title: "大腸癌核心指標臨床概念（本地暫用）"
-Description: "大腸癌指標 1 需要、但癌登長表沒有對應欄位的臨床事實。本地暫用代碼，待臨床與術語審查後對應至國際標準代碼。"
+Description: "大腸癌指標 1 需要、但癌登長表沒有對應欄位的臨床事實。惡性息肉（malignant-polyp-t1）、條件 A 與治癒性切除的代碼用於交換；條件 B–D 的代碼只是定義概念，交換時改用 LOINC 問題加答案（CRCPathologyHighRiskFeature）。本地暫用代碼，待臨床與術語審查後對應至國際標準代碼。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -53,8 +58,9 @@ Description: "病理報告中用來判定條件 B、C、D 的 LOINC 觀察碼：
 * http://loinc.org#33732-9 "Histology grade [Identifier] in Cancer specimen"
 
 // 條件 B、C、D 各自的答案清單。CRCPathologyHighRiskFeature 以 invariant
-// crc-hrf-b/c/d-answer 把每個 LOINC 問題綁到自己的答案清單，避免把某一題的答案
-// （例如切緣的 LA27251-0）填到另一題（59544-7）仍能通過驗證。
+// crc-hrf-b/c/d-answer 把每個 LOINC 問題綁到自己的答案清單，且該清單的 coding 恰一個：
+// 避免把某一題的答案（例如切緣的 LA27251-0）填到另一題（59544-7）仍能通過驗證，
+// 也擋下同一清單內互相矛盾的答案。
 ValueSet: CRCSurgicalMarginAnswerVS
 Id: crc-surgical-margin-answer
 Title: "條件 B 的答案：切緣癌細胞（LOINC LL4381-1）"
@@ -93,7 +99,7 @@ Description: "LOINC 33732-9 沒有 LOINC 答案清單，以 SNOMED CT 組織學�
 ValueSet: CRCPathologyHighRiskAnswerVS
 Id: crc-pathology-high-risk-answer
 Title: "惡性息肉病理高風險條件 B–D 的答案"
-Description: "條件 B、C、D 三份答案清單的聯集，供 CRCPathologyHighRiskFeature.valueCodeableConcept 的 required 綁定使用。哪一題可用哪一份清單，由 Profile 的 invariant crc-hrf-b-answer、crc-hrf-c-answer、crc-hrf-d-answer 規定。"
+Description: "條件 B、C、D 三份答案清單的聯集，供 CRCPathologyHighRiskFeature.valueCodeableConcept 的 required 綁定使用。哪一題可用哪一份清單，由 Profile 的 invariant crc-hrf-b-answer、crc-hrf-c-answer、crc-hrf-d-answer 規定：每題恰一個 coding 取自自己的清單，其他 coding 視為 translation。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
