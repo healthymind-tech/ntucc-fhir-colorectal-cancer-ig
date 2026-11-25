@@ -6,7 +6,9 @@
     "ip-class-1-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ip-class-1-tumour"
    ],
@@ -14,8 +16,11 @@
    "Numerator 2": [
     "ip-class-1-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -477,12 +482,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -944,12 +954,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -1411,12 +1426,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -1878,12 +1898,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -2345,12 +2370,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -2874,7 +2904,9 @@
     "ip-class-2-full-course-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ip-class-2-full-course-tumour"
    ],
@@ -2882,8 +2914,11 @@
    "Numerator 2": [
     "ip-class-2-full-course-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -3407,7 +3442,9 @@
     "qi02-met-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-met-tumour"
    ],
@@ -3415,8 +3452,11 @@
    "Numerator 2": [
     "qi02-met-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -3880,14 +3920,19 @@
     "qi02-nodes-11-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-nodes-11-tumour"
    ],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -4351,7 +4396,9 @@
     "qi02-nodes-12-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-nodes-12-tumour"
    ],
@@ -4359,8 +4406,11 @@
    "Numerator 2": [
     "qi02-nodes-12-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -4824,7 +4874,9 @@
     "qi02-nodes-90-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-nodes-90-tumour"
    ],
@@ -4832,8 +4884,11 @@
    "Numerator 2": [
     "qi02-nodes-90-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -5297,14 +5352,19 @@
     "qi02-nodes-95-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-nodes-95-tumour"
    ],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -5766,12 +5826,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -6235,7 +6300,9 @@
     "qi02-dotted-site-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-dotted-site-tumour"
    ],
@@ -6243,8 +6310,11 @@
    "Numerator 2": [
     "qi02-dotted-site-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -6708,16 +6778,21 @@
     "qi02-rectum-not-colon-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi02-rectum-not-colon-tumour"
    ],
+   "Denominator 3 Exclusion": [],
    "Numerator 3": [
     "qi02-rectum-not-colon-tumour"
-   ]
+   ],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -7181,12 +7256,17 @@
     "qi02-polypectomy-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -7650,7 +7730,9 @@
     "qi02-surgery-90-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-surgery-90-tumour"
    ],
@@ -7658,8 +7740,11 @@
    "Numerator 2": [
     "qi02-surgery-90-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -8123,12 +8208,17 @@
     "qi02-surgery-99-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -8592,12 +8682,17 @@
     "qi02-stage-4-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -9061,12 +9156,17 @@
     "qi02-stage-0-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -9530,12 +9630,17 @@
     "qi02-stage-unknown-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -9999,7 +10104,9 @@
     "qi02-stage-1-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-stage-1-tumour"
    ],
@@ -10007,8 +10114,11 @@
    "Numerator 2": [
     "qi02-stage-1-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -10472,7 +10582,9 @@
     "qi02-gist-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-gist-tumour"
    ],
@@ -10482,8 +10594,11 @@
    "Numerator 2": [
     "qi02-gist-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -10947,7 +11062,9 @@
     "qi02-net-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi02-net-tumour"
    ],
@@ -10957,8 +11074,11 @@
    "Numerator 2": [
     "qi02-net-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -11422,16 +11542,21 @@
     "qi03-42-days-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-42-days-tumour"
    ],
+   "Denominator 3 Exclusion": [],
    "Numerator 3": [
     "qi03-42-days-tumour"
-   ]
+   ],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -11865,14 +11990,19 @@
     "qi03-43-days-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-43-days-tumour"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -12306,12 +12436,17 @@
     "qi03-class-2-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -12745,16 +12880,21 @@
     "qi03-rectosigmoid-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-rectosigmoid-tumour"
    ],
+   "Denominator 3 Exclusion": [],
    "Numerator 3": [
     "qi03-rectosigmoid-tumour"
-   ]
+   ],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -13188,16 +13328,21 @@
     "qi03-stage-3c-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-stage-3c-tumour"
    ],
+   "Denominator 3 Exclusion": [],
    "Numerator 3": [
     "qi03-stage-3c-tumour"
-   ]
+   ],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -13631,12 +13776,17 @@
     "qi03-stage-1-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -14070,12 +14220,17 @@
     "qi03-stage-4-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -14509,14 +14664,19 @@
     "qi03-colon-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi03-colon-tumour"
    ],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -14950,14 +15110,19 @@
     "qi03-no-treatment-date-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-no-treatment-date-tumour"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -15391,14 +15556,19 @@
     "qi03-unknown-confirmation-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-unknown-confirmation-tumour"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -15832,14 +16002,19 @@
     "qi03-invalid-calendar-date-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "qi03-invalid-calendar-date-tumour"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -16275,14 +16450,19 @@
    "Denominator 1": [
     "qi01-day-84-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-day-84-tumour"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -16834,12 +17014,17 @@
    "Denominator 1": [
     "qi01-day-85-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -17391,14 +17576,19 @@
    "Denominator 1": [
     "qi01-day-0-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-day-0-tumour"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -17950,12 +18140,17 @@
    "Denominator 1": [
     "qi01-before-report-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -18507,12 +18702,17 @@
    "Denominator 1": [
     "qi01-not-done-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -19062,12 +19262,17 @@
     "qi01-no-feature-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -19738,14 +19943,19 @@
    "Denominator 1": [
     "qi01-feature-a-only-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-feature-a-only-tumour"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -20288,12 +20498,17 @@
     "qi01-unconfirmed-polyp-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -20845,14 +21060,19 @@
    "Denominator 1": [
     "qi01-feature-b-translation-tumour"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-feature-b-translation-tumour"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -21406,12 +21626,17 @@
     "qi01-feature-c-contradictory-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -21965,7 +22190,9 @@
     "qi01-no-polyp-facts-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "qi01-no-polyp-facts-tumour"
    ],
@@ -21973,8 +22200,11 @@
    "Numerator 2": [
     "qi01-no-polyp-facts-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -22439,7 +22669,9 @@
     "ws-hospital-internal-b"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-hospital-internal-a",
     "ws-hospital-internal-b"
@@ -22449,8 +22681,11 @@
     "ws-hospital-internal-a",
     "ws-hospital-internal-b"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -23330,12 +23565,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -23797,12 +24037,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -24266,7 +24511,9 @@
     "ws-site-trailing-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-site-trailing-tumour"
    ],
@@ -24274,8 +24521,11 @@
    "Numerator 2": [
     "ws-site-trailing-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -24739,7 +24989,9 @@
     "ws-dx-leading-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-dx-leading-tumour"
    ],
@@ -24747,8 +24999,11 @@
    "Numerator 2": [
     "ws-dx-leading-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -25212,7 +25467,9 @@
     "ws-class-trailing-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-class-trailing-tumour"
    ],
@@ -25220,8 +25477,11 @@
    "Numerator 2": [
     "ws-class-trailing-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -25683,12 +25943,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -26180,12 +26445,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -26677,12 +26947,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -27206,7 +27481,9 @@
     "ws-vital-internal-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-vital-internal-tumour"
    ],
@@ -27214,8 +27491,11 @@
    "Numerator 2": [
     "ws-vital-internal-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -27707,12 +27987,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -28206,7 +28491,9 @@
     "vital-alive-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "vital-alive-tumour"
    ],
@@ -28214,8 +28501,11 @@
    "Numerator 2": [
     "vital-alive-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -28709,7 +28999,9 @@
     "vital-boolean-true-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "vital-boolean-true-tumour"
    ],
@@ -28717,8 +29009,11 @@
    "Numerator 2": [
     "vital-boolean-true-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -29212,7 +29507,9 @@
     "ws-stage-internal-b"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "ws-stage-internal-b"
    ],
@@ -29220,8 +29517,11 @@
    "Numerator 2": [
     "ws-stage-internal-b"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -30103,14 +30403,19 @@
     "fullwidth-nodes-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "fullwidth-nodes-tumour"
    ],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -30574,12 +30879,17 @@
     "stage-pathological-missing-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -31013,12 +31323,17 @@
     "stage-pathological-blank-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -31482,12 +31797,17 @@
     "stage-clinical-missing-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -31891,7 +32211,9 @@
     "stage-clinical-missing-colon-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "stage-clinical-missing-colon-tumour"
    ],
@@ -31899,8 +32221,11 @@
    "Numerator 2": [
     "stage-clinical-missing-colon-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -32332,12 +32657,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -32799,12 +33129,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -33266,12 +33601,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -33735,14 +34075,19 @@
     "ws-first-course-newline-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "ws-first-course-newline-tumour"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -34174,12 +34519,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -34649,12 +34999,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -35189,7 +35544,9 @@
     "reference-versioned-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "reference-versioned-tumour"
    ],
@@ -35197,8 +35554,11 @@
    "Numerator 2": [
     "reference-versioned-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -35662,7 +36022,9 @@
     "reference-absolute-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "reference-absolute-tumour"
    ],
@@ -35670,8 +36032,11 @@
    "Numerator 2": [
     "reference-absolute-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -36135,7 +36500,9 @@
     "issued-missing-only-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "issued-missing-only-tumour"
    ],
@@ -36143,8 +36510,11 @@
    "Numerator 2": [
     "issued-missing-only-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -36607,7 +36977,9 @@
     "issued-missing-loses-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "issued-missing-loses-tumour"
    ],
@@ -36615,8 +36987,11 @@
    "Numerator 2": [
     "issued-missing-loses-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -37109,7 +37484,9 @@
     "foreign-coding-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "foreign-coding-tumour"
    ],
@@ -37117,8 +37494,11 @@
    "Numerator 2": [
     "foreign-coding-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -37582,14 +37962,25 @@
  {
   "id": "national-id-blank",
   "expected": {
-   "Initial Population": [],
+   "Initial Population": [
+    "national-id-blank-tumour"
+   ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "national-id-blank-tumour"
+   ],
    "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Numerator 2": [
+    "national-id-blank-tumour"
+   ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -38049,14 +38440,25 @@
  {
   "id": "national-id-unknown-code",
   "expected": {
-   "Initial Population": [],
+   "Initial Population": [
+    "national-id-unknown-code-tumour"
+   ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "national-id-unknown-code-tumour"
+   ],
    "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Numerator 2": [
+    "national-id-unknown-code-tumour"
+   ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -38516,14 +38918,25 @@
  {
   "id": "national-id-ideographic-space",
   "expected": {
-   "Initial Population": [],
+   "Initial Population": [
+    "national-id-ideographic-space-tumour"
+   ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "national-id-ideographic-space-tumour"
+   ],
    "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Numerator 2": [
+    "national-id-ideographic-space-tumour"
+   ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -38983,14 +39396,25 @@
  {
   "id": "national-id-newline",
   "expected": {
-   "Initial Population": [],
+   "Initial Population": [
+    "national-id-newline-tumour"
+   ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "national-id-newline-tumour"
+   ],
    "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Numerator 2": [
+    "national-id-newline-tumour"
+   ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -39454,7 +39878,9 @@
     "national-id-nbsp-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "national-id-nbsp-tumour"
    ],
@@ -39462,8 +39888,11 @@
    "Numerator 2": [
     "national-id-nbsp-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -39925,12 +40354,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -40394,12 +40828,25 @@
     "outside-data-excluded-qi02-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
-   "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "outside-data-excluded-qi02-tumour"
+   ],
+   "Denominator 2 Exclusion": [
+    "outside-data-excluded-qi02-tumour"
+   ],
+   "Numerator 2": [
+    "outside-data-excluded-qi02-tumour"
+   ],
+   "Outside Data Excluded 2": [
+    "outside-data-excluded-qi02-tumour"
+   ],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -40894,13 +41341,26 @@
    "Initial Population": [
     "outside-data-excluded-qi01-tumour"
    ],
-   "Denominator 1": [],
-   "Numerator 1": [],
+   "Denominator 1": [
+    "outside-data-excluded-qi01-tumour"
+   ],
+   "Denominator 1 Exclusion": [
+    "outside-data-excluded-qi01-tumour"
+   ],
+   "Numerator 1": [
+    "outside-data-excluded-qi01-tumour"
+   ],
+   "Outside Data Excluded 1": [
+    "outside-data-excluded-qi01-tumour"
+   ],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -41482,12 +41942,25 @@
     "outside-data-excluded-qi03-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
-   "Denominator 3": [],
-   "Numerator 3": []
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [
+    "outside-data-excluded-qi03-tumour"
+   ],
+   "Denominator 3 Exclusion": [
+    "outside-data-excluded-qi03-tumour"
+   ],
+   "Numerator 3": [
+    "outside-data-excluded-qi03-tumour"
+   ],
+   "Outside Data Excluded 3": [
+    "outside-data-excluded-qi03-tumour"
+   ]
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -41953,7 +42426,9 @@
     "outside-data-entered-in-error-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "outside-data-entered-in-error-tumour"
    ],
@@ -41961,8 +42436,11 @@
    "Numerator 2": [
     "outside-data-entered-in-error-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -42459,16 +42937,27 @@
     "outside-data-other-tumour-b"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
-    "outside-data-other-tumour-a"
+    "outside-data-other-tumour-a",
+    "outside-data-other-tumour-b"
    ],
-   "Denominator 2 Exclusion": [],
+   "Denominator 2 Exclusion": [
+    "outside-data-other-tumour-b"
+   ],
    "Numerator 2": [
-    "outside-data-other-tumour-a"
+    "outside-data-other-tumour-a",
+    "outside-data-other-tumour-b"
+   ],
+   "Outside Data Excluded 2": [
+    "outside-data-other-tumour-b"
    ],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -43382,7 +43871,9 @@
     "outside-data-other-subject-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "outside-data-other-subject-tumour"
    ],
@@ -43390,8 +43881,11 @@
    "Numerator 2": [
     "outside-data-other-subject-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -43887,7 +44381,9 @@
     "outside-data-no-value-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "outside-data-no-value-tumour"
    ],
@@ -43895,8 +44391,11 @@
    "Numerator 2": [
     "outside-data-no-value-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -44382,12 +44881,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -44851,7 +45355,9 @@
     "dedup-earlier-diagnosis-b"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "dedup-earlier-diagnosis-b"
    ],
@@ -44859,8 +45365,11 @@
    "Numerator 2": [
     "dedup-earlier-diagnosis-b"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -45742,7 +46251,9 @@
     "dedup-same-day-more-severe-b"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "dedup-same-day-more-severe-b"
    ],
@@ -45750,8 +46261,11 @@
    "Numerator 2": [
     "dedup-same-day-more-severe-b"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -46633,12 +47147,17 @@
     "dedup-same-day-clinical-fallback-a"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -47520,7 +48039,9 @@
     "dedup-full-tie-a"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "dedup-full-tie-a"
    ],
@@ -47528,8 +48049,11 @@
    "Numerator 2": [
     "dedup-full-tie-a"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -48409,12 +48933,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -49294,12 +49823,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -49729,14 +50263,25 @@
  {
   "id": "dedup-missing-national-id",
   "expected": {
-   "Initial Population": [],
+   "Initial Population": [
+    "dedup-missing-national-id-tumour"
+   ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
-   "Denominator 2": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "dedup-missing-national-id-tumour"
+   ],
    "Denominator 2 Exclusion": [],
-   "Numerator 2": [],
+   "Numerator 2": [
+    "dedup-missing-national-id-tumour"
+   ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -50190,12 +50735,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -50657,12 +51207,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -51154,12 +51709,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -51653,7 +52213,9 @@
     "died-no-first-course-watchful-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "died-no-first-course-watchful-tumour"
    ],
@@ -51661,8 +52223,11 @@
    "Numerator 2": [
     "died-no-first-course-watchful-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -52184,12 +52749,17 @@
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -52713,7 +53283,9 @@
     "died-on-first-course-date-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "died-on-first-course-date-tumour"
    ],
@@ -52721,8 +53293,11 @@
    "Numerator 2": [
     "died-on-first-course-date-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -53246,7 +53821,9 @@
     "alive-early-last-contact-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "alive-early-last-contact-tumour"
    ],
@@ -53254,8 +53831,11 @@
    "Numerator 2": [
     "alive-early-last-contact-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -53779,14 +54359,19 @@
     "multi-primary-colon-rectum-rectum"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "multi-primary-colon-rectum-rectum"
    ],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -54639,7 +55224,9 @@
     "multi-primary-two-hospitals-rectum"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "multi-primary-two-hospitals-colon"
    ],
@@ -54647,12 +55234,15 @@
    "Numerator 2": [
     "multi-primary-two-hospitals-colon"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [
     "multi-primary-two-hospitals-rectum"
    ],
+   "Denominator 3 Exclusion": [],
    "Numerator 3": [
     "multi-primary-two-hospitals-rectum"
-   ]
+   ],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -55504,7 +56094,9 @@
     "amended-raises-nodes-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "amended-raises-nodes-tumour"
    ],
@@ -55512,8 +56104,11 @@
    "Numerator 2": [
     "amended-raises-nodes-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -56007,14 +56602,19 @@
     "amended-lowers-nodes-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "amended-lowers-nodes-tumour"
    ],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -56508,7 +57108,9 @@
     "entered-in-error-ignored-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "entered-in-error-ignored-tumour"
    ],
@@ -56516,8 +57118,11 @@
    "Numerator 2": [
     "entered-in-error-ignored-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -57011,7 +57616,9 @@
     "same-issued-tie-break-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [
     "same-issued-tie-break-tumour"
    ],
@@ -57019,8 +57626,11 @@
    "Numerator 2": [
     "same-issued-tie-break-tumour"
    ],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -57516,14 +58126,19 @@
    "Denominator 1": [
     "qi01-facts-belong-to-one-tumour-a"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-facts-belong-to-one-tumour-a"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -58514,14 +59129,19 @@
    "Denominator 1": [
     "qi01-facts-of-duplicate-ignored-b"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [
     "qi01-facts-of-duplicate-ignored-b"
    ],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -59509,12 +60129,17 @@
     "qi01-report-not-linked-tumour"
    ],
    "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",
@@ -60057,12 +60682,17 @@
    "Denominator 1": [
     "qi01-resection-of-other-tumour-a"
    ],
+   "Denominator 1 Exclusion": [],
    "Numerator 1": [],
+   "Outside Data Excluded 1": [],
    "Denominator 2": [],
    "Denominator 2 Exclusion": [],
    "Numerator 2": [],
+   "Outside Data Excluded 2": [],
    "Denominator 3": [],
-   "Numerator 3": []
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
   },
   "bundle": {
    "resourceType": "Bundle",

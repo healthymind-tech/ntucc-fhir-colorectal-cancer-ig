@@ -23,7 +23,7 @@
 | IP-SCOPE | 註1 以「癌別」判定重複；大腸癌適用 C18（不含 C18.1）與 C19–20 | CQL `Is Colorectal Category` | 2.6 ∈ C18.0、C18.2–C18.9、C19.9、C20.9 |
 | IP-DUP | 排除院內重複個案：醫院代碼＋癌別＋身分證號，選診斷較早者；同一天則選期別較嚴重者 | CQL `Is Duplicate` | 演算法見「[個案組裝](case-assembly.html)」 |
 | IP-DEATH | 排除治療前已死亡 | CQL `Died Before Treatment` | 依 2.3.2、4.1、5.3、5.4 判定，見「[個案組裝](case-assembly.html)」 |
-| IP-OUTSIDE | 外院資料原則（第五點） | [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) | 是否取得外院資料不在癌登欄位中，由醫院逐腫瘤、逐指標以資料宣告；自該指標分母移除 |
+| IP-OUTSIDE | 外院資料原則（第五點） | [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html)；CQL `Denominator n Exclusion` | 是否取得外院資料不在癌登欄位中，由醫院逐腫瘤、逐指標以資料宣告；列為該指標的 denominator exclusion |
 
 ## 指標專屬的覆寫
 
@@ -34,7 +34,7 @@
 1. 分子與分母皆屬外院資料：不列入計算。
 2. 分母屬本院、分子屬外院：申報醫院**能取得**外院處置資訊時，必須納入分子與分母；只知道病人屬於分母對象、卻取不到外院分子資料時，不列入計算。
 
-第 2 點取決於資料是否取得，無法從癌登資料判斷，因此由醫院以 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation 宣告：每顆腫瘤、每項指標一筆，`code` 為排除的指標（`excluded-qi01`～`excluded-qi03`），`valueCodeableConcept` 為理由（第五點 1 `both-outside` 或 2 `numerator-outside-not-obtained`），`focus` 指向腫瘤，`note` 記錄稽核說明。CQL 只採用 status 為 final、amended、corrected，subject 為該病人，focus 恰為一顆腫瘤，且 value 為兩個理由代碼之一者，據以自該指標分母移除。宣告是資料，可以驗證、稽核、修正（以 `entered-in-error` 撤回）。
+第 2 點取決於資料是否取得，無法從癌登資料判斷，因此由醫院以 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation 宣告：每顆腫瘤、每項指標一筆，`code` 為排除的指標（`excluded-qi01`～`excluded-qi03`），`valueCodeableConcept` 為理由（第五點 1 `both-outside` 或 2 `numerator-outside-not-obtained`），`focus` 指向腫瘤，`note` 記錄稽核說明。CQL 只採用 status 為 final、amended、corrected，subject 為該病人，focus 恰為一顆腫瘤，且 value 為兩個理由代碼之一者，列為該指標的 **denominator exclusion**（不計入分子與分母，與第五點「不列入計算」相同），因此 summary MeasureReport 的 denominator-exclusion 計數會顯示醫院排除了幾筆，便於稽核。指標 2 的 denominator exclusion 同時包含特殊組織型態；只看第五點的筆數請用各 Measure 的 supplemental data `Outside Data Excluded 2`。宣告是資料，可以驗證、稽核、修正（以 `entered-in-error` 撤回）。
 
 ## 期別
 

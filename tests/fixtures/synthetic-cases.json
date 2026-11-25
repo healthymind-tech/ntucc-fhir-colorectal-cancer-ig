@@ -9104,7 +9104,7 @@
     },
     {
       "id": "national-id-blank",
-      "description": "身分證號只有空白：視為缺少",
+      "description": "身分證號只有空白：視為缺少，但不排除（CQL 以 Patient 判定同一人）",
       "national_id": " ",
       "tumours": [
         {
@@ -9214,12 +9214,14 @@
       "outside_excluded": {},
       "outside_ignored": [],
       "expected": {
-        "Initial Population": []
+        "Initial Population": [
+          "national-id-blank-tumour"
+        ]
       }
     },
     {
       "id": "national-id-unknown-code",
-      "description": "身分證號 9999999999（長表：個案無身分證統一編號）：視為缺少",
+      "description": "身分證號 9999999999（長表：個案無身分證統一編號）：不排除",
       "national_id": "9999999999",
       "tumours": [
         {
@@ -9329,12 +9331,14 @@
       "outside_excluded": {},
       "outside_ignored": [],
       "expected": {
-        "Initial Population": []
+        "Initial Population": [
+          "national-id-unknown-code-tumour"
+        ]
       }
     },
     {
       "id": "national-id-ideographic-space",
-      "description": "身分證號只有全形空白 U+3000：視為缺少（HAPI 解析時會丟棄）",
+      "description": "身分證號只有全形空白 U+3000：視為缺少，不排除",
       "national_id": "　",
       "tumours": [
         {
@@ -9444,12 +9448,14 @@
       "outside_excluded": {},
       "outside_ignored": [],
       "expected": {
-        "Initial Population": []
+        "Initial Population": [
+          "national-id-ideographic-space-tumour"
+        ]
       }
     },
     {
       "id": "national-id-newline",
-      "description": "身分證號只有換行：視為缺少",
+      "description": "身分證號只有換行：視為缺少，不排除",
       "national_id": "\n",
       "tumours": [
         {
@@ -9559,7 +9565,9 @@
       "outside_excluded": {},
       "outside_ignored": [],
       "expected": {
-        "Initial Population": []
+        "Initial Population": [
+          "national-id-newline-tumour"
+        ]
       }
     },
     {
@@ -9796,7 +9804,7 @@
     },
     {
       "id": "outside-data-excluded-qi02",
-      "description": "醫院依第五點將此腫瘤自指標 2 排除：仍在 IP，但不在指標 2 分母",
+      "description": "醫院依第五點將此腫瘤自指標 2 排除：列為指標 2 的 denominator exclusion",
       "national_id": "outside-data-excluded-qi02",
       "tumours": [
         {
@@ -9913,8 +9921,15 @@
         "Initial Population": [
           "outside-data-excluded-qi02-tumour"
         ],
-        "Denominator 2": [],
-        "Numerator 2": []
+        "Denominator 2": [
+          "outside-data-excluded-qi02-tumour"
+        ],
+        "Denominator 2 Exclusion": [
+          "outside-data-excluded-qi02-tumour"
+        ],
+        "Outside Data Excluded 2": [
+          "outside-data-excluded-qi02-tumour"
+        ]
       }
     },
     {
@@ -10040,8 +10055,15 @@
         "Initial Population": [
           "outside-data-excluded-qi01-tumour"
         ],
-        "Denominator 1": [],
-        "Numerator 1": []
+        "Denominator 1": [
+          "outside-data-excluded-qi01-tumour"
+        ],
+        "Denominator 1 Exclusion": [
+          "outside-data-excluded-qi01-tumour"
+        ],
+        "Outside Data Excluded 1": [
+          "outside-data-excluded-qi01-tumour"
+        ]
       }
     },
     {
@@ -10155,8 +10177,15 @@
         "Initial Population": [
           "outside-data-excluded-qi03-tumour"
         ],
-        "Denominator 3": [],
-        "Numerator 3": []
+        "Denominator 3": [
+          "outside-data-excluded-qi03-tumour"
+        ],
+        "Denominator 3 Exclusion": [
+          "outside-data-excluded-qi03-tumour"
+        ],
+        "Outside Data Excluded 3": [
+          "outside-data-excluded-qi03-tumour"
+        ]
       }
     },
     {
@@ -10502,7 +10531,11 @@
       "outside_ignored": [],
       "expected": {
         "Denominator 2": [
-          "outside-data-other-tumour-a"
+          "outside-data-other-tumour-a",
+          "outside-data-other-tumour-b"
+        ],
+        "Outside Data Excluded 2": [
+          "outside-data-other-tumour-b"
         ]
       }
     },
@@ -12083,7 +12116,7 @@
     },
     {
       "id": "dedup-missing-national-id",
-      "description": "病人無身分證號：無法判定重複，排除",
+      "description": "病人無身分證號：同一 Patient 內仍可去重，不排除",
       "national_id": null,
       "tumours": [
         {
@@ -12193,7 +12226,9 @@
       "outside_excluded": {},
       "outside_ignored": [],
       "expected": {
-        "Initial Population": []
+        "Initial Population": [
+          "dedup-missing-national-id-tumour"
+        ]
       }
     },
     {

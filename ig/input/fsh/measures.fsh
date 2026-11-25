@@ -70,7 +70,7 @@ Title: "大腸癌指標1－惡性息肉於病理報告後 12 週內接受治癒�
 Description: "malignant polyp(T1 cancer) 若有下列 A.B.C.D.之一，於病理報告後 12 週內接受治癒性切除(curative resection)的比率。A.大腸鏡檢報告指出息肉未完全被切除；B.手術切除外緣之癌細胞呈陽性；C.癌細胞已侵犯淋巴或靜脈組織；D.病理顯示為第 3 級或屬分化不全之癌細胞。資料來源：醫院自行申報（癌登資料指標分母僅能提供條件 B/D）。評估面：過程面；品質面：及時性(IOM)；證據等級 1+ (SIGN)。"
 * id = "crc-qi-01"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1（醫院代碼＋癌別＋身分證號）院內重複個案只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 1</td><td>malignant polyp (T1) 且病理報告記載 A–D 任一條件；並排除醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi01</code>）宣告者</td></tr><tr><td>Numerator 1</td><td>病理報告後 12 週（84 天）內接受治癒性切除</td></tr></tbody></table></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1 同一病人、同院、同癌別只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 1</td><td>malignant polyp (T1) 且病理報告記載 A–D 任一條件</td></tr><tr><td>Denominator 1 Exclusion</td><td>醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi01</code>）宣告者</td></tr><tr><td>Numerator 1</td><td>病理報告後 12 週（84 天）內接受治癒性切除</td></tr></tbody></table></div>"
 * url = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-01"
 * name = "ColorectalCancerCoreIndicator01MalignantPolypResection"
 * insert CRCMeasureCommon
@@ -84,11 +84,23 @@ Description: "malignant polyp(T1 cancer) 若有下列 A.B.C.D.之一，於病理
 * group.population[1].extension[0].valueString = "denominator"
 * group.population[1].criteria.language = #text/cql-identifier
 * group.population[1].criteria.expression = "Denominator 1"
-* group.population[2].code = $MeasurePopulation#numerator
+* group.population[2].code = $MeasurePopulation#denominator-exclusion
 * group.population[2].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
-* group.population[2].extension[0].valueString = "numerator"
+* group.population[2].extension[0].valueString = "denominator-exclusion"
 * group.population[2].criteria.language = #text/cql-identifier
-* group.population[2].criteria.expression = "Numerator 1"
+* group.population[2].criteria.expression = "Denominator 1 Exclusion"
+* group.population[3].code = $MeasurePopulation#numerator
+* group.population[3].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[3].extension[0].valueString = "numerator"
+* group.population[3].criteria.language = #text/cql-identifier
+* group.population[3].criteria.expression = "Numerator 1"
+* supplementalData[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.supplementalData.linkId"
+* supplementalData[0].extension[0].valueString = "outside-data-excluded"
+* supplementalData[0].code.text = "第五點外院資料排除"
+* supplementalData[0].usage = http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data
+* supplementalData[0].description = "醫院依第五點以 CRCOutsideDataExclusion 宣告、自本指標排除的腫瘤（供稽核）。"
+* supplementalData[0].criteria.language = #text/cql-identifier
+* supplementalData[0].criteria.expression = "Outside Data Excluded 1"
 
 Instance: ColorectalCancerCoreIndicator02
 InstanceOf: Measure
@@ -97,7 +109,7 @@ Title: "大腸癌指標2－病理期別第 I–III 期結腸癌手術病人淋�
 Description: "病理期別第 I-III 期結腸癌(Colon Ca)手術病人，淋巴結病理檢查 12 顆以上的比率。部位＝Colon (C18)，但排除 Appendix (C18.1)；排除 Polyp 或 wide excision 之病人；結腸癌適用範圍不包含 GIST、NETs 與 high grade dysplasia。資料來源：癌登資料庫。評估面：過程面；品質面：有效性(IOM)；證據等級 2+ (SIGN)。"
 * id = "crc-qi-02"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1（醫院代碼＋癌別＋身分證號）院內重複個案只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 2</td><td>2.6=C18 排除 C18.1；4.1.4=30~90；3.13=I~III 期；並排除醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi02</code>）宣告者</td></tr><tr><td>Denominator 2 Exclusion</td><td>特殊組織型態：GIST、NETs、high grade dysplasia</td></tr><tr><td>Numerator 2</td><td>2.14 區域淋巴結檢查數目=12~90</td></tr></tbody></table></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1 同一病人、同院、同癌別只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 2</td><td>2.6=C18 排除 C18.1；4.1.4=30~90；3.13=I~III 期</td></tr><tr><td>Denominator 2 Exclusion</td><td>特殊組織型態：GIST、NETs、high grade dysplasia；或醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi02</code>）宣告者</td></tr><tr><td>Numerator 2</td><td>2.14 區域淋巴結檢查數目=12~90</td></tr></tbody></table></div>"
 * url = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-02"
 * name = "ColorectalCancerCoreIndicator02ColonLymphNodes"
 * insert CRCMeasureCommon
@@ -121,6 +133,13 @@ Description: "病理期別第 I-III 期結腸癌(Colon Ca)手術病人，淋巴�
 * group.population[3].extension[0].valueString = "numerator"
 * group.population[3].criteria.language = #text/cql-identifier
 * group.population[3].criteria.expression = "Numerator 2"
+* supplementalData[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.supplementalData.linkId"
+* supplementalData[0].extension[0].valueString = "outside-data-excluded"
+* supplementalData[0].code.text = "第五點外院資料排除"
+* supplementalData[0].usage = http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data
+* supplementalData[0].description = "醫院依第五點以 CRCOutsideDataExclusion 宣告、自本指標排除的腫瘤（供稽核）。"
+* supplementalData[0].criteria.language = #text/cql-identifier
+* supplementalData[0].criteria.expression = "Outside Data Excluded 2"
 
 Instance: ColorectalCancerCoreIndicator03
 InstanceOf: Measure
@@ -129,7 +148,7 @@ Title: "大腸癌指標3－第 II、III 期直腸癌病人 6 週內開始治療�
 Description: "第 II、III 期(臨床期別為主)直腸癌(Rectum Ca)病人，6 週內開始治療(手術或放療或 CCRT)的比率。部位 C19-20；僅納入 class 1（限制診斷與治療同一醫院病人）。資料來源：癌登資料庫。評估面：過程面；品質面：及時性(IOM)；證據等級 2+ (SIGN)。"
 * id = "crc-qi-03"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1（醫院代碼＋癌別＋身分證號）院內重複個案只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 3</td><td>2.6=C19、C20；2.3=class 1；3.7=2、3 期；並排除醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi03</code>）宣告者</td></tr><tr><td>Numerator 3</td><td>4.1 首次療程開始日期 − 2.12 首次顯微鏡檢證實日期 ≦ 42 天</td></tr></tbody></table></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\" xml:lang=\"zh-TW\"><p>Population criteria（CQL define 名稱，定義於 Library ColorectalCancerCoreIndicators）</p><table><thead><tr><th>Population</th><th>條件</th></tr></thead><tbody><tr><td>Initial Population</td><td>共通收錄（個案組裝，由 CQL 計算）：2.6 原發部位屬大腸癌癌別；2.5 最初診斷日期為有效日期、2024-01-01 起新診斷且於量測期間內；依註1 同一病人、同院、同癌別只保留一筆代表記錄；代表記錄須 class 1/2、非跨院治療、非治療前已死亡</td></tr><tr><td>Denominator 3</td><td>2.6=C19、C20；2.3=class 1；3.7=2、3 期</td></tr><tr><td>Denominator 3 Exclusion</td><td>醫院依第五點（外院資料）以 CRCOutsideDataExclusion（code <code>excluded-qi03</code>）宣告者</td></tr><tr><td>Numerator 3</td><td>4.1 首次療程開始日期 − 2.12 首次顯微鏡檢證實日期 ≦ 42 天</td></tr></tbody></table></div>"
 * url = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-03"
 * name = "ColorectalCancerCoreIndicator03RectalTimeToTreatment"
 * insert CRCMeasureCommon
@@ -143,8 +162,20 @@ Description: "第 II、III 期(臨床期別為主)直腸癌(Rectum Ca)病人，6
 * group.population[1].extension[0].valueString = "denominator"
 * group.population[1].criteria.language = #text/cql-identifier
 * group.population[1].criteria.expression = "Denominator 3"
-* group.population[2].code = $MeasurePopulation#numerator
+* group.population[2].code = $MeasurePopulation#denominator-exclusion
 * group.population[2].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
-* group.population[2].extension[0].valueString = "numerator"
+* group.population[2].extension[0].valueString = "denominator-exclusion"
 * group.population[2].criteria.language = #text/cql-identifier
-* group.population[2].criteria.expression = "Numerator 3"
+* group.population[2].criteria.expression = "Denominator 3 Exclusion"
+* group.population[3].code = $MeasurePopulation#numerator
+* group.population[3].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.group.population.linkId"
+* group.population[3].extension[0].valueString = "numerator"
+* group.population[3].criteria.language = #text/cql-identifier
+* group.population[3].criteria.expression = "Numerator 3"
+* supplementalData[0].extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Measure.supplementalData.linkId"
+* supplementalData[0].extension[0].valueString = "outside-data-excluded"
+* supplementalData[0].code.text = "第五點外院資料排除"
+* supplementalData[0].usage = http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data
+* supplementalData[0].description = "醫院依第五點以 CRCOutsideDataExclusion 宣告、自本指標排除的腫瘤（供稽核）。"
+* supplementalData[0].criteria.language = #text/cql-identifier
+* supplementalData[0].criteria.expression = "Outside Data Excluded 3"

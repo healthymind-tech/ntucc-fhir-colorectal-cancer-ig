@@ -41,8 +41,7 @@ POLYP = {"malignant_polyp": "confirmed", "report_issued": "2025-03-01",
          "features": {"B": True}, "resections": [{"date": "2025-05-24", "status": "completed"}]}
 
 
-POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominator 2",
-               "Denominator 2 Exclusion", "Numerator 2", "Denominator 3", "Numerator 3")
+from reference.crc_indicators import POPULATIONS  # noqa: E402  (single source)
 DEFAULT_ISSUED = "2025-04-30T17:00:00+08:00"
 
 
@@ -244,31 +243,31 @@ CASES += [
           [tumour(_t("foreign-coding", "tumour"), {"2.6": [{"value": "C187", "issued": "2025-05-30T09:00:00+08:00"}]}, COLON,
                   foreign_coding={"2.6": "2.5"})],
           {"Initial Population": [_t("foreign-coding", "tumour")]}),
-    multi("national-id-blank", "身分證號只有空白：視為缺少",
-          [tumour(_t("national-id-blank", "tumour"), {}, COLON)], {"Initial Population": []}, national_id=" "),
-    multi("national-id-unknown-code", "身分證號 9999999999（長表：個案無身分證統一編號）：視為缺少",
-          [tumour(_t("national-id-unknown-code", "tumour"), {}, COLON)], {"Initial Population": []}, national_id="9999999999"),
-    multi("national-id-ideographic-space", "身分證號只有全形空白 U+3000：視為缺少（HAPI 解析時會丟棄）",
-          [tumour(_t("national-id-ideographic-space", "tumour"), {}, COLON)], {"Initial Population": []}, national_id="\u3000"),
-    multi("national-id-newline", "身分證號只有換行：視為缺少",
-          [tumour(_t("national-id-newline", "tumour"), {}, COLON)], {"Initial Population": []}, national_id="\n"),
+    multi("national-id-blank", "身分證號只有空白：視為缺少，但不排除（CQL 以 Patient 判定同一人）",
+          [tumour(_t("national-id-blank", "tumour"), {}, COLON)], {"Initial Population": [_t("national-id-blank", "tumour")]}, national_id=" "),
+    multi("national-id-unknown-code", "身分證號 9999999999（長表：個案無身分證統一編號）：不排除",
+          [tumour(_t("national-id-unknown-code", "tumour"), {}, COLON)], {"Initial Population": [_t("national-id-unknown-code", "tumour")]}, national_id="9999999999"),
+    multi("national-id-ideographic-space", "身分證號只有全形空白 U+3000：視為缺少，不排除",
+          [tumour(_t("national-id-ideographic-space", "tumour"), {}, COLON)], {"Initial Population": [_t("national-id-ideographic-space", "tumour")]}, national_id="\u3000"),
+    multi("national-id-newline", "身分證號只有換行：視為缺少，不排除",
+          [tumour(_t("national-id-newline", "tumour"), {}, COLON)], {"Initial Population": [_t("national-id-newline", "tumour")]}, national_id="\n"),
     multi("national-id-nbsp", "身分證號只有不換行空白 U+00A0：不屬空白字元，視為有值（本 IG 決定）",
           [tumour(_t("national-id-nbsp", "tumour"), {}, COLON)],
           {"Initial Population": [_t("national-id-nbsp", "tumour")]}, national_id="\u00a0"),
     multi("hospital-id-ideographic-space", "1.1 只有全形空白：視為缺少，排除",
           [tumour(_t("hospital-id-ideographic-space", "tumour"), {"1.1": "\u3000"}, COLON)], {"Initial Population": []}),
     # ---- 第五點 outside-hospital data (hospital-supplied, per indicator) ----------
-    multi("outside-data-excluded-qi02", "醫院依第五點將此腫瘤自指標 2 排除：仍在 IP，但不在指標 2 分母",
+    multi("outside-data-excluded-qi02", "醫院依第五點將此腫瘤自指標 2 排除：列為指標 2 的 denominator exclusion",
           [tumour(_t("outside-data-excluded-qi02", "tumour"), {}, COLON)],
-          {"Initial Population": [_t("outside-data-excluded-qi02", "tumour")], "Denominator 2": [], "Numerator 2": []},
+          {"Initial Population": [_t("outside-data-excluded-qi02", "tumour")], "Denominator 2": [_t("outside-data-excluded-qi02", "tumour")], "Denominator 2 Exclusion": [_t("outside-data-excluded-qi02", "tumour")], "Outside Data Excluded 2": [_t("outside-data-excluded-qi02", "tumour")]},
           outside_excluded={"2": [_t("outside-data-excluded-qi02", "tumour")]}),
     multi("outside-data-excluded-qi01", "醫院依第五點將此腫瘤自指標 1 排除",
           [tumour(_t("outside-data-excluded-qi01", "tumour"), {}, POLYP_REGISTRY, POLYP)],
-          {"Initial Population": [_t("outside-data-excluded-qi01", "tumour")], "Denominator 1": [], "Numerator 1": []},
+          {"Initial Population": [_t("outside-data-excluded-qi01", "tumour")], "Denominator 1": [_t("outside-data-excluded-qi01", "tumour")], "Denominator 1 Exclusion": [_t("outside-data-excluded-qi01", "tumour")], "Outside Data Excluded 1": [_t("outside-data-excluded-qi01", "tumour")]},
           outside_excluded={"1": [_t("outside-data-excluded-qi01", "tumour")]}),
     multi("outside-data-excluded-qi03", "醫院依第五點將此腫瘤自指標 3 排除；指標 2 不受影響",
           [tumour(_t("outside-data-excluded-qi03", "tumour"), {}, RECTUM)],
-          {"Initial Population": [_t("outside-data-excluded-qi03", "tumour")], "Denominator 3": [], "Numerator 3": []},
+          {"Initial Population": [_t("outside-data-excluded-qi03", "tumour")], "Denominator 3": [_t("outside-data-excluded-qi03", "tumour")], "Denominator 3 Exclusion": [_t("outside-data-excluded-qi03", "tumour")], "Outside Data Excluded 3": [_t("outside-data-excluded-qi03", "tumour")]},
           outside_excluded={"3": [_t("outside-data-excluded-qi03", "tumour")]}),
     multi("outside-data-entered-in-error", "第五點宣告為 entered-in-error：不排除",
           [tumour(_t("outside-data-entered-in-error", "tumour"), {}, COLON)],
@@ -277,7 +276,8 @@ CASES += [
     multi("outside-data-other-tumour", "第五點宣告指向同一病人的另一顆腫瘤（不同院）：本腫瘤不受影響",
           [tumour(_t("outside-data-other-tumour", "a"), {}, COLON),
            tumour(_t("outside-data-other-tumour", "b"), {"1.1": "0501110514"}, COLON)],
-          {"Denominator 2": [_t("outside-data-other-tumour", "a")]},
+          {"Denominator 2": [_t("outside-data-other-tumour", "a"), _t("outside-data-other-tumour", "b")],
+           "Outside Data Excluded 2": [_t("outside-data-other-tumour", "b")]},
           outside_excluded={"2": [_t("outside-data-other-tumour", "b")]}),
     multi("outside-data-other-subject", "第五點宣告的 subject 是另一位病人：不採用",
           [tumour(_t("outside-data-other-subject", "tumour"), {}, COLON)],
@@ -314,9 +314,9 @@ CASES += [
     multi("dedup-missing-hospital-key", "缺 1.1 申報醫院代碼：無法判定重複，排除",
           [tumour(_t("dedup-missing-hospital-key", "tumour"), {"1.1": None}, COLON)],
           {"Initial Population": []}),
-    multi("dedup-missing-national-id", "病人無身分證號：無法判定重複，排除",
+    multi("dedup-missing-national-id", "病人無身分證號：同一 Patient 內仍可去重，不排除",
           [tumour(_t("dedup-missing-national-id", "tumour"), {}, COLON)],
-          {"Initial Population": []}, national_id=None),
+          {"Initial Population": [_t("dedup-missing-national-id", "tumour")]}, national_id=None),
     multi("not-colorectal-anus", "肛門 C21.0 不屬大腸癌癌別",
           [tumour(_t("not-colorectal-anus", "tumour"), {"2.6": "C210"}, COLON)],
           {"Initial Population": []}),
@@ -596,8 +596,6 @@ def write_measure_reports(results, period):
         ]
         populations = [("initial-population", "initial-population"), ("denominator", "denominator"),
                        ("denominator-exclusion", "denominator-exclusion"), ("numerator", "numerator")]
-        if number != 2:
-            populations = [p for p in populations if p[0] != "denominator-exclusion"]
         for k, (code, key) in enumerate(populations):
             out += [f"* group.population[{k}].code = $MeasurePopulation#{code}",
                     f"* group.population[{k}].count = {counts[key]}"]

@@ -15,11 +15,13 @@ Description: "以本 IG 全部 114 個合成個案計算的 crc-qi-01 摘要 Mea
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 88
+* group.population[0].count = 93
 * group.population[1].code = $MeasurePopulation#denominator
-* group.population[1].count = 10
-* group.population[2].code = $MeasurePopulation#numerator
-* group.population[2].count = 6
+* group.population[1].count = 11
+* group.population[2].code = $MeasurePopulation#denominator-exclusion
+* group.population[2].count = 1
+* group.population[3].code = $MeasurePopulation#numerator
+* group.population[3].count = 6
 * group.measureScore.value = 0.6000
 
 Instance: SyntheticSummaryReport02
@@ -36,14 +38,14 @@ Description: "以本 IG 全部 114 個合成個案計算的 crc-qi-02 摘要 Mea
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 88
+* group.population[0].count = 93
 * group.population[1].code = $MeasurePopulation#denominator
-* group.population[1].count = 46
+* group.population[1].count = 53
 * group.population[2].code = $MeasurePopulation#denominator-exclusion
-* group.population[2].count = 2
+* group.population[2].count = 4
 * group.population[3].code = $MeasurePopulation#numerator
-* group.population[3].count = 39
-* group.measureScore.value = 0.8864
+* group.population[3].count = 44
+* group.measureScore.value = 0.8980
 
 Instance: SyntheticSummaryReport03
 InstanceOf: MeasureReport
@@ -59,9 +61,11 @@ Description: "以本 IG 全部 114 個合成個案計算的 crc-qi-03 摘要 Mea
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 88
+* group.population[0].count = 93
 * group.population[1].code = $MeasurePopulation#denominator
-* group.population[1].count = 11
-* group.population[2].code = $MeasurePopulation#numerator
-* group.population[2].count = 5
+* group.population[1].count = 12
+* group.population[2].code = $MeasurePopulation#denominator-exclusion
+* group.population[2].count = 1
+* group.population[3].code = $MeasurePopulation#numerator
+* group.population[3].count = 5
 * group.measureScore.value = 0.4545

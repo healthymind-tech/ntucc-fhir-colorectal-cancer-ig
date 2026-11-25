@@ -110,7 +110,8 @@ define "Registry Items":
 // Conditions recorded in error or refuted are never cases.
 define "Primary Tumours":
   [Condition] Tumour
-    where not exists (Tumour.verificationStatus.coding V
+    where "Is About Patient"(Tumour.subject)
+      and not exists (Tumour.verificationStatus.coding V
         where V.system.value = 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
           and V.code.value in { 'entered-in-error', 'refuted' })
       and exists ("Registry Items" Item
@@ -232,13 +233,11 @@ define "Measurement Dates":
 define function "Is Colorectal Category"(Tumour Condition):
   Coalesce("Primary Site Code"(Tumour) in "Colorectal Category", false)
 
-// 1.4 身分證統一編號 only (長表摘錄手冊 p. 56; 外籍人士不收案, p. 1).
-// 9999999999 = 個案無身分證統一編號, i.e. no key, same as a missing id.
-define "Patient Has National Id":
-  exists (Patient.identifier I
-    where I.system.value = 'http://www.moi.gov.tw'
-      and "Trimmed"(I.value.value) is not null
-      and "Trimmed"(I.value.value) != '9999999999')
+// 註1 duplicate key: in Patient context every candidate already belongs to one
+// Patient resource, so the person part of the key is the Patient itself and
+// 1.4 身分證統一編號 is not compared; a missing id (or 9999999999, 個案無身分證
+// 統一編號) therefore does not exclude a case. Duplicates spread over several
+// Patient resources must be merged (MPI) before evaluation.
 
 define function "Normalized Key"(Raw String):
   if "Trimmed"(Raw) is null then null
@@ -251,7 +250,6 @@ define "Assembly Candidates":
       and "Date Of Initial Diagnosis"(Tumour) is not null
       and "Date Of Initial Diagnosis"(Tumour) on or after @2024-01-01
       and "Date Of Initial Diagnosis"(Tumour) in "Measurement Dates"
-      and "Patient Has National Id"
       and "Normalized Key"("Reporting Hospital"(Tumour)) is not null
 
 // 註1 same-day tie-break: more severe stage group, pathological (3.13) first,
@@ -329,6 +327,7 @@ define function "Is Malignant Polyp"(Tumour Condition):
 
 define function "Is Current Finding Of"(Finding Observation, Tumour Condition):
   Finding.status in { 'final', 'amended', 'corrected' }
+    and "Is About Patient"(Finding.subject)
     and exists (Finding.focus F where "Points To"(F, 'Condition', Tumour.id))
 
 // D1-FEATURE: only findings recorded for this tumour count. A: local code with
@@ -359,6 +358,7 @@ define function "Pathology Report Date"(Tumour Condition):
   Min(
     [DiagnosticReport: "Malignant Polyp Pathology Report"] Report
       where Report.status in { 'final', 'amended', 'corrected' }
+        and "Is About Patient"(Report.subject)
         and Report.issued is not null
         and exists (Tumour.evidence E
           where exists (E.detail D where "Points To"(D, 'DiagnosticReport', Report.id)))
@@ -384,8 +384,7 @@ define function "Is Outside Excluded"(Tumour Condition, Indicator String):
 
 define "Denominator 1":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, 'excluded-qi01')
-      and "Is Malignant Polyp"(Tumour)
+    where "Is Malignant Polyp"(Tumour)
       and "Has High Risk Feature"(Tumour)
       and "Pathology Report Date"(Tumour) is not null
 
@@ -403,12 +402,23 @@ define function "Resected Within 12 Weeks"(Tumour Condition):
     let ResectionDate: "Procedure Start Date"(Resection.performed),
         ReportDate: "Pathology Report Date"(Tumour)
     where Resection.status = 'completed'
+      and "Is About Patient"(Resection.subject)
       and exists (Resection.reasonReference R where "Points To"(R, 'Condition', Tumour.id))
       and ResectionDate is not null
       and ResectionDate in Interval[ReportDate, ReportDate + 84 days])
 
 define "Numerator 1":
   "Denominator 1" Tumour where "Resected Within 12 Weeks"(Tumour)
+
+// IP-OUTSIDE as the denominator exclusion, so the MeasureReport shows how many
+// tumours the hospital excluded under 第五點. "Outside Data Excluded n" is also
+// each Measure's supplemental data (for indicator 2 the exclusion population
+// also holds the special histology cases).
+define "Outside Data Excluded 1":
+  "Denominator 1" Tumour where "Is Outside Excluded"(Tumour, 'excluded-qi01')
+
+define "Denominator 1 Exclusion":
+  "Outside Data Excluded 1"
 
 // ==========================================================================
 // crc-qi-02  第 I–III 期結腸癌手術病人淋巴結檢查 ≥12 顆
@@ -428,8 +438,7 @@ define function "Is Pathological Stage I To III"(Tumour Condition):
 
 define "Denominator 2":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, 'excluded-qi02')
-      and "Is Colon Excluding Appendix"(Tumour)
+    where "Is Colon Excluding Appendix"(Tumour)
       and "Has Resection Surgery 30 To 90"(Tumour)
       and "Is Pathological Stage I To III"(Tumour)
 
@@ -440,10 +449,14 @@ define "Denominator 2":
 define "Special Histology":
   { '8935', '8936', '8153', '8240', '8241', '8242', '8246', '8249' }
 
+define "Outside Data Excluded 2":
+  "Denominator 2" Tumour where "Is Outside Excluded"(Tumour, 'excluded-qi02')
+
 define "Denominator 2 Exclusion":
   "Denominator 2" Tumour
     where Coalesce("Histology"(Tumour) in "Special Histology", false)
       or Coalesce("Behavior"(Tumour) = '2', false)
+      or "Is Outside Excluded"(Tumour, 'excluded-qi02')
 
 // N2-LN12
 define "Numerator 2":
@@ -465,8 +478,7 @@ define function "Is Clinical Stage II To III"(Tumour Condition):
 // D3-CLASS: class 1 only, narrower than the shared class 1/2 population.
 define "Denominator 3":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, 'excluded-qi03')
-      and "Is Rectosigmoid Or Rectum"(Tumour)
+    where "Is Rectosigmoid Or Rectum"(Tumour)
       and Coalesce("Class Of Case"(Tumour) = '1', false)
       and "Is Clinical Stage II To III"(Tumour)
 
@@ -477,3 +489,9 @@ define function "Days From Confirmation To First Course"(Tumour Condition):
 define "Numerator 3":
   "Denominator 3" Tumour
     where Coalesce("Days From Confirmation To First Course"(Tumour) <= 42, false)
+
+define "Outside Data Excluded 3":
+  "Denominator 3" Tumour where "Is Outside Excluded"(Tumour, 'excluded-qi03')
+
+define "Denominator 3 Exclusion":
+  "Outside Data Excluded 3"

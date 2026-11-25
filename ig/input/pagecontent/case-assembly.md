@@ -40,7 +40,7 @@
 | 1 | 癌別為大腸癌 | `NOT_COLORECTAL` | CQL（已實作） |
 | 2 | 2.5 為有效日期 | `INVALID_DIAGNOSIS_DATE` | CQL（已實作） |
 | 3 | 2024-01-01 起新診斷，且在 Measurement Period 內 | `DIAGNOSIS_BEFORE_2024`、`OUTSIDE_MEASUREMENT_PERIOD` | CQL（已實作） |
-| 4 | 重複個案 key 完整 | `MISSING_DEDUP_KEY` | CQL（已實作） |
+| 4 | 重複個案 key 完整（1.1 申報醫院代碼） | `MISSING_DEDUP_KEY` | CQL（已實作） |
 | 5 | 院內重複個案（註 1） | `DUPLICATE_OF:<保留的 tumour_id>` | CQL（已實作） |
 | 6 | class 1、2 | `CLASS_NOT_1_OR_2` | CQL（已實作） |
 | 7 | 跨院治療（註 3） | `CROSS_HOSPITAL_TREATMENT` | CQL（已實作） |
@@ -83,7 +83,7 @@
 
 演算法：
 
-1. key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）。兩個識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。1.4 的 `9999999999` 在長表中表示「個案無身分證統一編號」（摘錄手冊第 56 頁），視同空值。任一為空 → `MISSING_DEDUP_KEY`（**【本 IG 決定】**：key 不完整就無法執行註 1，長表也規定兩者必填）。不得以 1.2 病歷號碼代替 1.4。1.4 只認 `Patient.identifier` system `http://www.moi.gov.tw`（身分證）：摘錄手冊規定 1.4 為身分證統一編號，且「收案對象為中華民國國籍(外籍人士不收案)」，居留證號（TW Core `http://www.immigration.gov.tw`）、護照號碼不是 1.4。
+1. key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）。兩個識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。1.4 的 `9999999999` 在長表中表示「個案無身分證統一編號」（摘錄手冊第 56 頁），視同空值。**同一人的判定【本 IG 決定】**：CQL 在 Patient context 中執行，同一次評估的所有腫瘤都屬於同一個 Patient 資源，因此「身分證號相同」由 Patient 本身代表，1.4 不參與比對。1.4 缺漏或為 `9999999999` **不排除**個案（早期版本會以 `MISSING_DEDUP_KEY` 排除，但那只讓個案消失，並沒有換來任何去重效果）。代價是：同一人若分散在兩個 Patient 資源，CQL 無法合併，送進評估前必須先完成病人身分整合（見[收錄條件](inclusion-rules.html)「一人一個 Patient」）。1.1 參與比對，空白時 → `MISSING_DEDUP_KEY`。參考實作 `assemble_cohort` 以傳入的 `patient_id` 代表同一人，本 IG 的測試以 Patient 資源代入；直接呼叫時 `patient_id` 空白仍為 `MISSING_DEDUP_KEY`。不得以 1.2 病歷號碼代替 1.4。1.4 只認 `Patient.identifier` system `http://www.moi.gov.tw`（身分證）：摘錄手冊規定 1.4 為身分證統一編號，且「收案對象為中華民國國籍(外籍人士不收案)」，居留證號（TW Core `http://www.immigration.gov.tw`）、護照號碼不是 1.4。
 2. 每個 key 只保留一筆，其餘記錄的原因為 `DUPLICATE_OF:<保留的 tumour_id>`。
 3. 保留 2.5 最早者。【原文】
 4. 2.5 同一天時，保留期別較嚴重者。【原文】期別的取法與排序見下。結果加旗標 `SAME_DAY_TIE_BROKEN_BY_STAGE`。
@@ -181,7 +181,7 @@
 | 5 重複個案 | `Beats`、`Is Duplicate`、`Representative Cases` |
 | 6、7 class、跨院 | `Initial Population`、`Cross Hospital Treatment` |
 | 8 治療前已死亡 | `Died Before Treatment`；5.4＝`0` 為死亡（長表摘錄手冊） |
-| 9 外院資料 | **醫院宣告的資料**：CRCOutsideDataExclusion Observation（逐腫瘤、逐指標），自該指標分母移除 |
+| 9 外院資料 | **醫院宣告的資料**：CRCOutsideDataExclusion Observation（逐腫瘤、逐指標），列入該指標的 Denominator Exclusion（`Outside Data Excluded n` 另作為 supplemental data），MeasureReport 可看出排除筆數 |
 
 CQL 與參考實作 `reference/cohort.py` 以同一組合成個案驗證（`tests/fixtures/synthetic-cases.json` 中 `dedup-*`、`died-*` 等案例），Java 與 JavaScript 兩個 CQL 引擎的結果都必須與參考實作一致。
 
@@ -193,7 +193,7 @@ CQL 與參考實作 `reference/cohort.py` 以同一組合成個案驗證（`test
 | `INVALID_DIAGNOSIS_DATE` | 2.5 不是有效日期 |
 | `DIAGNOSIS_BEFORE_2024` | 2.5 早於 2024-01-01 |
 | `OUTSIDE_MEASUREMENT_PERIOD` | 2.5 不在呼叫端指定的期間 |
-| `MISSING_DEDUP_KEY` | 1.1 或 1.4 空白 |
+| `MISSING_DEDUP_KEY` | 1.1 空白（參考實作直接呼叫時 `patient_id` 空白亦同） |
 | `DUPLICATE_OF:<id>` | 註 1 重複個案，保留的是 `<id>` |
 | `CLASS_NOT_1_OR_2` | 2.3 不是 1 或 2 |
 | `CROSS_HOSPITAL_TREATMENT` | 註 3 跨院治療 |

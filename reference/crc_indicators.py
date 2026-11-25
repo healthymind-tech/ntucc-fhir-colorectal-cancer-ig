@@ -25,8 +25,10 @@ POLYP_WINDOW = timedelta(days=84)  # 12 weeks
 RECTAL_WINDOW_DAYS = 42  # 6 weeks
 REGISTRY_START = date(2024, 1, 1)  # 收錄自 113/1/1 起新診斷
 CURRENT_STATUSES = {"final", "amended", "corrected"}
-POPULATIONS = ("Initial Population", "Denominator 1", "Numerator 1", "Denominator 2",
-               "Denominator 2 Exclusion", "Numerator 2", "Denominator 3", "Numerator 3")
+POPULATIONS = ("Initial Population",
+               "Denominator 1", "Denominator 1 Exclusion", "Numerator 1", "Outside Data Excluded 1",
+               "Denominator 2", "Denominator 2 Exclusion", "Numerator 2", "Outside Data Excluded 2",
+               "Denominator 3", "Denominator 3 Exclusion", "Numerator 3", "Outside Data Excluded 3")
 
 
 def current_values(versions: dict[str, list[dict[str, str]]]) -> dict[str, str]:
@@ -157,8 +159,12 @@ def evaluate_case(case: dict[str, Any], period: tuple[date, date]) -> dict[str, 
     tumours = [t for t in case["tumours"] if t.get("verification") not in ("entered-in-error", "refuted")]
     current = {t["id"]: ({} if t.get("multi_focus") else current_values(t["fields"])) for t in tumours}
     tumours = [t for t in tumours if current[t["id"]]]
+    # 註1 person key: the CQL works in Patient context, so the person is the
+    # Patient resource; 1.4 is not compared and a missing id (or 9999999999)
+    # does not exclude the case.
+    person = f"patient-resource:{case['id']}"
     cohort = assemble_cohort(
-        [{"patient_id": case.get("national_id"), "hospital_id": current[t["id"]].get("1.1"),
+        [{"patient_id": person, "hospital_id": current[t["id"]].get("1.1"),
           "tumour_id": t["id"], "fields": current[t["id"]]} for t in tumours],
         period=period,
     )
@@ -166,11 +172,12 @@ def evaluate_case(case: dict[str, Any], period: tuple[date, date]) -> dict[str, 
     for tumour in tumours:
         out = evaluate(current[tumour["id"]], PolypFacts.from_json(tumour.get("polyp")), period,
                        tumour["id"] in cohort.eligible)
-        for measure, excluded in outside.items():
-            if tumour["id"] in excluded:
-                for name in (f"Denominator {measure}", f"Numerator {measure}", f"Denominator {measure} Exclusion"):
-                    if name in out:
-                        out[name] = False
+        # 第五點 is the denominator exclusion (indicator 2: together with the
+        # special histology exclusion); excluded tumours stay in the denominator.
+        for measure in (1, 2, 3):
+            hit = out[f"Denominator {measure}"] and tumour["id"] in outside.get(str(measure), [])
+            out[f"Outside Data Excluded {measure}"] = hit
+            out[f"Denominator {measure} Exclusion"] = out.get(f"Denominator {measure} Exclusion", False) or hit
         for name in POPULATIONS:
             if out[name]:
                 results[name].append(tumour["id"])

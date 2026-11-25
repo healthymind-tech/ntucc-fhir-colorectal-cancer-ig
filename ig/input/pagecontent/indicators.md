@@ -46,6 +46,7 @@
 | D2-PSTAGE | 病理期別組合(3.13)＝I~III 期 | `Is Pathological Stage I To III` |
 | X2-POLYP | 排除 Polyp 或 wide excision（4.1.4 < 30） | 與 D2-SURG 互斥，由 D2-SURG 實現 |
 | X2-HIST | 特殊組織型態（GIST、NETs、high grade dysplasia）不屬結腸癌適用範圍 | `Denominator 2 Exclusion` |
+| IP-OUTSIDE | 第五點外院資料（醫院以 CRCOutsideDataExclusion 宣告） | `Denominator 1/2/3 Exclusion`；supplemental data `Outside Data Excluded 1/2/3` |
 | N2-LN12 | 區域淋巴結檢查數目(2.14)＝12~90 | `Numerator 2` |
 
 ## 指標 3：第 II、III 期直腸癌 6 週內開始治療 — [crc-qi-03](Measure-crc-qi-03.html)

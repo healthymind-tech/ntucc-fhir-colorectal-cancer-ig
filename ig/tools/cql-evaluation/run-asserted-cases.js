@@ -79,12 +79,10 @@ function patientId(testCase) {
   return patients[0].id;
 }
 
-const MEASURE_POPULATIONS = {
-  'crc-qi-01': { 'initial-population': 'Initial Population', denominator: 'Denominator 1', numerator: 'Numerator 1' },
-  'crc-qi-02': { 'initial-population': 'Initial Population', denominator: 'Denominator 2',
-    'denominator-exclusion': 'Denominator 2 Exclusion', numerator: 'Numerator 2' },
-  'crc-qi-03': { 'initial-population': 'Initial Population', denominator: 'Denominator 3', numerator: 'Numerator 3' }
-};
+const MEASURE_POPULATIONS = Object.fromEntries([1, 2, 3].map(n => [`crc-qi-0${n}`, {
+  'initial-population': 'Initial Population', denominator: `Denominator ${n}`,
+  'denominator-exclusion': `Denominator ${n} Exclusion`, numerator: `Numerator ${n}`
+}]));
 
 async function main() {
   const covered = new Set();
