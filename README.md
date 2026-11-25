@@ -108,11 +108,12 @@ scripts/build_ig.sh
 
 ### 尚待確認
 
-正式使用前，請先閱讀「[已知歧義與待確認事項](ig/input/pagecontent/known-ambiguities.md)」。共 15 項，主要包括：
+正式使用前，請先閱讀「[已知歧義與待確認事項](ig/input/pagecontent/known-ambiguities.md)」。表中為 A 系列共 26 項（A-01～A-26，其中 A-01 已解決）；個案組裝的決定與待確認問題另列於個案組裝頁（C 系列）。主要包括：
 
-- 跨院治療排除條件中「診斷狀態」與「治療狀態分類」的長表欄位序號
-- 特殊組織型態排除是否也適用於直腸癌
-- 指標 1 本地概念代碼尚未對應到 SNOMED CT／LOINC
+- 同一病人多原發大腸癌如何保留個案（A-15，第一優先確認）
+- 特殊組織型態排除是否也適用於直腸癌（A-12）
+- 指標 1 惡性息肉、條件 A 與治癒性切除的本地概念代碼尚未對應到 SNOMED CT／LOINC（A-07）
+- 指標未依醫院分層，一次評估只能涵蓋單一醫院的資料（A-25）
 
 ### 擴充到其他癌別
 
@@ -134,7 +135,7 @@ A FHIR R4 implementation guide that turns the three **colorectal cancer core qua
 
 Each rule in the official text has a `criterion_id` in `mappings/crc-core-indicator-criteria.csv`. The rules are implemented twice, independently, in **CQL** and in a **Python reference implementation**, and both must agree on the same hand-specified synthetic cases (114 at present), checked on two CQL engines (JavaScript and Java). Registry values are kept as raw strings so that special codes such as `99999999` (unknown) are never mistaken for dates.
 
-All clinical profiles derive from **TW Core IG 1.0.0**; only the registry data-item Observation derives from base R4 Observation, because no TW Core Observation category fits a registry field value. See *Quick start* above for build commands; the published site is at <https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/>.
+All clinical profiles derive from **TW Core IG 1.0.0**; only the registry data-item Observation and the outside-data exclusion Observation derive from base R4 Observation, because neither is a clinical result and no TW Core Observation category fits them. See *Quick start* above for build commands; the published site is at <https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/>.
 
 ---
 

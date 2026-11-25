@@ -48,6 +48,8 @@
 | X2-HIST | 特殊組織型態（GIST、NETs、high grade dysplasia）不屬結腸癌適用範圍 | `Denominator 2 Exclusion` |
 | N2-LN12 | 區域淋巴結檢查數目(2.14)＝12~90 | `Numerator 2` |
 
+MeasureReport 的 denominator 計數包含 denominator exclusion，與國健署「分母」比較時請用 denominator − denominator exclusion（measureScore 已依此計算）；特殊組織型態的筆數＝`Denominator 2 Exclusion` − `Outside Data Excluded 2`（見已知歧義 A-11）。
+
 ## 指標 3：第 II、III 期直腸癌 6 週內開始治療 — [crc-qi-03](Measure-crc-qi-03.html)
 
 | 項目 | 內容 |
