@@ -83,7 +83,7 @@
 
 演算法：
 
-1. key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）。兩個識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。1.4 的 `9999999999` 在長表中表示「個案無身分證統一編號」（摘錄手冊第 56 頁），視同空值。**同一人的判定【本 IG 決定】**：CQL 在 Patient context 中執行，同一次評估的所有腫瘤都屬於同一個 Patient 資源，因此「身分證號相同」由 Patient 本身代表，1.4 不參與比對。1.4 缺漏或為 `9999999999` **不排除**個案（早期版本會以 `MISSING_DEDUP_KEY` 排除，但那只讓個案消失，並沒有換來任何去重效果）。代價是：同一人若分散在兩個 Patient 資源，CQL 無法合併，送進評估前必須先完成病人身分整合（見[收錄條件](inclusion-rules.html)「一人一個 Patient」）。1.1 參與比對，空白時 → `MISSING_DEDUP_KEY`。參考實作 `assemble_cohort` 以傳入的 `patient_id` 代表同一人，本 IG 的測試以 Patient 資源代入；直接呼叫時 `patient_id` 空白仍為 `MISSING_DEDUP_KEY`。不得以 1.2 病歷號碼代替 1.4。1.4 只認 `Patient.identifier` system `http://www.moi.gov.tw`（身分證）：摘錄手冊規定 1.4 為身分證統一編號，且「收案對象為中華民國國籍(外籍人士不收案)」，居留證號（TW Core `http://www.immigration.gov.tw`）、護照號碼不是 1.4。
+1. 原文 key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）；本 IG 中 1.4 由 Patient 代表、不參與比對（見本步驟後段）。識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。1.4 的 `9999999999` 在長表中表示「個案無身分證統一編號」（摘錄手冊第 56 頁）；參考實作直接呼叫 `assemble_cohort` 時視同空值。**同一人的判定【本 IG 決定】**：CQL 在 Patient context 中執行，同一次評估的所有腫瘤都屬於同一個 Patient 資源，因此「身分證號相同」由 Patient 本身代表，1.4 不參與比對。1.4 缺漏或為 `9999999999` **不排除**個案（早期版本會以 `MISSING_DEDUP_KEY` 排除，但那只讓個案消失，並沒有換來任何去重效果）。代價是：同一人若分散在兩個 Patient 資源，CQL 無法合併，送進評估前必須先完成病人身分整合（見[收錄條件](inclusion-rules.html)「一人一個 Patient」）。1.1 參與比對，空白時 → `MISSING_DEDUP_KEY`。參考實作 `assemble_cohort` 以傳入的 `patient_id` 代表同一人，本 IG 的測試以 Patient 資源代入；直接呼叫時 `patient_id` 空白仍為 `MISSING_DEDUP_KEY`。不得以 1.2 病歷號碼代替 1.4。1.4 只認 `Patient.identifier` system `http://www.moi.gov.tw`（身分證）：摘錄手冊規定 1.4 為身分證統一編號，且「收案對象為中華民國國籍(外籍人士不收案)」，居留證號（TW Core `http://www.immigration.gov.tw`）、護照號碼不是 1.4。
 2. 每個 key 只保留一筆，其餘記錄的原因為 `DUPLICATE_OF:<保留的 tumour_id>`。
 3. 保留 2.5 最早者。【原文】
 4. 2.5 同一天時，保留期別較嚴重者。【原文】期別的取法與排序見下。結果加旗標 `SAME_DAY_TIE_BROKEN_BY_STAGE`。
@@ -177,7 +177,7 @@
 |---|---|
 | 1 癌別 | `Is Colorectal Category` |
 | 2、3 診斷日期與期間 | `Assembly Candidates` |
-| 4 重複個案 key | `Patient Has National Id`、`Reporting Hospital`（1.1） |
+| 4 重複個案 key | `Reporting Hospital`（1.1）；同一人由 Patient context 代表 |
 | 5 重複個案 | `Beats`、`Is Duplicate`、`Representative Cases` |
 | 6、7 class、跨院 | `Initial Population`、`Cross Hospital Treatment` |
 | 8 治療前已死亡 | `Died Before Treatment`；5.4＝`0` 為死亡（長表摘錄手冊） |

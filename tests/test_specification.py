@@ -46,6 +46,10 @@ def test_measure_populations_resolve_to_defines():
         measure = json.loads(path.read_text(encoding="utf-8"))
         for population in measure["group"][0]["population"]:
             assert population["criteria"]["expression"] in DEFINES
+        supplemental = [s["criteria"]["expression"] for s in measure.get("supplementalData", [])]
+        assert supplemental, f"{path.name}: no supplemental data"
+        for expression in supplemental:
+            assert expression in DEFINES, f"{path.name}: unknown supplemental data define {expression!r}"
 
 
 def test_source_hashes_match():

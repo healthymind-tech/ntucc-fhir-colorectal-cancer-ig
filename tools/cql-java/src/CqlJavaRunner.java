@@ -159,8 +159,11 @@ public class CqlJavaRunner {
         java.util.Arrays.sort(measureFiles);
         for (File f : measureFiles) {
             JsonNode measure = JSON.readTree(f);
-            for (JsonNode group : measure.path("group")) {
-                for (JsonNode population : group.path("population")) {
+            List<JsonNode> criteria = new ArrayList<>();
+            for (JsonNode group : measure.path("group")) group.path("population").forEach(criteria::add);
+            measure.path("supplementalData").forEach(criteria::add);
+            {
+                for (JsonNode population : criteria) {
                     String expression = population.path("criteria").path("expression").asText(null);
                     if (expression == null) continue;
                     if (!defines.contains(expression)) {

@@ -10,9 +10,10 @@
 
 ### 實作假設
 
-- **一人一個 Patient**：去重在 CQL 的 Patient context 內進行，無法合併同一人的兩個 Patient 資源；送進評估的資料必須先完成病人身分整合（以 1.4 身分證號）。
+- **一人一個 Patient**：去重在 CQL 的 Patient context 內進行，Patient 資源即代表同一人（1.4 不參與比對）；同一人的多個 Patient 資源無法合併，送進評估的資料必須先完成病人身分整合。每次評估（每個 Bundle）只能有一個 Patient：cql-execution 與 Java 引擎遇到多個 Patient 都會失敗。
+- **Population 與分子**：`Numerator n` define 本身仍含被 denominator exclusion 排除的腫瘤；依 CQM proportion 定義，報告的分子＝Numerator − Denominator Exclusion，分數＝分子 ÷（Denominator − Denominator Exclusion）。直接讀 define、不經 Measure 引擎計算會高估分子。
 - **參照**：支援 `Condition/id`、以其結尾的絕對 URL，以及帶 `/_history/n` 的版本參照；`urn:uuid:` 參照需在評估前解析。
-- **原始值**：所有癌登值只去除前後的半形空白與 tab，其餘不變；內含空白、換行（CR、LF，含尾端換行）即為格式錯誤；數字只接受半形 ASCII 數字。整個值只由空白字元組成（半形空白、tab、CR、LF、全形空白 U+3000 等 Java `Character.isWhitespace` 認定的字元；不含不換行空白 U+00A0）時視為沒有值，身分證號與 1.1 亦同。理由：HAPI 等 FHIR 解析器會直接丟棄這種值，三個實作（Python、JavaScript、Java）必須一致。
+- **原始值**：所有癌登值只去除前後的半形空白與 tab，其餘不變；內含空白、換行（CR、LF，含尾端換行）即為格式錯誤；數字只接受半形 ASCII 數字。整個值只由空白字元組成（半形空白、tab、CR、LF、全形空白 U+3000 等 Java `Character.isWhitespace` 認定的字元；不含不換行空白 U+00A0）時視為沒有值，1.1 亦同。理由：HAPI 等 FHIR 解析器會直接丟棄這種值，三個實作（Python、JavaScript、Java）必須一致。
 - **病情記錄錯誤**：`verificationStatus` 為 `entered-in-error` 或 `refuted` 的 Condition 不是個案；同時 focus 多個 Condition 的癌登欄位不歸屬任何一方。
 
 | criterion_id | 原文 | 實作位置 | 表達 |
