@@ -2,7 +2,7 @@ criterion_id,measure_id,population,source_text,tcr_fields,rule,cql_define,source
 IP-UNIT,all,initial-population,（本 IG 規則）原文分子分母為「…的人數」；依註1 同院同癌別每人保留一筆個案,,population basis = 保留的原發腫瘤（Condition）；同院內計數個案等於計數人數；癌登欄位以 Observation.focus 歸屬到腫瘤,Primary Tumours,,,implemented
 IP-SCOPE,all,initial-population,註1 重複個案以「癌別」判定；大腸癌診療指標適用 C18（不含 C18.1）與 C19–20,2.6,原發部位(2.6) ∈ C18.0、C18.2–C18.9、C19.9、C20.9（大腸癌癌別）；C18.1 與 C21 不屬之（本 IG 決定，待確認）,Is Colorectal Category,附件2_大腸癌診療公告指標.pdf,1,implemented
 IP-CURRENT,all,initial-population,（本 IG 規則）同一欄位多筆申報值時的取值,,status 為 final/amended/corrected 者中 issued 最晚者為現行值；issued 相同時取 Observation.id 最大者,Registry Value,,,implemented
-IP-DXDATE,all,initial-population,各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案,2.5,最初診斷日期(2.5) 為有效日期且落在 Measurement Period 內；Measurement Period 起日不得早於 2024-01-01,Assembly Candidates,115年癌症診療核心測量指標.pdf,i,implemented
+IP-DXDATE,all,initial-population,各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案,2.5,最初診斷日期(2.5) 為有效日期、不早於 2024-01-01（Collection Start Date），且落在 Measurement Period 內,Assembly Candidates,115年癌症診療核心測量指標.pdf,i,implemented
 IP-CLASS,all,initial-population,選取個案分類為 class 1、2 者,2.3,個案分類(2.3) ∈ {1;2},Initial Population,115年癌症診療核心測量指標.pdf,i,implemented
 IP-CROSS,all,initial-population,主要治療有跨院情形者排除（註3：class 2、診斷狀態 2、治療狀態分類 3）,2.3;2.3.1;2.3.2,不符合 (2.3)=2 且 診斷狀態分類(2.3.1)=2 且 治療狀態分類(2.3.2)=3,Cross Hospital Treatment,115年癌症診療核心測量指標.pdf,ii,implemented
 IP-DUP,all,cohort-assembly,排除院內重複個案（醫院代碼+癌別+身分證號；選診斷早者，同一天選期別嚴重者）,1.1;2.5;3.13;3.7,同病人（CQL 以 Patient 資源代表；1.4 不參與比對，缺漏不排除）＋同醫院（1.1）＋同癌別（大腸癌）者只留一筆：最初診斷日期(2.5)最早；同日取期別較嚴重（3.13 優先、無法排序時用 3.7）；再相同取腫瘤 id 最小者（本 IG 決定）。其餘排除，代表個案後續被排除時不遞補。詳見個案組裝頁,Is Duplicate,115年癌症診療核心測量指標.pdf,ii,implemented

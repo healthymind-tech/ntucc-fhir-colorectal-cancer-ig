@@ -90,7 +90,16 @@ async function main() {
   const members = {}; // define -> Set of "case/tumour" ids, aggregated over all cases
   for (const testCase of testCases) {
     assert.ok(testCase.expected && Object.keys(testCase.expected).length, `${testCase.id}: no assertions`);
-    const executor = new cql.Executor(library, codeService, { ...parameters, ...(testCase.parameters || {}) });
+    // A case may carry its own Measurement Period (dates, +08:00); such cases
+    // are not part of the summary MeasureReports.
+    const caseParameters = { ...parameters };
+    if (testCase.measurementPeriod) {
+      const [start, end] = testCase.measurementPeriod.map(d => d.split('-').map(Number));
+      caseParameters['Measurement Period'] = new cql.Interval(
+        new cql.DateTime(start[0], start[1], start[2], 0, 0, 0, 0, 8),
+        new cql.DateTime(end[0], end[1], end[2], 23, 59, 59, 999, 8), true, true);
+    }
+    const executor = new cql.Executor(library, codeService, caseParameters);
     const id = patientId(testCase);
     // Execute every Measure expression for every case so runtime errors on any
     // branch surface, then compare the asserted ones.
@@ -102,7 +111,7 @@ async function main() {
       const result = execution.patientResults[id];
       assert.ok(result && Object.prototype.hasOwnProperty.call(result, expression), `${testCase.id}: no result for ${expression}`);
       const value = normalize(result[expression]);
-      if (Array.isArray(value)) {
+      if (Array.isArray(value) && !testCase.measurementPeriod) {
         members[expression] = members[expression] || new Set();
         value.forEach(id => members[expression].add(`${testCase.id}/${id}`));
       }

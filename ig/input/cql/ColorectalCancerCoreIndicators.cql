@@ -226,7 +226,7 @@ define "Measurement Dates":
 // --------------------------------------------------------------------------
 // Case assembly (收錄資料說明). Steps and decisions follow the case assembly
 // page and reference/cohort.py step for step:
-//   1 癌別 scope, 2 valid 2.5, 3 new diagnosis since 2024 and in the period,
+//   1 癌別 scope, 2 valid 2.5, 3 new diagnosis since "Collection Start Date" and in the period,
 //   4 complete duplicate key, 5 註1 de-duplication, then on the kept record only
 //   6 class 1/2, 7 註3 cross-hospital, 8 第二點 died before treatment.
 // Step 9 (第五點 outside-hospital data) depends on what the hospital could

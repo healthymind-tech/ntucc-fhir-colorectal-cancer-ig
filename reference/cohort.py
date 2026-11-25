@@ -18,7 +18,7 @@ Step  Rule (source)                                   Reason code
 ----  ----------------------------------------------  -----------------------------
  1    癌別 scope (大腸癌: C18 excl. C18.1, C19, C20)   NOT_COLORECTAL
  2    2.5 must be a real YYYYMMDD date                INVALID_DIAGNOSIS_DATE
- 3    第一點 new diagnosis since 2024-01-01           DIAGNOSIS_BEFORE_2024
+ 3    第一點 new diagnosis since 2024-01-01           DIAGNOSIS_BEFORE_COLLECTION_START
       + caller's measurement period                   OUTSIDE_MEASUREMENT_PERIOD
  4    註1 key must be complete                        MISSING_DEDUP_KEY
  5    註1 重複個案 (hospital + 癌別 + 身分證號)          DUPLICATE_OF:<kept tumour_id>
@@ -87,7 +87,7 @@ OUTSIDE_DATA_STATUSES = frozenset(
 # ---------------------------------------------------------------------------
 NOT_COLORECTAL = "NOT_COLORECTAL"
 INVALID_DIAGNOSIS_DATE = "INVALID_DIAGNOSIS_DATE"
-DIAGNOSIS_BEFORE_2024 = "DIAGNOSIS_BEFORE_2024"
+DIAGNOSIS_BEFORE_COLLECTION_START = "DIAGNOSIS_BEFORE_COLLECTION_START"
 OUTSIDE_MEASUREMENT_PERIOD = "OUTSIDE_MEASUREMENT_PERIOD"
 MISSING_DEDUP_KEY = "MISSING_DEDUP_KEY"
 DUPLICATE_OF = "DUPLICATE_OF"  # rendered "DUPLICATE_OF:<tumour_id>"
@@ -372,7 +372,7 @@ def assemble_cohort(
             excluded[tid] = INVALID_DIAGNOSIS_DATE
             continue
         if dx < REGISTRY_START:
-            excluded[tid] = DIAGNOSIS_BEFORE_2024
+            excluded[tid] = DIAGNOSIS_BEFORE_COLLECTION_START
             continue
         if period is not None and not (period[0] <= dx <= period[1]):
             excluded[tid] = OUTSIDE_MEASUREMENT_PERIOD

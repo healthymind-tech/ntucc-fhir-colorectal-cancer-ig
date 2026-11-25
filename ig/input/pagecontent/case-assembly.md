@@ -39,7 +39,7 @@
 |---|---|---|---|
 | 1 | 癌別為大腸癌 | `NOT_COLORECTAL` | CQL（已實作） |
 | 2 | 2.5 為有效日期 | `INVALID_DIAGNOSIS_DATE` | CQL（已實作） |
-| 3 | 2024-01-01 起新診斷，且在 Measurement Period 內 | `DIAGNOSIS_BEFORE_2024`、`OUTSIDE_MEASUREMENT_PERIOD` | CQL（已實作） |
+| 3 | 2024-01-01 起新診斷，且在 Measurement Period 內 | `DIAGNOSIS_BEFORE_COLLECTION_START`、`OUTSIDE_MEASUREMENT_PERIOD` | CQL（已實作） |
 | 4 | 重複個案 key 完整（1.1 申報醫院代碼） | `MISSING_DEDUP_KEY` | CQL（已實作） |
 | 5 | 院內重複個案（註 1） | `DUPLICATE_OF:<保留的 tumour_id>` | CQL（已實作） |
 | 6 | class 1、2 | `CLASS_NOT_1_OR_2` | CQL（已實作） |
@@ -72,7 +72,7 @@
 【原文】第一點：「各癌症診療測量指標收錄對象為自 113 年 1 月 1 日起新診斷個案。」
 
 - 2.5 不是有效日期 → `INVALID_DIAGNOSIS_DATE`。**【本 IG 決定】** 這類記錄在去重前就排除，不參與「選診斷早者」的比較（無法排序，也一定不符合第一點）。
-- 2.5 早於 2024-01-01 → `DIAGNOSIS_BEFORE_2024`。
+- 2.5 早於 2024-01-01 → `DIAGNOSIS_BEFORE_COLLECTION_START`。
 - 呼叫端指定 Measurement Period 時，2.5 不在期間內（含首尾日） → `OUTSIDE_MEASUREMENT_PERIOD`。
 
 **【本 IG 決定】** 期間外的記錄不進入去重範圍。因此 2023 年在本院已有大腸癌、2024 年又登記一筆大腸癌的病人，2024 年那筆不會被判為重複。
@@ -191,7 +191,7 @@ CQL 與參考實作 `reference/cohort.py` 以同一組合成個案驗證（`test
 |---|---|
 | `NOT_COLORECTAL` | 2.6 不屬大腸癌（含 C18.1、C21、缺值或格式錯誤） |
 | `INVALID_DIAGNOSIS_DATE` | 2.5 不是有效日期 |
-| `DIAGNOSIS_BEFORE_2024` | 2.5 早於 2024-01-01 |
+| `DIAGNOSIS_BEFORE_COLLECTION_START` | 2.5 早於 2024-01-01 |
 | `OUTSIDE_MEASUREMENT_PERIOD` | 2.5 不在呼叫端指定的期間 |
 | `MISSING_DEDUP_KEY` | 1.1 空白（參考實作直接呼叫時 `patient_id` 空白亦同） |
 | `DUPLICATE_OF:<id>` | 註 1 重複個案，保留的是 `<id>` |

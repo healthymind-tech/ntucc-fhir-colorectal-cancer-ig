@@ -13,13 +13,18 @@ FIXTURE = json.loads((ROOT / "tests/fixtures/synthetic-cases.json").read_text(en
 PERIOD = tuple(date.fromisoformat(d) for d in FIXTURE["measurement_period"])
 
 
+def period_of(case):
+    """A few cases (the collection floor) carry their own Measurement Period."""
+    return tuple(date.fromisoformat(d) for d in case["measurement_period"]) if "measurement_period" in case else PERIOD
+
+
 def test_fixture_format():
     assert FIXTURE["format"] == "tumour-level-v2"
 
 
 @pytest.mark.parametrize("case", FIXTURE["cases"], ids=lambda c: c["id"])
 def test_case_matches_expectation(case):
-    result = evaluate_case(case, PERIOD)
+    result = evaluate_case(case, period_of(case))
     for expression, expected in case["expected"].items():
         assert result[expression] == expected, f"{case['id']}: {expression}"
 
@@ -52,7 +57,7 @@ def test_current_value_is_the_latest_issued_regardless_of_order():
 
 
 def test_proportion_counts_exclusions_out_of_numerator():
-    results = [evaluate_case(case, PERIOD) for case in FIXTURE["cases"]]
+    results = [evaluate_case(case, period_of(case)) for case in FIXTURE["cases"]]
     counts = proportion(results, 2)
     assert counts["denominator"] >= counts["denominator-exclusion"] > 0
     assert counts["numerator"] <= counts["denominator"] - counts["denominator-exclusion"]

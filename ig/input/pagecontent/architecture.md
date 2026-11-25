@@ -90,8 +90,17 @@ Library 只有一個輸入參數：
 **刻意不用參數的兩項輸入：**
 
 - **第五點外院資料**：醫院以資料宣告，每顆腫瘤、每項指標一筆 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation（`code` 為排除的指標，`value` 為第五點 1 或 2，`focus` 指向腫瘤）。早期版本以 CQL 參數傳腫瘤 id 清單，但 R4 的 `$evaluate-measure` 沒有傳 CQL 參數的輸入、腫瘤 id 由各伺服器自訂，而且無法驗證與稽核，因此改為資料。
-- **收錄起始日（2024-01-01）**：收錄資料說明第一點「自 113 年 1 月 1 日起新診斷個案」屬於 115 年指標定義本身，寫在 CQL define `Collection Start Date`，不由呼叫端提供。若作為參數，同一版 Measure 可被算出不同結果，而 MeasureReport 只記錄 `Measure|version`，無法重現；R4 `$evaluate-measure` 也沒有傳這個參數的標準輸入。年度改版若調整起始日，修改這個 define，並依新年度指標提升 Library 與 Measure 版本（版本本來就須隨指標內容改版）；參考實作 `reference/cohort.py` 的 `REGISTRY_START` 同步修改。
+- **收錄起始日（2024-01-01）**：收錄資料說明第一點「自 113 年 1 月 1 日起新診斷個案」屬於 115 年指標定義本身，寫在 CQL define `Collection Start Date`，不由呼叫端提供。若作為參數，同一版 Measure 可被算出不同結果；MeasureReport 的標準欄位只記錄 `Measure|version`（參數值須另以 `cqf-inputParameters` extension 記錄），結果難以重現；R4 `$evaluate-measure` 也沒有傳 CQL 參數的標準輸入。Measure 與 Library 版本一律同步（目前皆為 `0.1.0-preview.2`，由測試檢查），Measure 版本因此對應唯一一版 CQL。Measure.library 未帶 `|version`：IG Publisher 3.0.5 的 Measure 頁面無法解析帶版本的 library canonical（population 連結全部失效），部署時應載入同版的 Library。年度改版的修改點見下方「年度改版檢查清單」。
 - **5.4 生存狀態的死亡代碼**：長表摘錄手冊（民國 114 年版）第 314 頁規定 `0`＝死亡、`1`＝存活，CQL 直接使用，不由呼叫端提供。早期版本以參數提供且預設 `true`，若呼叫端沿用預設值，「治療前已死亡」的 (b)、(c) 永遠不成立而不會報錯，因此移除。
+
+### 年度改版檢查清單
+
+國健署公告新年度指標時，除了依修訂對照表修改 CQL 邏輯外，下列各處須一併檢查：
+
+- **收錄起始日**：CQL `Collection Start Date`；參考實作 `reference/cohort.py` 的 `REGISTRY_START`；三個 Measure 的 narrative（`ig/input/fsh/measures.fsh`「2024-01-01 起新診斷」）；`inclusion-rules.md` IP-DXDATE、`case-assembly.md` 步驟 3；`mappings/crc-core-indicator-criteria.csv` IP-DXDATE；合成個案 `ip-dx-before-collection-start`、`ip-dx-on-collection-start`（`scripts/build_fixtures.py`）。
+- **版本**：`sushi-config.yaml`、CQL `library` 宣告、`measures.fsh`（Measure.version）、`conceptmaps.fsh`、`index.md`、`scripts/build_fixtures.py`、`scripts/build_terminology.py`；之後重新產生 `measure-reports.fsh` 與 `tests/fixtures/cql/`。
+- **適用期間**：Measure.effectivePeriod（見「[已知歧義](known-ambiguities.html)」A-16）。
+- **來源**：`sources/` 新年度 PDF 與 SHA256SUMS、`source-traceability.md`、修訂對照頁。
 
 ## Artifacts
 

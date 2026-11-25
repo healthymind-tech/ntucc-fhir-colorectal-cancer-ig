@@ -5,7 +5,7 @@ Instance: SyntheticSummaryReport01
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 1"
-Description: "以本 IG 全部 118 個合成個案計算的 crc-qi-01 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 118 個合成個案（量測期間 2025-01-01～2025-12-31；另有 2 個自帶量測期間的個案不計入）計算的 crc-qi-01 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-01"
 * language = #zh-TW
 * status = #complete
@@ -28,7 +28,7 @@ Instance: SyntheticSummaryReport02
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 2"
-Description: "以本 IG 全部 118 個合成個案計算的 crc-qi-02 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 118 個合成個案（量測期間 2025-01-01～2025-12-31；另有 2 個自帶量測期間的個案不計入）計算的 crc-qi-02 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-02"
 * language = #zh-TW
 * status = #complete
@@ -51,7 +51,7 @@ Instance: SyntheticSummaryReport03
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 3"
-Description: "以本 IG 全部 118 個合成個案計算的 crc-qi-03 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 118 個合成個案（量測期間 2025-01-01～2025-12-31；另有 2 個自帶量測期間的個案不計入）計算的 crc-qi-03 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-03"
 * language = #zh-TW
 * status = #complete

@@ -63,17 +63,18 @@ def tumour(tumour_id, fields, base=None, polyp=None, **options):
             "multi_focus": bool(options.get("extra_focus") or options.get("foreign_subject"))}
 
 
-def case(case_id, description, fields, expected, base=None, polyp=None):
+def case(case_id, description, fields, expected, base=None, polyp=None, measurement_period=None):
     """A single-tumour case. Boolean expectations mean "this case's tumour is /
     is not in the population"; they are turned into tumour-id lists. Only
     population expressions are asserted: the library's helpers are functions
     of a tumour and are exercised through the populations."""
     tid = f"{case_id}-tumour"
     lists = {k: ([tid] if v else []) for k, v in expected.items() if k in POPULATIONS}
-    return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists)
+    return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists, measurement_period=measurement_period)
 
 
-def multi(case_id, description, tumours, expected, national_id="present", outside_excluded=None, outside_ignored=None):
+def multi(case_id, description, tumours, expected, national_id="present", outside_excluded=None, outside_ignored=None,
+          measurement_period=None):
     unknown = set(expected) - set(POPULATIONS)
     if unknown:
         raise SystemExit(f"{case_id}: not a population expression: {unknown}")
@@ -88,7 +89,8 @@ def multi(case_id, description, tumours, expected, national_id="present", outsid
                 for k, v in enumerate(items)
             ]
         t["fields"] = versions
-    return {"id": case_id, "description": description,
+    extra = {"measurement_period": list(measurement_period)} if measurement_period else {}
+    return {"id": case_id, "description": description, **extra,
             "national_id": (case_id if national_id == "present" else national_id), "tumours": tumours,
             "outside_excluded": outside_excluded or {},
             # (indicator, tumour id, status) declarations the CQL must ignore;
@@ -103,6 +105,13 @@ CASES = [
     case("ip-class-0", "Class 0 不納入", {"2.3": "0"}, {"Initial Population": False}, COLON),
     case("ip-class-3", "Class 3 不納入", {"2.3": "3"}, {"Initial Population": False}, COLON),
     case("ip-dx-unknown", "最初診斷日期 99999999：無法判定收錄年度", {"2.5": "99999999"}, {"Initial Population": False}, COLON),
+    # The 2024-01-01 floor (define "Collection Start Date") only bites when the
+    # Measurement Period starts earlier, so these two cases use their own
+    # period; they are left out of the summary MeasureReports.
+    case("ip-dx-before-collection-start", "2023/12/31 診斷：早於收錄起始日（量測期間 2023–2025）", {"2.5": "20231231", "2.12": "20231231"},
+         {"Initial Population": False}, COLON, measurement_period=("2023-01-01", "2025-12-31")),
+    case("ip-dx-on-collection-start", "2024/01/01 診斷：收錄起始日當天（量測期間 2023–2025）", {"2.5": "20240101", "2.12": "20240101"},
+         {"Initial Population": True}, COLON, measurement_period=("2023-01-01", "2025-12-31")),
     case("ip-dx-outside-period", "2024 年診斷，不在 2025 量測期間", {"2.5": "20241231"}, {"Initial Population": False}, COLON),
     case("ip-cross-hospital", "註3 跨院治療：class 2、診斷狀態 2、治療狀態 3",
          {"2.3": "2", "2.3.1": "2", "2.3.2": "3"},
@@ -606,7 +615,7 @@ def write_measure_reports(results, period):
             "InstanceOf: MeasureReport",
             "Usage: #example",
             f'Title: "合成摘要報告－大腸癌指標 {number}"',
-            f'Description: "以本 IG 全部 {len(results)} 個合成個案計算的 {measure_id} 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"',
+            f'Description: "以本 IG {len(results)} 個合成個案（量測期間 {period[0]}～{period[1]}；另有 {len(CASES) - len(results)} 個自帶量測期間的個案不計入）計算的 {measure_id} 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"',
             f'* id = "synthetic-summary-{measure_id}"',
             "* language = #zh-TW",
             "* status = #complete",
@@ -648,14 +657,17 @@ def main():
     period = tuple(_date.fromisoformat(d) for d in flat["measurement_period"])
     runner = []
     for i, c in enumerate(CASES):
-        reference = evaluate_case(c, period)
+        case_period = tuple(_date.fromisoformat(d) for d in c["measurement_period"]) if "measurement_period" in c else period
+        reference = evaluate_case(c, case_period)
         wrong = {k: (v, reference[k]) for k, v in c["expected"].items() if reference[k] != v}
         if wrong:
             raise SystemExit(f"{c['id']}: reference disagrees with the hand-written expectation: {wrong}")
         entry = {"id": c["id"], "expected": reference, "bundle": to_bundle(c, i + 1)}
+        if "measurement_period" in c:
+            entry["measurementPeriod"] = c["measurement_period"]
         runner.append(entry)
     (fixtures / "cql/cases.json").write_text(json.dumps(runner, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    write_measure_reports([r["expected"] for r in runner], flat["measurement_period"])
+    write_measure_reports([r["expected"] for r in runner if "measurementPeriod" not in r], flat["measurement_period"])
     vs = value_sets()
     if not vs:
         raise SystemExit("no ValueSets found; run SUSHI first")

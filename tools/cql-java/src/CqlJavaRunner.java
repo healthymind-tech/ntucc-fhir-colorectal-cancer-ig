@@ -206,13 +206,16 @@ public class CqlJavaRunner {
                 continue;
             }
             String patientId = patients.get(0).getIdElement().getIdPart();
-            // Optional per-case parameters (lists of strings); no current fixture uses them.
+            // A case may carry its own Measurement Period (dates, +08:00).
             Map<String, Object> caseParameters = new HashMap<>(parameters);
-            testCase.path("parameters").fields().forEachRemaining(p -> {
-                List<String> values = new ArrayList<>();
-                p.getValue().forEach(v -> values.add(v.asText()));
-                caseParameters.put(p.getKey(), values);
-            });
+            JsonNode period = testCase.path("measurementPeriod");
+            if (period.isArray() && period.size() == 2) {
+                java.time.LocalDate start = java.time.LocalDate.parse(period.get(0).asText());
+                java.time.LocalDate end = java.time.LocalDate.parse(period.get(1).asText());
+                caseParameters.put("Measurement Period", new Interval(
+                        new DateTime(start.atStartOfDay().atOffset(ZoneOffset.ofHours(8))), true,
+                        new DateTime(end.atTime(23, 59, 59, 999_000_000).atOffset(ZoneOffset.ofHours(8))), true));
+            }
 
             BundleRetrieveProvider retrieve = new BundleRetrieveProvider(resources, modelResolver);
             retrieve.setTerminologyProvider(terminology);

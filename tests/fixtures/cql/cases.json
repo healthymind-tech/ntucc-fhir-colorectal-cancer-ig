@@ -1894,6 +1894,964 @@
   }
  },
  {
+  "id": "ip-dx-before-collection-start",
+  "expected": {
+   "Initial Population": [],
+   "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "ip-dx-before-collection-start",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000005"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "ip-dx-before-collection-start-tumour",
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "20231231",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "20231231",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-before-collection-start-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-before-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-before-collection-start-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    }
+   ]
+  },
+  "measurementPeriod": [
+   "2023-01-01",
+   "2025-12-31"
+  ]
+ },
+ {
+  "id": "ip-dx-on-collection-start",
+  "expected": {
+   "Initial Population": [
+    "ip-dx-on-collection-start-tumour"
+   ],
+   "Denominator 1": [],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [
+    "ip-dx-on-collection-start-tumour"
+   ],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [
+    "ip-dx-on-collection-start-tumour"
+   ],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "ip-dx-on-collection-start",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000006"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "ip-dx-on-collection-start-tumour",
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "20240101",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "20240101",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "ip-dx-on-collection-start-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/ip-dx-on-collection-start"
+      },
+      "focus": [
+       {
+        "reference": "Condition/ip-dx-on-collection-start-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    }
+   ]
+  },
+  "measurementPeriod": [
+   "2023-01-01",
+   "2025-12-31"
+  ]
+ },
+ {
   "id": "ip-dx-outside-period",
   "expected": {
    "Initial Population": [],
@@ -1939,7 +2897,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000005"
+        "value": "Z000000007"
        }
       ]
      }
@@ -2411,7 +3369,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000006"
+        "value": "Z000000008"
        }
       ]
      }
@@ -2949,7 +3907,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000007"
+        "value": "Z000000009"
        }
       ]
      }
@@ -3487,7 +4445,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000008"
+        "value": "Z000000010"
        }
       ]
      }
@@ -3963,7 +4921,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000009"
+        "value": "Z000000011"
        }
       ]
      }
@@ -4441,7 +5399,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000010"
+        "value": "Z000000012"
        }
       ]
      }
@@ -4919,7 +5877,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000011"
+        "value": "Z000000013"
        }
       ]
      }
@@ -5395,7 +6353,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000012"
+        "value": "Z000000014"
        }
       ]
      }
@@ -5867,7 +6825,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000013"
+        "value": "Z000000015"
        }
       ]
      }
@@ -6345,7 +7303,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000014"
+        "value": "Z000000016"
        }
       ]
      }
@@ -6823,7 +7781,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000015"
+        "value": "Z000000017"
        }
       ]
      }
@@ -7297,7 +8255,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000016"
+        "value": "Z000000018"
        }
       ]
      }
@@ -7775,7 +8733,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000017"
+        "value": "Z000000019"
        }
       ]
      }
@@ -8249,7 +9207,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000018"
+        "value": "Z000000020"
        }
       ]
      }
@@ -8723,7 +9681,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000019"
+        "value": "Z000000021"
        }
       ]
      }
@@ -9197,7 +10155,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000020"
+        "value": "Z000000022"
        }
       ]
      }
@@ -9671,7 +10629,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000021"
+        "value": "Z000000023"
        }
       ]
      }
@@ -10149,7 +11107,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000022"
+        "value": "Z000000024"
        }
       ]
      }
@@ -10629,7 +11587,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000023"
+        "value": "Z000000025"
        }
       ]
      }
@@ -11109,7 +12067,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000024"
+        "value": "Z000000026"
        }
       ]
      }
@@ -11587,7 +12545,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000025"
+        "value": "Z000000027"
        }
       ]
      }
@@ -12033,7 +12991,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000026"
+        "value": "Z000000028"
        }
       ]
      }
@@ -12477,7 +13435,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000027"
+        "value": "Z000000029"
        }
       ]
      }
@@ -12925,7 +13883,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000028"
+        "value": "Z000000030"
        }
       ]
      }
@@ -13373,7 +14331,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000029"
+        "value": "Z000000031"
        }
       ]
      }
@@ -13817,7 +14775,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000030"
+        "value": "Z000000032"
        }
       ]
      }
@@ -14261,7 +15219,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000031"
+        "value": "Z000000033"
        }
       ]
      }
@@ -14707,7 +15665,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000032"
+        "value": "Z000000034"
        }
       ]
      }
@@ -15153,7 +16111,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000033"
+        "value": "Z000000035"
        }
       ]
      }
@@ -15599,7 +16557,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000034"
+        "value": "Z000000036"
        }
       ]
      }
@@ -16045,7 +17003,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000035"
+        "value": "Z000000037"
        }
       ]
      }
@@ -16493,7 +17451,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000036"
+        "value": "Z000000038"
        }
       ]
      }
@@ -17055,7 +18013,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000037"
+        "value": "Z000000039"
        }
       ]
      }
@@ -17619,7 +18577,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000038"
+        "value": "Z000000040"
        }
       ]
      }
@@ -18181,7 +19139,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000039"
+        "value": "Z000000041"
        }
       ]
      }
@@ -18743,7 +19701,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000040"
+        "value": "Z000000042"
        }
       ]
      }
@@ -19307,7 +20265,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000041"
+        "value": "Z000000043"
        }
       ]
      }
@@ -19869,7 +20827,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000042"
+        "value": "Z000000044"
        }
       ]
      }
@@ -20433,7 +21391,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000043"
+        "value": "Z000000045"
        }
       ]
      }
@@ -20997,7 +21955,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000044"
+        "value": "Z000000046"
        }
       ]
      }
@@ -21557,7 +22515,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000045"
+        "value": "Z000000047"
        }
       ]
      }
@@ -22240,7 +23198,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000046"
+        "value": "Z000000048"
        }
       ]
      }
@@ -22793,7 +23751,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000047"
+        "value": "Z000000049"
        }
       ]
      }
@@ -23357,7 +24315,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000048"
+        "value": "Z000000050"
        }
       ]
      }
@@ -23921,7 +24879,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000049"
+        "value": "Z000000051"
        }
       ]
      }
@@ -24489,7 +25447,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000050"
+        "value": "Z000000052"
        }
       ]
      }
@@ -24970,7 +25928,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000051"
+        "value": "Z000000053"
        }
       ]
      }
@@ -25860,7 +26818,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000052"
+        "value": "Z000000054"
        }
       ]
      }
@@ -26332,7 +27290,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000053"
+        "value": "Z000000055"
        }
       ]
      }
@@ -26810,7 +27768,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000054"
+        "value": "Z000000056"
        }
       ]
      }
@@ -27288,7 +28246,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000055"
+        "value": "Z000000057"
        }
       ]
      }
@@ -27766,7 +28724,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000056"
+        "value": "Z000000058"
        }
       ]
      }
@@ -28238,7 +29196,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000057"
+        "value": "Z000000059"
        }
       ]
      }
@@ -28740,7 +29698,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000058"
+        "value": "Z000000060"
        }
       ]
      }
@@ -29242,7 +30200,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000059"
+        "value": "Z000000061"
        }
       ]
      }
@@ -29780,7 +30738,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000060"
+        "value": "Z000000062"
        }
       ]
      }
@@ -30282,7 +31240,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000061"
+        "value": "Z000000063"
        }
       ]
      }
@@ -30790,7 +31748,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000062"
+        "value": "Z000000064"
        }
       ]
      }
@@ -31298,7 +32256,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000063"
+        "value": "Z000000065"
        }
       ]
      }
@@ -31806,7 +32764,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000064"
+        "value": "Z000000066"
        }
       ]
      }
@@ -32700,7 +33658,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000065"
+        "value": "Z000000067"
        }
       ]
      }
@@ -33174,7 +34132,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000066"
+        "value": "Z000000068"
        }
       ]
      }
@@ -33618,7 +34576,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000067"
+        "value": "Z000000069"
        }
       ]
      }
@@ -34092,7 +35050,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000068"
+        "value": "Z000000070"
        }
       ]
      }
@@ -34510,7 +35468,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000069"
+        "value": "Z000000071"
        }
       ]
      }
@@ -34952,7 +35910,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000070"
+        "value": "Z000000072"
        }
       ]
      }
@@ -35424,7 +36382,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000071"
+        "value": "Z000000073"
        }
       ]
      }
@@ -35896,7 +36854,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000072"
+        "value": "Z000000074"
        }
       ]
      }
@@ -36372,7 +37330,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000073"
+        "value": "Z000000075"
        }
       ]
      }
@@ -36814,7 +37772,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000074"
+        "value": "Z000000076"
        }
       ]
      }
@@ -37294,7 +38252,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000075"
+        "value": "Z000000077"
        }
       ]
      }
@@ -37843,7 +38801,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000076"
+        "value": "Z000000078"
        }
       ]
      }
@@ -38321,7 +39279,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000077"
+        "value": "Z000000079"
        }
       ]
      }
@@ -38799,7 +39757,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000078"
+        "value": "Z000000080"
        }
       ]
      }
@@ -39276,7 +40234,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000079"
+        "value": "Z000000081"
        }
       ]
      }
@@ -39783,7 +40741,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000080"
+        "value": "Z000000082"
        }
       ]
      }
@@ -42649,7 +43607,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000086"
+        "value": "Z000000088"
        }
       ]
      }
@@ -43131,7 +44089,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000087"
+        "value": "Z000000089"
        }
       ]
      }
@@ -43645,7 +44603,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000088"
+        "value": "Z000000090"
        }
       ]
      }
@@ -44245,7 +45203,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000089"
+        "value": "Z000000091"
        }
       ]
      }
@@ -44725,7 +45683,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000090"
+        "value": "Z000000092"
        }
       ]
      }
@@ -45242,7 +46200,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000091"
+        "value": "Z000000093"
        }
       ]
      }
@@ -46170,7 +47128,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000092"
+        "value": "Z000000094"
        }
       ]
      }
@@ -46680,7 +47638,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000093"
+        "value": "Z000000095"
        }
       ]
      }
@@ -47176,7 +48134,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000094"
+        "value": "Z000000096"
        }
       ]
      }
@@ -47654,7 +48612,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000095"
+        "value": "Z000000097"
        }
       ]
      }
@@ -48550,7 +49508,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000096"
+        "value": "Z000000098"
        }
       ]
      }
@@ -49442,7 +50400,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000097"
+        "value": "Z000000099"
        }
       ]
      }
@@ -50338,7 +51296,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000098"
+        "value": "Z000000100"
        }
       ]
      }
@@ -51228,7 +52186,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000099"
+        "value": "Z000000101"
        }
       ]
      }
@@ -52118,7 +53076,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000100"
+        "value": "Z000000102"
        }
       ]
      }
@@ -52558,7 +53516,7 @@
       "identifier": [
        {
         "system": "urn:example:local-mrn",
-        "value": "MRN000101"
+        "value": "MRN000103"
        }
       ]
      }
@@ -53030,7 +53988,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000102"
+        "value": "Z000000104"
        }
       ]
      }
@@ -53502,7 +54460,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000103"
+        "value": "Z000000105"
        }
       ]
      }
@@ -54004,7 +54962,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000104"
+        "value": "Z000000106"
        }
       ]
      }
@@ -54512,7 +55470,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000105"
+        "value": "Z000000107"
        }
       ]
      }
@@ -55044,7 +56002,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000106"
+        "value": "Z000000108"
        }
       ]
      }
@@ -55582,7 +56540,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000107"
+        "value": "Z000000109"
        }
       ]
      }
@@ -56120,7 +57078,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000108"
+        "value": "Z000000110"
        }
       ]
      }
@@ -56656,7 +57614,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000109"
+        "value": "Z000000111"
        }
       ]
      }
@@ -57527,7 +58485,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000110"
+        "value": "Z000000112"
        }
       ]
      }
@@ -58393,7 +59351,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000111"
+        "value": "Z000000113"
        }
       ]
      }
@@ -58899,7 +59857,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000112"
+        "value": "Z000000114"
        }
       ]
      }
@@ -59407,7 +60365,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000113"
+        "value": "Z000000115"
        }
       ]
      }
@@ -59915,7 +60873,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000114"
+        "value": "Z000000116"
        }
       ]
      }
@@ -60423,7 +61381,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000115"
+        "value": "Z000000117"
        }
       ]
      }
@@ -61426,7 +62384,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000116"
+        "value": "Z000000118"
        }
       ]
      }
@@ -62424,7 +63382,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000117"
+        "value": "Z000000119"
        }
       ]
      }
@@ -62977,7 +63935,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000118"
+        "value": "Z000000120"
        }
       ]
      }

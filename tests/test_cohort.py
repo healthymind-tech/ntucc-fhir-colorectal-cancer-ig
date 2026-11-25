@@ -182,7 +182,7 @@ def test_invalid_date_record_cannot_win_dedup():
 
 def test_pre_2024_record_is_not_in_dedup_universe():
     r = run(rec("OLD", **{"2_5": "20231231"}), rec("NEW", **{"2_5": "20240102"}))
-    assert r.eligible == ["NEW"] and r.excluded == {"OLD": c.DIAGNOSIS_BEFORE_2024}
+    assert r.eligible == ["NEW"] and r.excluded == {"OLD": c.DIAGNOSIS_BEFORE_COLLECTION_START}
 
 
 def test_out_of_period_record_is_not_in_dedup_universe():

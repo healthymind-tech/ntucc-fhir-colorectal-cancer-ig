@@ -84,3 +84,15 @@ def test_named_lists_in_cql_match_the_reference_implementation():
 
     assert set(cql_list("Special Histology")) == crc_indicators.SPECIAL_HISTOLOGY
     assert tuple(cql_list("Stage Severity Order")) == cohort.STAGE_SEVERITY_ORDER
+
+
+def test_measure_and_library_versions_agree():
+    """Measure.library carries no |version (IG Publisher cannot render it), so the
+    Measure version identifies the CQL only if the two are always bumped together."""
+    cql_version = re.search(r"^library \S+ version '([^']+)'", CQL, flags=re.M).group(1)
+    library = json.loads((GENERATED / "Library-ColorectalCancerCoreIndicators.json").read_text(encoding="utf-8"))
+    assert library["version"] == cql_version
+    for path in sorted(GENERATED.glob("Measure-*.json")):
+        measure = json.loads(path.read_text(encoding="utf-8"))
+        assert measure["version"] == cql_version, path.name
+        assert measure["library"] == [library["url"]], path.name

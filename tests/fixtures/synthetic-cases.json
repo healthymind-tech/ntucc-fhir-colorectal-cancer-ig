@@ -468,6 +468,246 @@
       }
     },
     {
+      "id": "ip-dx-before-collection-start",
+      "description": "2023/12/31 診斷：早於收錄起始日（量測期間 2023–2025）",
+      "measurement_period": [
+        "2023-01-01",
+        "2025-12-31"
+      ],
+      "national_id": "ip-dx-before-collection-start",
+      "tumours": [
+        {
+          "id": "ip-dx-before-collection-start-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-5-v00",
+                "value": "20231231",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-12-v00",
+                "value": "20231231",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-dx-before-collection-start-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
+      "id": "ip-dx-on-collection-start",
+      "description": "2024/01/01 診斷：收錄起始日當天（量測期間 2023–2025）",
+      "measurement_period": [
+        "2023-01-01",
+        "2025-12-31"
+      ],
+      "national_id": "ip-dx-on-collection-start",
+      "tumours": [
+        {
+          "id": "ip-dx-on-collection-start-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-5-v00",
+                "value": "20240101",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-12-v00",
+                "value": "20240101",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "ip-dx-on-collection-start-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Initial Population": [
+          "ip-dx-on-collection-start-tumour"
+        ]
+      }
+    },
+    {
       "id": "ip-dx-outside-period",
       "description": "2024 年診斷，不在 2025 量測期間",
       "national_id": "ip-dx-outside-period",
