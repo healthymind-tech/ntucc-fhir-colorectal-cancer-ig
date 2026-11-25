@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from typing import Any
 
 from reference.cohort import BLANKS, assemble_cohort, is_blank, normalise_site
@@ -76,6 +76,17 @@ def leading_digit(raw: str | None) -> str | None:
     return raw[0] if raw else None
 
 
+TAIWAN = timezone(timedelta(hours=8))
+
+
+def taiwan_date(value: str) -> date:
+    """Calendar date of a FHIR date or dateTime/instant in Taiwan time (+08:00).
+    A value without a time is already a date; one with a time is converted to
+    +08:00 first, so 2025-02-28T16:30:00Z is 2025-03-01."""
+    moment = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return moment.date() if moment.tzinfo is None or "T" not in value else moment.astimezone(TAIWAN).date()
+
+
 @dataclass
 class PolypFacts:
     """Clinical facts for indicator 1 (醫院自行申報)."""
@@ -94,9 +105,13 @@ class PolypFacts:
         linked = data.get("report_issued") and data.get("report_linked", True)
         return cls(
             malignant_polyp_confirmed=data.get("malignant_polyp") == "confirmed",
-            report_issued=date.fromisoformat(data["report_issued"]) if linked else None,
+            # report_issued_at: the exact DiagnosticReport.issued when a case
+            # tests the time zone; report_issued is then its Taiwan date.
+            report_issued=(taiwan_date(data["report_issued_at"]) if data.get("report_issued_at")
+                           else date.fromisoformat(data["report_issued"])) if linked else None,
             high_risk_features=dict(data.get("features", {})),
-            resections=[(date.fromisoformat(r["date"]), r.get("status", "completed")) for r in data.get("resections", [])],
+            resections=[(taiwan_date(r["at"]) if "at" in r else date.fromisoformat(r["date"]), r.get("status", "completed"))
+                        for r in data.get("resections", [])],
         )
 
 

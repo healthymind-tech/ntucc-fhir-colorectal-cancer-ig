@@ -19256,6 +19256,2260 @@
   }
  },
  {
+  "id": "qi01-report-utc-instant",
+  "expected": {
+   "Initial Population": [
+    "qi01-report-utc-instant-tumour"
+   ],
+   "Denominator 1": [
+    "qi01-report-utc-instant-tumour"
+   ],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [
+    "qi01-report-utc-instant-tumour"
+   ],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-report-utc-instant",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000041"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-report-utc-instant-tumour",
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-report-utc-instant-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-report-utc-instant-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-02-28T16:30:00Z"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-report-utc-instant-tumour-feature-b",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "85290-5"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-report-utc-instant-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-report-utc-instant"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-report-utc-instant-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-24T09:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "qi01-resection-utc-day-85",
+  "expected": {
+   "Initial Population": [
+    "qi01-resection-utc-day-85-tumour"
+   ],
+   "Denominator 1": [
+    "qi01-resection-utc-day-85-tumour"
+   ],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-resection-utc-day-85",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000042"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-resection-utc-day-85-tumour",
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-resection-utc-day-85-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-resection-utc-day-85-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-03-01T10:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-utc-day-85-tumour-feature-b",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "85290-5"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-resection-utc-day-85-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-utc-day-85"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-resection-utc-day-85-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-24T16:30:00Z"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "qi01-resection-other-offset",
+  "expected": {
+   "Initial Population": [
+    "qi01-resection-other-offset-tumour"
+   ],
+   "Denominator 1": [
+    "qi01-resection-other-offset-tumour"
+   ],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [
+    "qi01-resection-other-offset-tumour"
+   ],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-resection-other-offset",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000043"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-resection-other-offset-tumour",
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-resection-other-offset-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-resection-other-offset-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-03-01T10:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-other-offset-tumour-feature-b",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "85290-5"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-resection-other-offset-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-other-offset"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-resection-other-offset-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-25T00:30:00+09:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "qi01-resection-date-only",
+  "expected": {
+   "Initial Population": [
+    "qi01-resection-date-only-tumour"
+   ],
+   "Denominator 1": [
+    "qi01-resection-date-only-tumour"
+   ],
+   "Denominator 1 Exclusion": [],
+   "Numerator 1": [
+    "qi01-resection-date-only-tumour"
+   ],
+   "Outside Data Excluded 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Outside Data Excluded 2": [],
+   "Denominator 3": [],
+   "Denominator 3 Exclusion": [],
+   "Numerator 3": [],
+   "Outside Data Excluded 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-resection-date-only",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000044"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-resection-date-only-tumour",
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-resection-date-only-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-resection-date-only-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-03-01T10:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-resection-date-only-tumour-feature-b",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "85290-5"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-resection-date-only-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-resection-date-only"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-resection-date-only-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-24"
+     }
+    }
+   ]
+  }
+ },
+ {
   "id": "qi01-no-feature",
   "expected": {
    "Initial Population": [
@@ -19303,7 +21557,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000041"
+        "value": "Z000000045"
        }
       ]
      }
@@ -19986,7 +22240,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000042"
+        "value": "Z000000046"
        }
       ]
      }
@@ -20539,7 +22793,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000043"
+        "value": "Z000000047"
        }
       ]
      }
@@ -21103,7 +23357,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000044"
+        "value": "Z000000048"
        }
       ]
      }
@@ -21667,7 +23921,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000045"
+        "value": "Z000000049"
        }
       ]
      }
@@ -22235,7 +24489,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000046"
+        "value": "Z000000050"
        }
       ]
      }
@@ -22716,7 +24970,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000047"
+        "value": "Z000000051"
        }
       ]
      }
@@ -23606,7 +25860,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000048"
+        "value": "Z000000052"
        }
       ]
      }
@@ -24078,7 +26332,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000049"
+        "value": "Z000000053"
        }
       ]
      }
@@ -24556,7 +26810,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000050"
+        "value": "Z000000054"
        }
       ]
      }
@@ -25034,7 +27288,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000051"
+        "value": "Z000000055"
        }
       ]
      }
@@ -25512,7 +27766,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000052"
+        "value": "Z000000056"
        }
       ]
      }
@@ -25984,7 +28238,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000053"
+        "value": "Z000000057"
        }
       ]
      }
@@ -26486,7 +28740,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000054"
+        "value": "Z000000058"
        }
       ]
      }
@@ -26988,7 +29242,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000055"
+        "value": "Z000000059"
        }
       ]
      }
@@ -27526,7 +29780,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000056"
+        "value": "Z000000060"
        }
       ]
      }
@@ -28028,7 +30282,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000057"
+        "value": "Z000000061"
        }
       ]
      }
@@ -28536,7 +30790,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000058"
+        "value": "Z000000062"
        }
       ]
      }
@@ -29044,7 +31298,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000059"
+        "value": "Z000000063"
        }
       ]
      }
@@ -29552,7 +31806,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000060"
+        "value": "Z000000064"
        }
       ]
      }
@@ -30446,7 +32700,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000061"
+        "value": "Z000000065"
        }
       ]
      }
@@ -30920,7 +33174,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000062"
+        "value": "Z000000066"
        }
       ]
      }
@@ -31364,7 +33618,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000063"
+        "value": "Z000000067"
        }
       ]
      }
@@ -31838,7 +34092,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000064"
+        "value": "Z000000068"
        }
       ]
      }
@@ -32256,7 +34510,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000065"
+        "value": "Z000000069"
        }
       ]
      }
@@ -32698,7 +34952,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000066"
+        "value": "Z000000070"
        }
       ]
      }
@@ -33170,7 +35424,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000067"
+        "value": "Z000000071"
        }
       ]
      }
@@ -33642,7 +35896,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000068"
+        "value": "Z000000072"
        }
       ]
      }
@@ -34118,7 +36372,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000069"
+        "value": "Z000000073"
        }
       ]
      }
@@ -34560,7 +36814,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000070"
+        "value": "Z000000074"
        }
       ]
      }
@@ -35040,7 +37294,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000071"
+        "value": "Z000000075"
        }
       ]
      }
@@ -35589,7 +37843,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000072"
+        "value": "Z000000076"
        }
       ]
      }
@@ -36067,7 +38321,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000073"
+        "value": "Z000000077"
        }
       ]
      }
@@ -36545,7 +38799,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000074"
+        "value": "Z000000078"
        }
       ]
      }
@@ -37022,7 +39276,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000075"
+        "value": "Z000000079"
        }
       ]
      }
@@ -37529,7 +39783,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000076"
+        "value": "Z000000080"
        }
       ]
      }
@@ -40395,7 +42649,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000082"
+        "value": "Z000000086"
        }
       ]
      }
@@ -40877,7 +43131,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000083"
+        "value": "Z000000087"
        }
       ]
      }
@@ -41391,7 +43645,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000084"
+        "value": "Z000000088"
        }
       ]
      }
@@ -41991,7 +44245,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000085"
+        "value": "Z000000089"
        }
       ]
      }
@@ -42471,7 +44725,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000086"
+        "value": "Z000000090"
        }
       ]
      }
@@ -42988,7 +45242,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000087"
+        "value": "Z000000091"
        }
       ]
      }
@@ -43916,7 +46170,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000088"
+        "value": "Z000000092"
        }
       ]
      }
@@ -44426,7 +46680,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000089"
+        "value": "Z000000093"
        }
       ]
      }
@@ -44922,7 +47176,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000090"
+        "value": "Z000000094"
        }
       ]
      }
@@ -45400,7 +47654,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000091"
+        "value": "Z000000095"
        }
       ]
      }
@@ -46296,7 +48550,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000092"
+        "value": "Z000000096"
        }
       ]
      }
@@ -47188,7 +49442,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000093"
+        "value": "Z000000097"
        }
       ]
      }
@@ -48084,7 +50338,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000094"
+        "value": "Z000000098"
        }
       ]
      }
@@ -48974,7 +51228,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000095"
+        "value": "Z000000099"
        }
       ]
      }
@@ -49864,7 +52118,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000096"
+        "value": "Z000000100"
        }
       ]
      }
@@ -50304,7 +52558,7 @@
       "identifier": [
        {
         "system": "urn:example:local-mrn",
-        "value": "MRN000097"
+        "value": "MRN000101"
        }
       ]
      }
@@ -50776,7 +53030,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000098"
+        "value": "Z000000102"
        }
       ]
      }
@@ -51248,7 +53502,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000099"
+        "value": "Z000000103"
        }
       ]
      }
@@ -51750,7 +54004,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000100"
+        "value": "Z000000104"
        }
       ]
      }
@@ -52258,7 +54512,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000101"
+        "value": "Z000000105"
        }
       ]
      }
@@ -52790,7 +55044,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000102"
+        "value": "Z000000106"
        }
       ]
      }
@@ -53328,7 +55582,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000103"
+        "value": "Z000000107"
        }
       ]
      }
@@ -53866,7 +56120,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000104"
+        "value": "Z000000108"
        }
       ]
      }
@@ -54402,7 +56656,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000105"
+        "value": "Z000000109"
        }
       ]
      }
@@ -55273,7 +57527,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000106"
+        "value": "Z000000110"
        }
       ]
      }
@@ -56139,7 +58393,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000107"
+        "value": "Z000000111"
        }
       ]
      }
@@ -56645,7 +58899,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000108"
+        "value": "Z000000112"
        }
       ]
      }
@@ -57153,7 +59407,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000109"
+        "value": "Z000000113"
        }
       ]
      }
@@ -57661,7 +59915,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000110"
+        "value": "Z000000114"
        }
       ]
      }
@@ -58169,7 +60423,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000111"
+        "value": "Z000000115"
        }
       ]
      }
@@ -59172,7 +61426,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000112"
+        "value": "Z000000116"
        }
       ]
      }
@@ -60170,7 +62424,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000113"
+        "value": "Z000000117"
        }
       ]
      }
@@ -60723,7 +62977,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000114"
+        "value": "Z000000118"
        }
       ]
      }

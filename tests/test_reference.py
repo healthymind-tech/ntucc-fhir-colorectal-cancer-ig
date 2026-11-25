@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from reference.crc_indicators import POPULATIONS, current_values, evaluate_case, proportion
+from reference.crc_indicators import POPULATIONS, current_values, evaluate_case, proportion, taiwan_date
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = json.loads((ROOT / "tests/fixtures/synthetic-cases.json").read_text(encoding="utf-8"))
@@ -56,3 +56,14 @@ def test_proportion_counts_exclusions_out_of_numerator():
     counts = proportion(results, 2)
     assert counts["denominator"] >= counts["denominator-exclusion"] > 0
     assert counts["numerator"] <= counts["denominator"] - counts["denominator-exclusion"]
+
+
+@pytest.mark.parametrize("value, expected", [
+    ("2025-03-01T10:00:00+08:00", date(2025, 3, 1)),
+    ("2025-02-28T16:30:00Z", date(2025, 3, 1)),        # UTC-normalised instant
+    ("2025-02-28T15:59:59+00:00", date(2025, 2, 28)),
+    ("2025-05-25T00:30:00+09:00", date(2025, 5, 24)),
+    ("2025-05-24", date(2025, 5, 24)),                 # no time: already a date
+])
+def test_taiwan_date(value, expected):
+    assert taiwan_date(value) == expected

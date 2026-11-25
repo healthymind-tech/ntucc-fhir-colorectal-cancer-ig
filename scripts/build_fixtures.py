@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -160,6 +160,20 @@ CASES = [
          {**POLYP, "resections": [{"date": "2025-02-28", "status": "completed"}]}),
     case("qi01-not-done", "切除 status=not-done", {}, {"Denominator 1": True, "Numerator 1": False}, POLYP_REGISTRY,
          {**POLYP, "resections": [{"date": "2025-04-01", "status": "not-done"}]}),
+    # Time zone (A-05): dates are read in Taiwan time. Each case would come out
+    # the other way if the CQL took the date of the instant as written.
+    case("qi01-report-utc-instant", "病理報告 issued 以 UTC 記載（台灣 3/1 00:30）：第 84 天切除仍計入", {},
+         {"Denominator 1": True, "Numerator 1": True}, POLYP_REGISTRY,
+         {**POLYP, "report_issued_at": "2025-02-28T16:30:00Z"}),
+    case("qi01-resection-utc-day-85", "切除時間以 UTC 記載（台灣 5/25 00:30）：第 85 天，不計入", {},
+         {"Denominator 1": True, "Numerator 1": False}, POLYP_REGISTRY,
+         {**POLYP, "resections": [{"at": "2025-05-24T16:30:00Z", "status": "completed"}]}),
+    case("qi01-resection-other-offset", "切除時間 +09:00（台灣 5/24 23:30）：第 84 天，計入", {},
+         {"Denominator 1": True, "Numerator 1": True}, POLYP_REGISTRY,
+         {**POLYP, "resections": [{"at": "2025-05-25T00:30:00+09:00", "status": "completed"}]}),
+    case("qi01-resection-date-only", "切除時間只有日期 2025-05-24：第 84 天，計入", {},
+         {"Denominator 1": True, "Numerator 1": True}, POLYP_REGISTRY,
+         {**POLYP, "resections": [{"at": "2025-05-24", "status": "completed"}]}),
     case("qi01-no-feature", "A–D 皆記載為不成立：不屬分母", {}, {"Has High Risk Feature": False, "Denominator 1": False},
          POLYP_REGISTRY, {**POLYP, "features": {"A": False, "B": False, "C": False, "D": False}}),
     case("qi01-feature-a-only", "只有條件 A（大腸鏡報告）", {}, {"Denominator 1": True}, POLYP_REGISTRY,
@@ -432,10 +446,17 @@ def ref(kind, rid):
     return {"reference": f"{kind}/{rid}"}
 
 
+def version_rank(v):
+    """Latest issued instant wins (compared as instants, not strings); a version
+    without issued ranks below every dated one; ties fall back to the id."""
+    issued = datetime.fromisoformat(v["issued"].replace("Z", "+00:00")).timestamp() if v["issued"] else float("-inf")
+    return (issued, v["id"])
+
+
 def tumour_resources(pid, subject, t, report_ids):
     tid, fields, polyp = t["id"], t["fields"], t["polyp"]
     current = {num: max((v for v in vs if v["status"] in ("final", "amended", "corrected")),
-                        key=lambda v: (v["issued"] or "", v["id"]), default=None)
+                        key=version_rank, default=None)
                for num, vs in fields.items()}
     try:
         site = icdo3.topography(current["2.6"]["value"])
@@ -493,7 +514,7 @@ def tumour_resources(pid, subject, t, report_ids):
             "resourceType": "DiagnosticReport", "id": report_id, "status": "final", "subject": subject,
             "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/v2-0074", "code": "SP"}]}],
             "code": {"coding": [{"system": LOINC, "code": "11529-5"}]},
-            "issued": f"{polyp['report_issued']}T10:00:00+08:00",
+            "issued": polyp.get("report_issued_at") or f"{polyp['report_issued']}T10:00:00+08:00",
         })
         if polyp.get("report_linked", True):
             condition["evidence"] = [{"detail": [ref("DiagnosticReport", report_id)]}]
@@ -523,7 +544,7 @@ def tumour_resources(pid, subject, t, report_ids):
             "resourceType": "Procedure", "id": f"{tid}-resection-{index}", "status": resection["status"],
             "code": {"coding": [{"system": CONCEPT_CS, "code": "curative-resection"}]},
             "subject": subject, "reasonReference": [ref("Condition", tid)],
-            "performedDateTime": f"{resection['date']}T09:00:00+08:00",
+            "performedDateTime": resection.get("at") or f"{resection['date']}T09:00:00+08:00",
         })
     return out
 

@@ -352,6 +352,15 @@ define function "Has High Risk Feature"(Tumour Condition):
       and not exists ((((D.value as FHIR.CodeableConcept).coding)) X
         where X in "Histologic Grade Answer" and not (X in "Criterion D Met")))
 
+// Dates of clinical events are taken in Taiwan time (+08:00). A server may
+// normalise instants to UTC, and the date of 2025-03-01T00:30+08:00 read as
+// 2025-02-28T16:30Z would otherwise be one day early. A value without a time
+// (day precision) is already a calendar date and is used as is.
+define function "Taiwan Date"(Value DateTime):
+  if Value is null then null
+  else if hour from Value is null or timezoneoffset from Value is null then date from Value
+  else date from (Value + System.Quantity { value: (8.0 - timezoneoffset from Value) * 60.0, unit: 'minute' })
+
 // D1-REPORT: the pathology report the tumour's diagnosis rests on
 // (Condition.evidence.detail); the earliest such final report starts the clock.
 define function "Pathology Report Date"(Tumour Condition):
@@ -362,7 +371,7 @@ define function "Pathology Report Date"(Tumour Condition):
         and Report.issued is not null
         and exists (Tumour.evidence E
           where exists (E.detail D where "Points To"(D, 'DiagnosticReport', Report.id)))
-      return date from Report.issued.value
+      return "Taiwan Date"(Report.issued.value)
   )
 
 // IP-OUTSIDE: 第五點, declared by the hospital as data (CRCOutsideDataExclusion),
@@ -390,8 +399,8 @@ define "Denominator 1":
 
 define function "Procedure Start Date"(Performed Choice<FHIR.dateTime, FHIR.Period, FHIR.string, FHIR.Age, FHIR.Range>):
   case
-    when Performed is FHIR.dateTime then date from FHIRHelpers.ToDateTime(Performed as FHIR.dateTime)
-    when Performed is FHIR.Period then date from start of FHIRHelpers.ToInterval(Performed as FHIR.Period)
+    when Performed is FHIR.dateTime then "Taiwan Date"(FHIRHelpers.ToDateTime(Performed as FHIR.dateTime))
+    when Performed is FHIR.Period then "Taiwan Date"(start of FHIRHelpers.ToInterval(Performed as FHIR.Period))
     else null
   end
 

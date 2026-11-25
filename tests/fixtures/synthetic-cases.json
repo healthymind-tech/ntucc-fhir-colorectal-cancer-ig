@@ -4637,6 +4637,501 @@
       }
     },
     {
+      "id": "qi01-report-utc-instant",
+      "description": "病理報告 issued 以 UTC 記載（台灣 3/1 00:30）：第 84 天切除仍計入",
+      "national_id": "qi01-report-utc-instant",
+      "tumours": [
+        {
+          "id": "qi01-report-utc-instant-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-report-utc-instant-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "date": "2025-05-24",
+                "status": "completed"
+              }
+            ],
+            "report_issued_at": "2025-02-28T16:30:00Z"
+          },
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Denominator 1": [
+          "qi01-report-utc-instant-tumour"
+        ],
+        "Numerator 1": [
+          "qi01-report-utc-instant-tumour"
+        ]
+      }
+    },
+    {
+      "id": "qi01-resection-utc-day-85",
+      "description": "切除時間以 UTC 記載（台灣 5/25 00:30）：第 85 天，不計入",
+      "national_id": "qi01-resection-utc-day-85",
+      "tumours": [
+        {
+          "id": "qi01-resection-utc-day-85-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-resection-utc-day-85-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "at": "2025-05-24T16:30:00Z",
+                "status": "completed"
+              }
+            ]
+          },
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Denominator 1": [
+          "qi01-resection-utc-day-85-tumour"
+        ],
+        "Numerator 1": []
+      }
+    },
+    {
+      "id": "qi01-resection-other-offset",
+      "description": "切除時間 +09:00（台灣 5/24 23:30）：第 84 天，計入",
+      "national_id": "qi01-resection-other-offset",
+      "tumours": [
+        {
+          "id": "qi01-resection-other-offset-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-resection-other-offset-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "at": "2025-05-25T00:30:00+09:00",
+                "status": "completed"
+              }
+            ]
+          },
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Denominator 1": [
+          "qi01-resection-other-offset-tumour"
+        ],
+        "Numerator 1": [
+          "qi01-resection-other-offset-tumour"
+        ]
+      }
+    },
+    {
+      "id": "qi01-resection-date-only",
+      "description": "切除時間只有日期 2025-05-24：第 84 天，計入",
+      "national_id": "qi01-resection-date-only",
+      "tumours": [
+        {
+          "id": "qi01-resection-date-only-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "qi01-resection-date-only-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-5-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "qi01-resection-date-only-tumour-f2-12-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "qi01-resection-date-only-tumour-f3-7-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "qi01-resection-date-only-tumour-f3-13-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "qi01-resection-date-only-tumour-f4-1-v00",
+                "value": "20250301",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "qi01-resection-date-only-tumour-f4-1-4-v00",
+                "value": "27",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": {
+            "malignant_polyp": "confirmed",
+            "report_issued": "2025-03-01",
+            "features": {
+              "B": true
+            },
+            "resections": [
+              {
+                "at": "2025-05-24",
+                "status": "completed"
+              }
+            ]
+          },
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Denominator 1": [
+          "qi01-resection-date-only-tumour"
+        ],
+        "Numerator 1": [
+          "qi01-resection-date-only-tumour"
+        ]
+      }
+    },
+    {
       "id": "qi01-no-feature",
       "description": "A–D 皆記載為不成立：不屬分母",
       "national_id": "qi01-no-feature",

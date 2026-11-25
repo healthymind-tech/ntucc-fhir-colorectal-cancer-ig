@@ -81,8 +81,8 @@ scripts/build_ig.sh
 | SUSHI | 0 errors、0 warnings |
 | HL7 IG Publisher 3.0.5 | QA 0 errors、0 broken links（CI 遇到 QA error 或 broken link 即失敗） |
 | CQL 翻譯 | 成功 |
-| CQL 執行 | 114 個合成個案，JavaScript 與 Java 兩個引擎都與 Python 參考實作一致；重現 3 份摘要 MeasureReport |
-| pytest | 362 passed |
+| CQL 執行 | 118 個合成個案，JavaScript 與 Java 兩個引擎都與 Python 參考實作一致；重現 3 份摘要 MeasureReport |
+| pytest | 371 passed |
 
 每次 push 都由 GitHub Actions 重跑；推送到 `main` 後會自動建置並發布到 GitHub Pages。
 
@@ -133,7 +133,7 @@ A FHIR R4 implementation guide that turns the three **colorectal cancer core qua
 | `crc-qi-02` | Stage I–III colon cancer resection: ≥12 lymph nodes examined | Taiwan Cancer Registry long form |
 | `crc-qi-03` | Clinical stage II–III rectal cancer (class 1): treatment started within 42 days of microscopic confirmation | Taiwan Cancer Registry long form |
 
-Each rule in the official text has a `criterion_id` in `mappings/crc-core-indicator-criteria.csv`. The rules are implemented twice, independently, in **CQL** and in a **Python reference implementation**, and both must agree on the same hand-specified synthetic cases (114 at present), checked on two CQL engines (JavaScript and Java). Registry values are kept as raw strings so that special codes such as `99999999` (unknown) are never mistaken for dates.
+Each rule in the official text has a `criterion_id` in `mappings/crc-core-indicator-criteria.csv`. The rules are implemented twice, independently, in **CQL** and in a **Python reference implementation**, and both must agree on the same hand-specified synthetic cases (118 at present), checked on two CQL engines (JavaScript and Java). Registry values are kept as raw strings so that special codes such as `99999999` (unknown) are never mistaken for dates.
 
 All clinical profiles derive from **TW Core IG 1.0.0**; only the registry data-item Observation and the outside-data exclusion Observation derive from base R4 Observation, because neither is a clinical result and no TW Core Observation category fits them. See *Quick start* above for build commands; the published site is at <https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/>.
 
