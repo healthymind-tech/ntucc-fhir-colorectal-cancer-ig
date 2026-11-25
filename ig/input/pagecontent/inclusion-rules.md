@@ -34,7 +34,7 @@
 1. 分子與分母皆屬外院資料：不列入計算。
 2. 分母屬本院、分子屬外院：申報醫院**能取得**外院處置資訊時，必須納入分子與分母；只知道病人屬於分母對象、卻取不到外院分子資料時，不列入計算。
 
-第 2 點取決於資料是否取得，無法從癌登資料判斷，因此由醫院以 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation 宣告：每顆腫瘤、每項指標一筆，`code` 為排除的指標（`excluded-qi01`～`excluded-qi03`），`valueCodeableConcept` 為理由（第五點 1 `both-outside` 或 2 `numerator-outside-not-obtained`），`focus` 指向腫瘤，`note` 記錄稽核說明。CQL 只採用 status 為 final、amended、corrected 且 focus 恰為一顆腫瘤者，據以自該指標分母移除。宣告是資料，可以驗證、稽核、修正（以 `entered-in-error` 撤回）。
+第 2 點取決於資料是否取得，無法從癌登資料判斷，因此由醫院以 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation 宣告：每顆腫瘤、每項指標一筆，`code` 為排除的指標（`excluded-qi01`～`excluded-qi03`），`valueCodeableConcept` 為理由（第五點 1 `both-outside` 或 2 `numerator-outside-not-obtained`），`focus` 指向腫瘤，`note` 記錄稽核說明。CQL 只採用 status 為 final、amended、corrected，subject 為該病人，focus 恰為一顆腫瘤，且 value 為兩個理由代碼之一者，據以自該指標分母移除。宣告是資料，可以驗證、稽核、修正（以 `entered-in-error` 撤回）。
 
 ## 期別
 

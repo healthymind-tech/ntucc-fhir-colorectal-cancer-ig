@@ -156,7 +156,7 @@
 2. 某一筆長表值是醫院自行處置的結果，還是摘錄自外院資料，長表沒有逐欄記錄來源。2.3.1、2.3.2 只描述整個首次療程的分工，無法對應到某一指標的分子或分母。
 3. 規則是**逐指標**的：同一個腫瘤可能指標 2 的分子資料（淋巴結檢查數目）在本院，指標 3 的分子資料在外院。
 
-因此本 IG 不推測，而是由醫院對每個指標、每個腫瘤明確提供以下狀態之一（參考實作的 `outside_data` 參數）：
+因此本 IG 不推測，而是由醫院對每個指標、每個腫瘤明確宣告。交換時以 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) 表達：只有要排除的腫瘤需要一筆宣告，`BOTH_OUTSIDE` 對應理由代碼 `both-outside`、`NUMERATOR_OUTSIDE_NOT_OBTAINED` 對應 `numerator-outside-not-obtained`；沒有宣告即為納入（`IN_HOSPITAL` 或 `NUMERATOR_OUTSIDE_OBTAINED`）。參考實作 `reference/cohort.py` 的 `outside_data` 參數接受以下狀態：
 
 | 狀態 | 意義 | 結果 |
 |---|---|---|

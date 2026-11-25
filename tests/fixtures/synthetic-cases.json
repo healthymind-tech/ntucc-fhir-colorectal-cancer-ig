@@ -10507,6 +10507,376 @@
       }
     },
     {
+      "id": "outside-data-other-subject",
+      "description": "第五點宣告的 subject 是另一位病人：不採用",
+      "national_id": "outside-data-other-subject",
+      "tumours": [
+        {
+          "id": "outside-data-other-subject-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "outside-data-other-subject-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "outside-data-other-subject-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "outside-data-other-subject-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "outside-data-other-subject-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "outside-data-other-subject-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "outside-data-other-subject-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [
+        [
+          2,
+          "outside-data-other-subject-tumour",
+          "final",
+          {
+            "subject": {
+              "reference": "Patient/someone-else"
+            }
+          }
+        ]
+      ],
+      "expected": {
+        "Denominator 2": [
+          "outside-data-other-subject-tumour"
+        ]
+      }
+    },
+    {
+      "id": "outside-data-no-value",
+      "description": "第五點宣告沒有理由（value）：不採用",
+      "national_id": "outside-data-no-value",
+      "tumours": [
+        {
+          "id": "outside-data-no-value-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "outside-data-no-value-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "outside-data-no-value-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "outside-data-no-value-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "outside-data-no-value-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "outside-data-no-value-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "outside-data-no-value-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "outside-data-no-value-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "outside-data-no-value-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "outside-data-no-value-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "outside-data-no-value-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "outside-data-no-value-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "outside-data-no-value-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "multi_focus": false
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [
+        [
+          2,
+          "outside-data-no-value-tumour",
+          "final",
+          {
+            "valueCodeableConcept": null
+          }
+        ]
+      ],
+      "expected": {
+        "Denominator 2": [
+          "outside-data-no-value-tumour"
+        ]
+      }
+    },
+    {
+      "id": "registry-items-other-subject",
+      "description": "癌登欄位的 subject 是另一位病人：不歸屬此病人的腫瘤",
+      "national_id": "registry-items-other-subject",
+      "tumours": [
+        {
+          "id": "registry-items-other-subject-tumour",
+          "fields": {
+            "1.1": [
+              {
+                "id": "registry-items-other-subject-tumour-f1-1-v00",
+                "value": "0401180014",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.3": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-3-v00",
+                "value": "1",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.5": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-5-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.6": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-6-v00",
+                "value": "C187",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.8": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-8-v00",
+                "value": "8140",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.9": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-9-v00",
+                "value": "3",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.12": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-12-v00",
+                "value": "20250305",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "2.14": [
+              {
+                "id": "registry-items-other-subject-tumour-f2-14-v00",
+                "value": "15",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.7": [
+              {
+                "id": "registry-items-other-subject-tumour-f3-7-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "3.13": [
+              {
+                "id": "registry-items-other-subject-tumour-f3-13-v00",
+                "value": "3B",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1": [
+              {
+                "id": "registry-items-other-subject-tumour-f4-1-v00",
+                "value": "20250320",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ],
+            "4.1.4": [
+              {
+                "id": "registry-items-other-subject-tumour-f4-1-4-v00",
+                "value": "30",
+                "issued": "2025-04-30T17:00:00+08:00",
+                "status": "final"
+              }
+            ]
+          },
+          "polyp": null,
+          "foreign_subject": true,
+          "multi_focus": true
+        }
+      ],
+      "outside_excluded": {},
+      "outside_ignored": [],
+      "expected": {
+        "Initial Population": []
+      }
+    },
+    {
       "id": "dedup-earlier-diagnosis",
       "description": "同院同病人兩顆結腸癌：留最初診斷日期較早者",
       "national_id": "dedup-earlier-diagnosis",

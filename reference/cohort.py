@@ -264,7 +264,8 @@ def died_before_treatment(
     raw_vs = fields.get(VITAL_STATUS)
     dead: bool | None = None
     if raw_vs is not None and raw_vs.strip(BLANKS) != "":
-        # case-insensitive on both sides, like the CQL
+        # The CQL compares the trimmed value with '0' exactly; lower-casing
+        # only matters for a caller-supplied code table (Python only).
         dead = {k.lower(): v for k, v in vital_status_codes.items()}.get(raw_vs.strip(BLANKS).lower())
         if dead is None:
             flags.append(FLAG_VITAL_STATUS_UNRECOGNISED)

@@ -51,7 +51,8 @@ def tumour(tumour_id, fields, base=None, polyp=None, **options):
     list of {"value", "issued", "status"} versions ("issued": None omits it).
     options: verification (Condition.verificationStatus), reference ("relative",
     "versioned", "absolute"), extra_focus (a second focus on every registry item),
-    foreign_coding ({field: other-system code} added to that field's items)."""
+    foreign_coding ({field: other-system code} added to that field's items),
+    foreign_subject (registry items name another patient as subject)."""
     merged = dict(base or {})
     for key, value in fields.items():
         if value is None:
@@ -59,7 +60,8 @@ def tumour(tumour_id, fields, base=None, polyp=None, **options):
         else:
             merged[key] = value
     return {"id": tumour_id, "fields": merged, "polyp": polyp, **options,
-            "multi_focus": bool(options.get("extra_focus"))}
+            # Registry items the CQL attributes to no tumour of this patient.
+            "multi_focus": bool(options.get("extra_focus") or options.get("foreign_subject"))}
 
 
 def case(case_id, description, fields, expected, base=None, polyp=None):
@@ -277,6 +279,18 @@ CASES += [
            tumour(_t("outside-data-other-tumour", "b"), {"1.1": "0501110514"}, COLON)],
           {"Denominator 2": [_t("outside-data-other-tumour", "a")]},
           outside_excluded={"2": [_t("outside-data-other-tumour", "b")]}),
+    multi("outside-data-other-subject", "第五點宣告的 subject 是另一位病人：不採用",
+          [tumour(_t("outside-data-other-subject", "tumour"), {}, COLON)],
+          {"Denominator 2": [_t("outside-data-other-subject", "tumour")]},
+          outside_ignored=[(2, _t("outside-data-other-subject", "tumour"), "final",
+                            {"subject": {"reference": "Patient/someone-else"}})]),
+    multi("outside-data-no-value", "第五點宣告沒有理由（value）：不採用",
+          [tumour(_t("outside-data-no-value", "tumour"), {}, COLON)],
+          {"Denominator 2": [_t("outside-data-no-value", "tumour")]},
+          outside_ignored=[(2, _t("outside-data-no-value", "tumour"), "final", {"valueCodeableConcept": None})]),
+    multi("registry-items-other-subject", "癌登欄位的 subject 是另一位病人：不歸屬此病人的腫瘤",
+          [tumour(_t("registry-items-other-subject", "tumour"), {}, COLON, foreign_subject=True)],
+          {"Initial Population": []}),
     # ---- case assembly (reference/cohort.py, case-assembly page) ----------------
     multi("dedup-earlier-diagnosis", "同院同病人兩顆結腸癌：留最初診斷日期較早者",
           [tumour(_t("dedup-earlier-diagnosis", "a"), {}, COLON),
@@ -459,7 +473,8 @@ def tumour_resources(pid, subject, t, report_ids):
             item = {
                 "resourceType": "Observation", "id": v["id"], "meta": {"profile": [TCR_PROFILE]},
                 "status": v["status"], "code": {"coding": item_coding},
-                "subject": subject, "focus": [tumour_ref], "valueString": v["value"],
+                "subject": ref("Patient", "someone-else") if t.get("foreign_subject") else subject,
+                "focus": [tumour_ref], "valueString": v["value"],
             }
             if v["issued"] is not None:
                 item["issued"] = v["issued"]
@@ -528,15 +543,21 @@ def to_bundle(item, index):
         entries += tumour_resources(pid, subject, t, None)
     # 第五點: one CRCOutsideDataExclusion Observation per tumour and indicator.
     declarations = [(m, tid, "final") for m, ids in item.get("outside_excluded", {}).items() for tid in ids]
-    for k, (m, tid, status) in enumerate(declarations + list(item.get("outside_ignored", []))):
-        entries.append({
+    for k, (m, tid, status, *override) in enumerate(declarations + list(item.get("outside_ignored", []))):
+        declaration = {
             "resourceType": "Observation", "id": f"{pid}-outside-{k}", "status": status,
             "code": {"coding": [{"system": f"{CANON}/CodeSystem/crc-outside-data", "code": f"excluded-qi0{m}"}]},
             "subject": subject, "focus": [ref("Condition", tid)],
             "valueCodeableConcept": {"coding": [{"system": f"{CANON}/CodeSystem/crc-outside-data",
                                                  "code": "numerator-outside-not-obtained"}]},
             "issued": "2026-01-15T10:00:00+08:00",
-        })
+        }
+        for key, value in (override[0] if override else {}).items():  # None removes the element
+            if value is None:
+                declaration.pop(key, None)
+            else:
+                declaration[key] = value
+        entries.append(declaration)
     return {"resourceType": "Bundle", "type": "collection",
             "meta": {"tag": [{"system": f"{CANON}/CodeSystem/fixture-tag", "code": "synthetic"}]},
             "entry": [{"resource": r} for r in entries]}

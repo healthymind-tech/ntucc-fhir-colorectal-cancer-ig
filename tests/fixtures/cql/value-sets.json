@@ -231,6 +231,26 @@
    }
   ]
  },
+ "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-outside-data-status": {
+  "0.1.0-preview.2": [
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "final"
+   },
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "amended"
+   },
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "corrected"
+   },
+   {
+    "system": "http://hl7.org/fhir/observation-status",
+    "code": "entered-in-error"
+   }
+  ]
+ },
  "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-pathology-high-risk-feature": {
   "0.1.0-preview.2": [
    {

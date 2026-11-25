@@ -53,6 +53,7 @@ valueset "Criterion D Met": 'https://healthymind-tech.github.io/ntucc-fhir-color
 valueset "Surgical Margin Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer'
 valueset "Lymphovascular Invasion Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer'
 valueset "Histologic Grade Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer'
+valueset "Outside Data Reason": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-outside-data-reason'
 valueset "Curative Resection": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-curative-resection'
 
 codesystem "LOINC": 'http://loinc.org'
@@ -93,9 +94,15 @@ define "TCR Field System":
 
 // A registry item belongs to exactly one tumour (profile: focus 1..1); items
 // with several focus targets are ignored rather than attributed to all.
+// Only resources about the context Patient: cql-exec-fhir returns every
+// resource in a bundle, the Java engine filters by patient on retrieval.
+define function "Is About Patient"(Subject FHIR.Reference):
+  "Points To"(Subject, 'Patient', Patient.id)
+
 define "Registry Items":
   [Observation] Item
     where Item.status in { 'final', 'amended', 'corrected' }
+      and "Is About Patient"(Item.subject)
       and exists (Item.code.coding C where C.system.value = "TCR Field System")
       and Count(Item.focus) = 1
 
@@ -216,10 +223,9 @@ define "Measurement Dates":
 //   4 complete duplicate key, 5 註1 de-duplication, then on the kept record only
 //   6 class 1/2, 7 註3 cross-hospital, 8 第二點 died before treatment.
 // Step 9 (第五點 outside-hospital data) depends on what the hospital could
-// obtain, which no registry field records. The hospital supplies, per
-// indicator, the tumours it excludes under that rule (parameters "Outside
-// Data Excluded QI01/02/03"); they are removed from that indicator's
-// denominator. Nothing is guessed here.
+// obtain, which no registry field records. The hospital declares, per tumour
+// and indicator, a CRCOutsideDataExclusion Observation; the tumour is removed
+// from that indicator's denominator. Nothing is guessed here.
 // --------------------------------------------------------------------------
 
 // IP-SCOPE: 癌別「大腸癌」 = C18 except C18.1 (appendix), C19.9, C20.9.
@@ -365,7 +371,9 @@ define function "Pathology Report Date"(Tumour Condition):
 define "Outside Data Exclusions":
   [Observation] Exclusion
     where Exclusion.status in { 'final', 'amended', 'corrected' }
+      and "Is About Patient"(Exclusion.subject)
       and Count(Exclusion.focus) = 1
+      and (Exclusion.value as FHIR.CodeableConcept) in "Outside Data Reason"
 
 define function "Is Outside Excluded"(Tumour Condition, Indicator String):
   exists ("Outside Data Exclusions" Exclusion
