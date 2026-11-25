@@ -56,13 +56,9 @@ const parameters = {
     new cql.DateTime(2025, 12, 31, 23, 59, 59, 999, 8),
     true,
     true
-  ),
-  // cql-execution does not treat an unsupplied, default-less parameter as
-  // null, so the 第五點 exclusion lists are always passed (empty unless a case
-  // supplies them).
-  'Outside Data Excluded QI01': [],
-  'Outside Data Excluded QI02': [],
-  'Outside Data Excluded QI03': []
+  )
+  // 第五點 exclusions and the 5.4 code table are no longer parameters: the
+  // former is data (CRCOutsideDataExclusion), the latter fixed by the manual.
 };
 
 // Population expressions return lists of FHIR resources (population basis =

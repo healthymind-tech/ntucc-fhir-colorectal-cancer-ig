@@ -35,7 +35,7 @@ the pathology report by Condition.evidence.detail, the resection by
 Procedure.reasonReference.
 */
 
-library ColorectalCancerCoreIndicators version '0.1.0-preview.1'
+library ColorectalCancerCoreIndicators version '0.1.0-preview.2'
 
 using FHIR version '4.0.1'
 
@@ -50,6 +50,9 @@ valueset "Colonoscopy High Risk Feature": 'https://healthymind-tech.github.io/nt
 valueset "Criterion B Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-b-met'
 valueset "Criterion C Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-c-met'
 valueset "Criterion D Met": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-criterion-d-met'
+valueset "Surgical Margin Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer'
+valueset "Lymphovascular Invasion Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer'
+valueset "Histologic Grade Answer": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer'
 valueset "Curative Resection": 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-curative-resection'
 
 codesystem "LOINC": 'http://loinc.org'
@@ -59,23 +62,6 @@ code "Lymphovascular Invasion": '59544-7' from "LOINC" display 'Lymph-vascular i
 code "Histologic Grade": '33732-9' from "LOINC" display 'Histology grade [Identifier] in Cancer specimen'
 
 parameter "Measurement Period" Interval<DateTime>
-
-// Raw 5.4 生存狀態 values that mean "dead". The long-form code table was not
-// available from any source this IG could verify, so the caller supplies it
-// (see the case assembly page). The default only covers a boolean rendering.
-parameter "Vital Status Dead Codes" List<String> default { 'true' }
-
-// 第五點: tumour ids the hospital excludes from one indicator because the
-// numerator and denominator data are both outside, or the numerator data is
-// outside and could not be obtained. Supplied per indicator by the hospital.
-// No default on purpose: cql-execution 3.3.2 fails type-checking a supplied
-// List<String> when the declaration has an empty-list default. On the Java
-// engine a missing list is null and "Is Outside Excluded" treats null as "not
-// excluded" (not Coalesce, which cql-execution flattens into list elements).
-// cql-execution fails on a missing or explicit-null list: pass [] there.
-parameter "Outside Data Excluded QI01" List<String>
-parameter "Outside Data Excluded QI02" List<String>
-parameter "Outside Data Excluded QI03" List<String>
 
 context Patient
 
@@ -240,9 +226,13 @@ define "Measurement Dates":
 define function "Is Colorectal Category"(Tumour Condition):
   Coalesce("Primary Site Code"(Tumour) in "Colorectal Category", false)
 
+// 1.4 身分證統一編號 only (長表摘錄手冊 p. 56; 外籍人士不收案, p. 1).
+// 9999999999 = 個案無身分證統一編號, i.e. no key, same as a missing id.
 define "Patient Has National Id":
   exists (Patient.identifier I
-    where I.system.value = 'http://www.moi.gov.tw' and "Trimmed"(I.value.value) is not null)
+    where I.system.value = 'http://www.moi.gov.tw'
+      and "Trimmed"(I.value.value) is not null
+      and "Trimmed"(I.value.value) != '9999999999')
 
 define function "Normalized Key"(Raw String):
   if "Trimmed"(Raw) is null then null
@@ -300,10 +290,9 @@ define function "Cross Hospital Treatment"(Tumour Condition):
     and Coalesce("Diagnosis Status"(Tumour) = '2', false)
     and Coalesce("Treatment Status"(Tumour) = '3', false)
 
-// Case-insensitive on both sides.
+// 5.4 生存狀態: 0 = 死亡, 1 = 存活 (長表摘錄手冊 p. 314, 編碼範圍 0-1).
 define function "Is Dead"(Tumour Condition):
-  "Vital Status"(Tumour) is not null
-    and Lower("Vital Status"(Tumour)) in ("Vital Status Dead Codes" DeadCode return Lower(DeadCode))
+  Coalesce("Vital Status"(Tumour) = '0', false)
 
 // IP-DEATH, step 8: (a) 2.3.2 = 0; (b) dead, 4.1 = 00000000 and 2.3.2 != 4;
 // (c) dead and 5.3 before 4.1. Death on the day treatment starts is treated.
@@ -339,15 +328,24 @@ define function "Is Current Finding Of"(Finding Observation, Tumour Condition):
 // D1-FEATURE: only findings recorded for this tumour count. A: local code with
 // valueBoolean (colonoscopy report). B, C, D: LOINC question + coded answer
 // (pathology report); the criterion is met when the answer is in its "Met" set.
+// B-D: the answer must be a "met" code, and no other coding from the
+// question's own answer list may contradict it (translations from other
+// systems are allowed; profile invariants reject such data as well).
 define function "Has High Risk Feature"(Tumour Condition):
   exists ([Observation: "Colonoscopy High Risk Feature"] A
     where "Is Current Finding Of"(A, Tumour) and Coalesce((A.value as FHIR.boolean).value, false))
   or exists ([Observation: "Margin Involvement"] B
-    where "Is Current Finding Of"(B, Tumour) and (B.value as FHIR.CodeableConcept) in "Criterion B Met")
+    where "Is Current Finding Of"(B, Tumour) and (B.value as FHIR.CodeableConcept) in "Criterion B Met"
+      and not exists ((((B.value as FHIR.CodeableConcept).coding)) X
+        where X in "Surgical Margin Answer" and not (X in "Criterion B Met")))
   or exists ([Observation: "Lymphovascular Invasion"] C
-    where "Is Current Finding Of"(C, Tumour) and (C.value as FHIR.CodeableConcept) in "Criterion C Met")
+    where "Is Current Finding Of"(C, Tumour) and (C.value as FHIR.CodeableConcept) in "Criterion C Met"
+      and not exists ((((C.value as FHIR.CodeableConcept).coding)) X
+        where X in "Lymphovascular Invasion Answer" and not (X in "Criterion C Met")))
   or exists ([Observation: "Histologic Grade"] D
-    where "Is Current Finding Of"(D, Tumour) and (D.value as FHIR.CodeableConcept) in "Criterion D Met")
+    where "Is Current Finding Of"(D, Tumour) and (D.value as FHIR.CodeableConcept) in "Criterion D Met"
+      and not exists ((((D.value as FHIR.CodeableConcept).coding)) X
+        where X in "Histologic Grade Answer" and not (X in "Criterion D Met")))
 
 // D1-REPORT: the pathology report the tumour's diagnosis rests on
 // (Condition.evidence.detail); the earliest such final report starts the clock.
@@ -361,14 +359,24 @@ define function "Pathology Report Date"(Tumour Condition):
       return date from Report.issued.value
   )
 
-// IP-OUTSIDE: 第五點, hospital-supplied per indicator.
-define function "Is Outside Excluded"(Tumour Condition, Excluded List<String>):
-  if Excluded is null then false
-  else Tumour.id.value in Excluded
+// IP-OUTSIDE: 第五點, declared by the hospital as data (CRCOutsideDataExclusion),
+// one Observation per tumour and indicator; same status and single-focus
+// rules as registry items.
+define "Outside Data Exclusions":
+  [Observation] Exclusion
+    where Exclusion.status in { 'final', 'amended', 'corrected' }
+      and Count(Exclusion.focus) = 1
+
+define function "Is Outside Excluded"(Tumour Condition, Indicator String):
+  exists ("Outside Data Exclusions" Exclusion
+    where exists (Exclusion.code.coding C
+        where C.system.value = 'https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data'
+          and C.code.value = Indicator)
+      and exists (Exclusion.focus F where "Points To"(F, 'Condition', Tumour.id)))
 
 define "Denominator 1":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI01")
+    where not "Is Outside Excluded"(Tumour, 'excluded-qi01')
       and "Is Malignant Polyp"(Tumour)
       and "Has High Risk Feature"(Tumour)
       and "Pathology Report Date"(Tumour) is not null
@@ -412,7 +420,7 @@ define function "Is Pathological Stage I To III"(Tumour Condition):
 
 define "Denominator 2":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI02")
+    where not "Is Outside Excluded"(Tumour, 'excluded-qi02')
       and "Is Colon Excluding Appendix"(Tumour)
       and "Has Resection Surgery 30 To 90"(Tumour)
       and "Is Pathological Stage I To III"(Tumour)
@@ -449,7 +457,7 @@ define function "Is Clinical Stage II To III"(Tumour Condition):
 // D3-CLASS: class 1 only, narrower than the shared class 1/2 population.
 define "Denominator 3":
   "Initial Population" Tumour
-    where not "Is Outside Excluded"(Tumour, "Outside Data Excluded QI03")
+    where not "Is Outside Excluded"(Tumour, 'excluded-qi03')
       and "Is Rectosigmoid Or Rectum"(Tumour)
       and Coalesce("Class Of Case"(Tumour) = '1', false)
       and "Is Clinical Stage II To III"(Tumour)

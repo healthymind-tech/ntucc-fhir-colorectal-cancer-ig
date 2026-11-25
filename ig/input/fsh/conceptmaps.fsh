@@ -10,7 +10,7 @@ Description: "大腸癌核心指標引用之癌登長表欄位與 LOINC 觀察�
 * url = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ConceptMap/tcr-field-to-loinc"
 * name = "CRCTCRFieldToLOINC"
 * language = #zh-TW
-* version = "0.1.0-preview.1"
+* version = "0.1.0-preview.2"
 * status = #draft
 * experimental = true
 * group[0].source = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field"
@@ -97,7 +97,7 @@ Description: "指標 1 本地暫用概念代碼與 SNOMED CT、LOINC 的候選�
 * url = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ConceptMap/indicator-concept-to-standard"
 * name = "CRCIndicatorConceptToStandard"
 * language = #zh-TW
-* version = "0.1.0-preview.1"
+* version = "0.1.0-preview.2"
 * status = #draft
 * experimental = true
 * group[0].source = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept"

@@ -83,7 +83,7 @@
 
 演算法：
 
-1. key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）。兩個識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。任一為空 → `MISSING_DEDUP_KEY`（**【本 IG 決定】**：key 不完整就無法執行註 1，長表也規定兩者必填）。不得以 1.2 病歷號碼代替 1.4。
+1. key 為（1.1 申報醫院代碼, 癌別, 1.4 身分證統一編號）。兩個識別碼先去除前後的半形空白與 tab 並轉為大寫（內含空白不移除，視為不同的值；CQL 與參考實作一致）。只由空白字元組成的值（含全形空白、換行）視為空，規則見[收錄條件](inclusion-rules.html)。1.4 的 `9999999999` 在長表中表示「個案無身分證統一編號」（摘錄手冊第 56 頁），視同空值。任一為空 → `MISSING_DEDUP_KEY`（**【本 IG 決定】**：key 不完整就無法執行註 1，長表也規定兩者必填）。不得以 1.2 病歷號碼代替 1.4。1.4 只認 `Patient.identifier` system `http://www.moi.gov.tw`（身分證）：摘錄手冊規定 1.4 為身分證統一編號，且「收案對象為中華民國國籍(外籍人士不收案)」，居留證號（TW Core `http://www.immigration.gov.tw`）、護照號碼不是 1.4。
 2. 每個 key 只保留一筆，其餘記錄的原因為 `DUPLICATE_OF:<保留的 tumour_id>`。
 3. 保留 2.5 最早者。【原文】
 4. 2.5 同一天時，保留期別較嚴重者。【原文】期別的取法與排序見下。結果加旗標 `SAME_DAY_TIE_BROKEN_BY_STAGE`。
@@ -120,7 +120,7 @@
 本 IG 使用的欄位（出處見 `mappings/case-assembly-fields.csv`）：
 
 - **5.3 最後聯絡或死亡日期**（TWCR_LF `outcome.dateOfLastContactOrDeath`）。只有 5.4 表示死亡時，5.3 才視為死亡日期；否則是最後聯絡日期。
-- **5.4 生存狀態**（TWCR_LF `outcome.vitalStatus`，對應 `Patient.deceasedBoolean`，「記錄個案『最後聯絡或死亡日期』的存活狀態」）。**TWCR_LF 套件沒有 5.4 的代碼表**，只有 FHIR boolean（`true`＝死亡）。參考實作預設只接受 `true`／`false`。長表的原始代碼必須由呼叫端依癌登摘錄手冊以 `vital_status_codes` 提供；本 IG 不自行假設。無法辨識的值視為「不知是否死亡」（旗標 `VITAL_STATUS_UNRECOGNISED`），不據以排除。
+- **5.4 生存狀態**（TWCR_LF `outcome.vitalStatus`，對應 `Patient.deceasedBoolean`，「記錄個案『最後聯絡或死亡日期』的存活狀態」）。長表摘錄手冊（民國 114 年版）第 314 頁：編碼範圍 0–1，**`0`＝死亡、`1`＝存活**。TWCR_LF 套件把 5.4 對應到 `Patient.deceasedBoolean`，但本 IG 保存的是長表原始值，CQL 與參考實作都以 `0` 判定死亡。其他值（例如 `true`、`9`）視為「不知是否死亡」（參考實作旗標 `VITAL_STATUS_UNRECOGNISED`），不據以排除。
 - **2.3.2 治療狀態分類代碼 0**：「未於申報醫院接受任何治療即死亡：(1)申報醫院診斷後死亡或病危出院 (2)他院診斷，轉診至申報醫院後死亡」。
 
 **【本 IG 決定】判定規則**：符合下列任一項 → `DIED_BEFORE_TREATMENT`。
@@ -180,8 +180,8 @@
 | 4 重複個案 key | `Patient Has National Id`、`Reporting Hospital`（1.1） |
 | 5 重複個案 | `Beats`、`Is Duplicate`、`Representative Cases` |
 | 6、7 class、跨院 | `Initial Population`、`Cross Hospital Treatment` |
-| 8 治療前已死亡 | `Died Before Treatment`；5.4 的死亡代碼由參數 `Vital Status Dead Codes` 提供（預設 `true`） |
-| 9 外院資料 | **醫院提供的輸入**：CQL 參數 `Outside Data Excluded QI01`／`QI02`／`QI03`（逐指標的腫瘤 id 清單），自該指標分母移除 |
+| 8 治療前已死亡 | `Died Before Treatment`；5.4＝`0` 為死亡（長表摘錄手冊） |
+| 9 外院資料 | **醫院宣告的資料**：CRCOutsideDataExclusion Observation（逐腫瘤、逐指標），自該指標分母移除 |
 
 CQL 與參考實作 `reference/cohort.py` 以同一組合成個案驗證（`tests/fixtures/synthetic-cases.json` 中 `dedup-*`、`died-*` 等案例），Java 與 JavaScript 兩個 CQL 引擎的結果都必須與參考實作一致。
 

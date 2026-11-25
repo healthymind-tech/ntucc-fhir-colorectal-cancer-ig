@@ -5,61 +5,61 @@ Instance: SyntheticSummaryReport01
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 1"
-Description: "以本 IG 全部 104 個合成個案計算的 crc-qi-01 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 全部 111 個合成個案計算的 crc-qi-01 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-01"
 * language = #zh-TW
 * status = #complete
 * type = #summary
-* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-01|0.1.0-preview.1"
+* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-01|0.1.0-preview.2"
 * date = "2026-11-25"
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 79
+* group.population[0].count = 86
 * group.population[1].code = $MeasurePopulation#denominator
-* group.population[1].count = 9
+* group.population[1].count = 10
 * group.population[2].code = $MeasurePopulation#numerator
-* group.population[2].count = 5
-* group.measureScore.value = 0.5556
+* group.population[2].count = 6
+* group.measureScore.value = 0.6000
 
 Instance: SyntheticSummaryReport02
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 2"
-Description: "以本 IG 全部 104 個合成個案計算的 crc-qi-02 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 全部 111 個合成個案計算的 crc-qi-02 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-02"
 * language = #zh-TW
 * status = #complete
 * type = #summary
-* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-02|0.1.0-preview.1"
+* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-02|0.1.0-preview.2"
 * date = "2026-11-25"
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 79
+* group.population[0].count = 86
 * group.population[1].code = $MeasurePopulation#denominator
-* group.population[1].count = 40
+* group.population[1].count = 44
 * group.population[2].code = $MeasurePopulation#denominator-exclusion
 * group.population[2].count = 2
 * group.population[3].code = $MeasurePopulation#numerator
-* group.population[3].count = 33
-* group.measureScore.value = 0.8684
+* group.population[3].count = 37
+* group.measureScore.value = 0.8810
 
 Instance: SyntheticSummaryReport03
 InstanceOf: MeasureReport
 Usage: #example
 Title: "合成摘要報告－大腸癌指標 3"
-Description: "以本 IG 全部 104 個合成個案計算的 crc-qi-03 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
+Description: "以本 IG 全部 111 個合成個案計算的 crc-qi-03 摘要 MeasureReport，僅示範輸出格式，不代表任何醫院的實際表現。"
 * id = "synthetic-summary-crc-qi-03"
 * language = #zh-TW
 * status = #complete
 * type = #summary
-* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-03|0.1.0-preview.1"
+* measure = "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/Measure/crc-qi-03|0.1.0-preview.2"
 * date = "2026-11-25"
 * period.start = "2025-01-01"
 * period.end = "2025-12-31"
 * group.population[0].code = $MeasurePopulation#initial-population
-* group.population[0].count = 79
+* group.population[0].count = 86
 * group.population[1].code = $MeasurePopulation#denominator
 * group.population[1].count = 11
 * group.population[2].code = $MeasurePopulation#numerator

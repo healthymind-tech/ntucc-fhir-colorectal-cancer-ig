@@ -103,7 +103,7 @@ def build_fsh(rows: list[dict[str, str]]) -> str:
             f'* url = "{CANON}/ConceptMap/{map_id}"',
             f'* name = "{meta["instance"]}"',
             "* language = #zh-TW",
-            '* version = "0.1.0-preview.1"',
+            '* version = "0.1.0-preview.2"',
             "* status = #draft",
             "* experimental = true",
         ]

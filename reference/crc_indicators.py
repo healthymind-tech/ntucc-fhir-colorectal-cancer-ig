@@ -82,7 +82,7 @@ class PolypFacts:
     # report_issued is the date of the pathology report linked to the tumour
     # through Condition.evidence; an unlinked report does not start the clock.
     report_issued: date | None = None
-    high_risk_features: dict[str, bool] = field(default_factory=dict)  # A-D
+    high_risk_features: dict[str, bool | str] = field(default_factory=dict)  # A-D
     resections: list[tuple[date, str]] = field(default_factory=list)  # (date, status)
 
     @classmethod
@@ -109,7 +109,11 @@ def evaluate(fields: dict[str, str], polyp: PolypFacts, period: tuple[date, date
 
     # --- crc-qi-01 -----------------------------------------------------------
     out["Has Malignant Polyp"] = polyp.malignant_polyp_confirmed  # D1-POLYP
-    out["Has High Risk Feature"] = any(polyp.high_risk_features.values())  # D1-FEATURE
+    # D1-FEATURE. A finding is met when its answer is met; an equivalent
+    # translation does not change that; met and not-met answers together
+    # ("contradictory") are not met.
+    out["Has High Risk Feature"] = any(v is True or v == "met-with-translation"
+                                       for v in polyp.high_risk_features.values())
     report = polyp.report_issued  # D1-REPORT
     out["Denominator 1"] = ip and out["Has Malignant Polyp"] and out["Has High Risk Feature"] and report is not None
     out["Numerator 1"] = out["Denominator 1"] and any(  # N1-RESECT

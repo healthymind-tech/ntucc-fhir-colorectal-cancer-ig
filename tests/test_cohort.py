@@ -21,7 +21,7 @@ def rec(tid, patient="A123456789", hospital="H1", **fields):
         "3.13": "2A",
         "4.1": "20240310",
         "5.3": "20250101",
-        "5.4": "false",
+        "5.4": "1",
     }
     base.update({k.replace("_", "."): v for k, v in fields.items()})
     return {"tumour_id": tid, "patient_id": patient, "hospital_id": hospital, "fields": base}
@@ -262,7 +262,7 @@ def test_cross_hospital_needs_all_three(fields):
 
 
 # --- died before treatment ---------------------------------------------------
-DEAD = {"5_4": "true"}
+DEAD = {"5_4": "0"}  # 長表 5.4: 0 = 死亡
 
 
 def test_death_before_first_course_date_excluded_and_flagged():
@@ -300,7 +300,7 @@ def test_dead_after_no_treatment_decision_not_excluded():
 
 
 def test_tx_status_0_excluded_even_if_alive_recorded():
-    r = run(rec("T", **{"2_3_2": "0", "4_1": "00000000", "5_4": "false"}))
+    r = run(rec("T", **{"2_3_2": "0", "4_1": "00000000", "5_4": "1"}))
     assert r.excluded == {"T": c.DIED_BEFORE_TREATMENT}
     assert c.FLAG_DIED_BASIS_TX_STATUS_0 in r.flags["T"]
 
@@ -314,30 +314,35 @@ def test_dead_with_unknown_order_not_excluded_but_flagged(first, death):
 
 def test_alive_last_contact_before_treatment_is_not_death():
     # 5.3 is the last-contact date when 5.4 says alive.
-    r = run(rec("T", **{"5_4": "false", "4_1": "20240320", "5_3": "20240305"}))
+    r = run(rec("T", **{"5_4": "1", "4_1": "20240320", "5_3": "20240305"}))
     assert r.eligible == ["T"]
 
 
 def test_alive_without_treatment_is_not_death():
-    r = run(rec("T", **{"5_4": "false", "4_1": "00000000"}))
+    r = run(rec("T", **{"5_4": "1", "4_1": "00000000"}))
     assert r.eligible == ["T"]
 
 
 def test_unrecognised_vital_status_flagged_not_dead():
-    r = run(rec("T", **{"5_4": "0", "4_1": "00000000"}))
+    r = run(rec("T", **{"5_4": "true", "4_1": "00000000"}))
     assert r.eligible == ["T"]
     assert c.FLAG_VITAL_STATUS_UNRECOGNISED in r.flags["T"]
 
 
+def test_vital_status_default_is_long_form_code_table():
+    assert c.DEFAULT_VITAL_STATUS_CODES == {"0": True, "1": False}  # 長表摘錄手冊 p. 314
+
+
 def test_vital_status_code_table_supplied_by_caller():
-    codes = {"0": True, "1": False}  # illustrative only; real codes from the TCR manual
+    codes = {"0": True, "1": False}
     r = run(rec("D", **{"5_4": "0", "4_1": "00000000", "2_3_2": "9"}), rec("A", patient="B", **{"5_4": "1", "4_1": "00000000"}), vital_status_codes=codes)
     assert r.eligible == ["A"] and r.excluded == {"D": c.DIED_BEFORE_TREATMENT}
 
 
 def test_died_before_treatment_function_direct():
-    assert died_before_treatment({"5.4": "TRUE", "4.1": "00000000"})[0] is True
-    assert died_before_treatment({"5.4": "true", "4.1": "20240101", "5.3": "20240102"})[0] is False
+    assert died_before_treatment({"5.4": "0", "4.1": "00000000"})[0] is True
+    assert died_before_treatment({"5.4": "0", "4.1": "20240101", "5.3": "20240102"})[0] is False
+    assert died_before_treatment({"5.4": "true", "4.1": "00000000"})[0] is False
 
 
 def test_death_exclusion_on_representative_does_not_promote_duplicate():

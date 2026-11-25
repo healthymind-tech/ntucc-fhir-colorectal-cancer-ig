@@ -59,19 +59,17 @@ VITAL_STATUS = "5.4"             # TWCRLF.outcome.vitalStatus
 REGISTRY_START = date(2024, 1, 1)  # 第一點: 自 113 年 1 月 1 日起新診斷
 COLORECTAL = "大腸癌"
 
+NO_NATIONAL_ID = "9999999999"  # 1.4 身分證統一編號: 個案無身分證統一編號 (手冊 p. 56)
 NO_DATE = "00000000"       # 無 (e.g. 4.1: no first course treatment)
 UNKNOWN_DATE = "99999999"  # 不詳
 
 # ---------------------------------------------------------------------------
 # Vital status (5.4)
 # ---------------------------------------------------------------------------
-# The TWCR_LF package (fhir.TWCRLF 0.1.1) defines no code table for 5.4: the
-# element is mapped to Patient.deceasedBoolean ("記錄個案「最後聯絡或死亡日期」的
-# 存活狀態"). The only representation the package itself documents is therefore
-# the FHIR boolean, true = deceased. The raw long-form code values must be taken
-# from the TCR 長表摘錄手冊 and passed in via `vital_status_codes`; this module
-# deliberately does not hard-code them.
-DEFAULT_VITAL_STATUS_CODES: Mapping[str, bool] = {"true": True, "false": False}
+# 長表摘錄手冊 (民國114年版) p. 314: 5.4 生存狀態, 編碼範圍 0-1, 0 = 死亡,
+# 1 = 存活. (TWCR_LF 0.1.1 maps the element to Patient.deceasedBoolean, but the
+# raw long-form value is what this IG keeps.) Any other value is not dead.
+DEFAULT_VITAL_STATUS_CODES: Mapping[str, bool] = {"0": True, "1": False}
 
 # ---------------------------------------------------------------------------
 # Outside-hospital data (第五點) — hospital-supplied, per indicator
@@ -379,6 +377,8 @@ def assemble_cohort(
             excluded[tid] = OUTSIDE_MEASUREMENT_PERIOD
             continue
         hospital, patient = _key_part(r.get("hospital_id")), _key_part(r.get("patient_id"))
+        if patient == NO_NATIONAL_ID:  # 長表 1.4: 個案無身分證統一編號
+            patient = None
         if hospital is None or patient is None:
             excluded[tid] = MISSING_DEDUP_KEY
             continue

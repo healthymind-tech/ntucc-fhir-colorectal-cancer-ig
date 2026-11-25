@@ -72,7 +72,7 @@ def case(case_id, description, fields, expected, base=None, polyp=None):
     return multi(case_id, description, [tumour(tid, fields, base, polyp)], lists)
 
 
-def multi(case_id, description, tumours, expected, national_id="present", outside_excluded=None):
+def multi(case_id, description, tumours, expected, national_id="present", outside_excluded=None, outside_ignored=None):
     unknown = set(expected) - set(POPULATIONS)
     if unknown:
         raise SystemExit(f"{case_id}: not a population expression: {unknown}")
@@ -90,6 +90,9 @@ def multi(case_id, description, tumours, expected, national_id="present", outsid
     return {"id": case_id, "description": description,
             "national_id": (case_id if national_id == "present" else national_id), "tumours": tumours,
             "outside_excluded": outside_excluded or {},
+            # (indicator, tumour id, status) declarations the CQL must ignore;
+            # not passed to the Python reference, which never sees them.
+            "outside_ignored": outside_ignored or [],
             "expected": {k: sorted(v) for k, v in expected.items()}}
 
 
@@ -162,6 +165,11 @@ CASES = [
          {**POLYP, "features": {"A": True}}),
     case("qi01-unconfirmed-polyp", "惡性息肉未確認", {}, {"Has Malignant Polyp": False, "Denominator 1": False},
          POLYP_REGISTRY, {**POLYP, "malignant_polyp": "provisional"}),
+    case("qi01-feature-b-translation", "條件 B 的 LOINC 答案另附 SNOMED CT 同義代碼：仍成立", {},
+         {"Denominator 1": True}, POLYP_REGISTRY, {**POLYP, "features": {"B": "met-with-translation"}}),
+    case("qi01-feature-c-contradictory", "條件 C 同時帶「有」與「無」淋巴血管侵犯：不成立（矛盾資料）", {},
+         {"Has High Risk Feature": False, "Denominator 1": False}, POLYP_REGISTRY,
+         {**POLYP, "features": {"C": "contradictory"}}),
     case("qi01-no-polyp-facts", "沒有惡性息肉臨床事實", {}, {"Denominator 1": False, "Numerator 1": False}, COLON),
 ]
 
@@ -184,10 +192,12 @@ CASES += [
     case("ws-dx-leading", "2.5 前置空白：去除後有效", {"2.5": " 20250305"}, {"Initial Population": True}, COLON),
     case("ws-class-trailing", "2.3「1 」：去除後為 1", {"2.3": "1 "}, {"Initial Population": True}, COLON),
     case("ws-tx-status-0", "2.3.2「 0」：治療前死亡", {"2.3.2": " 0"}, {"Initial Population": False}, COLON),
-    case("ws-first-course-none", "死亡且 4.1「00000000 」", {"5.4": "true", "4.1": "00000000 "}, {"Initial Population": False}, COLON),
+    case("ws-first-course-none", "死亡且 4.1「00000000 」", {"5.4": "0", "4.1": "00000000 "}, {"Initial Population": False}, COLON),
     case("ws-cross-hospital", "2.3.1「2 」：跨院治療", {"2.3": "2", "2.3.1": "2 ", "2.3.2": "3"}, {"Initial Population": False}, COLON),
-    case("ws-vital-internal", "5.4「tr ue」不是死亡代碼", {"5.4": "tr ue", "4.1": "00000000"}, {"Initial Population": True}, COLON),
-    case("vital-upper-case", "5.4「TRUE」：死亡代碼不分大小寫", {"5.4": "TRUE", "4.1": "00000000"}, {"Initial Population": False}, COLON),
+    case("ws-vital-internal", "5.4「0 0」內含空白：不是死亡代碼", {"5.4": "0 0", "4.1": "00000000"}, {"Initial Population": True}, COLON),
+    case("vital-trailing-blank", "5.4「0 」：去除尾端空白後為 0（死亡）", {"5.4": "0 ", "4.1": "00000000"}, {"Initial Population": False}, COLON),
+    case("vital-alive", "5.4＝1 存活、4.1＝00000000：不是治療前死亡", {"5.4": "1", "4.1": "00000000"}, {"Initial Population": True}, COLON),
+    case("vital-boolean-true", "5.4「true」不是長表代碼（0＝死亡）：不視為死亡", {"5.4": "true", "4.1": "00000000"}, {"Initial Population": True}, COLON),
     multi("ws-stage-internal", "同日：a 病理期別「3 C」格式錯誤且臨床 999，無法排序；留 b（2A）",
           [tumour(_t("ws-stage-internal", "a"), {"3.13": "3 C", "3.7": "999"}, COLON),
            tumour(_t("ws-stage-internal", "b"), {"3.13": "2A"}, COLON)],
@@ -234,6 +244,8 @@ CASES += [
           {"Initial Population": [_t("foreign-coding", "tumour")]}),
     multi("national-id-blank", "身分證號只有空白：視為缺少",
           [tumour(_t("national-id-blank", "tumour"), {}, COLON)], {"Initial Population": []}, national_id=" "),
+    multi("national-id-unknown-code", "身分證號 9999999999（長表：個案無身分證統一編號）：視為缺少",
+          [tumour(_t("national-id-unknown-code", "tumour"), {}, COLON)], {"Initial Population": []}, national_id="9999999999"),
     multi("national-id-ideographic-space", "身分證號只有全形空白 U+3000：視為缺少（HAPI 解析時會丟棄）",
           [tumour(_t("national-id-ideographic-space", "tumour"), {}, COLON)], {"Initial Population": []}, national_id="\u3000"),
     multi("national-id-newline", "身分證號只有換行：視為缺少",
@@ -256,6 +268,15 @@ CASES += [
           [tumour(_t("outside-data-excluded-qi03", "tumour"), {}, RECTUM)],
           {"Initial Population": [_t("outside-data-excluded-qi03", "tumour")], "Denominator 3": [], "Numerator 3": []},
           outside_excluded={"3": [_t("outside-data-excluded-qi03", "tumour")]}),
+    multi("outside-data-entered-in-error", "第五點宣告為 entered-in-error：不排除",
+          [tumour(_t("outside-data-entered-in-error", "tumour"), {}, COLON)],
+          {"Denominator 2": [_t("outside-data-entered-in-error", "tumour")]},
+          outside_ignored=[(2, _t("outside-data-entered-in-error", "tumour"), "entered-in-error")]),
+    multi("outside-data-other-tumour", "第五點宣告指向同一病人的另一顆腫瘤（不同院）：本腫瘤不受影響",
+          [tumour(_t("outside-data-other-tumour", "a"), {}, COLON),
+           tumour(_t("outside-data-other-tumour", "b"), {"1.1": "0501110514"}, COLON)],
+          {"Denominator 2": [_t("outside-data-other-tumour", "a")]},
+          outside_excluded={"2": [_t("outside-data-other-tumour", "b")]}),
     # ---- case assembly (reference/cohort.py, case-assembly page) ----------------
     multi("dedup-earlier-diagnosis", "同院同病人兩顆結腸癌：留最初診斷日期較早者",
           [tumour(_t("dedup-earlier-diagnosis", "a"), {}, COLON),
@@ -289,19 +310,19 @@ CASES += [
           [tumour(_t("died-tx-status-0", "tumour"), {"2.3.2": "0"}, COLON)],
           {"Initial Population": []}),
     multi("died-no-first-course", "死亡且首次療程 00000000",
-          [tumour(_t("died-no-first-course", "tumour"), {"5.4": "true", "4.1": "00000000"}, COLON)],
+          [tumour(_t("died-no-first-course", "tumour"), {"5.4": "0", "4.1": "00000000"}, COLON)],
           {"Initial Population": []}),
     multi("died-no-first-course-watchful", "死亡、首次療程 00000000，但治療狀態分類 4（不予治療／密切觀察）：保留",
-          [tumour(_t("died-no-first-course-watchful", "tumour"), {"5.4": "true", "4.1": "00000000", "2.3.2": "4"}, COLON)],
+          [tumour(_t("died-no-first-course-watchful", "tumour"), {"5.4": "0", "4.1": "00000000", "2.3.2": "4"}, COLON)],
           {"Initial Population": [_t("died-no-first-course-watchful", "tumour")]}),
     multi("died-before-first-course-date", "死亡日期早於首次療程開始日期",
-          [tumour(_t("died-before-first-course-date", "tumour"), {"5.4": "true", "5.3": "20250315"}, COLON)],
+          [tumour(_t("died-before-first-course-date", "tumour"), {"5.4": "0", "5.3": "20250315"}, COLON)],
           {"Initial Population": []}),
     multi("died-on-first-course-date", "治療開始當日死亡：視為已治療，保留",
-          [tumour(_t("died-on-first-course-date", "tumour"), {"5.4": "true", "5.3": "20250320"}, COLON)],
+          [tumour(_t("died-on-first-course-date", "tumour"), {"5.4": "0", "5.3": "20250320"}, COLON)],
           {"Initial Population": [_t("died-on-first-course-date", "tumour")]}),
     multi("alive-early-last-contact", "存活：5.3 是最後聯絡日期，不是死亡日期，保留",
-          [tumour(_t("alive-early-last-contact", "tumour"), {"5.4": "false", "5.3": "20250315"}, COLON)],
+          [tumour(_t("alive-early-last-contact", "tumour"), {"5.4": "1", "5.3": "20250315"}, COLON)],
           {"Initial Population": [_t("alive-early-last-contact", "tumour")]}),
     multi("multi-primary-colon-rectum", "同院同步結腸癌與直腸癌：同一癌別，註1 只留較早診斷的直腸癌",
           [tumour(_t("multi-primary-colon-rectum", "colon"), {}, COLON),
@@ -369,6 +390,12 @@ PATHOLOGY_FINDINGS = {
     "B": ((LOINC, "85290-5"), (LOINC, "LA27251-0"), (LOINC, "LA27250-2")),
     "C": ((LOINC, "59544-7"), (LOINC, "LA13328-2"), (LOINC, "LA13327-4")),
     "D": ((LOINC, "33732-9"), (SNOMED, "1155704001"), (SNOMED, "1155703007")),
+}
+# Equivalent codings from outside the question's answer list (translations).
+PATHOLOGY_TRANSLATIONS = {
+    "B": (SNOMED, "370109009"),   # Surgical margin involved by tumor
+    "C": (SNOMED, "395717001"),   # Lymphatic (small vessel) invasion by tumor present
+    "D": (SNOMED, "369718005"),   # G3: Poorly differentiated (5-49 percent gland forming)
 }
 
 
@@ -467,10 +494,14 @@ def tumour_resources(pid, subject, t, report_ids):
                            valueBoolean=present)
         else:  # pathology report: a lab result, LOINC question + coded answer
             question, met, not_met = PATHOLOGY_FINDINGS[letter]
-            answer = met if present else not_met
+            # True / False: one answer coding. "met-with-translation": the met
+            # answer plus an equivalent coding from another system (allowed).
+            # "contradictory": met and not-met answers together (not met).
+            answers = {True: [met], False: [not_met], "contradictory": [met, not_met],
+                       "met-with-translation": [met, PATHOLOGY_TRANSLATIONS[letter]]}[present]
             finding.update(category=obs_category("laboratory"), effectiveDateTime=polyp["report_issued"],
                            code={"coding": [{"system": question[0], "code": question[1]}]},
-                           valueCodeableConcept={"coding": [{"system": answer[0], "code": answer[1]}]})
+                           valueCodeableConcept={"coding": [{"system": a[0], "code": a[1]} for a in answers]})
         out.append(finding)
     for index, resection in enumerate(polyp.get("resections", [])):
         out.append({
@@ -495,6 +526,17 @@ def to_bundle(item, index):
     entries = [patient]
     for t in item["tumours"]:
         entries += tumour_resources(pid, subject, t, None)
+    # 第五點: one CRCOutsideDataExclusion Observation per tumour and indicator.
+    declarations = [(m, tid, "final") for m, ids in item.get("outside_excluded", {}).items() for tid in ids]
+    for k, (m, tid, status) in enumerate(declarations + list(item.get("outside_ignored", []))):
+        entries.append({
+            "resourceType": "Observation", "id": f"{pid}-outside-{k}", "status": status,
+            "code": {"coding": [{"system": f"{CANON}/CodeSystem/crc-outside-data", "code": f"excluded-qi0{m}"}]},
+            "subject": subject, "focus": [ref("Condition", tid)],
+            "valueCodeableConcept": {"coding": [{"system": f"{CANON}/CodeSystem/crc-outside-data",
+                                                 "code": "numerator-outside-not-obtained"}]},
+            "issued": "2026-01-15T10:00:00+08:00",
+        })
     return {"resourceType": "Bundle", "type": "collection",
             "meta": {"tag": [{"system": f"{CANON}/CodeSystem/fixture-tag", "code": "synthetic"}]},
             "entry": [{"resource": r} for r in entries]}
@@ -526,7 +568,7 @@ def write_measure_reports(results, period):
             "* language = #zh-TW",
             "* status = #complete",
             "* type = #summary",
-            f'* measure = "{CANON}/Measure/{measure_id}|0.1.0-preview.1"',
+            f'* measure = "{CANON}/Measure/{measure_id}|0.1.0-preview.2"',
             f'* date = "2026-11-25"',
             f'* period.start = "{period[0]}"',
             f'* period.end = "{period[1]}"',
@@ -551,7 +593,7 @@ def value_sets():
         codes = [{"system": inc["system"], "code": c["code"]}
                  for inc in vs.get("compose", {}).get("include", []) for c in inc.get("concept", [])]
         if codes:
-            expansions[vs["url"]] = {vs.get("version", "0.1.0-preview.1"): codes}
+            expansions[vs["url"]] = {vs.get("version", "0.1.0-preview.2"): codes}
     return expansions
 
 
@@ -570,9 +612,6 @@ def main():
         if wrong:
             raise SystemExit(f"{c['id']}: reference disagrees with the hand-written expectation: {wrong}")
         entry = {"id": c["id"], "expected": reference, "bundle": to_bundle(c, i + 1)}
-        params = {f"Outside Data Excluded QI0{m}": ids for m, ids in c["outside_excluded"].items()}
-        if params:
-            entry["parameters"] = params
         runner.append(entry)
     (fixtures / "cql/cases.json").write_text(json.dumps(runner, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     write_measure_reports([r["expected"] for r in runner], flat["measurement_period"])

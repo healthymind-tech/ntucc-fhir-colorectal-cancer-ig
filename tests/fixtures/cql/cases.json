@@ -20837,6 +20837,1128 @@
   }
  },
  {
+  "id": "qi01-feature-b-translation",
+  "expected": {
+   "Initial Population": [
+    "qi01-feature-b-translation-tumour"
+   ],
+   "Denominator 1": [
+    "qi01-feature-b-translation-tumour"
+   ],
+   "Numerator 1": [
+    "qi01-feature-b-translation-tumour"
+   ],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-feature-b-translation",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000044"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-feature-b-translation-tumour",
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-feature-b-translation-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-feature-b-translation-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-03-01T10:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-b-translation-tumour-feature-b",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "85290-5"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA27251-0"
+        },
+        {
+         "system": "http://snomed.info/sct",
+         "code": "370109009"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-feature-b-translation-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-b-translation"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-feature-b-translation-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-24T09:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "qi01-feature-c-contradictory",
+  "expected": {
+   "Initial Population": [
+    "qi01-feature-c-contradictory-tumour"
+   ],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "qi01-feature-c-contradictory",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000045"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "qi01-feature-c-contradictory-tumour",
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "malignant-polyp-t1"
+        },
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ],
+      "verificationStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+         "code": "confirmed"
+        }
+       ]
+      },
+      "evidence": [
+       {
+        "detail": [
+         {
+          "reference": "DiagnosticReport/qi01-feature-c-contradictory-tumour-report"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "20250301",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "valueString": "27",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "DiagnosticReport",
+      "id": "qi01-feature-c-contradictory-tumour-report",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "SP"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "11529-5"
+        }
+       ]
+      },
+      "issued": "2025-03-01T10:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "qi01-feature-c-contradictory-tumour-feature-c",
+      "status": "final",
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "focus": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+         }
+        ]
+       }
+      ],
+      "effectiveDateTime": "2025-03-01",
+      "code": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "59544-7"
+        }
+       ]
+      },
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "http://loinc.org",
+         "code": "LA13328-2"
+        },
+        {
+         "system": "http://loinc.org",
+         "code": "LA13327-4"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Procedure",
+      "id": "qi01-feature-c-contradictory-tumour-resection-0",
+      "status": "completed",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-indicator-concept",
+         "code": "curative-resection"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/qi01-feature-c-contradictory"
+      },
+      "reasonReference": [
+       {
+        "reference": "Condition/qi01-feature-c-contradictory-tumour"
+       }
+      ],
+      "performedDateTime": "2025-05-24T09:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
   "id": "qi01-no-polyp-facts",
   "expected": {
    "Initial Population": [
@@ -20883,7 +22005,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000044"
+        "value": "Z000000046"
        }
       ]
      }
@@ -21359,7 +22481,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000045"
+        "value": "Z000000047"
        }
       ]
      }
@@ -22244,7 +23366,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000046"
+        "value": "Z000000048"
        }
       ]
      }
@@ -22711,7 +23833,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000047"
+        "value": "Z000000049"
        }
       ]
      }
@@ -23184,7 +24306,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000048"
+        "value": "Z000000050"
        }
       ]
      }
@@ -23657,7 +24779,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000049"
+        "value": "Z000000051"
        }
       ]
      }
@@ -24130,7 +25252,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000050"
+        "value": "Z000000052"
        }
       ]
      }
@@ -24597,7 +25719,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000051"
+        "value": "Z000000053"
        }
       ]
      }
@@ -25094,7 +26216,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000052"
+        "value": "Z000000054"
        }
       ]
      }
@@ -25543,7 +26665,7 @@
         "reference": "Condition/ws-first-course-none-tumour"
        }
       ],
-      "valueString": "true",
+      "valueString": "0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     }
@@ -25591,7 +26713,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000053"
+        "value": "Z000000055"
        }
       ]
      }
@@ -26124,7 +27246,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000054"
+        "value": "Z000000056"
        }
       ]
      }
@@ -26573,7 +27695,7 @@
         "reference": "Condition/ws-vital-internal-tumour"
        }
       ],
-      "valueString": "tr ue",
+      "valueString": "0 0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     }
@@ -26581,7 +27703,7 @@
   }
  },
  {
-  "id": "vital-upper-case",
+  "id": "vital-trailing-blank",
   "expected": {
    "Initial Population": [],
    "Denominator 1": [],
@@ -26607,7 +27729,7 @@
     {
      "resource": {
       "resourceType": "Patient",
-      "id": "vital-upper-case",
+      "id": "vital-trailing-blank",
       "gender": "male",
       "birthDate": "1960-01-01",
       "identifier": [
@@ -26621,7 +27743,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000055"
+        "value": "Z000000057"
        }
       ]
      }
@@ -26629,9 +27751,9 @@
     {
      "resource": {
       "resourceType": "Condition",
-      "id": "vital-upper-case-tumour",
+      "id": "vital-trailing-blank-tumour",
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "clinicalStatus": {
        "coding": [
@@ -26687,7 +27809,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f1-1-v00",
+      "id": "vital-trailing-blank-tumour-f1-1-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26703,11 +27825,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "0401180014",
@@ -26717,7 +27839,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-3-v00",
+      "id": "vital-trailing-blank-tumour-f2-3-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26733,11 +27855,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "1",
@@ -26747,7 +27869,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-5-v00",
+      "id": "vital-trailing-blank-tumour-f2-5-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26763,11 +27885,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "20250305",
@@ -26777,7 +27899,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-6-v00",
+      "id": "vital-trailing-blank-tumour-f2-6-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26793,11 +27915,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "C187",
@@ -26807,7 +27929,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-8-v00",
+      "id": "vital-trailing-blank-tumour-f2-8-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26823,11 +27945,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "8140",
@@ -26837,7 +27959,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-9-v00",
+      "id": "vital-trailing-blank-tumour-f2-9-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26853,11 +27975,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "3",
@@ -26867,7 +27989,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-12-v00",
+      "id": "vital-trailing-blank-tumour-f2-12-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26883,11 +28005,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "20250305",
@@ -26897,7 +28019,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f2-14-v00",
+      "id": "vital-trailing-blank-tumour-f2-14-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26913,11 +28035,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "15",
@@ -26927,7 +28049,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f3-7-v00",
+      "id": "vital-trailing-blank-tumour-f3-7-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26943,11 +28065,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "3B",
@@ -26957,7 +28079,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f3-13-v00",
+      "id": "vital-trailing-blank-tumour-f3-13-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -26973,11 +28095,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "3B",
@@ -26987,7 +28109,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f4-1-v00",
+      "id": "vital-trailing-blank-tumour-f4-1-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -27003,11 +28125,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "00000000",
@@ -27017,7 +28139,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f4-1-4-v00",
+      "id": "vital-trailing-blank-tumour-f4-1-4-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -27033,11 +28155,11 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
       "valueString": "30",
@@ -27047,7 +28169,7 @@
     {
      "resource": {
       "resourceType": "Observation",
-      "id": "vital-upper-case-tumour-f5-4-v00",
+      "id": "vital-trailing-blank-tumour-f5-4-v00",
       "meta": {
        "profile": [
         "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
@@ -27063,14 +28185,1020 @@
        ]
       },
       "subject": {
-       "reference": "Patient/vital-upper-case"
+       "reference": "Patient/vital-trailing-blank"
       },
       "focus": [
        {
-        "reference": "Condition/vital-upper-case-tumour"
+        "reference": "Condition/vital-trailing-blank-tumour"
        }
       ],
-      "valueString": "TRUE",
+      "valueString": "0 ",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "vital-alive",
+  "expected": {
+   "Initial Population": [
+    "vital-alive-tumour"
+   ],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [
+    "vital-alive-tumour"
+   ],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [
+    "vital-alive-tumour"
+   ],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "vital-alive",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000058"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "vital-alive-tumour",
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "00000000",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-alive-tumour-f5-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "5.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-alive"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-alive-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "vital-boolean-true",
+  "expected": {
+   "Initial Population": [
+    "vital-boolean-true-tumour"
+   ],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [
+    "vital-boolean-true-tumour"
+   ],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [
+    "vital-boolean-true-tumour"
+   ],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "vital-boolean-true",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000059"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "vital-boolean-true-tumour",
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "00000000",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "vital-boolean-true-tumour-f5-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "5.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/vital-boolean-true"
+      },
+      "focus": [
+       {
+        "reference": "Condition/vital-boolean-true-tumour"
+       }
+      ],
+      "valueString": "true",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     }
@@ -27124,7 +29252,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000056"
+        "value": "Z000000060"
        }
       ]
      }
@@ -28013,7 +30141,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000057"
+        "value": "Z000000061"
        }
       ]
      }
@@ -28482,7 +30610,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000058"
+        "value": "Z000000062"
        }
       ]
      }
@@ -28921,7 +31049,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000059"
+        "value": "Z000000063"
        }
       ]
      }
@@ -29390,7 +31518,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000060"
+        "value": "Z000000064"
        }
       ]
      }
@@ -29803,7 +31931,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000061"
+        "value": "Z000000065"
        }
       ]
      }
@@ -30240,7 +32368,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000062"
+        "value": "Z000000066"
        }
       ]
      }
@@ -30707,7 +32835,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000063"
+        "value": "Z000000067"
        }
       ]
      }
@@ -31174,7 +33302,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000064"
+        "value": "Z000000068"
        }
       ]
      }
@@ -31645,7 +33773,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000065"
+        "value": "Z000000069"
        }
       ]
      }
@@ -32082,7 +34210,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000066"
+        "value": "Z000000070"
        }
       ]
      }
@@ -32557,7 +34685,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000067"
+        "value": "Z000000071"
        }
       ]
      }
@@ -33101,7 +35229,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000068"
+        "value": "Z000000072"
        }
       ]
      }
@@ -33574,7 +35702,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000069"
+        "value": "Z000000073"
        }
       ]
      }
@@ -34047,7 +36175,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000070"
+        "value": "Z000000074"
        }
       ]
      }
@@ -34519,7 +36647,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000071"
+        "value": "Z000000075"
        }
       ]
      }
@@ -35021,7 +37149,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000072"
+        "value": "Z000000076"
        }
       ]
      }
@@ -35909,6 +38037,473 @@
       "focus": [
        {
         "reference": "Condition/national-id-blank-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "national-id-unknown-code",
+  "expected": {
+   "Initial Population": [],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "national-id-unknown-code",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "9999999999"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "national-id-unknown-code-tumour",
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "national-id-unknown-code-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/national-id-unknown-code"
+      },
+      "focus": [
+       {
+        "reference": "Condition/national-id-unknown-code-tumour"
        }
       ],
       "valueString": "30",
@@ -37366,7 +39961,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000077"
+        "value": "Z000000082"
        }
       ]
      }
@@ -37835,7 +40430,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000078"
+        "value": "Z000000083"
        }
       ]
      }
@@ -38257,12 +40852,39 @@
       "valueString": "30",
       "issued": "2025-04-30T17:00:00+08:00"
      }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-excluded-qi02-outside-0",
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "excluded-qi02"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-excluded-qi02"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-excluded-qi02-tumour"
+       }
+      ],
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "numerator-outside-not-obtained"
+        }
+       ]
+      },
+      "issued": "2026-01-15T10:00:00+08:00"
+     }
     }
-   ]
-  },
-  "parameters": {
-   "Outside Data Excluded QI02": [
-    "outside-data-excluded-qi02-tumour"
    ]
   }
  },
@@ -38309,7 +40931,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000079"
+        "value": "Z000000084"
        }
       ]
      }
@@ -38817,12 +41439,39 @@
       ],
       "performedDateTime": "2025-05-24T09:00:00+08:00"
      }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-excluded-qi01-outside-0",
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "excluded-qi01"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-excluded-qi01"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-excluded-qi01-tumour"
+       }
+      ],
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "numerator-outside-not-obtained"
+        }
+       ]
+      },
+      "issued": "2026-01-15T10:00:00+08:00"
+     }
     }
-   ]
-  },
-  "parameters": {
-   "Outside Data Excluded QI01": [
-    "outside-data-excluded-qi01-tumour"
    ]
   }
  },
@@ -38869,7 +41518,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000080"
+        "value": "Z000000085"
        }
       ]
      }
@@ -39261,12 +41910,1468 @@
       "valueString": "40",
       "issued": "2025-04-30T17:00:00+08:00"
      }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-excluded-qi03-outside-0",
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "excluded-qi03"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-excluded-qi03"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-excluded-qi03-tumour"
+       }
+      ],
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "numerator-outside-not-obtained"
+        }
+       ]
+      },
+      "issued": "2026-01-15T10:00:00+08:00"
+     }
     }
    ]
+  }
+ },
+ {
+  "id": "outside-data-entered-in-error",
+  "expected": {
+   "Initial Population": [
+    "outside-data-entered-in-error-tumour"
+   ],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [
+    "outside-data-entered-in-error-tumour"
+   ],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [
+    "outside-data-entered-in-error-tumour"
+   ],
+   "Denominator 3": [],
+   "Numerator 3": []
   },
-  "parameters": {
-   "Outside Data Excluded QI03": [
-    "outside-data-excluded-qi03-tumour"
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "outside-data-entered-in-error",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000086"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "outside-data-entered-in-error-tumour",
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-tumour-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-entered-in-error-outside-0",
+      "status": "entered-in-error",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "excluded-qi02"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-entered-in-error"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-entered-in-error-tumour"
+       }
+      ],
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "numerator-outside-not-obtained"
+        }
+       ]
+      },
+      "issued": "2026-01-15T10:00:00+08:00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "outside-data-other-tumour",
+  "expected": {
+   "Initial Population": [
+    "outside-data-other-tumour-a",
+    "outside-data-other-tumour-b"
+   ],
+   "Denominator 1": [],
+   "Numerator 1": [],
+   "Denominator 2": [
+    "outside-data-other-tumour-a"
+   ],
+   "Denominator 2 Exclusion": [],
+   "Numerator 2": [
+    "outside-data-other-tumour-a"
+   ],
+   "Denominator 3": [],
+   "Numerator 3": []
+  },
+  "bundle": {
+   "resourceType": "Bundle",
+   "type": "collection",
+   "meta": {
+    "tag": [
+     {
+      "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/fixture-tag",
+      "code": "synthetic"
+     }
+    ]
+   },
+   "entry": [
+    {
+     "resource": {
+      "resourceType": "Patient",
+      "id": "outside-data-other-tumour",
+      "gender": "male",
+      "birthDate": "1960-01-01",
+      "identifier": [
+       {
+        "type": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+           "code": "NNxxx"
+          }
+         ]
+        },
+        "system": "http://www.moi.gov.tw",
+        "value": "Z000000087"
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "outside-data-other-tumour-a",
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "0401180014",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-a-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-a"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Condition",
+      "id": "outside-data-other-tumour-b",
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "clinicalStatus": {
+       "coding": [
+        {
+         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+         "code": "active"
+        }
+       ]
+      },
+      "category": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+         }
+        ]
+       }
+      ],
+      "code": {
+       "coding": [
+        {
+         "system": "http://hl7.org/fhir/sid/icd-10-cm",
+         "code": "C18.7"
+        }
+       ]
+      },
+      "bodySite": [
+       {
+        "coding": [
+         {
+          "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+          "code": "C18.7"
+         }
+        ]
+       }
+      ],
+      "extension": [
+       {
+        "url": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-histology-morphology-behavior",
+        "valueCodeableConcept": {
+         "coding": [
+          {
+           "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+           "code": "8140/3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f1-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "1.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "0501110514",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-3-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.3"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "1",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-5-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.5"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-6-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.6"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "C187",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-8-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.8"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "8140",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-9-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.9"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "3",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-12-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.12"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "20250305",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f2-14-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "2.14"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "15",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f3-7-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.7"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f3-13-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "3.13"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "3B",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f4-1-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "20250320",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-b-f4-1-4-v00",
+      "meta": {
+       "profile": [
+        "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/StructureDefinition/crc-tcr-data-item-observation"
+       ]
+      },
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-tcr-field",
+         "code": "4.1.4"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueString": "30",
+      "issued": "2025-04-30T17:00:00+08:00"
+     }
+    },
+    {
+     "resource": {
+      "resourceType": "Observation",
+      "id": "outside-data-other-tumour-outside-0",
+      "status": "final",
+      "code": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "excluded-qi02"
+        }
+       ]
+      },
+      "subject": {
+       "reference": "Patient/outside-data-other-tumour"
+      },
+      "focus": [
+       {
+        "reference": "Condition/outside-data-other-tumour-b"
+       }
+      ],
+      "valueCodeableConcept": {
+       "coding": [
+        {
+         "system": "https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/CodeSystem/crc-outside-data",
+         "code": "numerator-outside-not-obtained"
+        }
+       ]
+      },
+      "issued": "2026-01-15T10:00:00+08:00"
+     }
+    }
    ]
   }
  },
@@ -39317,7 +43422,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000081"
+        "value": "Z000000088"
        }
       ]
      }
@@ -40208,7 +44313,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000082"
+        "value": "Z000000089"
        }
       ]
      }
@@ -41095,7 +45200,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000083"
+        "value": "Z000000090"
        }
       ]
      }
@@ -41986,7 +46091,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000084"
+        "value": "Z000000091"
        }
       ]
      }
@@ -42871,7 +46976,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000085"
+        "value": "Z000000092"
        }
       ]
      }
@@ -43756,7 +47861,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000086"
+        "value": "Z000000093"
        }
       ]
      }
@@ -44185,7 +48290,7 @@
       "identifier": [
        {
         "system": "urn:example:local-mrn",
-        "value": "MRN000087"
+        "value": "MRN000094"
        }
       ]
      }
@@ -44652,7 +48757,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000088"
+        "value": "Z000000095"
        }
       ]
      }
@@ -45119,7 +49224,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000089"
+        "value": "Z000000096"
        }
       ]
      }
@@ -45616,7 +49721,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000090"
+        "value": "Z000000097"
        }
       ]
      }
@@ -46065,7 +50170,7 @@
         "reference": "Condition/died-no-first-course-tumour"
        }
       ],
-      "valueString": "true",
+      "valueString": "0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     }
@@ -46119,7 +50224,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000091"
+        "value": "Z000000098"
        }
       ]
      }
@@ -46568,7 +50673,7 @@
         "reference": "Condition/died-no-first-course-watchful-tumour"
        }
       ],
-      "valueString": "true",
+      "valueString": "0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     },
@@ -46646,7 +50751,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000092"
+        "value": "Z000000099"
        }
       ]
      }
@@ -47095,7 +51200,7 @@
         "reference": "Condition/died-before-first-course-date-tumour"
        }
       ],
-      "valueString": "true",
+      "valueString": "0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     },
@@ -47179,7 +51284,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000093"
+        "value": "Z000000100"
        }
       ]
      }
@@ -47628,7 +51733,7 @@
         "reference": "Condition/died-on-first-course-date-tumour"
        }
       ],
-      "valueString": "true",
+      "valueString": "0",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     },
@@ -47712,7 +51817,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000094"
+        "value": "Z000000101"
        }
       ]
      }
@@ -48161,7 +52266,7 @@
         "reference": "Condition/alive-early-last-contact-tumour"
        }
       ],
-      "valueString": "false",
+      "valueString": "1",
       "issued": "2025-04-30T17:00:00+08:00"
      }
     },
@@ -48243,7 +52348,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000095"
+        "value": "Z000000102"
        }
       ]
      }
@@ -49109,7 +53214,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000096"
+        "value": "Z000000103"
        }
       ]
      }
@@ -49970,7 +54075,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000097"
+        "value": "Z000000104"
        }
       ]
      }
@@ -50471,7 +54576,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000098"
+        "value": "Z000000105"
        }
       ]
      }
@@ -50974,7 +55079,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000099"
+        "value": "Z000000106"
        }
       ]
      }
@@ -51477,7 +55582,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000100"
+        "value": "Z000000107"
        }
       ]
      }
@@ -51980,7 +56085,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000101"
+        "value": "Z000000108"
        }
       ]
      }
@@ -52978,7 +57083,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000102"
+        "value": "Z000000109"
        }
       ]
      }
@@ -53971,7 +58076,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000103"
+        "value": "Z000000110"
        }
       ]
      }
@@ -54519,7 +58624,7 @@
          ]
         },
         "system": "http://www.moi.gov.tw",
-        "value": "Z000000104"
+        "value": "Z000000111"
        }
       ]
      }

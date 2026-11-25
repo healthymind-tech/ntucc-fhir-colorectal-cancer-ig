@@ -203,7 +203,7 @@ public class CqlJavaRunner {
                 continue;
             }
             String patientId = patients.get(0).getIdElement().getIdPart();
-            // Per-case parameters: lists of strings (e.g. the 第五點 exclusion lists).
+            // Optional per-case parameters (lists of strings); no current fixture uses them.
             Map<String, Object> caseParameters = new HashMap<>(parameters);
             testCase.path("parameters").fields().forEachRemaining(p -> {
                 List<String> values = new ArrayList<>();
