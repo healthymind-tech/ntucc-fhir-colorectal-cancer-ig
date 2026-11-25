@@ -209,7 +209,11 @@ public class CqlJavaRunner {
             // A case may carry its own Measurement Period (dates, +08:00).
             Map<String, Object> caseParameters = new HashMap<>(parameters);
             JsonNode period = testCase.path("measurementPeriod");
-            if (period.isArray() && period.size() == 2) {
+            if (!period.isMissingNode() && !(period.isArray() && period.size() == 2)) {
+                failures.add(caseId + ": measurementPeriod must be [start, end]");
+                continue;
+            }
+            if (period.isArray()) {
                 java.time.LocalDate start = java.time.LocalDate.parse(period.get(0).asText());
                 java.time.LocalDate end = java.time.LocalDate.parse(period.get(1).asText());
                 caseParameters.put("Measurement Period", new Interval(
