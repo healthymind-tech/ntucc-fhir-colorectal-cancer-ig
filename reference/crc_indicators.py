@@ -23,7 +23,6 @@ RECTOSIGMOID_OR_RECTUM = {"C199", "C209"}
 SPECIAL_HISTOLOGY = {"8935", "8936", "8153", "8240", "8241", "8242", "8246", "8249"}
 POLYP_WINDOW = timedelta(days=84)  # 12 weeks
 RECTAL_WINDOW_DAYS = 42  # 6 weeks
-REGISTRY_START = date(2024, 1, 1)  # 收錄自 113/1/1 起新診斷
 CURRENT_STATUSES = {"final", "amended", "corrected"}
 POPULATIONS = ("Initial Population",
                "Denominator 1", "Denominator 1 Exclusion", "Numerator 1", "Outside Data Excluded 1",

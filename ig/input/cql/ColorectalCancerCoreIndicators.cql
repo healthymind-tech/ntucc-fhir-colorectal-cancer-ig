@@ -66,6 +66,12 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+// IP-DXDATE: 收錄資料說明第一點「自 113 年 1 月 1 日起新診斷個案」. Part of the
+// 115 indicator definition, deliberately not a parameter: a different floor
+// is a different indicator, so a yearly revision changes this define and bumps
+// the Library and Measure versions (see the architecture page).
+define "Collection Start Date": @2024-01-01
+
 // ==========================================================================
 // references and registry value access
 // ==========================================================================
@@ -248,7 +254,7 @@ define "Assembly Candidates":
   "Primary Tumours" Tumour
     where "Is Colorectal Category"(Tumour)
       and "Date Of Initial Diagnosis"(Tumour) is not null
-      and "Date Of Initial Diagnosis"(Tumour) on or after @2024-01-01
+      and "Date Of Initial Diagnosis"(Tumour) on or after "Collection Start Date"
       and "Date Of Initial Diagnosis"(Tumour) in "Measurement Dates"
       and "Normalized Key"("Reporting Hospital"(Tumour)) is not null
 

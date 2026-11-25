@@ -90,6 +90,7 @@ Library 只有一個輸入參數：
 **刻意不用參數的兩項輸入：**
 
 - **第五點外院資料**：醫院以資料宣告，每顆腫瘤、每項指標一筆 [CRCOutsideDataExclusion](StructureDefinition-crc-outside-data-exclusion.html) Observation（`code` 為排除的指標，`value` 為第五點 1 或 2，`focus` 指向腫瘤）。早期版本以 CQL 參數傳腫瘤 id 清單，但 R4 的 `$evaluate-measure` 沒有傳 CQL 參數的輸入、腫瘤 id 由各伺服器自訂，而且無法驗證與稽核，因此改為資料。
+- **收錄起始日（2024-01-01）**：收錄資料說明第一點「自 113 年 1 月 1 日起新診斷個案」屬於 115 年指標定義本身，寫在 CQL define `Collection Start Date`，不由呼叫端提供。若作為參數，同一版 Measure 可被算出不同結果，而 MeasureReport 只記錄 `Measure|version`，無法重現；R4 `$evaluate-measure` 也沒有傳這個參數的標準輸入。年度改版若調整起始日，修改這個 define，並依新年度指標提升 Library 與 Measure 版本（版本本來就須隨指標內容改版）；參考實作 `reference/cohort.py` 的 `REGISTRY_START` 同步修改。
 - **5.4 生存狀態的死亡代碼**：長表摘錄手冊（民國 114 年版）第 314 頁規定 `0`＝死亡、`1`＝存活，CQL 直接使用，不由呼叫端提供。早期版本以參數提供且預設 `true`，若呼叫端沿用預設值，「治療前已死亡」的 (b)、(c) 永遠不成立而不會報錯，因此移除。
 
 ## Artifacts
