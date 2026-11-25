@@ -2,7 +2,8 @@
 // 共同層只放跨 Task 可重用的最小限制；指標專屬的規則放在 Measure／CQL。
 //
 // 臨床資源一律繼承 TW Core 1.0.0 對應的 Profile：符合本 IG Profile 的實例，同時
-// 也符合 TW Core。反方向不成立——本 IG 另要求本地代碼與病理 category，一般的
+// 也符合 TW Core。反方向不成立——本 IG 另要求特定代碼（條件 B–D 的 LOINC 問題與
+// 答案清單、惡性息肉／條件 A／治癒性切除的本地代碼）與病理 category，一般的
 // TW Core 資料須補上這些內容才符合本 IG。唯一例外是 CRCTCRDataItemObservation。
 
 Profile: ColorectalCancerPatient
@@ -137,7 +138,7 @@ Profile: CRCPathologyHighRiskFeature
 Parent: $TWCoreLabResult
 Id: crc-pathology-high-risk-feature
 Title: "惡性息肉病理高風險條件（B、C、D）"
-Description: "病理報告記載、用來判定惡性息肉高風險條件 B、C、D 的檢驗結果，以 LOINC 問題加答案表達，符合 TW Core 檢驗結果對 LOINC 的 extensible 綁定。B：85290-5，答案 LA27251-0（有癌細胞）表示成立。C：59544-7，答案 LA13328-2（有侵犯）表示成立。D：33732-9，答案 SNOMED CT 1155704001（G3）表示成立。未記載者不建立本 Observation。effective[x] 為檢體採檢或病理判讀日期。"
+Description: "病理報告記載、用來判定惡性息肉高風險條件 B、C、D 的檢驗結果，以 LOINC 問題加答案表達，符合 TW Core 檢驗結果對 LOINC 的 extensible 綁定。B：85290-5，答案 LA27251-0（有癌細胞）表示成立。C：59544-7，答案 LA13328-2（有侵犯）表示成立。D：33732-9，答案 SNOMED CT 1155704001（G3）表示成立。valueCodeableConcept 須恰有一個 coding 取自該問題自己的答案清單；其他代碼系統的同義 coding（translation）可以另附。未記載者不建立本 Observation。effective[x] 為檢體採檢或病理判讀日期。"
 * ^status = #draft
 * ^experimental = true
 * ^language = #zh-TW
@@ -152,31 +153,28 @@ Description: "病理報告記載、用來判定惡性息肉高風險條件 B、C
 * value[x] 1..1 MS
 * value[x] only CodeableConcept
 * valueCodeableConcept from CRCPathologyHighRiskAnswerVS (required)
-* valueCodeableConcept ^short = "答案：只能一個 LOINC／SNOMED CT 答案代碼，且須屬於該問題自己的答案清單"
-* obeys crc-hrf-single-answer and crc-hrf-b-answer and crc-hrf-c-answer and crc-hrf-d-answer
+* valueCodeableConcept ^short = "答案：恰一個 coding 取自該問題自己的答案清單；其他 coding（translation）可另附"
+* obeys crc-hrf-b-answer and crc-hrf-c-answer and crc-hrf-d-answer
 
-// 答案與問題配對：每一題只能用自己的答案清單。
+// 答案與問題配對：每一題的答案須取自自己的答案清單，而且該清單的 coding 恰有一個。
+// 同一清單出現兩個 coding（例如同時「有」與「無」淋巴血管侵犯）是互相矛盾的錯誤資料，
+// 驗證即失敗。其他代碼系統或清單的 coding 視為 translation，不受限（例如 LOINC 答案
+// 加上同義的 SNOMED CT coding）；translation 與答案是否一致由 CQL 把關：發現只要帶有
+// 任何不屬於「成立」值集的答案清單 coding，就不算成立。
 Invariant: crc-hrf-b-answer
-Description: "問題為 LOINC 85290-5（條件 B）時，答案須取自 CRCSurgicalMarginAnswerVS（LL4381-1）。"
+Description: "問題為 LOINC 85290-5（條件 B）時，valueCodeableConcept 恰有一個 coding 屬於 CRCSurgicalMarginAnswerVS（LL4381-1）。"
 Severity: #error
-Expression: "code.coding.where(system = 'http://loinc.org' and code = '85290-5').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer')).exists()"
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '85290-5').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-surgical-margin-answer')).count() = 1"
 
 Invariant: crc-hrf-c-answer
-Description: "問題為 LOINC 59544-7（條件 C）時，答案須取自 CRCLymphovascularInvasionAnswerVS（LL906-9）。"
+Description: "問題為 LOINC 59544-7（條件 C）時，valueCodeableConcept 恰有一個 coding 屬於 CRCLymphovascularInvasionAnswerVS（LL906-9）。"
 Severity: #error
-Expression: "code.coding.where(system = 'http://loinc.org' and code = '59544-7').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer')).exists()"
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '59544-7').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-lymphovascular-invasion-answer')).count() = 1"
 
 Invariant: crc-hrf-d-answer
-Description: "問題為 LOINC 33732-9（條件 D）時，答案須取自 CRCHistologicGradeAnswerVS（SNOMED CT G1–G4）。"
+Description: "問題為 LOINC 33732-9（條件 D）時，valueCodeableConcept 恰有一個 coding 屬於 CRCHistologicGradeAnswerVS（SNOMED CT G1–G4）。"
 Severity: #error
-Expression: "code.coding.where(system = 'http://loinc.org' and code = '33732-9').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer')).exists()"
-
-// 互相矛盾的答案（例如同時帶「有」與「無」）是錯誤資料，不交給 CQL 去猜。
-// 答案代碼系統（LOINC、SNOMED CT）的 coding 至多一個；其他系統的本地代碼不受限。
-Invariant: crc-hrf-single-answer
-Description: "valueCodeableConcept 至多一個 LOINC 或 SNOMED CT coding：一筆發現只能有一個答案，同時帶「成立」與「不成立」的答案視為資料錯誤。"
-Severity: #error
-Expression: "value.ofType(CodeableConcept).coding.where(system = 'http://loinc.org' or system = 'http://snomed.info/sct').count() <= 1"
+Expression: "code.coding.where(system = 'http://loinc.org' and code = '33732-9').exists() implies value.ofType(CodeableConcept).coding.where(memberOf('https://healthymind-tech.github.io/ntucc-fhir-colorectal-cancer-ig/ValueSet/crc-histologic-grade-answer')).count() = 1"
 
 // 條件 A 記載於大腸鏡檢報告，屬於處置結果（category = procedure），不是檢驗結果。
 Profile: CRCColonoscopyHighRiskFeature
